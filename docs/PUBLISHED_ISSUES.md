@@ -21,10 +21,10 @@
 - [[CS-18] Provider-backed BNPL comparison](https://github.com/qarteu/cartscope/issues/19) — backlog
 - [[CS-19] Accessibility and browser support expansion](https://github.com/qarteu/cartscope/issues/20) — backlog
 - [[CS-20] Chrome Web Store beta distribution](https://github.com/qarteu/cartscope/issues/21) — backlog
-- [[REL-01] Smoke-test the release ZIP in real Chrome](https://github.com/qarteu/cartscope/issues/22) — planned
-- [[REL-02] Publish source to the personal qarteu GitHub account](https://github.com/qarteu/cartscope/issues/23) — planned
+- [[REL-01] Smoke-test the release ZIP in real Chrome](https://github.com/qarteu/cartscope/issues/22) — done
+- [[REL-02] Publish source to the personal qarteu GitHub account](https://github.com/qarteu/cartscope/issues/23) — done
 - [[REL-03] Publish Alpha v0.1.0 ZIP and release notes](https://github.com/qarteu/cartscope/issues/24) — planned
-- [[REL-08] Publish and smoke-test the GitHub Pages demo](https://github.com/qarteu/cartscope/issues/25) — planned
+- [[REL-08] Publish and smoke-test the GitHub Pages demo](https://github.com/qarteu/cartscope/issues/25) — done
 - [[REL-04] Recruit ten consenting reference testers](https://github.com/qarteu/cartscope/issues/26) — planned
 - [[REL-05] Send personalized Alpha preview invitations](https://github.com/qarteu/cartscope/issues/27) — planned
 - [[REL-06] Collect and triage quantitative and qualitative feedback](https://github.com/qarteu/cartscope/issues/28) — planned
