@@ -128,14 +128,14 @@
   {
     "title": "[REL-01] Smoke-test the release ZIP in real Chrome",
     "label": "release",
-    "status": "planned",
-    "body": "Unzip the release asset and use chrome://extensions > Developer mode > Load unpacked. Verify toolbar/side-panel lifecycle, activeTab capture on a permitted product detail page, save/cart/compare/watch/order/backup flows, optional notification behavior, downloads and absence of extension errors. Record actual browser/version, date and page details in docs/VERIFICATION.md. Automated and DOM checks have separate recorded outcomes; isolated Chrome startup was blocked, so an installation pass is not claimed."
+    "status": "done",
+    "body": "Automated Alpha smoke passed October 11, 2026: https://github.com/qarteu/cartscope/actions/runs/38174277130. The actual release ZIP was unpacked and loaded in disposable Chrome for Testing 151.0.7922.34 on Ubuntu. All 16 browser checks passed, including real toolbar activeTab access, HTTP fixture capture/category rejection, cart/compare/watch/order/financing/backup/downloads, safe input handling, responsive layouts, preview persistence, and the live demo. SHA-256: c8918352c29aadd755dad718e4ec23f237451bcb90514a7e25b1cf53066f7283. Actual screenshots/report: docs/visuals and docs/CHROME_TEST_RESULTS.json. Manual platform installation, native OS notification delivery, and current live retailer markup remain field validation scope under CS-11/CS-19 and reference-user feedback; this automated gate does not claim those observations."
   },
   {
     "title": "[REL-02] Publish source to the personal qarteu GitHub account",
     "label": "release",
-    "status": "planned",
-    "body": "Verify the authenticated public login is qarteu, then publish version-controlled source and license to https://github.com/qarteu/cartscope. Close only after the intended public repository resolves and contains the release source. Proposed owner: Kartik. Publication remains pending until that external action succeeds."
+    "status": "done",
+    "body": "Published and verified on October 11, 2026: public repository https://github.com/qarteu/cartscope belongs to qarteu and contains version-controlled source, MIT license, installation instructions, release tooling, automated tests, visuals, and submission documents. Publication used the authenticated qarteu account."
   },
   {
     "title": "[REL-03] Publish Alpha v0.1.0 ZIP and release notes",
@@ -146,8 +146,8 @@
   {
     "title": "[REL-08] Publish and smoke-test the GitHub Pages demo",
     "label": "release",
-    "status": "planned",
-    "body": "Publish the static demo at https://qarteu.github.io/cartscope/ and verify the public URL and main preview flows. Keep sample labels and extension-only capability explanations visible. No AWS account is required. Proposed owner: Kartik. Local build success does not close the public-hosting task."
+    "status": "done",
+    "body": "Published https://qarteu.github.io/cartscope/ and verified it in a fresh real Chrome profile on October 11, 2026. Hosted run https://github.com/qarteu/cartscope/actions/runs/38174277130 records HTTPS 200, four interactive iframe views, quantity edits persisting across actual landing reload, and mobile document width 390/390 pixels. The site is static GitHub Pages with labeled samples and no AWS requirement; extension-only capture is explained. Evidence: docs/VERIFICATION.md, docs/CHROME_TEST_RESULTS.json, and desktop/mobile landing screenshots."
   },
   {
     "title": "[REL-04] Recruit ten consenting reference testers",

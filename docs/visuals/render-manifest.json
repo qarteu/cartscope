@@ -1,65 +1,131 @@
-[
-  {
-    "source": "artifacts/ui-html/cart.html",
-    "output": "docs/visuals/cart.png",
-    "renderer": "WeasyPrint",
-    "source_kind": "serialized actual application DOM",
-    "browser_screenshot": false,
-    "print_css_overrides": true,
-    "progress_control_rendered_from_dom_value": true
+{
+  "source_kind": "Chrome screenshots of installed Manifest V3 extension and hosted browser demo",
+  "ci_run": "https://github.com/qarteu/cartscope/actions/runs/38174277130",
+  "commit": "cdbe4690ca0fa33ee993eab07556c7d39e8fe308",
+  "browser_version": "151.0.7922.34",
+  "verification_status": "passed",
+  "browser_checks": {
+    "passed": 16,
+    "failed": 0,
+    "limitations": [
+      "Deterministic retailer-shaped fixtures do not verify changing live retailer markup or live offer feeds."
+    ]
   },
-  {
-    "source": "artifacts/ui-html/review.html",
-    "output": "docs/visuals/review.png",
-    "renderer": "WeasyPrint",
-    "source_kind": "serialized actual application DOM",
-    "browser_screenshot": false,
-    "print_css_overrides": true,
-    "progress_control_rendered_from_dom_value": true
-  },
-  {
-    "source": "artifacts/ui-html/compare.html",
-    "output": "docs/visuals/compare.png",
-    "renderer": "WeasyPrint",
-    "source_kind": "serialized actual application DOM",
-    "browser_screenshot": false,
-    "print_css_overrides": true,
-    "progress_control_rendered_from_dom_value": true
-  },
-  {
-    "source": "artifacts/ui-html/notifications.html",
-    "output": "docs/visuals/notifications.png",
-    "renderer": "WeasyPrint",
-    "source_kind": "serialized actual application DOM",
-    "browser_screenshot": false,
-    "print_css_overrides": true,
-    "progress_control_rendered_from_dom_value": true
-  },
-  {
-    "source": "artifacts/ui-html/orders.html",
-    "output": "docs/visuals/orders.png",
-    "renderer": "WeasyPrint",
-    "source_kind": "serialized actual application DOM",
-    "browser_screenshot": false,
-    "print_css_overrides": true,
-    "progress_control_rendered_from_dom_value": true
-  },
-  {
-    "source": "artifacts/ui-html/finance.html",
-    "output": "docs/visuals/finance.png",
-    "renderer": "WeasyPrint",
-    "source_kind": "serialized actual application DOM",
-    "browser_screenshot": false,
-    "print_css_overrides": true,
-    "progress_control_rendered_from_dom_value": true
-  },
-  {
-    "source": "artifacts/ui-html/settings.html",
-    "output": "docs/visuals/settings.png",
-    "renderer": "WeasyPrint",
-    "source_kind": "serialized actual application DOM",
-    "browser_screenshot": false,
-    "print_css_overrides": true,
-    "progress_control_rendered_from_dom_value": true
+  "sample_data": true,
+  "runtime_css_modified_for_capture": false,
+  "screenshots": [
+    {
+      "view": "cart",
+      "file": "cart.png",
+      "sha256": "36316cc635152573f99e2c574f9159c6a345cfd5964c2cfad5b802c941c63bdf",
+      "dimensions": [
+        380,
+        1424
+      ],
+      "browser_screenshot": true,
+      "surface": "installed Chrome extension",
+      "copied_without_modification": true
+    },
+    {
+      "view": "review",
+      "file": "review.png",
+      "sha256": "a2efc313d895c49d9b26cc4040066908e9dcc010aaa134307f27b98da0ae4772",
+      "dimensions": [
+        380,
+        1608
+      ],
+      "browser_screenshot": true,
+      "surface": "installed Chrome extension",
+      "copied_without_modification": true
+    },
+    {
+      "view": "compare",
+      "file": "compare.png",
+      "sha256": "4fb8dd37adde84f9b026132d42f00552b9c88d37a68f300906dc41132c1804a2",
+      "dimensions": [
+        380,
+        2276
+      ],
+      "browser_screenshot": true,
+      "surface": "installed Chrome extension",
+      "copied_without_modification": true
+    },
+    {
+      "view": "notifications",
+      "file": "notifications.png",
+      "sha256": "76d998bee9b8cc75b6dd1ea8fdbfe9794a0c081ec3043672543665827ebbc1f9",
+      "dimensions": [
+        380,
+        931
+      ],
+      "browser_screenshot": true,
+      "surface": "installed Chrome extension",
+      "copied_without_modification": true
+    },
+    {
+      "view": "orders",
+      "file": "orders.png",
+      "sha256": "b2612abe2baf13edaefb50b8a92501a2b1a23e7e407c47b73622cc1409ace2f8",
+      "dimensions": [
+        380,
+        1358
+      ],
+      "browser_screenshot": true,
+      "surface": "installed Chrome extension",
+      "copied_without_modification": true
+    },
+    {
+      "view": "finance",
+      "file": "finance.png",
+      "sha256": "41574133643c874be9842f08b94a53e06f848899b572b8c3daae5925eee11e39",
+      "dimensions": [
+        380,
+        1311
+      ],
+      "browser_screenshot": true,
+      "surface": "installed Chrome extension",
+      "copied_without_modification": true
+    },
+    {
+      "view": "settings",
+      "file": "settings.png",
+      "sha256": "f378f601ee88f0001718327422a99b0e80554feb5c3820a39505308460f2fb11",
+      "dimensions": [
+        380,
+        1523
+      ],
+      "browser_screenshot": true,
+      "surface": "installed Chrome extension",
+      "copied_without_modification": true
+    },
+    {
+      "view": "landing-desktop",
+      "file": "landing-desktop.png",
+      "sha256": "bde3c4f03ad11a20254b696ac62ca3d9eea99b28c09f86964348999b9b84d999",
+      "dimensions": [
+        1440,
+        1194
+      ],
+      "browser_screenshot": true,
+      "surface": "hosted browser demo landing page",
+      "copied_without_modification": true
+    },
+    {
+      "view": "landing-mobile",
+      "file": "landing-mobile.png",
+      "sha256": "a7ca143b12ce744f2eb560bee7429abfd4e4e3fd6a95ff3a5081aafa007a6fc8",
+      "dimensions": [
+        390,
+        1863
+      ],
+      "browser_screenshot": true,
+      "surface": "hosted browser demo landing page",
+      "copied_without_modification": true
+    }
+  ],
+  "overview": {
+    "file": "cartscope-overview.png",
+    "full_screens_preserved": true,
+    "ui_retouched": false
   }
-]
+}

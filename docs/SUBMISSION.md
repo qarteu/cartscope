@@ -9,6 +9,6 @@
 
 **Interactive demo:** [CartScope on GitHub Pages](https://qarteu.github.io/cartscope/). No AWS account or configuration is required.
 
-**Visuals:** [Rendered interface previews](visuals/README.md) show the implementation based on the UniCart prototype. See [verification](VERIFICATION.md) for automated evidence and remaining real Chrome testing scope.
+**Visuals:** [Actual Chrome screenshots](visuals/README.md) show the implementation based on the UniCart prototype. [Verification](VERIFICATION.md) records 59 passing behavioral tests and 16 passing Chrome checks, including the packaged extension and live demo.
 
-**Submission limits:** The preview uses labeled examples and user-entered observations. Automatic live retailer feeds and shipment synchronization remain backlog items. Real Chrome installation and ten-user invitations/feedback must be recorded when those actions actually happen.
+**Submission limits:** The preview uses labeled examples and user-entered observations. Automatic live retailer feeds and shipment synchronization remain backlog items. The ZIP passed automated installation in Chrome for Testing. Ten-user invitations and actual feedback remain pending real participants.

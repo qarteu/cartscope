@@ -19,7 +19,7 @@ This locally installed Chrome extension implements CartScope's first shopping wo
 
 ### Install and start
 
-Download `cartscope-alpha-0.1.0.zip` from this release, unzip it, open `chrome://extensions`, enable Developer mode, and use **Load unpacked** to select the folder containing `manifest.json`. Pin CartScope, open a retailer product page, and click the extension icon. Review captured details before saving. Full instructions and the task protocol are in the [README](README.md) and [feedback plan](docs/FEEDBACK_PLAN.md).
+Download `cartscope-alpha-0.1.0.zip` from this release, unzip it, open `chrome://extensions`, enable Developer mode, and use **Load unpacked** to select the folder containing `manifest.json`. Pin CartScope, open a retailer product page, and click the extension icon. Review captured details before saving. Full instructions and the task protocol are in the [README](https://github.com/qarteu/cartscope/blob/v0.1.0/README.md) and [feedback plan](https://github.com/qarteu/cartscope/blob/v0.1.0/docs/FEEDBACK_PLAN.md).
 
 ### Alpha limits
 
@@ -29,4 +29,4 @@ There is no configured live comparison service, background price/inventory polli
 
 ### Feedback
 
-Reference testers: complete the tasks in [docs/FEEDBACK_PLAN.md](docs/FEEDBACK_PLAN.md), then open an [alpha feedback issue](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml). Include your reference ID, completed tasks, time taken, ratings, and what you expected to happen. Public issues should not contain personal order or payment data.
+Reference testers: complete the tasks in the [feedback plan](https://github.com/qarteu/cartscope/blob/v0.1.0/docs/FEEDBACK_PLAN.md), then open an [alpha feedback issue](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml). Include your reference ID, completed tasks, time taken, ratings, and what you expected to happen. Public issues should not contain personal order or payment data.

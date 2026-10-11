@@ -1,10 +1,12 @@
-# Rendered interface previews
+# Actual Chrome screenshots
 
-These images show the actual CartScope interface populated with labeled sample data. The input HTML was serialized from the application's UI DOM by the test harness. `scripts/render-previews.py` renders that HTML with WeasyPrint, converts intermediate PDFs with Poppler, and assembles the five-screen overview with Pillow.
+These images were captured by Playwright in Chrome for Testing **151.0.7922.34** from [verification run 38174277130](https://github.com/qarteu/cartscope/actions/runs/38174277130), which completed successfully for commit `cdbe4690ca0fa33ee993eab07556c7d39e8fe308` on October 11, 2026.
 
-**Provenance:** print-rendered interface previews, not Chrome screenshots. They illustrate the interface and do not establish that the extension installed or ran successfully in Chrome. The browser smoke-test record is maintained separately.
+The seven extension views come from the actual Alpha 0.1.0 release ZIP unpacked and loaded into a disposable Chrome profile. The desktop and mobile landing-page images come from the [published browser demo](https://qarteu.github.io/cartscope/). They show labeled sample data; the mobile landing view includes a quantity edit used to check persistence and the resulting budget change.
 
-Print-only adjustments pin the page to a 390-pixel panel, use Arial, give header/control elements widths the print renderer understands, hide closed details, and paint the budget progress bar from its actual serialized value. Runtime source files are unchanged by the preview script. Minor layout differences from Chrome are expected because WeasyPrint uses a print layout engine. Sample prices, stock, order statuses, and dates are illustrative.
+**Verification scope:** the run's browser report records 16 checks passed, zero failed, and no uncaught JavaScript errors. It covers local extension storage, core shopping flows, hostile-input handling, user-initiated active-tab capture against deterministic local product fixtures, panel widths, and the public demo. These screenshots and tests do not establish compatibility with every live retailer's changing markup or a live offer feed.
+
+Every individual PNG is copied byte-for-byte from the hosted run artifact, with its SHA-256 and dimensions recorded in the [capture manifest](render-manifest.json). The overview places the five complete primary screens together with labels. It does not retouch the UI, remove overlays, or invent content. No runtime CSS changes or print-renderer substitutions were used for these Chrome screenshots.
 
 - [Five-screen overview](cartscope-overview.png)
 - [Review item](review.png)
@@ -14,5 +16,9 @@ Print-only adjustments pin the page to a 390-pixel panel, use Arial, give header
 - [Orders](orders.png)
 - [Payment planner](finance.png)
 - [Settings](settings.png)
+- [Published demo — desktop](landing-desktop.png)
+- [Published demo — mobile](landing-mobile.png)
 
-The [render manifest](render-manifest.json) records the source and renderer for each view. To regenerate, first produce `artifacts/ui-html/*.html` using the UI harness, then run `python scripts/render-previews.py` in an environment with WeasyPrint, Pillow, Pango, system fonts, and `pdftoppm`. These are documentation-authoring tools; they are not extension dependencies or required for users to run CartScope. Set `PDFTOPPM` if Poppler is not on PATH. On systems with multiple native-library installations, `CARTSCOPE_LIBRARY_DIRS` can pin the authoring process to a consistent font-library set.
+To regenerate documentation images, download the screenshot artifact and `browser-results.json` from a verified hosted run, then use `scripts/collage_screenshots.py` with that screenshot directory, report, run URL, and source commit. The tool validates the images and reconciles report counts before copying them. `--extra landing-desktop landing-mobile` includes the public-demo views. Run `python scripts/collage_screenshots.py --help` for the exact arguments. Pillow is an optional documentation-authoring dependency and is not required to install or run CartScope.
+
+The earlier WeasyPrint fallback remains available through `scripts/render-previews.py`, whose output defaults to `artifacts/print-previews`. Those print previews are separate from the actual Chrome captures in this directory.

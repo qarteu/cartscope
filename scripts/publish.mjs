@@ -31,12 +31,13 @@ const git=args=>run('git',['-c','credential.helper=','-c','credential.helper=!gh
 git(['push','-u','origin','main']);
 const stories=JSON.parse(readFileSync('docs/issues.json','utf8'));
 for(const [name,color,description]of [['alpha','1e4388','Alpha implementation'],['feedback','89c8b4','Quantitative and qualitative tester feedback'],['next-sprint','2c856d','Planned user stories for the next sprint'],['backlog','b2bdd0','Future scope'],['release','876327','Release and participant gates']])run('gh',['label','create',name,'--repo',repo,'--color',color,'--description',description,'--force']);
-const issues=JSON.parse(run('gh',['issue','list','--repo',repo,'--state','all','--limit','200','--json','number,title,url,state']));
+const issues=JSON.parse(run('gh',['issue','list','--repo',repo,'--state','all','--limit','200','--json','number,title,url,state,body']));
 const directory=mkdtempSync(join(tmpdir(),'cartscope-publish-'));
 const links=[];
 for(const story of stories){
   let issue=issues.find(i=>i.title===story.title);
   if(!issue){const bodyFile=join(directory,'issue.md');writeFileSync(bodyFile,story.body);const url=run('gh',['issue','create','--repo',repo,'--title',story.title,'--label',story.label,'--body-file',bodyFile]);issue={url,number:Number(url.split('/').at(-1)),state:'OPEN'};}
+  else if(issue.body!==story.body){const bodyFile=join(directory,'issue.md');writeFileSync(bodyFile,story.body);run('gh',['issue','edit',String(issue.number),'--repo',repo,'--body-file',bodyFile]);}
   if(story.status==='done'&&issue.state!=='CLOSED')run('gh',['issue','close',String(issue.number),'--repo',repo]);
   links.push({...story,url:issue.url,number:issue.number});
 }

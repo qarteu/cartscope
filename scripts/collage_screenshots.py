@@ -17,6 +17,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 VIEWS = ["cart", "review", "compare", "notifications", "orders", "finance", "settings"]
+EXTRA_VIEWS = ["landing-desktop", "landing-mobile"]
 MAIN_VIEWS = ["review", "cart", "compare", "notifications", "orders"]
 LABELS = {"cart": "Your cart", "review": "Review item", "compare": "Compare prices",
           "notifications": "Notifications", "orders": "Your orders"}
@@ -82,21 +83,37 @@ def main():
     parser.add_argument("--commit", default="", help="Source commit captured by the browser run")
     parser.add_argument("--browser-version", default="", help="Actual browser version, if recorded")
     parser.add_argument("--verification-status", choices=["passed", "partial", "unknown"], default="unknown")
+    parser.add_argument("--report", type=Path, help="Browser-results JSON used to verify capture provenance")
+    parser.add_argument("--extra", nargs="*", choices=EXTRA_VIEWS, default=[], help="Additional unmodified landing-page screenshots")
     args = parser.parse_args()
     source = args.input.resolve()
     output = args.output.resolve()
+    views = VIEWS + list(dict.fromkeys(args.extra))
+    browser_version, verification_status = args.browser_version, args.verification_status
+    checks = None
+    if args.report:
+        report = json.loads(args.report.read_text())
+        browser_version = report["browser"]
+        passed = sum(check.get("status") == "passed" for check in report["checks"])
+        failed = sum(check.get("status") == "failed" for check in report["checks"])
+        if passed != report["passed"] or failed != report["failed"]:
+            raise SystemExit("Browser report summary does not reconcile with its checks")
+        verification_status = "passed" if report["status"] == "passed" and failed == 0 and not report["errors"] else "partial"
+        checks = {"passed": passed, "failed": failed, "limitations": report["limitations"]}
+        if args.verification_status == "passed" and verification_status != "passed":
+            raise SystemExit("The browser report does not support a passed verification status")
     if source == output:
         raise SystemExit("Use separate input and output directories to preserve the source artifact")
-    missing = [name for name in VIEWS if not (source / f"{name}.png").is_file()]
+    missing = [name for name in views if not (source / f"{name}.png").is_file()]
     if missing:
         raise SystemExit("Missing screenshot views: " + ", ".join(missing))
     # Validate all inputs before replacing any documentation image.
-    for name in VIEWS:
+    for name in views:
         with Image.open(source / f"{name}.png") as image:
             image.verify()
     output.mkdir(parents=True, exist_ok=True)
     records = []
-    for name in VIEWS:
+    for name in views:
         src, destination = source / f"{name}.png", output / f"{name}.png"
         shutil.copy2(src, destination)
         if digest(src) != digest(destination):
@@ -105,11 +122,12 @@ def main():
             size = list(image.size)
         records.append({"view": name, "file": f"{name}.png", "sha256": digest(destination),
                         "dimensions": size, "browser_screenshot": True,
+                        "surface": "hosted browser demo landing page" if name in EXTRA_VIEWS else "installed Chrome extension",
                         "copied_without_modification": True})
     create_collage(output, output / "cartscope-overview.png")
-    manifest = {"source_kind": "Chrome screenshots of installed Manifest V3 extension",
-                "ci_run": args.run_url, "commit": args.commit, "browser_version": args.browser_version,
-                "verification_status": args.verification_status, "sample_data": True,
+    manifest = {"source_kind": "Chrome screenshots of installed Manifest V3 extension and hosted browser demo",
+                "ci_run": args.run_url, "commit": args.commit, "browser_version": browser_version,
+                "verification_status": verification_status, "browser_checks": checks, "sample_data": True,
                 "runtime_css_modified_for_capture": False,
                 "screenshots": records,
                 "overview": {"file": "cartscope-overview.png", "full_screens_preserved": True,

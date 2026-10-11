@@ -9,9 +9,9 @@ CartScope is a Chrome side panel for reviewing product details, saving finds fro
 
 All Alpha flows run locally; no AWS account or service is required. [Open the interactive demo](https://qarteu.github.io/cartscope/) or use the local demo command below. [Submission links](docs/SUBMISSION.md) collect the required deliverables.
 
-![CartScope rendered interface overview](docs/visuals/cartscope-overview.png)
+![CartScope Chrome interface overview](docs/visuals/cartscope-overview.png)
 
-*Rendered interface previews from the actual sample UI. See [visuals and rendering limits](docs/visuals/README.md).*
+*Actual Chrome screenshots with labeled sample data. See [visuals and test provenance](docs/visuals/README.md).*
 
 ## Open the browser demo
 

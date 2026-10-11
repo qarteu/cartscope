@@ -14,7 +14,7 @@ Supported preview flows include saved products and budget, manual offer comparis
 
 ## Publish on GitHub Pages
 
-Intended demo URL: `https://qarteu.github.io/cartscope/`. This URL becomes available only after the repository's static deployment is published. A local preview does not establish that the public URL is live.
+Published demo: [https://qarteu.github.io/cartscope/](https://qarteu.github.io/cartscope/). The hosted Chrome smoke test verified HTTPS 200, iframe navigation, persisted cart edits, and a 390-pixel mobile layout. See [verification evidence](VERIFICATION.md).
 
 Run `npm run build:demo` to generate `site/`. The site includes a landing page and the same extension interface inside an interactive preview. `npm run publish` verifies the qarteu account, publishes source/release/issues, pushes `site/` to gh-pages, and enables GitHub Pages. Keep the script and asset paths relative. The static site does not require secrets, environment variables, an AWS backend, or a database. The repository's publication tooling should package/deploy these files after validation.
 
