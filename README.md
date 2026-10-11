@@ -47,7 +47,7 @@ For development, load the repository's `extension/` folder instead. After editin
 
 **Watch a saved find.** Enable the price-drop or restock watch for an item. Revisit that product and capture its updated details to create another observation. Changes can appear in CartScope's notifications; optional Chrome notifications require your permission. The alpha does not poll stores in the background or promise real-time alerts.
 
-**Record orders.** Add an order after completing checkout with a retailer. Enter its status, expected delivery, carrier, tracking number, and tracking link yourself, and update it as information arrives. Tracking links open the carrier or retailer; there is no live carrier synchronization in this alpha.
+**Record orders.** Add an order after completing checkout with a retailer. Enter its status, expected delivery, tracking number, tracking link, and notes yourself, and update them as information arrives. Tracking links open the carrier or retailer; there is no live carrier synchronization in this alpha.
 
 **Estimate installment costs.** Use the installment calculator to compare a purchase amount, installment count, and explicitly entered fees and interest amount. Choose the first payment date and day interval; the calculator also shows the stated late fee separately. This is arithmetic based on your inputs, not an APR quote, credit offer, or eligibility decision. Confirm the actual provider's payment dates and terms before using financing.
 
@@ -78,9 +78,10 @@ See [the feedback plan](docs/FEEDBACK_PLAN.md) for the task protocol and measure
 
 ## Develop, validate, and package
 
-Prerequisite: Node.js 18 or newer. The extension runtime and packaging scripts use no third-party dependencies. Browser tests use the development-only Playwright dependency.
+Prerequisite for development and tests: Node.js 22 or newer. The extension runtime and packaging scripts use no third-party dependencies. DOM and browser tests use development-only dependencies.
 
 ```sh
+npm ci
 npm run validate
 npm test
 npm run package

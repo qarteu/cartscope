@@ -32,7 +32,7 @@ const existingRelease=spawnSync('gh',['release','view','v0.1.0','--repo',repo],{
 if(existingRelease.status!==0)run('gh',['release','create','v0.1.0','--repo',repo,'--title','CartScope Alpha 0.1.0','--prerelease','--notes-file','CHANGELOG.md','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
 else run('gh',['release','upload','v0.1.0','--repo',repo,'--clobber','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
 const stories=JSON.parse(readFileSync('docs/issues.json','utf8'));
-for(const [name,color,description]of [['alpha','1e4388','Alpha implementation'],['next-sprint','2c856d','Planned user stories for the next sprint'],['backlog','b2bdd0','Future scope'],['release','876327','Release and participant gates']])run('gh',['label','create',name,'--repo',repo,'--color',color,'--description',description,'--force']);
+for(const [name,color,description]of [['alpha','1e4388','Alpha implementation'],['feedback','89c8b4','Quantitative and qualitative tester feedback'],['next-sprint','2c856d','Planned user stories for the next sprint'],['backlog','b2bdd0','Future scope'],['release','876327','Release and participant gates']])run('gh',['label','create',name,'--repo',repo,'--color',color,'--description',description,'--force']);
 const issues=JSON.parse(run('gh',['issue','list','--repo',repo,'--state','all','--limit','200','--json','number,title,url,state']));
 const directory=mkdtempSync(join(tmpdir(),'cartscope-publish-'));
 const links=[];

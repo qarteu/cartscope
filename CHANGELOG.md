@@ -11,7 +11,7 @@ This locally installed Chrome extension implements CartScope's first shopping wo
 - Compare deliberately matched product/variant offers using entered or observed prices, shipping, estimated tax, delivery, returns, and pickup details.
 - Keep a timestamped history of recorded prices and the latest entered or captured availability for each offer.
 - Record watched price drops or restocks when you revisit and capture a product; optionally request Chrome desktop notifications.
-- Enter and update orders, delivery estimates, carrier information, and tracking links manually.
+- Enter and update orders, delivery estimates, tracking numbers, tracking links, and notes manually.
 - Calculate installment schedules using an entered purchase amount, fees, interest amount, first payment date, and interval.
 - Export, import, or delete local shopping data.
 - Load clearly labeled demo products and orders to explore the interface.

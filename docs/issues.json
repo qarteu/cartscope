@@ -1,16 +1,176 @@
 [
-  {"title":"[CS-01] Capture and review the viewed product","label":"alpha","status":"done","body":"As a shopper, I want to review the viewed product so I save the intended item.\n\nImplemented: user-initiated metadata extraction, editable review, variant/condition checks, manual fallback, scoped activeTab access. Automated fixture, core, and storage tests are recorded in docs/VERIFICATION.md. Live Chrome installation and current real retailer markup need a separate smoke test; closing this implementation story does not claim those checks passed."},
-  {"title":"[CS-02] Universal saved cart and budget","label":"alpha","status":"done","body":"As a student, I want finds from different stores in one cart so I can plan within a budget.\n\nImplemented local persistence, quantity, notes, save-for-later, budget, subtotal, retailer links. Shipping and tax are separated into comparison. See tests and docs/VERIFICATION.md."},
-  {"title":"[CS-03] Transparent matched-offer comparison","label":"alpha","status":"done","body":"As a shopper, I want to compare item, shipping, tax, membership, discounts and cashback across checked offers.\n\nImplemented strict identity/variant/condition matching, transparent cost breakdown, missing-cost states, ranking by total/delivery/pickup/returns. Current Alpha offers are captured or entered by users, plus labeled examples. Automated live cross-retailer discovery is next-sprint scope."},
-  {"title":"[CS-04] Observed price history and watched alerts","label":"alpha","status":"done","body":"As a bargain shopper, I want a price record and observed drop/restock alerts.\n\nImplemented timestamped price history, price/stock transition watches on capture or offer edits, in-app alerts, optional desktop notification permission. No unattended background polling in Alpha."},
-  {"title":"[CS-05] Local pickup, payment schedule and orders","label":"alpha","status":"done","body":"As a shopper, I want to compare checked pickup options and understand financing obligations.\n\nImplemented entered pickup details and ranking, full dollar-obligation/payment schedule calculator, manual order create/update/remove and safe tracking links. No live location, financing provider or carrier feed is claimed."},
-  {"title":"[CS-06] Data controls, demo, docs and feedback","label":"alpha","status":"done","body":"As a tester, I want a working sample preview, installation instructions and ratings/written-feedback routes.\n\nImplemented isolated samples, local backup import/export/delete, static browser preview, deterministic Alpha ZIP, release notes, quantitative/qualitative GitHub form and draft email. Participant slots remain pending rather than invented."},
-  {"title":"[CS-11] Validate capture on reference users’ stores","label":"next-sprint","status":"planned","body":"As a shopper, I want reliable capture on the stores I use.\n\nAcceptance: collect permitted real page examples; choose supported stores from tester evidence; add fixtures for their current markup; measure manual corrections; preserve editable review and unknown-state behavior. Owner: Kartik (engineering), Jake (acceptance)."},
-  {"title":"[CS-12] Authorized automatic cross-store offer discovery","label":"next-sprint","status":"planned","body":"As a shopper, I want matched retailer offers found automatically.\n\nAcceptance: select an authorized feed/source; document access and refresh limits; normalize model/variant/condition; reject mismatches; label freshness and unknown shipping/tax. No AWS requirement; use the simplest permitted source integration. Owner: Kartik, with Jake prioritizing scope."},
-  {"title":"[CS-13] Resolve observed Alpha usability blockers","label":"next-sprint","status":"planned","body":"As a reference tester, I want blockers fixed so save and compare are easy.\n\nAcceptance: collect task completion/time and 1–5 ratings plus qualitative feedback; reproduce selected blockers; add meaningful regression protection; verify changes with affected testers where possible. Owner: Jake (feedback), Kartik (fixes)."},
-  {"title":"[CS-14] Opt-in unattended price checks","label":"backlog","status":"backlog","body":"As a shopper, I want watched offers checked while I am away.\n\nAcceptance: supported authorized source, explicit opt-in, refresh/frequency controls, source timestamps, notification deduplication, justified permissions. Requires an offer source; current Alpha evaluates user-triggered observations only."},
-  {"title":"[CS-15] Authorized order updates","label":"backlog","status":"backlog","body":"As a shopper, I want supported order statuses imported automatically.\n\nAcceptance: a permitted source, safe handling of order credentials, normalized status mapping, last-sync time, manual fallback. Current Alpha order records are entered by users."},
-  {"title":"[REL-01] Smoke-test ZIP installation in real Chrome","label":"release","status":"planned","body":"Unzip the published Alpha asset and use chrome://extensions > Developer mode > Load unpacked. Verify toolbar opens side panel, capture works on a permitted product detail page, save/compare/watch/order/backup flows work, and no extension errors appear. Record actual browser/version and page details. Automated Chromium startup was blocked in the development Mac environment; do not infer an installation pass from DOM or fixture tests."},
-  {"title":"[REL-02] Recruit ten reference testers and send invitations","label":"release","status":"planned","body":"Owner: Eashan (recruiting), Jake (test protocol), Kartik (release support).\n\nConfirm ten consenting participants privately, assign R01–R10, personalize docs/ALPHA_EMAIL.md, send individually, and record true send dates privately. Draft email is not evidence of sending; no invented identities. Keep contact information out of public GitHub."},
-  {"title":"[REL-03] Collect quantitative and qualitative Alpha feedback","label":"release","status":"planned","body":"Use the Alpha feedback issue form or private email reply. Record task completion/time and ease/clarity/usefulness/confidence ratings plus confusing/missing features and highest-value improvements. Distinguish installed-extension and browser-demo results. Report actual denominators; targets are not measured outcomes."}
+  {
+    "title": "[CS-01] Capture and review the viewed product",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want to review a product captured from the active page so I save the intended item.\n\nImplemented: user-initiated extraction; editable name, price, retailer, identifiers, variant and condition; captured image or placeholder; manual fallback; scoped activeTab access. Fixture and DOM tests are recorded in docs/VERIFICATION.md. Real Chrome installation and current retailer markup remain REL-01 / CS-11 gates; closing this implementation story does not claim those checks passed."
+  },
+  {
+    "title": "[CS-02] Universal saved cart and budget",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want saved products from different stores in one cart so I can plan a purchase.\n\nImplemented: local persistence; quantity and notes editing; removal; save-for-later; budget and item subtotal; consistent retailer links. Comparison shows shipping and tax separately. Behavioral and DOM validation is recorded in docs/VERIFICATION.md."
+  },
+  {
+    "title": "[CS-03] Transparent matched-offer comparison",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want to compare offers for the same model and variant so I can choose deliberately.\n\nImplemented: observed/manual offers; identity, variant and condition checks; item, shipping, tax, membership, discount and cashback breakdown; unknown required costs remain unknown; quantity-aware totals; ranking by total, delivery, returns or pickup with preference eligibility. Examples are labeled. Automated cross-store discovery remains CS-12; current real prices require user capture or entry."
+  },
+  {
+    "title": "[CS-04] Observed price history",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want a record of observed prices so I can see changes over time.\n\nImplemented: captures and offer edits store timestamped price observations with their source; comparison displays the saved retailer's observed range. Latest availability remains on each offer. These are user observations, not a complete market price history. Validation: docs/VERIFICATION.md."
+  },
+  {
+    "title": "[CS-05] Watched price-drop and restock alerts",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want watched changes surfaced when I capture an item again so I can act on new information.\n\nImplemented: opted-in price targets and restock watches; transition detection on new captures or offer edits; in-app notifications; optional Chrome desktop notification permission. Core, storage and DOM tests cover observed transitions. OS notification delivery remains REL-01; unattended polling remains CS-14."
+  },
+  {
+    "title": "[CS-06] Manual order records and tracking links",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want to record orders so I can keep delivery notes together.\n\nImplemented: manual create, edit and delete; product, retailer, quantity, order status, order/expected dates, notes, tracking number and safe tracking URL. Invalid quantities and impossible dates are rejected. A separate carrier-name field and live carrier feed are not implemented; source-backed updates remain CS-15. Validation: docs/VERIFICATION.md."
+  },
+  {
+    "title": "[CS-07] Full-obligation installment calculator",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want to estimate installment costs so I understand entered financing terms.\n\nImplemented: purchase amount, payment count, entered interest amount and fees, first payment date and day interval; exact-cent schedule and total owed; stated late fee shown separately. Zero amounts are valid. No provider offer, APR calculation or loan eligibility decision is implied. Validation: docs/VERIFICATION.md."
+  },
+  {
+    "title": "[CS-08] Local data controls",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a shopper, I want control of my data so I can back it up or remove it.\n\nImplemented: JSON export/import, schema and ID validation, atomic rejection of malformed imports, preserved links/observations, historical alert messages not replayed, notifications disabled after import, and confirmed deletion. Sample backups cannot enter the real workspace. Storage and DOM checks are recorded in docs/VERIFICATION.md; actual browser downloads remain REL-01."
+  },
+  {
+    "title": "[CS-09] Isolated illustrative sample workspace",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a first-time tester, I want optional sample data so I can try the flows safely.\n\nImplemented: empty real first run; separate labeled sample workspace with products, offers, history, alerts and orders; reset and exit controls; backup provenance preserved. Samples cannot be imported into the real workspace, even after their offers are removed. Validation: docs/VERIFICATION.md."
+  },
+  {
+    "title": "[CS-10] Alpha installation documentation and feedback routes",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a reference user, I want install instructions and a feedback route so I can test the alpha.\n\nPrepared: README, release notes, deterministic runtime ZIP/checksum, GitHub issue forms accepting task outcomes, times, ratings and written feedback, private reply protocol, draft invitation and unassigned R01-R10 roster. Publication is REL-02/03/08. Recruitment, actual sending and collected feedback remain REL-04/05/06; documents and empty participant slots do not establish those outcomes."
+  },
+  {
+    "title": "[CS-21] Static browser demo",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a reviewer, I want a browser demo so I can explore CartScope without installing it.\n\nImplemented: the same static interface and production state consumer using browser localStorage; labeled sample mode and manual entry; extension-only capture/desktop notifications clearly explained; no AWS setup. Local demo build and DOM flows are recorded in docs/VERIFICATION.md. Public hosting and browser smoke testing remain REL-08."
+  },
+  {
+    "title": "[CS-11] Validate capture on reference users’ stores",
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a shopper, I want reliable capture on the stores I use so I make fewer manual corrections.\n\nPriority: P1. Proposed owners: Kartik (engineering), Jake (acceptance). Acceptance: collect permitted real page examples; select supported stores from tester evidence; add fixtures for current markup; record manual-correction rates and actual denominators; preserve source/confidence, editable review and unknown-state behavior. Confirm sprint dates and owners at planning."
+  },
+  {
+    "title": "[CS-12] Authorized automatic cross-store offer discovery",
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a shopper, I want matched retailer offers found automatically so I need less manual entry.\n\nPriority: P1. Proposed owners: Kartik (integration), Jake (scope). Acceptance: select an authorized feed/source; document access and refresh limits; normalize canonical identifiers, model, variant and condition; reject mismatches; distinguish live/stale observations and missing shipping/tax. Use the simplest permitted integration; AWS is not a prerequisite. Confirm sprint dates and owners at planning."
+  },
+  {
+    "title": "[CS-13] Resolve observed Alpha usability blockers",
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a reference tester, I want my reported blockers fixed so the core save-and-compare flow is usable.\n\nPriority: P1. Proposed owners: Jake (feedback), Kartik (fixes). Acceptance: collect completion/time and 1-5 ratings plus written feedback; reproduce each selected blocker; assign an owner and meaningful regression check; verify the changed task with affected testers where possible. Keep installed-extension and browser-demo evidence separate. Depends on actual feedback under REL-06."
+  },
+  {
+    "title": "[CS-14] Opt-in unattended price checks",
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a shopper, I want watched prices checked while I am away so I can hear about meaningful changes.\n\nPriority: P2; conditional on an authorized source from CS-12. Acceptance: explicit opt-in, supported refresh policy, notification frequency controls and deduplication, source timestamps and availability evidence, and justified permissions/privacy handling. Current Alpha evaluates only user-triggered observations. Confirm feasibility before committing the sprint."
+  },
+  {
+    "title": "[CS-15] Authorized order updates",
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a shopper, I want order updates imported from a supported source so I can stop editing statuses manually.\n\nPriority: P2; conditional on permitted carrier/retailer source access. Acceptance: choose an authorized integration; protect order credentials; normalize status mapping; show last-sync time; preserve manual correction and fallback. Current Alpha has manually entered order records. Confirm feasibility before committing the sprint."
+  },
+  {
+    "title": "[CS-16] Optional account and cross-device cart synchronization",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want an optional account to synchronize my saved cart across devices.\n\nEntry criteria: demand demonstrated by feedback, agreed identity/storage architecture and deletion policy, explicit opt-in. No account or cloud service is required for the current Alpha."
+  },
+  {
+    "title": "[CS-17] Optional hosted price and availability refresh service",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want authorized offer refreshes that can continue independently of my browser.\n\nEntry criteria: an actual need after Alpha; authorized source selected; agreed cost, freshness, monitoring, retention and security requirements; no retailer secrets in the extension. No hosted service or AWS deployment is required for the current demo."
+  },
+  {
+    "title": "[CS-18] Provider-backed BNPL comparison",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want current provider-backed payment terms so I can compare full obligations.\n\nEntry criteria: current terms and integration permission obtained; jurisdiction/disclosure requirements reviewed; no estimated APR or invented financing offer. The Alpha calculator accepts user-entered terms only."
+  },
+  {
+    "title": "[CS-19] Accessibility and browser support expansion",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want verified keyboard, screen-reader and browser support for the shopping flows.\n\nEntry criteria: actual accessibility findings, defined target browser versions, and acceptance testing on those targets. Automated DOM checks do not prove screen-reader behavior or Chrome side-panel compatibility."
+  },
+  {
+    "title": "[CS-20] Chrome Web Store beta distribution",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want a Chrome Web Store beta so installation and updates are easier.\n\nEntry criteria: Alpha blockers addressed, privacy policy and listing assets ready, permissions justified, and current store review requirements satisfied. The current Alpha is a ZIP installed locally through Load unpacked."
+  },
+  {
+    "title": "[REL-01] Smoke-test the release ZIP in real Chrome",
+    "label": "release",
+    "status": "planned",
+    "body": "Unzip the release asset and use chrome://extensions > Developer mode > Load unpacked. Verify toolbar/side-panel lifecycle, activeTab capture on a permitted product detail page, save/cart/compare/watch/order/backup flows, optional notification behavior, downloads and absence of extension errors. Record actual browser/version, date and page details in docs/VERIFICATION.md. Automated and DOM checks have separate recorded outcomes; isolated Chrome startup was blocked, so an installation pass is not claimed."
+  },
+  {
+    "title": "[REL-02] Publish source to the personal qarteu GitHub account",
+    "label": "release",
+    "status": "planned",
+    "body": "Verify the authenticated public login is qarteu, then publish version-controlled source and license to https://github.com/qarteu/cartscope. Close only after the intended public repository resolves and contains the release source. Proposed owner: Kartik. Publication remains pending until that external action succeeds."
+  },
+  {
+    "title": "[REL-03] Publish Alpha v0.1.0 ZIP and release notes",
+    "label": "release",
+    "status": "planned",
+    "body": "Create v0.1.0 at the verified source commit; publish release notes with installation/use instructions and known limits; attach cartscope-alpha-0.1.0.zip and SHA-256 checksum. Verify release/tag references, downloaded asset contents/checksum and installation evidence from REL-01. Proposed owner: Kartik. Close only after publication and the specified evidence are recorded."
+  },
+  {
+    "title": "[REL-08] Publish and smoke-test the GitHub Pages demo",
+    "label": "release",
+    "status": "planned",
+    "body": "Publish the static demo at https://qarteu.github.io/cartscope/ and verify the public URL and main preview flows. Keep sample labels and extension-only capability explanations visible. No AWS account is required. Proposed owner: Kartik. Local build success does not close the public-hosting task."
+  },
+  {
+    "title": "[REL-04] Recruit ten consenting reference testers",
+    "label": "release",
+    "status": "planned",
+    "body": "Proposed owners: Eashan (recruiting), Jake (test protocol), Kartik (release support). Confirm ten real consenting participants privately and assign R01-R10. Record participant status without public contact information. Close only after actual commitments are recorded; unassigned roster slots and recruiting profiles are not evidence of participation."
+  },
+  {
+    "title": "[REL-05] Send personalized Alpha preview invitations",
+    "label": "release",
+    "status": "planned",
+    "body": "After REL-02/03 and installation readiness, personalize docs/ALPHA_EMAIL.md and send individually to the consenting participants under REL-04 using the team's authorized email account. Record actual invited_at dates and retain delivery evidence privately. The current email is a draft and no sent announcement is claimed. Proposed owners: Eashan and Jake, with Kartik supplying release links."
+  },
+  {
+    "title": "[REL-06] Collect and triage quantitative and qualitative feedback",
+    "label": "release",
+    "status": "planned",
+    "body": "Use the Alpha feedback issue form or private email replies. Collect task completion/time and ease, clarity, usefulness and confidence ratings plus confusing/missing information and requested improvements. Distinguish installed-extension and browser-demo results; report actual denominators. Feed reproduced blockers into CS-13. Close only after real responses and a readout exist; targets are not results."
+  },
+  {
+    "title": "[REL-07] Reconcile an existing Trello board if supplied",
+    "label": "release",
+    "status": "planned",
+    "body": "No prior external Trello board URL or access was verified in the inspected CartScope files/chats. If the team supplies its existing board, verify access and reconcile stories, status and next-sprint priorities with this GitHub tracker. GitHub Issues and docs/SPRINT_BOARD.md satisfy the current assignment's similar-issue-tracker option. Keep this conditional reconciliation task pending until a real board is available; do not invent a board link."
+  }
 ]
