@@ -1,7 +1,7 @@
 {
   "source_kind": "Chrome screenshots of installed Manifest V3 extension and hosted browser demo",
-  "ci_run": "https://github.com/qarteu/cartscope/actions/runs/38174277130",
-  "commit": "cdbe4690ca0fa33ee993eab07556c7d39e8fe308",
+  "ci_run": "https://github.com/qarteu/cartscope/actions/runs/38178003168",
+  "commit": "609ec4d0a751f3ed8a9dc9dc9a24e6d984f5b5f1",
   "browser_version": "151.0.7922.34",
   "verification_status": "passed",
   "browser_checks": {
@@ -17,10 +17,10 @@
     {
       "view": "cart",
       "file": "cart.png",
-      "sha256": "36316cc635152573f99e2c574f9159c6a345cfd5964c2cfad5b802c941c63bdf",
+      "sha256": "9eac3564a9ed1959849cfdae1addff3cb22c60ef29baf2571e1b293ff35e2c91",
       "dimensions": [
         380,
-        1424
+        1542
       ],
       "browser_screenshot": true,
       "surface": "installed Chrome extension",
@@ -29,10 +29,10 @@
     {
       "view": "review",
       "file": "review.png",
-      "sha256": "a2efc313d895c49d9b26cc4040066908e9dcc010aaa134307f27b98da0ae4772",
+      "sha256": "e1f91e55b6fa0eb6cd70038b11de53c8ce248ba5c0e244b99a9c3443f25dcdfc",
       "dimensions": [
         380,
-        1608
+        1640
       ],
       "browser_screenshot": true,
       "surface": "installed Chrome extension",
@@ -41,10 +41,10 @@
     {
       "view": "compare",
       "file": "compare.png",
-      "sha256": "4fb8dd37adde84f9b026132d42f00552b9c88d37a68f300906dc41132c1804a2",
+      "sha256": "925931f5ccb3295814b1acacddc7b8591b539cb242035b6439b1372d9847f163",
       "dimensions": [
         380,
-        2276
+        2462
       ],
       "browser_screenshot": true,
       "surface": "installed Chrome extension",
@@ -53,10 +53,10 @@
     {
       "view": "notifications",
       "file": "notifications.png",
-      "sha256": "76d998bee9b8cc75b6dd1ea8fdbfe9794a0c081ec3043672543665827ebbc1f9",
+      "sha256": "803fe387590001ea005252fa18576c219530c40a85909713aa1a75d4a497be13",
       "dimensions": [
         380,
-        931
+        997
       ],
       "browser_screenshot": true,
       "surface": "installed Chrome extension",
@@ -65,10 +65,10 @@
     {
       "view": "orders",
       "file": "orders.png",
-      "sha256": "b2612abe2baf13edaefb50b8a92501a2b1a23e7e407c47b73622cc1409ace2f8",
+      "sha256": "e81d4c64abedc5173606397e92ebd0ddc9b628027df8d9177269a364c1cfe7c0",
       "dimensions": [
         380,
-        1358
+        1442
       ],
       "browser_screenshot": true,
       "surface": "installed Chrome extension",
@@ -77,10 +77,10 @@
     {
       "view": "finance",
       "file": "finance.png",
-      "sha256": "41574133643c874be9842f08b94a53e06f848899b572b8c3daae5925eee11e39",
+      "sha256": "9c72bcf245993de168e259385127893ee5a8279611f479630e8683d0847894fa",
       "dimensions": [
         380,
-        1311
+        1400
       ],
       "browser_screenshot": true,
       "surface": "installed Chrome extension",
@@ -89,10 +89,10 @@
     {
       "view": "settings",
       "file": "settings.png",
-      "sha256": "f378f601ee88f0001718327422a99b0e80554feb5c3820a39505308460f2fb11",
+      "sha256": "48e5c856833f767ed65e91029c9a07adf46b6e186404b148c9106940758f0dc6",
       "dimensions": [
         380,
-        1523
+        1587
       ],
       "browser_screenshot": true,
       "surface": "installed Chrome extension",
@@ -101,10 +101,10 @@
     {
       "view": "landing-desktop",
       "file": "landing-desktop.png",
-      "sha256": "bde3c4f03ad11a20254b696ac62ca3d9eea99b28c09f86964348999b9b84d999",
+      "sha256": "82d239cdb1cc82d2d991c0077d46299029a3091822382a8d5704dd2bff77a4e1",
       "dimensions": [
         1440,
-        1194
+        1198
       ],
       "browser_screenshot": true,
       "surface": "hosted browser demo landing page",
@@ -113,10 +113,10 @@
     {
       "view": "landing-mobile",
       "file": "landing-mobile.png",
-      "sha256": "a7ca143b12ce744f2eb560bee7429abfd4e4e3fd6a95ff3a5081aafa007a6fc8",
+      "sha256": "b69f5ebf7a1f71076770bbecf00c965fdcf1bf8de29c07109a5cef89424f41d4",
       "dimensions": [
         390,
-        1863
+        1981
       ],
       "browser_screenshot": true,
       "surface": "hosted browser demo landing page",

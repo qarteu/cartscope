@@ -34,7 +34,7 @@ For T5, do not fabricate a live retailer change. If price and availability are u
 | Field | Type / allowed values | Meaning |
 | --- | --- | --- |
 | `reference_id` | R01–R10 or independent tester | Assigned invitation identifier |
-| `release_version` | Text, e.g. 0.1.0 | Version actually used |
+| `release_version` | Text, e.g. 0.1.1 | Version actually used |
 | `chrome_version` | Text | Chrome version from About Chrome |
 | `operating_system` | Text | System and version if known |
 | `test_mode` | Chrome extension / browser demo / both | Distinguishes extension-only capture/install testing from static preview testing |

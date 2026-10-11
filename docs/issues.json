@@ -129,7 +129,7 @@
     "title": "[REL-01] Smoke-test the release ZIP in real Chrome",
     "label": "release",
     "status": "done",
-    "body": "Automated Alpha smoke passed October 11, 2026: https://github.com/qarteu/cartscope/actions/runs/38174277130. The actual release ZIP was unpacked and loaded in disposable Chrome for Testing 151.0.7922.34 on Ubuntu. All 16 browser checks passed, including real toolbar activeTab access, HTTP fixture capture/category rejection, cart/compare/watch/order/financing/backup/downloads, safe input handling, responsive layouts, preview persistence, and the live demo. SHA-256: c8918352c29aadd755dad718e4ec23f237451bcb90514a7e25b1cf53066f7283. Actual screenshots/report: docs/visuals and docs/CHROME_TEST_RESULTS.json. Manual platform installation, native OS notification delivery, and current live retailer markup remain field validation scope under CS-11/CS-19 and reference-user feedback; this automated gate does not claim those observations."
+    "body": "Automated Alpha 0.1.1 smoke passed October 11, 2026: https://github.com/qarteu/cartscope/actions/runs/38178003168. The actual release ZIP was unpacked and loaded in disposable Chrome for Testing 151.0.7922.34 on Ubuntu. All 16 browser checks passed, including toolbar activeTab access, HTTP fixture capture/category rejection, cart/compare/watch/order/financing/backup/downloads, safe input handling, responsive layouts, preview persistence, and the current 0.1.1 public demo. SHA-256: 081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0. Actual screenshots/report: docs/visuals and docs/CHROME_TEST_RESULTS.json. Manual platform installation, native OS notification delivery, and current retailer markup remain field validation under CS-11/CS-19 and reference-user feedback."
   },
   {
     "title": "[REL-02] Publish source to the personal qarteu GitHub account",
@@ -147,7 +147,7 @@
     "title": "[REL-08] Publish and smoke-test the GitHub Pages demo",
     "label": "release",
     "status": "done",
-    "body": "Published https://qarteu.github.io/cartscope/ and verified it in a fresh real Chrome profile on October 11, 2026. Hosted run https://github.com/qarteu/cartscope/actions/runs/38174277130 records HTTPS 200, four interactive iframe views, quantity edits persisting across actual landing reload, and mobile document width 390/390 pixels. The site is static GitHub Pages with labeled samples and no AWS requirement; extension-only capture is explained. Evidence: docs/VERIFICATION.md, docs/CHROME_TEST_RESULTS.json, and desktop/mobile landing screenshots."
+    "body": "Published https://qarteu.github.io/cartscope/ and verified the redesigned 0.1.1 demo in fresh Chrome on October 11, 2026. https://github.com/qarteu/cartscope/actions/runs/38178003168 records HTTPS 200, current versions on landing/iframe/About, four interactive views, quantity persistence across reload, and mobile document width 390/390 pixels. Static GitHub Pages, labeled samples and manual entries, no AWS setup. Evidence: docs/VERIFICATION.md, docs/CHROME_TEST_RESULTS.json and desktop/mobile screenshots."
   },
   {
     "title": "[REL-04] Recruit ten consenting reference testers",
@@ -172,5 +172,17 @@
     "label": "release",
     "status": "planned",
     "body": "No prior external Trello board URL or access was verified in the inspected CartScope files/chats. If the team supplies its existing board, verify access and reconcile stories, status and next-sprint priorities with this GitHub tracker. GitHub Issues and docs/SPRINT_BOARD.md satisfy the current assignment's similar-issue-tracker option. Keep this conditional reconciliation task pending until a real board is available; do not invent a board link."
+  },
+  {
+    "title": "[CS-22] Refine the shopping desk design and final submission",
+    "label": "alpha",
+    "status": "done",
+    "body": "As a reviewer, I want an original, readable shopping desk and clear evidence so I can understand and demonstrate the Alpha. Implemented: warm paper/forest styling, custom focus-and-cart mark, serif desk headings, compact item records, practical copy and a responsive demo. All 65 Node tests and 16 actual Chrome checks passed for runtime 609ec4d on https://github.com/qarteu/cartscope/actions/runs/38178003168. Real screenshots, a feature/test matrix and a Canvas write-up are prepared from this evidence; release publication and downloadable final packet remain a separate REL-09 gate."
+  },
+  {
+    "title": "[REL-09] Publish Alpha 0.1.1 and the final submission packet",
+    "label": "release",
+    "status": "planned",
+    "body": "Publish a separate v0.1.1 prerelease with tested runtime ZIP/checksum and current release notes, preserving v0.1.0. Download the GitHub ZIP and compare bytes, manifest version and CRCs with hosted-tested hash 081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0. Publish the Canvas write-up, illustrated PDF and submission bundle with genuine Chrome screenshots and exact test scope. Close only after actual release/download verification and packet publication. Ten-user invitation delivery is separately pending under REL-04/05/06."
   }
 ]

@@ -2,7 +2,7 @@
 
 This repository board is an issue-tracker equivalent for the alpha submission. It records implemented scope, release gates, and the next sprint's user stories. [Issue records](issues.json) seed the matching GitHub issues at publication. Linked GitHub issues provide the discussion and feedback history. No existing external Trello URL was verified in the inspected CartScope files/chats; reconcile an existing board if the team supplies it.
 
-**Release:** Alpha 0.1.0  
+**Release:** Alpha 0.1.1 (design patch; original 0.1.0 retained)  
 **Team:** Kartik Malunjkar, Jake Clevenger, Eashan  
 **Responsibilities:** Kartik owns architecture/releases, Jake owns product/backlog, and Eashan owns business/research and Scrum. Per-story owners in issue records are proposed for confirmation at sprint planning.  
 **Sprint dates:** To be scheduled by the team
@@ -25,6 +25,8 @@ This repository board is an issue-tracker equivalent for the alpha submission. I
 | CS-10 | Built | As a reference user, I want install instructions and a feedback route so I can test the alpha. | README, release notes, runtime ZIP/checksum, issue forms, quantitative/qualitative protocol, draft invitation, unassigned roster; publication is recorded below; actual participation remains pending. |
 | CS-21 | Built | As a reviewer, I want a browser demo so I can explore CartScope without installing it. | Same static interface; browser localStorage; labeled sample mode; manual entry; extension-only capture clearly explained; no AWS setup. |
 
+| CS-22 | Built | As a reviewer, I want an original shopping desk and clear evidence so I can demonstrate the Alpha. | Custom CartScope mark, paper/forest styling, practical copy, responsive landing; current-version Chrome checks and unmodified screenshots; Canvas write-up and illustrated test matrix. |
+
 ## Release and submission gates
 
 | ID | Status | Action | Evidence required to close |
@@ -33,6 +35,7 @@ This repository board is an issue-tracker equivalent for the alpha submission. I
 | REL-02 | Done | Publish source to the personal GitHub account `qarteu` | Repository resolves at `https://github.com/qarteu/cartscope`; version-controlled source and license visible. |
 | REL-03 | Done | Publish GitHub release `v0.1.0`, ZIP, checksum and release notes | Verified release commit/tag; release page resolves; asset downloads and checksum matches; unpacked installation evidenced by REL-01. |
 | REL-08 | Done | Publish the static preview on GitHub Pages | Public demo URL resolves and main preview flows pass a smoke test. |
+| REL-09 | Pending publication | Publish the separate 0.1.1 design patch and final submission packet | Downloaded runtime bytes match the current Chrome-tested ZIP; PDF and Canvas write-up use current evidence; original 0.1.0 tag/assets preserved. |
 | REL-04 | Pending participants | Recruit and assign ten consenting reference users | Private contact roster plus R01–R10 status entries; no fabricated identities. |
 | REL-05 | Pending participants | Send the personalized preview announcement | Actual send dates and private delivery evidence; [draft email](ALPHA_EMAIL.md) alone does not close this task. |
 | REL-06 | Pending feedback | Collect and triage quantitative and qualitative feedback | Actual issue/reply records and a readout with denominators and source labels. |

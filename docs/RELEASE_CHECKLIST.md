@@ -12,12 +12,15 @@
 ## GitHub publication
 
 - [x] Publish the repository as `qarteu/cartscope`.
-- [x] Create tag `v0.1.0` at the verified release commit.
-- [x] Publish a release with the 0.1.0 notes from `CHANGELOG.md`, installation instructions, and known limits.
-- [x] Upload `cartscope-alpha-0.1.0.zip` and its `.sha256` file as release assets.
-- [x] Verify the links in `README.md` and `ALPHA_EMAIL.md` resolve.
+- [ ] Create tag `v0.1.1` at the verified release commit.
+- [ ] Publish a release with the 0.1.1 notes from `CHANGELOG.md`, installation instructions, and known limits.
+- [ ] Upload `cartscope-alpha-0.1.1.zip` and its `.sha256` file as release assets.
+- [ ] Verify the links in `README.md` and `ALPHA_EMAIL.md` resolve.
 - [x] Publish the static browser preview on GitHub Pages and verify its public URL; no AWS setup is needed.
 - [x] Create/link implementation, next-sprint, and release-gate issues; synchronize their statuses with `SPRINT_BOARD.md`.
+
+- [ ] Publish and download-check the final submission bundle and illustrated report.
+- [ ] Verify original 0.1.0 tag and assets remain unchanged.
 
 ## Reference-user preview
 
@@ -30,7 +33,7 @@
 ## Attach to the submission
 
 1. Repository URL: `https://github.com/qarteu/cartscope`.
-2. Downloaded working alpha ZIP: `cartscope-alpha-0.1.0.zip` from the GitHub release.
+2. Downloaded working alpha ZIP: `cartscope-alpha-0.1.1.zip` from the GitHub release.
 3. The actual sent announcement template, plus private delivery evidence if required. The current `ALPHA_EMAIL.md` is a draft until sent.
 4. Tracker URL: the repository's [Sprint board](https://github.com/qarteu/cartscope/blob/main/docs/SPRINT_BOARD.md) and linked GitHub issues; include the original Trello URL after reconciliation if the course requires it.
 

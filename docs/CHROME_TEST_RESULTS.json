@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-11T20:56:44.169Z",
+  "generatedAt": "2026-10-11T21:50:58.411Z",
   "status": "passed",
   "browser": "151.0.7922.34",
-  "method": "Playwright; actual Alpha release ZIP unpacked and loaded in disposable Chrome for Testing profile; localhost fixtures only",
+  "method": "Playwright; configured Alpha release ZIP unpacked and loaded in disposable Chrome for Testing profile; retailer captures use localhost fixtures; optional published demo check uses HTTPS",
   "planned": [
     "extension service worker and local storage",
     "sample/real workspace isolation",
@@ -22,77 +22,77 @@
     {
       "name": "The actual Alpha release ZIP unpacks into the Chrome installation root",
       "status": "passed",
-      "durationMs": 21
+      "durationMs": 12
     },
     {
       "name": "Real extension service worker opens an empty local workspace",
       "status": "passed",
-      "durationMs": 7
+      "durationMs": 18
     },
     {
       "name": "Sample workspace renders every principal screen and remains separate",
       "status": "passed",
-      "durationMs": 6380
+      "durationMs": 6355
     },
     {
       "name": "Cart add, edit, quantity, and save-for-later persist through Chrome storage",
       "status": "passed",
-      "durationMs": 949
+      "durationMs": 667
     },
     {
       "name": "Comparison never promotes an unknown shipping amount or conflicting variant",
       "status": "passed",
-      "durationMs": 904
+      "durationMs": 878
     },
     {
       "name": "Opt-in watches create price-drop and restock alerts from updated observations",
       "status": "passed",
-      "durationMs": 1275
+      "durationMs": 722
     },
     {
       "name": "Orders save and update manual status and safe carrier tracking",
       "status": "passed",
-      "durationMs": 287
+      "durationMs": 530
     },
     {
       "name": "Financing shows the full obligation and distributes remainder cents exactly",
       "status": "passed",
-      "durationMs": 171
+      "durationMs": 225
     },
     {
       "name": "Preferences, export, delete, and validated import complete a backup round trip",
       "status": "passed",
-      "durationMs": 211
+      "durationMs": 308
     },
     {
       "name": "Hostile text remains text and scripting URL payloads are discarded",
       "status": "passed",
-      "durationMs": 57
+      "durationMs": 80
     },
     {
       "name": "Toolbar action grants activeTab and background scripting captures a real HTTP product page",
       "status": "passed",
-      "durationMs": 230
+      "durationMs": 1305
     },
     {
       "name": "A category page is rejected through the real scripting consumer",
       "status": "passed",
-      "durationMs": 35
+      "durationMs": 29
     },
     {
       "name": "Cart, comparison, notifications, orders, finance, and preferences fit 320/380/480 px",
       "status": "passed",
-      "durationMs": 36866
+      "durationMs": 42822
     },
     {
       "name": "Separate browser preview persists local data and keeps sample changes isolated",
       "status": "passed",
-      "durationMs": 537
+      "durationMs": 694
     },
     {
       "name": "Published landing page serves an interactive sample preview with persistent local edits",
       "status": "passed",
-      "durationMs": 1370
+      "durationMs": 2467
     },
     {
       "name": "No uncaught JavaScript errors occurred",
@@ -116,9 +116,9 @@
   ],
   "errors": [],
   "release": {
-    "path": "artifacts/cartscope-alpha-0.1.0.zip",
-    "version": "0.1.0",
-    "sha256": "c8918352c29aadd755dad718e4ec23f237451bcb90514a7e25b1cf53066f7283"
+    "path": "artifacts/cartscope-alpha-0.1.1.zip",
+    "version": "0.1.1",
+    "sha256": "081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0"
   },
   "captureDiagnostics": {
     "beforeToolbar": {
@@ -127,9 +127,9 @@
     },
     "activeTabs": [
       {
-        "id": 143900422,
-        "url": "http://127.0.0.1:36959/fixtures/product.html",
-        "windowId": 143900419
+        "id": 437029453,
+        "url": "http://127.0.0.1:34765/fixtures/product.html",
+        "windowId": 437029450
       }
     ],
     "afterToolbar": {
@@ -138,92 +138,92 @@
         "alerts": [],
         "history": [
           {
-            "checkedAt": "2026-10-11T20:56:51.360Z",
+            "checkedAt": "2026-10-11T21:51:05.716Z",
             "currency": "USD",
-            "offerId": "51309df2-a623-4c9d-bdb3-6a0148f2d4a1",
+            "offerId": "0c2f7c3d-dae7-4579-9826-7c5355ea98d5",
             "price": 100.01,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "QA Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:51.725Z",
+            "checkedAt": "2026-10-11T21:51:05.881Z",
             "currency": "USD",
-            "offerId": "51309df2-a623-4c9d-bdb3-6a0148f2d4a1",
+            "offerId": "0c2f7c3d-dae7-4579-9826-7c5355ea98d5",
             "price": 100.01,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "QA Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:52.109Z",
+            "checkedAt": "2026-10-11T21:51:06.081Z",
             "currency": "USD",
-            "offerId": "51309df2-a623-4c9d-bdb3-6a0148f2d4a1",
+            "offerId": "0c2f7c3d-dae7-4579-9826-7c5355ea98d5",
             "price": 100.01,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "QA Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:52.492Z",
+            "checkedAt": "2026-10-11T21:51:06.348Z",
             "currency": "USD",
-            "offerId": "3e5867ad-9aad-4d92-a72b-9b538672f0c7",
+            "offerId": "bf98dc01-3349-4639-a4db-73257ad3db5c",
             "price": 20,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "Unknown Shipping Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:52.742Z",
+            "checkedAt": "2026-10-11T21:51:06.681Z",
             "currency": "USD",
-            "offerId": "27b882fd-07e8-45f1-8570-f93f4c23d202",
+            "offerId": "8244b3fc-083e-4b3a-883b-ed6053311aed",
             "price": 40,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "Cheapest Exact Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:53.009Z",
+            "checkedAt": "2026-10-11T21:51:06.947Z",
             "currency": "USD",
-            "offerId": "6be0ef05-1589-4b8a-bc2c-b10fb367e416",
+            "offerId": "6fe45dba-edbd-459e-ac1c-3515e1cce553",
             "price": 1,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "Wrong Variant Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:53.508Z",
+            "checkedAt": "2026-10-11T21:51:07.314Z",
             "currency": "USD",
-            "offerId": "27b882fd-07e8-45f1-8570-f93f4c23d202",
+            "offerId": "8244b3fc-083e-4b3a-883b-ed6053311aed",
             "price": 30,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "Cheapest Exact Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:53.858Z",
+            "checkedAt": "2026-10-11T21:51:07.464Z",
             "currency": "USD",
-            "offerId": "27b882fd-07e8-45f1-8570-f93f4c23d202",
+            "offerId": "8244b3fc-083e-4b3a-883b-ed6053311aed",
             "price": 30,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "Cheapest Exact Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:54.191Z",
+            "checkedAt": "2026-10-11T21:51:07.597Z",
             "currency": "USD",
-            "offerId": "27b882fd-07e8-45f1-8570-f93f4c23d202",
+            "offerId": "8244b3fc-083e-4b3a-883b-ed6053311aed",
             "price": 30,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "retailer": "Cheapest Exact Store",
             "source": "manual"
           },
           {
-            "checkedAt": "2026-10-11T20:56:54.967Z",
+            "checkedAt": "2026-10-11T21:51:08.762Z",
             "currency": "USD",
-            "offerId": "fdc232f5-770b-499a-8c64-084dea9a3f6c",
+            "offerId": "6e8f2227-3ef6-4fdc-9ab2-aa707e1724c2",
             "price": 1,
-            "productId": "fb858455-ce9b-42ab-addc-a11d3768003a",
+            "productId": "b557b4fb-9d23-496d-8506-ded74bf9abbc",
             "retailer": "<script>bad()</script>",
             "source": "manual"
           }
@@ -233,14 +233,14 @@
             "availability": "in_stock",
             "brand": "Fixture",
             "cashback": 0,
-            "checkedAt": "2026-10-11T20:56:52.109Z",
+            "checkedAt": "2026-10-11T21:51:06.081Z",
             "color": "Black",
             "condition": "new",
             "currency": "USD",
             "deliveryDays": null,
             "discount": 0,
             "gtin": "",
-            "id": "51309df2-a623-4c9d-bdb3-6a0148f2d4a1",
+            "id": "0c2f7c3d-dae7-4579-9826-7c5355ea98d5",
             "image": "",
             "location": "",
             "membership": 0,
@@ -249,7 +249,7 @@
             "notes": "Changed during the browser test",
             "pickup": false,
             "price": 100.01,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "quantity": 2,
             "retailer": "QA Store",
             "returnDays": null,
@@ -257,21 +257,21 @@
             "size": "",
             "source": "manual",
             "tax": null,
-            "url": "http://127.0.0.1:36959/fixtures/product.html",
+            "url": "http://127.0.0.1:34765/fixtures/product.html",
             "variant": "Black"
           },
           {
             "availability": "in_stock",
             "brand": "Fixture",
             "cashback": 0,
-            "checkedAt": "2026-10-11T20:56:52.492Z",
+            "checkedAt": "2026-10-11T21:51:06.348Z",
             "color": "Black",
             "condition": "new",
             "currency": "USD",
             "deliveryDays": null,
             "discount": 0,
             "gtin": "",
-            "id": "3e5867ad-9aad-4d92-a72b-9b538672f0c7",
+            "id": "bf98dc01-3349-4639-a4db-73257ad3db5c",
             "image": "",
             "location": "",
             "membership": 0,
@@ -280,7 +280,7 @@
             "notes": "Changed during the browser test",
             "pickup": false,
             "price": 20,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "quantity": 2,
             "retailer": "Unknown Shipping Store",
             "returnDays": null,
@@ -288,21 +288,21 @@
             "size": "",
             "source": "manual",
             "tax": null,
-            "url": "http://127.0.0.1:36959/fixtures/product.html?store=unknown",
+            "url": "http://127.0.0.1:34765/fixtures/product.html?store=unknown",
             "variant": "Black"
           },
           {
             "availability": "in_stock",
             "brand": "Fixture",
             "cashback": 0,
-            "checkedAt": "2026-10-11T20:56:53.009Z",
+            "checkedAt": "2026-10-11T21:51:06.947Z",
             "color": "White",
             "condition": "new",
             "currency": "USD",
             "deliveryDays": null,
             "discount": 0,
             "gtin": "",
-            "id": "6be0ef05-1589-4b8a-bc2c-b10fb367e416",
+            "id": "6fe45dba-edbd-459e-ac1c-3515e1cce553",
             "image": "",
             "location": "",
             "membership": 0,
@@ -311,7 +311,7 @@
             "notes": "Changed during the browser test",
             "pickup": false,
             "price": 1,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "quantity": 2,
             "retailer": "Wrong Variant Store",
             "returnDays": null,
@@ -319,21 +319,21 @@
             "size": "",
             "source": "manual",
             "tax": 0,
-            "url": "http://127.0.0.1:36959/fixtures/product.html?store=wrong",
+            "url": "http://127.0.0.1:34765/fixtures/product.html?store=wrong",
             "variant": "Black"
           },
           {
             "availability": "in_stock",
             "brand": "Fixture",
             "cashback": 0,
-            "checkedAt": "2026-10-11T20:56:54.191Z",
+            "checkedAt": "2026-10-11T21:51:07.597Z",
             "color": "Black",
             "condition": "new",
             "currency": "USD",
             "deliveryDays": 1,
             "discount": 0,
             "gtin": "",
-            "id": "27b882fd-07e8-45f1-8570-f93f4c23d202",
+            "id": "8244b3fc-083e-4b3a-883b-ed6053311aed",
             "image": "",
             "location": "QA local store",
             "membership": 0,
@@ -342,7 +342,7 @@
             "notes": "Changed during the browser test",
             "pickup": true,
             "price": 30,
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "quantity": 2,
             "retailer": "Cheapest Exact Store",
             "returnDays": 30,
@@ -350,21 +350,21 @@
             "size": "",
             "source": "manual",
             "tax": 0,
-            "url": "http://127.0.0.1:36959/fixtures/product.html?store=exact",
+            "url": "http://127.0.0.1:34765/fixtures/product.html?store=exact",
             "variant": "Black"
           },
           {
             "availability": "unknown",
             "brand": "",
             "cashback": 0,
-            "checkedAt": "2026-10-11T20:56:54.967Z",
+            "checkedAt": "2026-10-11T21:51:08.762Z",
             "color": "",
             "condition": "",
             "currency": "USD",
             "deliveryDays": null,
             "discount": 0,
             "gtin": "",
-            "id": "fdc232f5-770b-499a-8c64-084dea9a3f6c",
+            "id": "6e8f2227-3ef6-4fdc-9ab2-aa707e1724c2",
             "image": "",
             "location": "",
             "membership": 0,
@@ -373,7 +373,7 @@
             "notes": "<svg onload=\"alert(1)\">",
             "pickup": false,
             "price": 1,
-            "productId": "fb858455-ce9b-42ab-addc-a11d3768003a",
+            "productId": "b557b4fb-9d23-496d-8506-ded74bf9abbc",
             "quantity": 1,
             "retailer": "<script>bad()</script>",
             "returnDays": null,
@@ -388,17 +388,17 @@
         "orders": [
           {
             "expectedAt": "2026-10-15",
-            "id": "9a9d6392-74e0-4000-a330-aac9627b436f",
+            "id": "fb3ba952-cebb-44d0-ba96-4425c57a8169",
             "image": "",
             "name": "Manual QA Headphones",
             "notes": "Manual QA order",
             "orderedAt": "2026-10-11",
-            "productId": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "productId": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "quantity": 2,
             "retailer": "QA Store",
             "status": "delivered",
             "trackingNumber": "QA-123456",
-            "trackingUrl": "http://127.0.0.1:36959/tracking"
+            "trackingUrl": "http://127.0.0.1:34765/tracking"
           }
         ],
         "products": [
@@ -409,7 +409,7 @@
             "condition": "new",
             "currency": "USD",
             "gtin": "",
-            "id": "5ad78fea-abdb-4c30-b32b-3c3f918f6ecf",
+            "id": "238af0b9-7210-4d7a-9051-504c603ca24f",
             "image": "",
             "model": "QA-100",
             "name": "Manual QA Headphones",
@@ -420,7 +420,7 @@
             "savedOnly": false,
             "size": "",
             "source": "manual",
-            "url": "http://127.0.0.1:36959/fixtures/product.html",
+            "url": "http://127.0.0.1:34765/fixtures/product.html",
             "variant": "Black",
             "watch": {
               "priceDrop": true,
@@ -435,7 +435,7 @@
             "condition": "",
             "currency": "USD",
             "gtin": "",
-            "id": "fb858455-ce9b-42ab-addc-a11d3768003a",
+            "id": "b557b4fb-9d23-496d-8506-ded74bf9abbc",
             "image": "",
             "model": "",
             "name": "<img src=x onerror=\"globalThis.cartscopeInjected=true\">",
@@ -472,7 +472,7 @@
           "condition": "new",
           "currency": "USD",
           "gtin": "",
-          "image": "http://127.0.0.1:36959/assets/headphones.svg",
+          "image": "http://127.0.0.1:34765/assets/headphones.svg",
           "model": "QA-100",
           "name": "Fixture Headphones",
           "notes": "",
@@ -480,7 +480,7 @@
           "quantity": 1,
           "retailer": "CartScope QA Store",
           "size": "",
-          "url": "http://127.0.0.1:36959/fixtures/product.html",
+          "url": "http://127.0.0.1:34765/fixtures/product.html",
           "variant": ""
         },
         "warning": "Review the detected product and variant before saving. Shipping, tax, and retailer terms must be confirmed separately."
@@ -490,12 +490,17 @@
   "publicDemo": {
     "url": "https://qarteu.github.io/cartscope/",
     "status": 200,
+    "landingBadge": "CartScope\nALPHA 0.1.1",
+    "iframeBadge": "ALPHA 0.1.1",
+    "landingVersion": "0.1.1",
+    "iframeVersion": "0.1.1",
+    "aboutVersion": "0.1.1",
     "mobileLayout": {
       "scrollWidth": 390,
       "width": 390
     }
   },
-  "finishedAt": "2026-10-11T20:57:34.143Z",
+  "finishedAt": "2026-10-11T21:51:56.247Z",
   "passed": 16,
   "failed": 0
 }

@@ -1,28 +1,36 @@
 # Alpha verification record
 
-Verified October 11, 2026. [GitHub Actions run 38174277130](https://github.com/qarteu/cartscope/actions/runs/38174277130) passed on Ubuntu with **Chrome for Testing 151.0.7922.34**. The screenshot run tested runtime commit `cdbe4690ca0fa33ee993eab07556c7d39e8fe308`. The released tag points to `d015b676859685344a0ae00435ff98ce1b192efe`, which contains the same runtime and also passed [release-commit verification](https://github.com/qarteu/cartscope/actions/runs/38174633562).
+Verified October 11, 2026. [GitHub Actions run 38178003168](https://github.com/qarteu/cartscope/actions/runs/38178003168) passed on Ubuntu with **Chrome for Testing 151.0.7922.34**. It tested runtime commit `609ec4d0a751f3ed8a9dc9dc9a24e6d984f5b5f1`, including the redesigned Alpha **0.1.1** side panel and the newly deployed public demo. The browser explicitly checked the version on the installed extension, landing page, iframe, release-note link, and About screen to reject stale demo content.
 
-The actual Alpha ZIP was unpacked into a clean directory and loaded by Chrome in a disposable profile. Its SHA-256 is `c8918352c29aadd755dad718e4ec23f237451bcb90514a7e25b1cf53066f7283`; the local release package matches that tested ZIP byte-for-byte. The browser test uses Chrome's real extension service worker, storage, scripting, toolbar action, and downloads.
+The actual Alpha ZIP was unpacked into a clean directory and loaded in a disposable Chrome profile. Its SHA-256 is `081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0`. The local package matches that hosted-tested archive byte-for-byte. The test uses the real extension service worker, local storage, scripting, toolbar action, and downloads.
 
 | Check | Status | Evidence / reproduction |
 | --- | --- | --- |
-| Manifest, references, scoped permissions, and version | Passed | `npm run validate` |
-| Behavioral tests | 59 passed, 0 failed | `npm ci` then `npm test`; core, extraction, packaging, storage, and DOM integration |
-| Runtime ZIP, root manifest, CRCs, determinism, and checksum | Passed | `npm run package`; ZIP consumer tests and byte comparison with the hosted test artifact |
-| Alpha ZIP loaded in real Chrome | Passed, automated | Clean unpacked release directory loaded in Chrome for Testing; toolbar permission grant tested |
-| Active-tab capture and category rejection | Passed on HTTP fixtures | Access denied before toolbar click; permitted fixture capture returned Fixture Headphones / QA-100 / $99.99; category page rejected |
-| Cart, comparison, watches, orders, financing, backup, escaping | Passed in real Chrome | Part of 16 passed browser checks, 0 failed; [machine-readable report](CHROME_TEST_RESULTS.json) |
-| Panel layouts at 320, 380, and 480 pixels | Passed | Real Chrome document-width checks across cart, compare, alerts, orders, finance, and settings |
-| Static preview persistence and sample isolation | Passed | Fresh browser profile; edits survive reload and remain separate from extension data |
-| Published GitHub Pages demo | Passed | [Live demo](https://qarteu.github.io/cartscope/), HTTPS 200, four iframe navigation views, persisted quantity edits, and 390-pixel mobile layout |
-| Public personal repository | Passed | [qarteu/cartscope](https://github.com/qarteu/cartscope), public source and license |
-| GitHub release and downloaded asset | Passed | [Alpha v0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0); downloaded ZIP/checksum match the tested package; 17 runtime files, root manifest and CRCs verified |
-| Live retailer field validation and ten reference users | Pending | [Feedback plan](FEEDBACK_PLAN.md); automated fixtures are not reference-user results |
+| Manifest, references, scoped permissions, and version | Passed | `npm run validate` checks package/lock/manifest parity and local runtime references. |
+| Behavioral tests | 65 passed, 0 failed | `npm ci` then `npm test`; core, extraction, packaging, publisher command contracts, storage, and DOM integration. The 12 DOM flow checks are included in this total. |
+| Runtime ZIP, root manifest, CRCs, determinism, and checksum | Passed | `npm run package`; actual unzip consumer checks, fixed timestamps, 18 runtime files, and byte comparison with the hosted-tested artifact. |
+| Alpha ZIP loaded in real Chrome | Passed, automated | Clean unpacked ZIP loaded in Chrome for Testing; current version and real toolbar permission grant checked. |
+| Active-tab capture and category rejection | Passed on HTTP fixtures | Capture denied before toolbar click; expected fixture product captured after the grant; category page rejected. |
+| Cart, comparison, watches, orders, financing, backup, escaping | Passed in real Chrome | Named flows in the 16-check [machine-readable Chrome report](CHROME_TEST_RESULTS.json), with no failures or uncaught JavaScript errors. |
+| Panel layouts at 320, 380, and 480 pixels | Passed | Document-width assertions across cart, compare, alerts, orders, finance, and settings in real Chrome. |
+| Static preview persistence and sample isolation | Passed | Fresh browser profile; quantity edit survives reload; preview and installed extension remain separate. |
+| Published GitHub Pages demo | Passed | HTTPS 200; explicit 0.1.1 checks; four iframe navigation views; quantity persistence; mobile width 390/390 pixels. |
+| Personal GitHub source | Passed | Public [qarteu/cartscope](https://github.com/qarteu/cartscope), source and license. |
+| Current GitHub release download | Pending publication | The tested Alpha 0.1.1 package is ready for publication. A downloaded release asset must match the tested hash before this gate closes. |
+| Live retailer field validation and ten reference users | Pending | [Feedback plan](FEEDBACK_PLAN.md); deterministic fixture results are not field observations or user responses. |
 
-The [Chrome report](CHROME_TEST_RESULTS.json) records all 16 checks, browser version, ZIP checksum, pre/post-toolbar capture responses, public demo response, and screenshot paths. The [DOM report](UI_TEST_RESULTS.json) separately records 12 application-flow checks using the actual UI, preview adapter, and background service. These are different test methods, not additional usability participants.
+The Chrome report records all 16 named checks, ZIP hash, browser version, pre/post-toolbar capture responses, current public-demo versions and screenshot paths. The [DOM report](UI_TEST_RESULTS.json) records 12 application flows through the actual UI, preview adapter, and background consumer. Those 12 checks are a subset of the 65 Node results, not additional tests or participants.
 
-[Visuals](visuals/README.md) are actual Chrome screenshots from the passing hosted run with labeled sample data. The desktop landing screenshot shows the initial cart; the mobile landing screenshot shows an edited quantity after the persistence test. Their sample prices, stock, and order statuses are illustrative.
+The [visuals](visuals/README.md) are unmodified Chrome screenshots from this passing run. They show labeled sample data. The desktop landing view shows the initial sample cart; the mobile view includes a quantity edit used to check persistence. Sample prices, stock, orders and observed history illustrate the flows and do not claim current retailer inventory or actual purchases.
 
-The hosted test resolves the earlier macOS sandbox startup blocker. It also exposed and fixed Chrome's native side-panel opening behavior, which skipped activeTab access: CartScope now handles the normal toolbar action and opens the panel from its click listener. No blanket host permission was added.
+## Reproduce the checks
 
-Remaining field scope: current retailer markup, manual installation on users' operating systems, and native desktop notification delivery have not been verified by these automated checks. Automatic retailer discovery, unattended polling, carrier synchronization, and provider-backed financing remain planned. Invitations and actual user feedback remain pending real participants.
+Use Node.js 22 or newer, install dependencies with `npm ci`, then run `npm run check`. For an isolated browser run, install Chrome with `npx playwright install --with-deps chromium`, then run `PUBLIC_DEMO_URL=https://qarteu.github.io/cartscope/ npm run test:browser` on a supported machine. The GitHub workflow runs the same commands on Ubuntu. The browser test reads the versioned ZIP generated by packaging, unpacks it into a new directory, and loads it into disposable browser profiles; it does not use a user's personal browser profile.
+
+Publisher tests execute the actual publication script with isolated mock command-line clients. They verify current-version tag/asset/note selection, identical-asset verification on a repeated publication, and rejection of conflicting assets without replacement. Actual publication is separately verified through GitHub and a downloaded asset. Existing tags and release assets are never overwritten by the publisher.
+
+## Remaining scope and history
+
+Current retailer markup, manual installation on reference users' operating systems, and native desktop notification delivery still need field validation. Automatic offer discovery, unattended price polling, carrier synchronization, provider-backed financing, account synchronization, and Chrome Web Store distribution remain planned. The invitation is a draft; recruitment, delivery, and user feedback remain pending real participants.
+
+The original [Alpha 0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0) remains available with its historical [verification record](https://github.com/qarteu/cartscope/blob/v0.1.0/docs/VERIFICATION.md). Its ZIP hash is `c8918352c29aadd755dad718e4ec23f237451bcb90514a7e25b1cf53066f7283`. The 0.1.1 patch is a separate release; it does not relabel the older test run or replace its assets.
