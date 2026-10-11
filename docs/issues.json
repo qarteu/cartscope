@@ -182,7 +182,7 @@
   {
     "title": "[REL-09] Publish Alpha 0.1.1 and the final submission packet",
     "label": "release",
-    "status": "planned",
-    "body": "Publish a separate v0.1.1 prerelease with tested runtime ZIP/checksum and current release notes, preserving v0.1.0. Download the GitHub ZIP and compare bytes, manifest version and CRCs with hosted-tested hash 081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0. Publish the Canvas write-up, illustrated PDF and submission bundle with genuine Chrome screenshots and exact test scope. Close only after actual release/download verification and packet publication. Ten-user invitation delivery is separately pending under REL-04/05/06."
+    "status": "done",
+    "body": "Published separate Alpha v0.1.1: https://github.com/qarteu/cartscope/releases/tag/v0.1.1. The downloaded 18-file runtime ZIP matches the Chrome-tested archive byte-for-byte (SHA-256 081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0); root manifest0.1.1 and all CRCs verified. Runtime, screenshot and public-demo evidence: https://github.com/qarteu/cartscope/actions/runs/38178299418; released source825e04f also passed https://github.com/qarteu/cartscope/actions/runs/38178505272. Final Canvas write-up, six-page illustrated report, email draft, tracker and genuine screenshots are in the repository and the downloadable cartscope-submission-0.1.1.zip packet; packet manifest records file hashes. The original v0.1.0 tag and release-asset digests remain unchanged. Recruitment, invitation delivery and actual feedback remain pending separately under REL-04/05/06."
   }
 ]

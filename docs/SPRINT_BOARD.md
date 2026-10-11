@@ -35,7 +35,7 @@ This repository board is an issue-tracker equivalent for the alpha submission. I
 | REL-02 | Done | Publish source to the personal GitHub account `qarteu` | Repository resolves at `https://github.com/qarteu/cartscope`; version-controlled source and license visible. |
 | REL-03 | Done | Publish GitHub release `v0.1.0`, ZIP, checksum and release notes | Verified release commit/tag; release page resolves; asset downloads and checksum matches; unpacked installation evidenced by REL-01. |
 | REL-08 | Done | Publish the static preview on GitHub Pages | Public demo URL resolves and main preview flows pass a smoke test. |
-| REL-09 | Pending publication | Publish the separate 0.1.1 design patch and final submission packet | Downloaded runtime bytes match the current Chrome-tested ZIP; PDF and Canvas write-up use current evidence; original 0.1.0 tag/assets preserved. |
+| REL-09 | Done | Publish the separate 0.1.1 design patch and final submission packet | Downloaded runtime bytes match the current Chrome-tested ZIP; PDF and Canvas write-up use current evidence; original 0.1.0 tag/assets preserved. |
 | REL-04 | Pending participants | Recruit and assign ten consenting reference users | Private contact roster plus R01–R10 status entries; no fabricated identities. |
 | REL-05 | Pending participants | Send the personalized preview announcement | Actual send dates and private delivery evidence; [draft email](ALPHA_EMAIL.md) alone does not close this task. |
 | REL-06 | Pending feedback | Collect and triage quantitative and qualitative feedback | Actual issue/reply records and a readout with denominators and source labels. |
