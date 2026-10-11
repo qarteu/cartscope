@@ -1,0 +1,31 @@
+# GitHub issue tracker
+
+- [[CS-01] Capture and review the viewed product](https://github.com/qarteu/cartscope/issues/1) — done
+- [[CS-02] Universal saved cart and budget](https://github.com/qarteu/cartscope/issues/2) — done
+- [[CS-03] Transparent matched-offer comparison](https://github.com/qarteu/cartscope/issues/3) — done
+- [[CS-04] Observed price history](https://github.com/qarteu/cartscope/issues/4) — done
+- [[CS-05] Watched price-drop and restock alerts](https://github.com/qarteu/cartscope/issues/5) — done
+- [[CS-06] Manual order records and tracking links](https://github.com/qarteu/cartscope/issues/6) — done
+- [[CS-07] Full-obligation installment calculator](https://github.com/qarteu/cartscope/issues/7) — done
+- [[CS-08] Local data controls](https://github.com/qarteu/cartscope/issues/8) — done
+- [[CS-09] Isolated illustrative sample workspace](https://github.com/qarteu/cartscope/issues/9) — done
+- [[CS-10] Alpha installation documentation and feedback routes](https://github.com/qarteu/cartscope/issues/10) — done
+- [[CS-21] Static browser demo](https://github.com/qarteu/cartscope/issues/11) — done
+- [[CS-11] Validate capture on reference users’ stores](https://github.com/qarteu/cartscope/issues/12) — planned
+- [[CS-12] Authorized automatic cross-store offer discovery](https://github.com/qarteu/cartscope/issues/13) — planned
+- [[CS-13] Resolve observed Alpha usability blockers](https://github.com/qarteu/cartscope/issues/14) — planned
+- [[CS-14] Opt-in unattended price checks](https://github.com/qarteu/cartscope/issues/15) — planned
+- [[CS-15] Authorized order updates](https://github.com/qarteu/cartscope/issues/16) — planned
+- [[CS-16] Optional account and cross-device cart synchronization](https://github.com/qarteu/cartscope/issues/17) — backlog
+- [[CS-17] Optional hosted price and availability refresh service](https://github.com/qarteu/cartscope/issues/18) — backlog
+- [[CS-18] Provider-backed BNPL comparison](https://github.com/qarteu/cartscope/issues/19) — backlog
+- [[CS-19] Accessibility and browser support expansion](https://github.com/qarteu/cartscope/issues/20) — backlog
+- [[CS-20] Chrome Web Store beta distribution](https://github.com/qarteu/cartscope/issues/21) — backlog
+- [[REL-01] Smoke-test the release ZIP in real Chrome](https://github.com/qarteu/cartscope/issues/22) — planned
+- [[REL-02] Publish source to the personal qarteu GitHub account](https://github.com/qarteu/cartscope/issues/23) — planned
+- [[REL-03] Publish Alpha v0.1.0 ZIP and release notes](https://github.com/qarteu/cartscope/issues/24) — planned
+- [[REL-08] Publish and smoke-test the GitHub Pages demo](https://github.com/qarteu/cartscope/issues/25) — planned
+- [[REL-04] Recruit ten consenting reference testers](https://github.com/qarteu/cartscope/issues/26) — planned
+- [[REL-05] Send personalized Alpha preview invitations](https://github.com/qarteu/cartscope/issues/27) — planned
+- [[REL-06] Collect and triage quantitative and qualitative feedback](https://github.com/qarteu/cartscope/issues/28) — planned
+- [[REL-07] Reconcile an existing Trello board if supplied](https://github.com/qarteu/cartscope/issues/29) — planned
