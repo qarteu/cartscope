@@ -48,11 +48,11 @@ If you prefer a private response or do not have a GitHub account, reply to this 
 
 https://github.com/qarteu/cartscope/blob/main/docs/FEEDBACK_PLAN.md
 
-Please send your feedback by **[date and time, including time zone]**. Let us know your Chrome version and operating system if something fails. If installation fails, a description of the step and the visible error is enough; include a screenshot only if it contains no sensitive information.
+Please send your feedback by **October 18, 2026 at 5:00 PM Pacific** (suggested Alpha feedback deadline; adjust before sending if needed). Let us know your Chrome version and operating system if something fails. If installation fails, a description of the step and the visible error is enough; include a screenshot only if it contains no sensitive information.
 
 Thanks,
 
-[sender name] on behalf of the CartScope team  
+Kartik Malunjkar on behalf of the CartScope team  
 Kartik, Jake Clevenger, and Eashan
 
 ---

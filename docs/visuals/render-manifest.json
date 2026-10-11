@@ -5,7 +5,8 @@
     "renderer": "WeasyPrint",
     "source_kind": "serialized actual application DOM",
     "browser_screenshot": false,
-    "print_css_overrides": true
+    "print_css_overrides": true,
+    "progress_control_rendered_from_dom_value": true
   },
   {
     "source": "artifacts/ui-html/review.html",
@@ -13,7 +14,8 @@
     "renderer": "WeasyPrint",
     "source_kind": "serialized actual application DOM",
     "browser_screenshot": false,
-    "print_css_overrides": true
+    "print_css_overrides": true,
+    "progress_control_rendered_from_dom_value": true
   },
   {
     "source": "artifacts/ui-html/compare.html",
@@ -21,7 +23,8 @@
     "renderer": "WeasyPrint",
     "source_kind": "serialized actual application DOM",
     "browser_screenshot": false,
-    "print_css_overrides": true
+    "print_css_overrides": true,
+    "progress_control_rendered_from_dom_value": true
   },
   {
     "source": "artifacts/ui-html/notifications.html",
@@ -29,7 +32,8 @@
     "renderer": "WeasyPrint",
     "source_kind": "serialized actual application DOM",
     "browser_screenshot": false,
-    "print_css_overrides": true
+    "print_css_overrides": true,
+    "progress_control_rendered_from_dom_value": true
   },
   {
     "source": "artifacts/ui-html/orders.html",
@@ -37,7 +41,8 @@
     "renderer": "WeasyPrint",
     "source_kind": "serialized actual application DOM",
     "browser_screenshot": false,
-    "print_css_overrides": true
+    "print_css_overrides": true,
+    "progress_control_rendered_from_dom_value": true
   },
   {
     "source": "artifacts/ui-html/finance.html",
@@ -45,7 +50,8 @@
     "renderer": "WeasyPrint",
     "source_kind": "serialized actual application DOM",
     "browser_screenshot": false,
-    "print_css_overrides": true
+    "print_css_overrides": true,
+    "progress_control_rendered_from_dom_value": true
   },
   {
     "source": "artifacts/ui-html/settings.html",
@@ -53,6 +59,7 @@
     "renderer": "WeasyPrint",
     "source_kind": "serialized actual application DOM",
     "browser_screenshot": false,
-    "print_css_overrides": true
+    "print_css_overrides": true,
+    "progress_control_rendered_from_dom_value": true
   }
 ]
