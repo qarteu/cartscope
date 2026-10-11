@@ -1,0 +1,10 @@
+{
+  "url": "https://www.amazon.com/dp/B09XS7JWHH",
+  "scripts": [],
+  "meta": {"og:image": "https://images.example.com/headphones.jpg"},
+  "elements": {
+    "#productTitle": {"text": " Sony WH-1000XM5 Wireless Headphones "},
+    "#bylineInfo": {"text": "Visit the Sony Store"},
+    "#corePrice_feature_div .a-price .a-offscreen": {"text": "$299.99"}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "url": "https://shop.example.com/headphones",
+  "scripts": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {"@type": "CollectionPage", "name": "Headphones"},
+        {"@type": "ItemList", "itemListElement": [{"@type": "Product", "name": "First recommendation", "offers": {"price": 9.99}}]},
+        {"@type": "Product", "name": "A recommendation", "url": "https://shop.example.com/products/a", "offers": {"price": 9.99, "priceCurrency": "USD"}}
+      ]
+    }
+  ],
+  "meta": {"og:title": "Shop headphones"}
+}

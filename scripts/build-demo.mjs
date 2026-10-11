@@ -1,0 +1,10 @@
+import {cpSync,mkdirSync,writeFileSync,readFileSync} from 'node:fs';
+import {validate} from './validate.mjs';
+validate();
+mkdirSync('site',{recursive:true});
+cpSync('extension','site/extension',{recursive:true});
+cpSync('demo.html','site/index.html');
+cpSync('demo.css','site/demo.css');
+cpSync('demo.js','site/demo.js');
+writeFileSync('site/.nojekyll','');
+console.log('Static demo built in site/; no server-side dependencies or credentials.');

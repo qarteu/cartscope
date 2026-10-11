@@ -1,0 +1,24 @@
+{
+  "url": "https://shop.example.com/products/headphones?color=black",
+  "canonical": "https://shop.example.com/products/headphones",
+  "scripts": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {"@type": "WebSite", "name": "Example Shop"},
+        {
+          "@type": "Product",
+          "@id": "https://shop.example.com/products/headphones#product",
+          "name": "Sony WH-1000XM5 Headphones",
+          "brand": {"@type": "Brand", "name": "Sony"},
+          "model": "WH-1000XM5",
+          "gtin12": "012345678905",
+          "color": "Black",
+          "image": ["/images/headphones.png"],
+          "offers": {"@type": "Offer", "price": "299.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
+        }
+      ]
+    }
+  ],
+  "meta": {"og:site_name": "Example Shop"}
+}

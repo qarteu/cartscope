@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-11T20:31:20.560Z",
+  "status": "blocked",
+  "browser": null,
+  "method": "Playwright; unpacked Manifest V3 extension in disposable Chrome for Testing profile; localhost fixtures only",
+  "planned": [
+    "extension service worker and local storage",
+    "sample/real workspace isolation",
+    "cart add/edit/quantity/save-for-later",
+    "exact/possible/mismatch/unknown-cost comparison",
+    "price-drop/restock observations",
+    "orders and tracking",
+    "financing total and rounding",
+    "preferences and backup round trip",
+    "hostile input escaping",
+    "actual activeTab toolbar grant and scripting capture",
+    "category capture rejection",
+    "320/380/480-pixel layouts",
+    "preview state persistence"
+  ],
+  "checks": [],
+  "limitations": [
+    "Deterministic retailer-shaped fixtures do not verify changing live retailer markup or live offer feeds."
+  ],
+  "screenshots": [],
+  "errors": [
+    {
+      "stage": "browser_launch",
+      "message": "browserType.launchPersistentContext: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /Users/kartik.malunjkar/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-extensions-except=/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/extension --load-extension=/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/extension --enable-unsafe-extension-debugging --user-data-dir=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-browser-3F6ruR --remote-debugging-pipe about:blank\n<launched> pid=57458\nCall log:\n\u001b[2m  - <launching> /Users/kartik.malunjkar/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-extensions-except=/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/extension --load-extension=/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/extension --enable-unsafe-extension-debugging --user-data-dir=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-browser-3F6ruR --remote-debugging-pipe about:blank\u001b[22m\n\u001b[2m  - <launched> pid=57458\u001b[22m\n\u001b[2m  - [pid=57458] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=57458] <kill>\u001b[22m\n\u001b[2m  - [pid=57458] <will force kill>\u001b[22m\n\u001b[2m  - [pid=57458] exception while trying to kill process: Error: kill EPERM\u001b[22m\n\u001b[2m  - [pid=57458] <process did exit: exitCode=null, signal=SIGABRT>\u001b[22m\n\u001b[2m  - [pid=57458] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=57458] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=57458] <gracefully close end>\u001b[22m\n"
+    }
+  ],
+  "finishedAt": "2026-10-11T20:31:20.841Z",
+  "passed": 0,
+  "failed": 0
+}

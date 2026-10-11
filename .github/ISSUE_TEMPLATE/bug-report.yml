@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible CartScope problem.
+title: "[Bug] Short description"
+labels: [bug, alpha]
+body:
+  - type: markdown
+    attributes:
+      value: "Public issue: omit private shopping, order, contact, and payment information. Redact screenshots before attaching."
+  - type: input
+    id: version
+    attributes:
+      label: Version, browser, operating system, and extension or browser-demo mode
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open...\n2. Select...\n3. Enter..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result and visible error
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Data source or public product-page URL, if relevant
+      description: "State whether real observation, manual entry, or demo. Do not include private order URLs."
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context

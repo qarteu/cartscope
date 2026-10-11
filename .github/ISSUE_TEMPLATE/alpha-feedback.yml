@@ -1,0 +1,124 @@
+name: Alpha reference-user feedback
+description: Report task outcomes, ratings, and written feedback from CartScope Alpha.
+title: "[Alpha feedback] Rxx — short summary"
+labels: [feedback, alpha]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing CartScope. Use your reference ID, not your name.
+        GitHub issues are public: omit addresses, payment details, private order numbers, and other sensitive information.
+        Full task definitions: https://github.com/qarteu/cartscope/blob/main/docs/FEEDBACK_PLAN.md
+  - type: dropdown
+    id: reference-id
+    attributes:
+      label: Reference ID
+      options: [R01, R02, R03, R04, R05, R06, R07, R08, R09, R10, Independent tester]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version tested
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser version and operating system
+      placeholder: "Chrome version; macOS / Windows / Linux version"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Where did you test?
+      options: [Locally installed Chrome extension, Browser demo preview, Both]
+    validations:
+      required: true
+  - type: textarea
+    id: task-results
+    attributes:
+      label: Task outcomes and time taken
+      description: "For T1–T8: completed / completed_with_help / blocked / not_attempted; elapsed seconds or unknown; whether estimated; source real observation / manually entered / demo; notes. Browser preview users can mark Chrome installation and active-tab capture not_attempted."
+      placeholder: |
+        T1 | completed | 120 seconds | estimate: no | source: manually entered | notes: none
+        T2 | blocked | unknown | estimate: no | source: real observation | notes: price was missing
+        T3 |
+        T4 |
+        T5 |
+        T6 |
+        T7 |
+        T8 |
+    validations:
+      required: true
+  - type: dropdown
+    id: ease
+    attributes:
+      label: Ease of use
+      description: "1 = very difficult; 5 = very easy"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: dropdown
+    id: clarity
+    attributes:
+      label: Information clarity
+      description: "1 = very unclear; 5 = very clear"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: dropdown
+    id: usefulness
+    attributes:
+      label: Usefulness
+      description: "1 = not useful; 5 = very useful"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: dropdown
+    id: trust
+    attributes:
+      label: Confidence in displayed information
+      description: "1 = very low; 5 = very high"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: textarea
+    id: confusing
+    attributes:
+      label: What was the most confusing step?
+      description: Include what you expected and what happened. Write none if no step confused you.
+    validations:
+      required: true
+  - type: textarea
+    id: missing
+    attributes:
+      label: What information or behavior was missing?
+    validations:
+      required: true
+  - type: textarea
+    id: next-priority
+    attributes:
+      label: What single improvement should we prioritize next sprint?
+    validations:
+      required: true
+  - type: dropdown
+    id: use-again
+    attributes:
+      label: Would you use CartScope again?
+      options: ["Yes", "Maybe", "No"]
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why? Any additional feedback?
+  - type: checkboxes
+    id: source-confirmation
+    attributes:
+      label: Feedback context
+      options:
+        - label: I identified demo data as demo and did not represent sample prices or orders as live retailer data.
+          required: true

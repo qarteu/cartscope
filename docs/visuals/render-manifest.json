@@ -1,0 +1,58 @@
+[
+  {
+    "source": "artifacts/ui-html/cart.html",
+    "output": "docs/visuals/cart.png",
+    "renderer": "WeasyPrint",
+    "source_kind": "serialized actual application DOM",
+    "browser_screenshot": false,
+    "print_css_overrides": true
+  },
+  {
+    "source": "artifacts/ui-html/review.html",
+    "output": "docs/visuals/review.png",
+    "renderer": "WeasyPrint",
+    "source_kind": "serialized actual application DOM",
+    "browser_screenshot": false,
+    "print_css_overrides": true
+  },
+  {
+    "source": "artifacts/ui-html/compare.html",
+    "output": "docs/visuals/compare.png",
+    "renderer": "WeasyPrint",
+    "source_kind": "serialized actual application DOM",
+    "browser_screenshot": false,
+    "print_css_overrides": true
+  },
+  {
+    "source": "artifacts/ui-html/notifications.html",
+    "output": "docs/visuals/notifications.png",
+    "renderer": "WeasyPrint",
+    "source_kind": "serialized actual application DOM",
+    "browser_screenshot": false,
+    "print_css_overrides": true
+  },
+  {
+    "source": "artifacts/ui-html/orders.html",
+    "output": "docs/visuals/orders.png",
+    "renderer": "WeasyPrint",
+    "source_kind": "serialized actual application DOM",
+    "browser_screenshot": false,
+    "print_css_overrides": true
+  },
+  {
+    "source": "artifacts/ui-html/finance.html",
+    "output": "docs/visuals/finance.png",
+    "renderer": "WeasyPrint",
+    "source_kind": "serialized actual application DOM",
+    "browser_screenshot": false,
+    "print_css_overrides": true
+  },
+  {
+    "source": "artifacts/ui-html/settings.html",
+    "output": "docs/visuals/settings.png",
+    "renderer": "WeasyPrint",
+    "source_kind": "serialized actual application DOM",
+    "browser_screenshot": false,
+    "print_css_overrides": true
+  }
+]

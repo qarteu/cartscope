@@ -1,0 +1,36 @@
+name: User story / feature request
+description: Propose the next CartScope improvement with acceptance criteria.
+title: "[Story] As a shopper, I want..."
+labels: [enhancement]
+body:
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      placeholder: "As a shopper, I want ... so that ..."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Problem and supporting feedback
+      description: Link sanitized alpha feedback or explain the current friction.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Describe visible results that make the story done.
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Suggested priority
+      options: [P1, P2, P3]
+  - type: input
+    id: board-id
+    attributes:
+      label: Sprint board story ID, if already listed
+      placeholder: "CS-11"

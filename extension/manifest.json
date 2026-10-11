@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "CartScope — Your shopping, in perspective",
+  "short_name": "CartScope",
+  "version": "0.1.0",
+  "minimum_chrome_version": "116",
+  "description": "Save finds across stores, compare transparent costs, track observed prices and organize your orders. Local-first Alpha.",
+  "permissions": ["activeTab", "scripting", "storage", "sidePanel"],
+  "optional_permissions": ["notifications"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "Open CartScope", "default_icon": {"16":"assets/icon16.png","32":"assets/icon32.png","48":"assets/icon48.png","128":"assets/icon128.png"} },
+  "icons": {"16":"assets/icon16.png","32":"assets/icon32.png","48":"assets/icon48.png","128":"assets/icon128.png"},
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'" }
+}

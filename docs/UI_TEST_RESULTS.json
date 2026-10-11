@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-10-11T20:35:57.505Z",
+  "method": "Happy DOM simulation executing actual app.js, preview.js, and background.js",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Sample cart and every principal view render through actual app event handlers",
+      "status": "passed"
+    },
+    {
+      "name": "Sample mutations persist locally and do not leak into the empty workspace",
+      "status": "passed"
+    },
+    {
+      "name": "Manual add, item quantity, editing, and saved-for-later use the same background service",
+      "status": "passed"
+    },
+    {
+      "name": "Fractional quantities are rejected and rendered values recover after the failed change",
+      "status": "passed"
+    },
+    {
+      "name": "Checked offers rank exact variants while missing costs and conflicts remain visible",
+      "status": "passed"
+    },
+    {
+      "name": "Watch settings produce price-drop and restock transitions and avoid duplicate alerts",
+      "status": "passed"
+    },
+    {
+      "name": "Manual order creation and delivery status edits persist safe tracking details",
+      "status": "passed"
+    },
+    {
+      "name": "Payment planner renders full obligation, calendar dates, and exact remainder cents",
+      "status": "passed"
+    },
+    {
+      "name": "Preferences save and backup export serializes the real workspace",
+      "status": "passed"
+    },
+    {
+      "name": "Hostile user text and active URLs cannot become injected product UI",
+      "status": "passed"
+    },
+    {
+      "name": "Malformed imports leave current data intact and sample backups remain isolated",
+      "status": "passed"
+    },
+    {
+      "name": "Removing a product deletes its related offers, history, alerts, and orders",
+      "status": "passed"
+    }
+  ],
+  "html": [
+    "artifacts/ui-html/cart.html",
+    "artifacts/ui-html/review.html",
+    "artifacts/ui-html/compare.html",
+    "artifacts/ui-html/notifications.html",
+    "artifacts/ui-html/orders.html",
+    "artifacts/ui-html/finance.html",
+    "artifacts/ui-html/settings.html"
+  ],
+  "limitations": [
+    "No Chrome installation, activeTab permission, side-panel lifecycle, desktop notification delivery, CSS layout, or browser download behavior is verified by this suite."
+  ],
+  "finishedAt": "2026-10-11T20:35:57.628Z",
+  "passed": 12,
+  "failed": 0
+}
