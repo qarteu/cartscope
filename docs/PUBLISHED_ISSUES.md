@@ -29,3 +29,5 @@
 - [[REL-05] Send personalized Alpha preview invitations](https://github.com/qarteu/cartscope/issues/27) — planned
 - [[REL-06] Collect and triage quantitative and qualitative feedback](https://github.com/qarteu/cartscope/issues/28) — planned
 - [[REL-07] Reconcile an existing Trello board if supplied](https://github.com/qarteu/cartscope/issues/29) — planned
+- [[CS-22] Refine the shopping desk design and final submission](https://github.com/qarteu/cartscope/issues/30) — done
+- [[REL-09] Publish Alpha 0.1.1 and the final submission packet](https://github.com/qarteu/cartscope/issues/31) — planned
