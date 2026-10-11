@@ -1,0 +1,20 @@
+export const defaults = {taxRate:8,budget:300,currency:'USD',priority:'total',notificationsEnabled:false};
+export function emptyState() { return {schema:1, products:[], offers:[], history:[], alerts:[], orders:[], settings:{...defaults}}; }
+export function sampleState() {
+  const state=emptyState();state.sample=true; const now=new Date().toISOString();
+  state.products=[
+    {id:'sample-jbl',name:'JBL Tune 770NC',brand:'JBL',model:'Tune 770NC',color:'Black',variant:'Black',size:'',gtin:'',currency:'USD',quantity:1,price:89.99,retailer:'Amazon',url:'https://www.amazon.com/s?k=JBL+Tune+770NC',image:'assets/headphones.svg',notes:'For study sessions',watch:{priceDrop:true,restock:true,targetPrice:80}},
+    {id:'sample-nike',name:'Nike Court Vision Low',brand:'Nike',model:'Court Vision Low',color:'White',variant:'White / US 8',size:'US 8',gtin:'',currency:'USD',quantity:1,price:85,retailer:'Nike',url:'https://www.nike.com/w?q=court%20vision%20low',image:'assets/shoe.svg',notes:'',watch:{priceDrop:true,restock:false,targetPrice:null}},
+    {id:'sample-bag',name:'Herschel Classic Backpack',brand:'Herschel',model:'Classic',color:'Navy',variant:'Navy / 26L',size:'26L',gtin:'',currency:'USD',quantity:1,price:64.90,retailer:'Nordstrom',url:'https://www.nordstrom.com/sr?keyword=herschel%20classic',image:'assets/backpack.svg',notes:'',watch:{priceDrop:false,restock:true,targetPrice:null}},
+    {id:'sample-sony',name:'Sony WH-1000XM5 Headphones',brand:'Sony',model:'WH-1000XM5',color:'Black',variant:'Black',size:'',gtin:'',currency:'USD',quantity:1,price:299.99,retailer:'Amazon',url:'https://www.amazon.com/s?k=Sony+WH-1000XM5',image:'assets/headphones.svg',notes:'Compare before buying',watch:{priceDrop:true,restock:true,targetPrice:280},savedOnly:true}
+  ];
+  state.products.forEach(p=>{p.condition='new';p.source='sample';});
+  state.offers=state.products.map(p=>({...p,id:p.id+'-offer',productId:p.id,shipping:0,tax:null,membership:0,discount:0,cashback:0,availability:'in_stock',deliveryDays:3,returnDays:30,pickup:false,location:'',checkedAt:now,source:'sample'}));
+  const sony=state.products[3];
+  state.offers.push({...sony,id:'sample-bestbuy',productId:sony.id,retailer:'Best Buy',price:279.99,shipping:0,tax:null,membership:0,discount:0,cashback:0,availability:'in_stock',deliveryDays:1,returnDays:15,pickup:true,location:'Sample local store',url:'https://www.bestbuy.com/site/searchpage.jsp?st=sony+wh1000xm5',checkedAt:now,source:'sample'});
+  state.offers.push({...sony,id:'sample-walmart',productId:sony.id,retailer:'Walmart',price:289.99,shipping:6.99,tax:null,membership:0,discount:0,cashback:0,availability:'in_stock',deliveryDays:2,returnDays:30,pickup:false,location:'',url:'https://www.walmart.com/search?q=sony+wh1000xm5',checkedAt:now,source:'sample'});
+  state.history=[309.99,299.99,299.99,289.99,299.99].map((price,i)=>({productId:sony.id,offerId:sony.id+'-offer',retailer:'Amazon',price,currency:'USD',checkedAt:new Date(Date.now()-(4-i)*86400000).toISOString(),source:'sample'}));
+  state.alerts=[{id:'sample-alert',productId:sony.id,title:'Back in stock!',message:'Sample restock notification for your saved headphones.',type:'restock',read:false,createdAt:now,source:'sample'}];
+  state.orders=[{id:'sample-order-1',productId:'sample-jbl',retailer:'Amazon',name:'JBL Tune 770NC',image:'assets/headphones.svg',quantity:1,status:'preparing',orderedAt:now.slice(0,10),expectedAt:'',trackingNumber:'',trackingUrl:'',notes:'Sample order · no live shipping data'}, {id:'sample-order-2',productId:'sample-nike',retailer:'Nike',name:'Nike Court Vision Low',image:'assets/shoe.svg',quantity:1,status:'in_transit',orderedAt:now.slice(0,10),expectedAt:'',trackingNumber:'SAMPLE-12345',trackingUrl:'',notes:'Sample tracking number'}, {id:'sample-order-3',productId:'sample-bag',retailer:'Nordstrom',name:'Herschel Classic Backpack',image:'assets/backpack.svg',quantity:1,status:'delivered',orderedAt:now.slice(0,10),expectedAt:'',trackingNumber:'',trackingUrl:'',notes:'Sample delivery'}];
+  return state;
+}

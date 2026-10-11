@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CartScope</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header"><a class="brand" href="#cart" aria-label="CartScope home"><img src="assets/mark.svg" alt=""><span>CartScope</span></a><span class="alpha">ALPHA 0.1.1</span><button class="icon-button" id="settings-shortcut" title="Settings" aria-label="Settings"><svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.5" fill="currentColor" stroke="none"/><circle cx="15" cy="17" r="2.5" fill="currentColor" stroke="none"/></svg></button></header>
+  <nav class="nav" aria-label="Main navigation">
+    <button data-view="cart" aria-current="page">Your cart</button><button data-view="compare">Compare</button><button data-view="alerts">Alerts <span id="alert-count"></span></button><button data-view="orders">Orders</button>
+  </nav>
+  <div id="demo-bar" hidden class="demo-bar">Sample workspace · illustrative prices <button id="exit-demo">Exit sample</button></div>
+  <main id="app" tabindex="-1"><p class="loading">Opening your workspace…</p></main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <footer class="app-footer">Saved on this device. <a href="https://github.com/qarteu/cartscope/releases/tag/v0.1.1" target="_blank" rel="noreferrer">Release notes ↗</a></footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
