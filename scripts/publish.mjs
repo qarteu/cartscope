@@ -3,6 +3,7 @@ import {readFileSync,writeFileSync,mkdtempSync,cpSync,existsSync} from 'node:fs'
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 const repo='qarteu/cartscope';
+const prepareOnly=process.argv.includes('--prepare');
 const run=(command,args,options={})=>{
   const result=spawnSync(command,args,{encoding:'utf8',env:authEnv,...options});
   if(result.status!==0)throw new Error(`${command} ${args.slice(0,3).join(' ')} failed: ${result.stderr||result.stdout}`);
@@ -18,7 +19,9 @@ if(result.status!==0||result.stdout.trim()!=='qarteu'){
   console.error('Publication needs the qarteu GitHub account. Run gh auth login --hostname github.com --web --git-protocol https, choose qarteu, then rerun npm run publish. No other account was used.');process.exit(1);
 }
 console.log('Verified GitHub account: qarteu');
-run('npm',['run','validate']);run('npm',['test']);run('npm',['run','package']);run('npm',['run','build:demo']);
+run('npm',['run','validate']);
+if(!prepareOnly){run('npm',['test']);run('npm',['run','package']);}
+run('npm',['run','build:demo']);
 const existing=spawnSync('gh',['repo','view',repo,'--json','url'],{encoding:'utf8',env:authEnv});
 if(existing.status!==0)run('gh',['repo','create',repo,'--public','--description','CartScope Alpha: Chrome shopping side panel, transparent cost comparisons, and interactive demo.']);
 const remote=spawnSync('git',['remote','get-url','origin'],{encoding:'utf8',env:authEnv});
@@ -26,11 +29,6 @@ if(remote.status!==0)run('git',['remote','add','origin',`https://github.com/${re
 else if(!/github\.com[:/]qarteu\/cartscope(?:\.git)?$/.test(remote.stdout.trim()))throw new Error('Origin must point to qarteu/cartscope before publication.');
 const git=args=>run('git',['-c','credential.helper=','-c','credential.helper=!gh auth git-credential',...args]);
 git(['push','-u','origin','main']);
-if(spawnSync('git',['rev-parse','v0.1.0'],{encoding:'utf8'}).status!==0)run('git',['tag','-a','v0.1.0','-m','CartScope Alpha 0.1.0']);
-git(['push','origin','v0.1.0']);
-const existingRelease=spawnSync('gh',['release','view','v0.1.0','--repo',repo],{encoding:'utf8',env:authEnv});
-if(existingRelease.status!==0)run('gh',['release','create','v0.1.0','--repo',repo,'--title','CartScope Alpha 0.1.0','--prerelease','--notes-file','CHANGELOG.md','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
-else run('gh',['release','upload','v0.1.0','--repo',repo,'--clobber','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
 const stories=JSON.parse(readFileSync('docs/issues.json','utf8'));
 for(const [name,color,description]of [['alpha','1e4388','Alpha implementation'],['feedback','89c8b4','Quantitative and qualitative tester feedback'],['next-sprint','2c856d','Planned user stories for the next sprint'],['backlog','b2bdd0','Future scope'],['release','876327','Release and participant gates']])run('gh',['label','create',name,'--repo',repo,'--color',color,'--description',description,'--force']);
 const issues=JSON.parse(run('gh',['issue','list','--repo',repo,'--state','all','--limit','200','--json','number,title,url,state']));
@@ -53,4 +51,11 @@ run('git',['-C',pagesDir,'-c','credential.helper=','-c','credential.helper=!gh a
 const pages=spawnSync('gh',['api',`repos/${repo}/pages`],{encoding:'utf8',env:authEnv});
 if(pages.status!==0)run('gh',['api',`repos/${repo}/pages`,'--method','POST','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
 else run('gh',['api',`repos/${repo}/pages`,'--method','PUT','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
+if(!prepareOnly){
+  if(spawnSync('git',['rev-parse','v0.1.0'],{encoding:'utf8'}).status!==0)run('git',['tag','-a','v0.1.0','-m','CartScope Alpha 0.1.0']);
+  git(['push','origin','v0.1.0']);
+  const existingRelease=spawnSync('gh',['release','view','v0.1.0','--repo',repo],{encoding:'utf8',env:authEnv});
+  if(existingRelease.status!==0)run('gh',['release','create','v0.1.0','--repo',repo,'--title','CartScope Alpha 0.1.0','--prerelease','--notes-file','CHANGELOG.md','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
+  else run('gh',['release','upload','v0.1.0','--repo',repo,'--clobber','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
+}
 console.log(`Repository: https://github.com/${repo}\nRelease: https://github.com/${repo}/releases/tag/v0.1.0\nIssue tracker: https://github.com/${repo}/issues\nDemo: https://qarteu.github.io/cartscope/ (Pages build may take a few minutes)`);

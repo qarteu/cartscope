@@ -56,6 +56,9 @@ const check = async (name, action) => {
   catch (error) { report.checks.push({ name, status: 'failed', durationMs: Date.now() - start, error: error.message }); throw error; }
 };
 const screenshot = async name => {
+  // Let the actual app's transient confirmation finish naturally; persistent
+  // workspace notices and other product UI remain visible in the evidence.
+  await page.locator('#toast').waitFor({ state: 'hidden', timeout: 7000 });
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: resolve(screenshots, `${name}.png`), fullPage: true, animations: 'disabled' });
   report.screenshots.push(`artifacts/screenshots/${name}.png`);
@@ -107,6 +110,18 @@ const launch = async profile => playwright.chromium.launchPersistentContext(prof
   ignoreDefaultArgs: ['--disable-extensions'],
   args: [`--disable-extensions-except=${extension}`, `--load-extension=${extension}`, '--enable-unsafe-extension-debugging']
 });
+const triggerToolbar = async (targetPage, extensionId) => {
+  await targetPage.bringToFront();
+  // Chromium exposes extension actions on the browser session and accepts a
+  // tab target, not the page/frame target returned by newCDPSession(page).
+  const session = await context.browser().newBrowserCDPSession();
+  try {
+    const { targetInfos } = await session.send('Target.getTargets', { filter: [{ type: 'tab' }] });
+    const targets = targetInfos.filter(target => target.type === 'tab' && target.url === targetPage.url());
+    assert.equal(targets.length, 1, `Expected one tab target for ${targetPage.url()}; found ${targets.length}`);
+    await session.send('Extensions.triggerAction', { id: extensionId, targetId: targets[0].targetId });
+  } finally { await session.detach(); }
+};
 
 try {
   await check('The actual Alpha release ZIP unpacks into the Chrome installation root', async () => {
@@ -284,9 +299,9 @@ try {
     productPage = await context.newPage();
     await productPage.goto(`${base}/fixtures/product.html`);
     await productPage.bringToFront();
-    const session = await context.newCDPSession(productPage);
-    const { targetInfo } = await session.send('Target.getTargetInfo');
-    await session.send('Extensions.triggerAction', { id: extensionId, targetId: targetInfo.targetId });
+    const ungranted = await message({ type: 'capture' });
+    assert.equal(ungranted.ok, false, 'Capture must fail before the toolbar grants activeTab');
+    await triggerToolbar(productPage, extensionId);
     await page.evaluate(() => document.querySelector('[data-action="capture"]').click());
     await heading('Review item');
     assert.equal(await page.locator('#product-form [name="name"]').inputValue(), 'Fixture Headphones');
@@ -298,10 +313,8 @@ try {
   });
 
   await check('A category page is rejected through the real scripting consumer', async () => {
-    await productPage.goto(`${base}/fixtures/category.html`); await productPage.bringToFront();
-    const session = await context.newCDPSession(productPage);
-    const { targetInfo } = await session.send('Target.getTargetInfo');
-    await session.send('Extensions.triggerAction', { id: extensionId, targetId: targetInfo.targetId });
+    await productPage.goto(`${base}/fixtures/category.html`);
+    await triggerToolbar(productPage, extensionId);
     const response = await message({ type: 'capture' });
     assert.equal(response.ok, false); assert.match(response.error, /product detail page/);
   });
