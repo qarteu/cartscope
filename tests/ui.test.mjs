@@ -92,7 +92,7 @@ test('Actual application flows in DOM simulation (real Chrome coverage remains s
       assert.match(document.querySelector('#app').textContent, /239\.89/);
       assert.equal((await state(false)).products.length, 0);
       await snapshot('cart');
-      await action('edit-product', 'sample-sony'); await heading('Edit your find');
+      await action('edit-product', 'sample-sony'); await heading('Edit item');
       assert.equal($('#product-form [name="name"]').value, 'Sony WH-1000XM5 Headphones');
       await snapshot('review'); await action('cancel'); await heading('Your cart');
       await action('compare-product', 'sample-sony'); await heading('Compare prices');
@@ -103,7 +103,7 @@ test('Actual application flows in DOM simulation (real Chrome coverage remains s
       await nav('orders'); await heading('Your orders'); assert.equal(all('.order-card').length, 3); await snapshot('orders');
       await nav('compare'); await action('finance'); await heading('Payment planner');
       await submit('finance-form'); assert.equal(all('#finance-result tbody tr').length, 4); await snapshot('finance');
-      await click('#settings-shortcut'); await heading('Make it yours');
+      await click('#settings-shortcut'); await heading('Settings');
       assert.equal($('#desktop-notifications').disabled, true); await snapshot('settings');
     });
 
@@ -128,7 +128,7 @@ test('Actual application flows in DOM simulation (real Chrome coverage remains s
       await change(`[data-quantity="${manualId}"]`, 2);
       assert.equal((await state()).products[0].quantity, 2);
       assert.match($('.checkout-card').textContent, /200\.02/);
-      await action('edit-product', manualId); await heading('Edit your find');
+      await action('edit-product', manualId); await heading('Edit item');
       form('product-form', { notes: 'Edited note', savedOnly: true }); await submit('product-form'); await heading('Your cart');
       assert.equal((await state()).products[0].savedOnly, true);
       assert.match($('#app').textContent, /Saved for later/);
@@ -169,7 +169,7 @@ test('Actual application flows in DOM simulation (real Chrome coverage remains s
     });
 
     await run('Watch settings produce price-drop and restock transitions and avoid duplicate alerts', async () => {
-      await action('watch-product', manualId); await heading('Watch this find');
+      await action('watch-product', manualId); await heading('Watch item');
       form('watch-form', { priceDrop: true, restock: true, targetPrice: '35' }); await submit('watch-form'); await heading('Compare prices');
       await action('edit-offer', checkedOfferId); form('offer-form', { price: '30', availability: 'out_of_stock', confirmed: true }); await submit('offer-form'); await heading('Compare prices');
       assert.ok((await state()).alerts.some(alert => alert.type === 'price_drop'));
@@ -203,7 +203,7 @@ test('Actual application flows in DOM simulation (real Chrome coverage remains s
     });
 
     await run('Preferences save and backup export serializes the real workspace', async () => {
-      await click('#settings-shortcut'); await heading('Make it yours');
+      await click('#settings-shortcut'); await heading('Settings');
       form('settings-form', { taxRate: '7.5', budget: '500', priority: 'returns' }); await submit('settings-form');
       assert.equal((await state()).settings.taxRate, 7.5); assert.equal((await state()).settings.budget, 500); assert.equal((await state()).settings.priority, 'returns');
       await action('export'); assert.equal(exported.filename, 'cartscope-backup.json');

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "CartScope — Your shopping, in perspective",
   "short_name": "CartScope",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minimum_chrome_version": "116",
   "description": "Save finds across stores, compare transparent costs, track observed prices and organize your orders. Local-first Alpha.",
   "permissions": ["activeTab", "scripting", "storage", "sidePanel"],

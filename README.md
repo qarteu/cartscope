@@ -1,84 +1,92 @@
-# CartScope · Alpha 0.1.0
+# CartScope · Alpha 0.1.1
 
-CartScope is a Chrome side panel for reviewing product details, saving finds from multiple stores, comparing offers you have observed, and keeping a shopping budget and order notes in one place. The alpha implements the shopping flows in the team's UniCart prototype with CartScope branding.
+We built CartScope for the moment when a shopping trip turns into a dozen open tabs. It keeps products from different stores in one Chrome side panel, lets you compare the costs of offers you've checked, and keeps your budget and order notes beside them.
 
-- Personal repository: [qarteu/cartscope](https://github.com/qarteu/cartscope)
-- Alpha download and release notes: [v0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0)
-- Progress and planned stories: [Sprint board](docs/SPRINT_BOARD.md)
-- Feedback: [Alpha feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml)
+The Alpha is published on Kartik's personal GitHub account. It works with product details you capture or enter yourself. Automatic retailer search, continuous price checks, and live shipment updates are still planned. We also still need ten consenting reference users and their feedback; the invitation below is a draft.
 
-All Alpha flows run locally; no AWS account or service is required. [Open the interactive demo](https://qarteu.github.io/cartscope/) or use the local demo command below. [Submission links](docs/SUBMISSION.md) collect the required deliverables.
+- [Source — qarteu/cartscope](https://github.com/qarteu/cartscope)
+- [Download Alpha 0.1.1 and read the release notes](https://github.com/qarteu/cartscope/releases/tag/v0.1.1)
+- [Open the browser demo](https://qarteu.github.io/cartscope/)
+- [Submission attachments](docs/SUBMISSION.md)
+- [Sprint board](docs/SPRINT_BOARD.md) · [GitHub issues](https://github.com/qarteu/cartscope/issues)
+- [Give feedback](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml)
 
 ![CartScope Chrome interface overview](docs/visuals/cartscope-overview.png)
 
-*Actual Chrome screenshots with labeled sample data. See [visuals and test provenance](docs/visuals/README.md).*
+*Actual Chrome screenshots using labeled sample data. [Screenshot sources and test details](docs/visuals/README.md).*
 
-## Open the browser demo
+## Install in Chrome
 
-The same interface can run as a static browser preview with labeled sample products and `localStorage` instead of Chrome extension storage:
+1. Download **cartscope-alpha-0.1.1.zip** from the [release page](https://github.com/qarteu/cartscope/releases/tag/v0.1.1). Choose the release asset rather than GitHub's source-code ZIP.
+2. Unzip it into a folder you'll keep. The folder must contain `manifest.json` directly.
+3. Open `chrome://extensions`, enable **Developer mode**, and select **Load unpacked**.
+4. Choose that unzipped folder. Pin CartScope from Chrome's Extensions menu.
+5. Open a retailer product page and click the CartScope toolbar icon. In the side panel, choose **Capture this page** and review the result before saving.
+
+Use Chrome 116 or newer. Keep the unzipped folder in place while the extension is installed. To remove it, select **Remove** on its card at `chrome://extensions`.
+
+For development, load the repository's `extension/` folder. After changing code, select **Reload** on the extension card and reopen the panel. The extension does not need a build step or an AWS account.
+
+## What you can do
+
+**Save a product.** Capture its page, then check the name, price, retailer, model, variant, and condition. Correct any missing or inaccurate details. The image comes from the page or a placeholder; manual entry is available when capture fails.
+
+**Plan a purchase.** Keep finds from several stores in one cart. Change quantities, add notes, save items for later, and set an item-price budget. Shipping and tax are shown separately in Compare. Shopping links take you back to the retailer to check final costs and complete checkout.
+
+**Compare offers you've checked.** Add another store's offer for the same model, size, color, and condition. Compare price, shipping, estimated tax, membership costs, verified discounts, and eligible cashback. You can rank by total cost, delivery, pickup, or returns when those details are available. Missing required costs stay unknown. Checkout determines the actual amount charged.
+
+**Watch a price or restock.** Set a watch, then revisit and capture the same offer or update it manually. CartScope checks the new observation against the previous one and records a qualifying change. Optional desktop notifications need Chrome permission. It does not check stores while you're away.
+
+**Keep order notes.** After buying from a retailer, enter the order's status, dates, tracking number, tracking link, and notes. Update them as information arrives. These are your records; they aren't connected to a carrier feed.
+
+**Check installment arithmetic.** Enter the purchase amount, payment count, interest amount, fees, first date, and interval. The calculator shows the full obligation and payment schedule, with a stated late fee separately. Confirm the provider's actual terms and due dates; the calculator does not quote APR or offer credit.
+
+**Back up your data.** Settings lets you export a JSON backup, import one, or delete the workspace. Historical alerts aren't replayed after import. The sample workspace stays separate from your real cart.
+
+## Try it without installing
+
+The [browser demo](https://qarteu.github.io/cartscope/) uses the same interface with labeled example products, prices, stock, and orders. You can edit them, add manual entries, compare offers, and try the calculator. Changes stay in that browser's local storage and are separate from the installed extension.
+
+Page capture and Chrome desktop notifications require the extension. A fresh extension installation starts with an empty real cart; samples are optional.
+
+To run the demo locally:
 
 ```sh
 npm run demo
 ```
 
-Open the local URL printed by the server. The browser preview supports the saved cart, comparisons, observed demo history and alerts, orders, installment calculator, and data controls. Active-tab capture and optional Chrome extension notifications require installing the extension; enter items manually in the browser preview. Its data is saved in that browser for the preview's origin and is separate from the installed extension's data.
+Open the URL printed by the server. [Demo setup](docs/DEMO.md) covers static hosting.
 
-The project is also prepared for static GitHub Pages hosting. See [browser demo deployment](docs/DEMO.md) for the expected URL and publication steps. There is no server-side application or cloud credential needed for this demo.
+## What still needs work
 
-## Install the alpha in Chrome
+The [verification record](docs/VERIFICATION.md) documents automated checks of the packaged extension and browser demo in Chrome. Those checks use product-page fixtures. Current retailer markup, manual installation on testers' operating systems, and native desktop notification delivery still need field testing.
 
-1. Download **cartscope-alpha-0.1.0.zip** from the [v0.1.0 release](https://github.com/qarteu/cartscope/releases/tag/v0.1.0). Download the release asset, not GitHub's source-code ZIP.
-2. Unzip it into a permanent folder such as `Documents/CartScope-alpha-0.1.0`. The folder you choose must contain `manifest.json` directly.
-3. Open `chrome://extensions` in Chrome and enable **Developer mode**.
-4. Select **Load unpacked** and choose that unzipped folder.
-5. Pin CartScope from Chrome's Extensions menu. Open a retailer's product page, then click the CartScope icon to open its side panel.
+Automatic cross-store discovery, unattended price checks, carrier updates, provider-backed financing, and account synchronization are on the [sprint board](docs/SPRINT_BOARD.md). They are not included as live integrations in this Alpha.
 
-The manifest targets Chrome 116 or newer because it uses Chrome's side-panel API. Keep the unzipped folder in place while the extension is installed. The alpha is installed locally; it is not a Chrome Web Store listing.
-
-For development, load the repository's `extension/` folder instead. After editing code, select **Reload** on the CartScope card at `chrome://extensions`, then reopen the side panel. No build step is needed to use the extension.
-
-## Try the main flows
-
-**Save an item.** On a product page, capture the current page and review its name, price, image, retailer, model, and variant before saving. Extraction uses page metadata and visible text when available. Edit the text and price details if capture is incomplete; image selection uses the captured image or a placeholder. A captured price is an observation at that moment, not a promise from the retailer.
-
-**Plan your cart.** Add finds from different stores, edit quantity and notes, and set a budget. Cart totals cover saved item prices. Retailer checkout remains the source of final shipping, tax, inventory, and charges. Shopping links open the relevant retailer pages; CartScope does not submit orders or process payments.
-
-**Compare offers.** Add observed or manual offers for the same product and variant. Match the model and variant deliberately: different sizes, colors, conditions, or bundles should not be combined. Compare item price, shipping, estimated tax, delivery, returns, and pickup information. Unknown costs remain visible instead of becoming zero; price ranking uses comparable totals where available. Enter a tax rate only when you have an appropriate estimate.
-
-**Watch a saved find.** Enable the price-drop or restock watch for an item. Revisit that product and capture its updated details to create another observation. Changes can appear in CartScope's notifications; optional Chrome notifications require your permission. The alpha does not poll stores in the background or promise real-time alerts.
-
-**Record orders.** Add an order after completing checkout with a retailer. Enter its status, expected delivery, tracking number, tracking link, and notes yourself, and update them as information arrives. Tracking links open the carrier or retailer; there is no live carrier synchronization in this alpha.
-
-**Estimate installment costs.** Use the installment calculator to compare a purchase amount, installment count, and explicitly entered fees and interest amount. Choose the first payment date and day interval; the calculator also shows the stated late fee separately. This is arithmetic based on your inputs, not an APR quote, credit offer, or eligibility decision. Confirm the actual provider's payment dates and terms before using financing.
-
-**Explore or reset.** Optional sample headphones, shoes, and backpack entries demonstrate the flows and are labeled as demo data. A fresh installation starts with an empty real cart. Settings support exporting a JSON backup, importing a backup, and deleting local data.
-
-## What the alpha does and what remains planned
-
-The alpha provides local capture and editing, a saved cart and budget, observed/manual offer comparisons, observed price history, capture-triggered alerts, manual order tracking, installment arithmetic, and local data controls.
-
-It has no configured live retailer catalog, automatic cross-store offer discovery, background price/inventory polling, carrier feed, payment processing, shared accounts, or AWS backend. Sample prices and orders are illustrative. Their presence does not demonstrate live retailer integrations. These integrations require separate implementation, access agreements where applicable, and validation; the [Sprint board](docs/SPRINT_BOARD.md) records that work.
+Recruiting ten reference users, sending their invitations, and collecting their responses are also pending. We will update the tracker when those actions happen.
 
 ## Privacy and permissions
 
-CartScope stores your cart, offers, observations, watches, orders, and settings in Chrome's local extension storage. This alpha does not send shopping data to a server, use analytics, or contain credentials. Exported backups contain your shopping records and notes, so keep them where you want that information stored.
+Shopping records stay in Chrome's local extension storage, or browser local storage in the demo. There is no shopping-data server, analytics service, account, or payment storage. Loading product images and opening retailer links makes normal requests to those sites. Backups include your products, notes, and order records, so store them somewhere appropriate.
 
-- **activeTab + scripting:** read the currently selected page only after you request capture. There is no background access to every website.
-- **storage:** save the extension's data locally.
-- **sidePanel:** display the shopping workspace beside the current page.
-- **notifications (optional):** show a desktop notification after an observed watched change, if you enable it.
+- **activeTab + scripting:** capture the selected page after you click the toolbar icon and request capture.
+- **storage:** retain your records on this device.
+- **sidePanel:** open the shopping panel beside the page.
+- **notifications, optional:** display an alert after an observed watched change.
 
-No broad host permissions are requested. Chrome may block capture on internal pages such as `chrome://extensions`, some protected browser pages, or restricted storefront content. You can still enter an item manually.
+CartScope requests no blanket host permission. Capture cannot read Chrome's internal pages and may fail on protected or restricted pages. Manual entry remains available.
 
-## Give feedback
+## Reference-user feedback
 
-Use the [alpha feedback issue form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml), which accepts task-completion results, time taken, ratings, and open-ended comments. Do not include addresses, payment details, private order numbers, or other sensitive information in public GitHub issues. Reference testers use an assigned ID from R01 through R10 rather than their name. The team can also collect a private response using the [email template](docs/ALPHA_EMAIL.md).
+Use the [Alpha feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml) to report task completion, time taken, 1–5 ratings, and written comments. Tell us which step confused you, what information was missing, and what you would change first. Failed or blocked tasks help us identify bugs.
 
-See [the feedback plan](docs/FEEDBACK_PLAN.md) for the task protocol and measurement definitions. [The reference-user roster](docs/REFERENCE_USERS.csv) contains unassigned slots until actual participants have agreed to test. The email file is a draft; it is not evidence that an announcement was sent.
+The [test protocol](docs/FEEDBACK_PLAN.md) defines the tasks and rating scales. Reference users use an assigned ID from R01 through R10. Keep names, addresses, payment details, and personal order numbers out of public issues. Testers without GitHub accounts can reply privately to the team using the same questions.
 
-## Develop, validate, and package
+[The invitation template](docs/ALPHA_EMAIL.md) is ready to personalize. [The roster](docs/REFERENCE_USERS.csv) contains unassigned slots, not completed invitations or test results.
 
-Prerequisite for development and tests: Node.js 22 or newer. The extension runtime and packaging scripts use no third-party dependencies. DOM and browser tests use development-only dependencies.
+## Develop and package
+
+Use Node.js 22 or newer for development and tests. The extension runtime has no third-party dependencies; DOM and browser tests use development dependencies.
 
 ```sh
 npm ci
@@ -87,12 +95,19 @@ npm test
 npm run package
 ```
 
-For the browser test suite, install development dependencies with `npm ci`, run `npx playwright install chromium`, then run `npm run test:browser`. See the verification record for the actual browser-test coverage.
+For Chrome tests:
 
-`npm run validate` checks manifest references, local script loading, permissions, and version consistency. `npm test` runs the project's behavioral tests. `npm run package` validates first, then creates `artifacts/cartscope-alpha-0.1.0.zip` with `manifest.json` at its root and writes `artifacts/cartscope-alpha-0.1.0.zip.sha256`. The package contains extension runtime files only. The packaging script uses deterministic file ordering and ZIP timestamps so identical runtime files produce the same archive.
+```sh
+npx playwright install chromium
+npm run test:browser
+```
 
-For a reproducible release, commit the source, run the checks, create Git tag `v0.1.0`, and publish the ZIP plus checksum as assets on that tag's GitHub release. Paste the [0.1.0 release notes](CHANGELOG.md) into the release description. The [release checklist](docs/RELEASE_CHECKLIST.md) keeps publication and real-user validation separate from source implementation.
+Validation checks the manifest, referenced files, permissions, and version consistency. Packaging creates `artifacts/cartscope-alpha-0.1.1.zip` and its SHA-256 file, with `manifest.json` at the archive root. File order and ZIP timestamps are fixed so unchanged runtime files produce the same archive. [Verification](docs/VERIFICATION.md) records the actual test coverage.
 
-## Team and source
+For release, commit the source, run the checks, create tag `v0.1.1`, and publish the runtime ZIP, checksum, and [release notes](CHANGELOG.md). Follow the [release checklist](docs/RELEASE_CHECKLIST.md) and update the tracker with the resulting evidence.
 
-The project context names Kartik, Jake Clevenger, and Eashan as the team. Kartik Malunjkar owns architecture/releases, Jake Clevenger owns product/backlog, and Eashan owns business/research and Scrum. Reference-user contacts are still pending and remain private. Source is provided under the [MIT license](LICENSE).
+## Team
+
+Kartik Malunjkar is our System Architect and Release Train Engineer. Jake Clevenger is Product Manager and Product Owner. Eashan is Business Owner and Scrum Coach. Participant contacts and delivery evidence stay in the team's private records.
+
+Source is available under the [MIT license](LICENSE).

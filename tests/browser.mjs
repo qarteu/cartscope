@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir, homedir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { releaseInfo } from '../scripts/release.mjs';
 
 // Uses its own Chrome for Testing process and disposable profiles. It never
 // connects to the user's Chrome, reads their profile, or visits retailer sites.
@@ -18,6 +19,7 @@ catch {
   playwright = require(resolve(homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
 }
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const release = releaseInfo(root);
 let extension;
 const artifactDir = resolve(root, 'artifacts');
 const screenshots = resolve(artifactDir, 'screenshots');
@@ -26,7 +28,7 @@ const publicDemoUrl = process.env.PUBLIC_DEMO_URL?.trim() || '';
 await mkdir(screenshots, { recursive: true });
 const report = {
   generatedAt: new Date().toISOString(), status: 'running', browser: null,
-  method: 'Playwright; actual Alpha release ZIP unpacked and loaded in disposable Chrome for Testing profile; localhost fixtures only',
+  method: 'Playwright; configured Alpha release ZIP unpacked and loaded in disposable Chrome for Testing profile; retailer captures use localhost fixtures; optional published demo check uses HTTPS',
   planned: ['extension service worker and local storage', 'sample/real workspace isolation', 'cart add/edit/quantity/save-for-later',
     'exact/possible/mismatch/unknown-cost comparison', 'price-drop/restock observations', 'orders and tracking',
     'financing total and rounding', 'preferences and backup round trip', 'hostile input escaping',
@@ -126,14 +128,14 @@ const triggerToolbar = async (targetPage, extensionId) => {
 
 try {
   await check('The actual Alpha release ZIP unpacks into the Chrome installation root', async () => {
-    const releaseZip = resolve(artifactDir, 'cartscope-alpha-0.1.0.zip');
+    const releaseZip = resolve(root, release.archivePath);
     extension = await mkdtemp(resolve(tmpdir(), 'cartscope-release-under-test-'));
     profiles.push(extension);
     execFileSync('unzip', ['-q', releaseZip, '-d', extension]);
     const manifest = JSON.parse(await readFile(resolve(extension, 'manifest.json'), 'utf8'));
     assert.equal(manifest.manifest_version, 3);
-    assert.equal(manifest.version, '0.1.0');
-    report.release = { path: 'artifacts/cartscope-alpha-0.1.0.zip', version: manifest.version,
+    assert.equal(manifest.version, release.version);
+    report.release = { path: release.archivePath, version: manifest.version,
       sha256: createHash('sha256').update(await readFile(releaseZip)).digest('hex') };
   });
   await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
@@ -153,6 +155,8 @@ try {
 
   await check('Real extension service worker opens an empty local workspace', async () => {
     assert.equal(await page.evaluate(() => chrome.runtime.id), extensionId);
+    assert.equal((await page.locator('.alpha').innerText()).trim(), `ALPHA ${release.version}`);
+    assert.equal(await page.locator('.app-footer a').getAttribute('href'), `https://github.com/qarteu/cartscope/releases/tag/${release.tag}`);
     assert.equal((await state()).products.length, 0);
     assert.equal(await page.locator('#demo-bar').isVisible(), false);
   });
@@ -162,7 +166,7 @@ try {
     assert.equal((await state(true)).products.length, 4);
     assert.equal((await state(false)).products.length, 0);
     await screenshot('cart');
-    await action('edit-product', 'sample-sony'); await heading('Edit your find'); await screenshot('review');
+    await action('edit-product', 'sample-sony'); await heading('Edit item'); await screenshot('review');
     await action('cancel'); await action('compare-product', 'sample-sony'); await heading('Compare prices'); await screenshot('compare');
     assert.match(await page.locator('.best-offer').innerText(), /Best Buy/);
     assert.match(await page.locator('.best-offer .offer-total').innerText(), /302\.39/);
@@ -170,7 +174,7 @@ try {
     await nav('orders'); await heading('Your orders'); await screenshot('orders');
     await nav('compare'); await action('finance'); await heading('Payment planner');
     await submit('finance-form'); await page.locator('#finance-result table').waitFor(); await screenshot('finance');
-    await page.locator('#settings-shortcut').click(); await heading('Make it yours'); await screenshot('settings');
+    await page.locator('#settings-shortcut').click(); await heading('Settings'); await screenshot('settings');
     await action('exit-demo'); await heading('Your cart');
     assert.equal((await state()).products.length, 0);
   });
@@ -187,7 +191,7 @@ try {
     await quantityInput.fill('2'); await quantityInput.dispatchEvent('change');
     await page.waitForFunction(async id => { const response = await chrome.runtime.sendMessage({ type: 'getState' }); return response.state.products.find(p => p.id === id)?.quantity === 2; }, saved.id);
     assert.match(await page.locator('.checkout-card').innerText(), /200\.02/);
-    await action('edit-product', saved.id); await heading('Edit your find');
+    await action('edit-product', saved.id); await heading('Edit item');
     await fill('product-form', { notes: 'Changed during the browser test', savedOnly: true });
     await submit('product-form'); await heading('Your cart');
     assert.equal((await state()).products[0].savedOnly, true);
@@ -220,7 +224,7 @@ try {
 
   await check('Opt-in watches create price-drop and restock alerts from updated observations', async () => {
     const saved = (await state()).products[0];
-    await action('watch-product', saved.id); await heading('Watch this find');
+    await action('watch-product', saved.id); await heading('Watch item');
     await fill('watch-form', { priceDrop: true, restock: true, targetPrice: '35' });
     await submit('watch-form'); await heading('Compare prices');
     const target = (await state()).offers.find(o => o.retailer === 'Cheapest Exact Store');
@@ -260,7 +264,7 @@ try {
   });
 
   await check('Preferences, export, delete, and validated import complete a backup round trip', async () => {
-    await page.locator('#settings-shortcut').click(); await heading('Make it yours');
+    await page.locator('#settings-shortcut').click(); await heading('Settings');
     await fill('settings-form', { taxRate: '7.5', budget: '500', priority: 'pickup' });
     await submit('settings-form');
     assert.equal((await state()).settings.taxRate, 7.5);
@@ -358,7 +362,7 @@ try {
     await previewPage.reload(); await previewPage.locator('#app h1').waitFor();
     assert.equal(await previewPage.locator('[data-quantity="sample-jbl"]').inputValue(), '3');
     await previewPage.locator('#exit-demo').click();
-    await previewPage.locator('#app h2').filter({ hasText: 'A little perspective' }).waitFor();
+    await previewPage.locator('#app h2').filter({ hasText: 'Save your first item' }).waitFor();
     assert.equal(await previewPage.locator('.product-card').count(), 0);
     assert.equal((await state(false)).products.length > 0, true);
     await previewContext.close(); previewContext = null;
@@ -378,6 +382,22 @@ try {
     assert.equal(response.status(), 200);
     report.publicDemo = { url: url.href, status: response.status() };
     const frame = landing.frameLocator('#demo-frame');
+    await frame.locator('#app h1').filter({ hasText: 'Your cart' }).waitFor();
+    const landingBadge = await landing.locator('.logo').innerText();
+    const iframeBadge = await frame.locator('.alpha').innerText();
+    report.publicDemo.landingBadge = landingBadge;
+    report.publicDemo.iframeBadge = iframeBadge;
+    report.publicDemo.landingVersion = landingBadge.match(/ALPHA\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
+    report.publicDemo.iframeVersion = iframeBadge.match(/ALPHA\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
+    assert.equal(report.publicDemo.landingVersion, release.version, `The published landing page is not the configured ${release.version} release`);
+    assert.equal(report.publicDemo.iframeVersion, release.version, `The published iframe is not the configured ${release.version} release`);
+    assert.equal(await frame.locator('.app-footer a').getAttribute('href'), `https://github.com/qarteu/cartscope/releases/tag/${release.tag}`);
+    await frame.locator('#settings-shortcut').click();
+    await frame.locator('#app h1').filter({ hasText: 'Settings' }).waitFor();
+    const about = await frame.locator('.card').filter({ hasText: 'About CartScope' }).innerText();
+    report.publicDemo.aboutVersion = about.match(/Alpha\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
+    assert.equal(report.publicDemo.aboutVersion, release.version, 'The published About section has an outdated release version');
+    await frame.locator('[data-view="cart"]').click();
     await frame.locator('#app h1').filter({ hasText: 'Your cart' }).waitFor();
     assert.equal(await frame.locator('.product-card').count(), 4);
     assert.match(await frame.locator('#demo-bar').innerText(), /sample/i);

@@ -43,5 +43,6 @@ jobs:
             artifacts/screenshots/
             artifacts/browser-results.json
             artifacts/ui-results.json
-            artifacts/cartscope-alpha-0.1.0.zip
+            artifacts/cartscope-alpha-*.zip
+            artifacts/cartscope-alpha-*.zip.sha256
             site/

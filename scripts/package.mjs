@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, relative, resolve } from 'node:path';
 import { validate } from './validate.mjs';
+import { releaseInfo } from './release.mjs';
 
 // ZIP method 0 (stored) keeps packaging dependency-free. Fixed timestamps and
 // sorted paths make the same runtime bytes produce the same release archive.
@@ -61,13 +62,14 @@ function zip(files) {
 }
 
 try {
-  const { root, extension, version, files } = validate();
+  const { root, extension, files } = validate();
+  const release = releaseInfo(root);
   const entries = files.map(path => ({ name: relative(extension, path).replaceAll('\\', '/'), data: readFileSync(path) }));
   if (entries.length >= 65535 || entries.some(file => file.data.length >= 0xffffffff)) throw new Error('Release exceeds basic ZIP format limits');
   const archive = zip(entries);
   const outputDirectory = resolve(root, 'artifacts');
   mkdirSync(outputDirectory, { recursive: true });
-  const outputPath = resolve(outputDirectory, `cartscope-alpha-${version}.zip`);
+  const outputPath = resolve(root, release.archivePath);
   writeFileSync(outputPath, archive);
   const hash = createHash('sha256').update(archive).digest('hex');
   writeFileSync(`${outputPath}.sha256`, `${hash}  ${basename(outputPath)}\n`);

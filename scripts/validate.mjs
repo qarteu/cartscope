@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, realpathSync, statSync } from 'node:fs';
 import { dirname, extname, isAbsolute, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { releaseInfo, releaseNotes } from './release.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const extension = resolve(root, 'extension');
@@ -26,13 +27,12 @@ function localFile(path, base = extension) {
 }
 
 export function validate() {
-  const pkg = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
+  const release = releaseInfo(root);
   const manifest = JSON.parse(readFileSync(resolve(extension, 'manifest.json'), 'utf8'));
   assert.equal(manifest.manifest_version, 3, 'Chrome extension must use Manifest V3');
-  assert.equal(manifest.version, pkg.version, 'Package and manifest versions must match');
-  assert(/^\d+\.\d+\.\d+$/.test(pkg.version), 'Release version must have three numeric components');
+  assert.equal(manifest.version, release.version, 'Package and manifest versions must match');
   assert(manifest.name.includes('CartScope'), 'Manifest must identify CartScope');
-  assert(readFileSync(resolve(root, 'CHANGELOG.md'), 'utf8').includes(`## ${pkg.version}`), 'CHANGELOG must include this release version');
+  releaseNotes(readFileSync(resolve(root, 'CHANGELOG.md'), 'utf8'), release.version);
   assert(Number(manifest.minimum_chrome_version) >= 116, 'Side-panel release must target Chrome 116 or newer');
 
   const permitted = new Set(['activeTab', 'scripting', 'storage', 'sidePanel']);
@@ -93,8 +93,8 @@ export function validate() {
     }
   }
 
-  console.log(`Validated CartScope ${pkg.version}: Manifest V3, local references/scripts, scoped permissions, release version.`);
-  return { root, extension, version: pkg.version, files };
+  console.log(`Validated CartScope ${release.version}: Manifest V3, local references/scripts, scoped permissions, release version.`);
+  return { root, extension, version: release.version, files };
 }
 
 if (process.argv[1] && realpathSync(resolve(process.argv[1])) === realpathSync(fileURLToPath(import.meta.url))) {

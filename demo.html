@@ -1,8 +1,59 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CartScope Alpha · Shopping in perspective</title><link rel="stylesheet" href="demo.css"></head>
-<body><header><a class="logo" href="./"><img src="extension/assets/icon48.png" alt="">CartScope <span>ALPHA 0.1</span></a><a href="https://github.com/qarteu/cartscope">View on GitHub ↗</a></header>
-<main><section class="intro"><p class="eyebrow">ONE CART. A CLEARER PICTURE.</p><h1>Your shopping,<br><em>in perspective.</em></h1><p class="lead">Keep your finds together. Compare the complete cost. Make a decision that works for your budget.</p><div class="actions"><a class="primary" href="https://github.com/qarteu/cartscope/releases/tag/v0.1.0">Get the Chrome Alpha ↗</a><a href="https://github.com/qarteu/cartscope/blob/main/docs/ALPHA_EMAIL.md">Preview invitation & feedback</a></div><p class="note">Explore a working local demo on the right. Sample prices, inventory, and orders are illustrative. Product capture is available in the installed Chrome extension.</p>
-<div class="features"><article><span>01</span><h2>Every find, one place</h2><p>Save products across stores, set a budget, and keep your plans in view.</p></article><article><span>02</span><h2>More than a price tag</h2><p>Compare shipping, estimated tax, discounts, cashback, delivery, and returns.</p></article><article><span>03</span><h2>You decide what matters</h2><p>Rank your checked offers, explore a payment schedule, and watch observed changes.</p></article></div>
-<div class="links"><a href="https://github.com/qarteu/cartscope/releases/tag/v0.1.0">Release notes</a><a href="https://github.com/qarteu/cartscope/blob/main/docs/SPRINT_BOARD.md">Sprint board</a><a href="https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml">Give feedback</a></div></section>
-<section class="demo-stage" aria-label="Interactive CartScope preview"><div class="demo-caption"><span class="dot"></span> INTERACTIVE PREVIEW <span>Local data · no account</span></div><div class="view-buttons" aria-label="Explore the demo"><button data-demo-view="cart" aria-pressed="true">Cart</button><button data-demo-view="compare">Compare</button><button data-demo-view="alerts">Alerts</button><button data-demo-view="orders">Orders</button></div><iframe id="demo-frame" title="CartScope interactive shopping demo" src="extension/sidepanel.html?view=cart"></iframe><p class="demo-note">Everything inside the preview is interactive. Changes stay in this browser. Reset samples in Settings.</p></section></main>
-<footer>CartScope · Kartik Malunjkar, Jake Clevenger & Eashan <span>Alpha 0.1.0 · Built from the UniCart prototype</span></footer><script src="demo.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CartScope's working shopping desk: save products, compare the costs you know, and keep a budget across stores.">
+  <title>CartScope · Shopping desk</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="logo" href="./" aria-label="CartScope home"><img class="brand-mark" src="extension/assets/mark.svg" alt="" width="33" height="33"><strong>CartScope</strong><span class="release-label">ALPHA 0.1.1</span></a>
+    <a class="source-link" href="https://github.com/qarteu/cartscope">Project on GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="shopping-desk">
+    <section class="intro" aria-labelledby="desk-title">
+      <p class="eyebrow"><span class="edition-mark" aria-hidden="true"></span> THE SHOPPING DESK</p>
+      <h1 id="desk-title">Work out<br> what to buy.</h1>
+      <p class="desk-description">Keep the list, compare the costs, and leave a note for later.</p>
+
+      <nav class="view-buttons desk-nav" aria-label="Explore the demo">
+        <button type="button" data-demo-view="cart" aria-pressed="true"><span class="nav-index" aria-hidden="true">01</span><span class="nav-copy"><strong>Saved cart</strong><small>Items, quantities & budget</small></span><span class="nav-arrow" aria-hidden="true">→</span></button>
+        <button type="button" data-demo-view="compare" aria-pressed="false"><span class="nav-index" aria-hidden="true">02</span><span class="nav-copy"><strong>Compare offers</strong><small>The same item, store by store</small></span><span class="nav-arrow" aria-hidden="true">→</span></button>
+        <button type="button" data-demo-view="alerts" aria-pressed="false"><span class="nav-index" aria-hidden="true">03</span><span class="nav-copy"><strong>Price watches</strong><small>Changes you've recorded</small></span><span class="nav-arrow" aria-hidden="true">→</span></button>
+        <button type="button" data-demo-view="orders" aria-pressed="false"><span class="nav-index" aria-hidden="true">04</span><span class="nav-copy"><strong>Order book</strong><small>Status & delivery notes</small></span><span class="nav-arrow" aria-hidden="true">→</span></button>
+      </nav>
+
+      <div class="install-block">
+        <a class="primary" href="https://github.com/qarteu/cartscope/releases/tag/v0.1.1">Install the Chrome alpha <span aria-hidden="true">↗</span></a>
+        <p>Capture product pages with the extension.<br>This desk works with samples and manual entries.</p>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/qarteu/cartscope/releases/tag/v0.1.1">Release notes <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/qarteu/cartscope/blob/main/docs/SPRINT_BOARD.md">Sprint board <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="demo-stage" aria-label="Interactive CartScope preview">
+      <div class="desk-bar"><span class="workspace-label"><span class="status-dot" aria-hidden="true"></span><strong id="workspace-kind">Sample workspace</strong></span><span class="local-label">On this browser</span></div>
+      <iframe id="demo-frame" title="CartScope interactive shopping demo" src="extension/sidepanel.html?view=cart"></iframe>
+      <div class="desk-bottom"><span>Make edits inside the desk.</span><span>Local data · no account</span></div>
+    </section>
+
+    <aside class="desk-notes" aria-labelledby="notes-title">
+      <div class="notes-heading"><span class="note-index">FIELD NOTES / 01</span><h2 id="notes-title">Before checkout.</h2></div>
+      <article class="desk-note"><span class="note-number" aria-hidden="true">1.</span><h3>Check the item.</h3><p>A matching model is a start. Check the color, size, condition, and bundle too.</p></article>
+      <article class="desk-note"><span class="note-number" aria-hidden="true">2.</span><h3>Check the whole cost.</h3><p>Shipping and tax belong in the comparison. A blank shipping cost stays unknown.</p></article>
+      <article class="desk-note"><span class="note-number" aria-hidden="true">3.</span><h3>Keep the useful details.</h3><p>Add a note, check delivery and returns, or open the payment planner before deciding.</p></article>
+
+      <div class="sample-note"><span class="small-label">ABOUT THIS LIST</span><p>Sample prices, stock, and orders are illustrative. Your edits stay in this browser. Export or reset the list in Settings.</p></div>
+      <div class="feedback-note"><span class="small-label">HELP SHAPE THE NEXT SPRINT</span><p>Something missing or awkward? Tell the team where you got stuck.</p><a href="https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml">Leave ratings & a note <span aria-hidden="true">↗</span></a><a class="invitation-link" href="https://github.com/qarteu/cartscope/blob/main/docs/ALPHA_EMAIL.md">Reference-user invitation</a></div>
+    </aside>
+  </main>
+
+  <footer><span>Made by Kartik Malunjkar, Jake Clevenger & Eashan</span><span>CartScope / Alpha 0.1.1</span></footer>
+  <script src="demo.js"></script>
+</body>
+</html>

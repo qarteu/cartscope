@@ -1,8 +1,10 @@
 import {spawnSync} from 'node:child_process';
-import {readFileSync,writeFileSync,mkdtempSync,cpSync,existsSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdtempSync,cpSync,mkdirSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
+import {releaseInfo,releaseNotes} from './release.mjs';
 const repo='qarteu/cartscope';
+const release=releaseInfo();
 const prepareOnly=process.argv.includes('--prepare');
 const run=(command,args,options={})=>{
   const result=spawnSync(command,args,{encoding:'utf8',env:authEnv,...options});
@@ -53,10 +55,24 @@ const pages=spawnSync('gh',['api',`repos/${repo}/pages`],{encoding:'utf8',env:au
 if(pages.status!==0)run('gh',['api',`repos/${repo}/pages`,'--silent','--method','POST','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
 else if(JSON.parse(pages.stdout).source?.branch!=='gh-pages'||JSON.parse(pages.stdout).source?.path!=='/')run('gh',['api',`repos/${repo}/pages`,'--silent','--method','PUT','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
 if(!prepareOnly){
-  if(spawnSync('git',['rev-parse','v0.1.0'],{encoding:'utf8'}).status!==0)run('git',['tag','-a','v0.1.0','-m','CartScope Alpha 0.1.0']);
-  git(['push','origin','v0.1.0']);
-  const existingRelease=spawnSync('gh',['release','view','v0.1.0','--repo',repo],{encoding:'utf8',env:authEnv});
-  if(existingRelease.status!==0)run('gh',['release','create','v0.1.0','--repo',repo,'--title','CartScope Alpha 0.1.0','--prerelease','--notes-file','CHANGELOG.md','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
-  else run('gh',['release','upload','v0.1.0','--repo',repo,'--clobber','artifacts/cartscope-alpha-0.1.0.zip','artifacts/cartscope-alpha-0.1.0.zip.sha256']);
+  const existingRelease=spawnSync('gh',['release','view',release.tag,'--repo',repo],{encoding:'utf8',env:authEnv});
+  if(existingRelease.status!==0){
+    const existingTag=spawnSync('git',['rev-parse','--verify',`refs/tags/${release.tag}^{commit}`],{encoding:'utf8'});
+    if(existingTag.status!==0)run('git',['tag','-a',release.tag,'-m',release.title]);
+    else if(existingTag.stdout.trim()!==run('git',['rev-parse','HEAD']))throw new Error(`${release.tag} already points to another commit. Existing tags are immutable; use a new release version.`);
+    git(['push','origin',release.tag]);
+    const notesFile=join(directory,'release-notes.md');
+    writeFileSync(notesFile,releaseNotes(readFileSync('CHANGELOG.md','utf8'),release.version));
+    run('gh',['release','create',release.tag,'--repo',repo,'--title',release.title,'--prerelease','--verify-tag','--notes-file',notesFile,release.archivePath,release.checksumPath]);
+  }else{
+    // A repeated publish may verify a release, but cannot replace its bytes.
+    const assets=join(directory,'existing-release');mkdirSync(assets);
+    run('gh',['release','download',release.tag,'--repo',repo,'--pattern',release.archiveName,'--pattern',`${release.archiveName}.sha256`,'--dir',assets]);
+    for(const path of [release.archivePath,release.checksumPath]){
+      const filename=path.split('/').at(-1);
+      if(!readFileSync(path).equals(readFileSync(join(assets,filename))))throw new Error(`${release.tag} already contains different ${filename} bytes. Existing releases are immutable; use a new release version.`);
+    }
+    console.log(`Verified unchanged existing release ${release.tag}; no release assets or notes were overwritten.`);
+  }
 }
-console.log(`Repository: https://github.com/${repo}\nRelease: https://github.com/${repo}/releases/tag/v0.1.0\nIssue tracker: https://github.com/${repo}/issues\nDemo: https://qarteu.github.io/cartscope/ (Pages build may take a few minutes)`);
+console.log(`Repository: https://github.com/${repo}\nRelease: https://github.com/${repo}/releases/tag/${release.tag}\nIssue tracker: https://github.com/${repo}/issues\nDemo: https://qarteu.github.io/cartscope/ (Pages build may take a few minutes)`);

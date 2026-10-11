@@ -1,66 +1,60 @@
-# Preview alpha announcement — ready-to-personalize draft
+# CartScope Alpha invitation
 
-**Delivery status:** Draft. No messages have been sent by this project. The team must fill the recipient roster, confirm participation, send the messages, and record the actual send dates in `REFERENCE_USERS.csv`. Do not present this draft as a sent announcement.
+**Status: draft — not sent.** Personalize one copy for each consenting reference user. Participant slots are still unassigned; record actual invitation dates only after sending. Keep contacts and delivery evidence private.
 
-**To:** One agreed reference user per message, using the contact recorded for their assigned ID.
-
-**Subject:** Try CartScope Alpha 0.1.0 — help us improve shopping across stores
+**To:** [agreed participant's private email address]<br>
+**Subject:** Try our CartScope Alpha and tell us what needs fixing
 
 Hi [first name],
 
-We're inviting you to preview CartScope, a Chrome extension that keeps saved products from different stores together, helps you compare offers you record, and gives you a place for your shopping budget and order notes. Your reference-test ID is **[R01–R10]**. Thank you for helping us test this early release.
+We're ready for you to try CartScope Alpha 0.1.1. It keeps products from different stores in one Chrome panel so you can compare offers you've checked and keep track of your budget. Your reference-user ID is **[R01–R10]**.
 
-**Download:** https://github.com/qarteu/cartscope/releases/tag/v0.1.0
+[Download the extension and read the release notes](https://github.com/qarteu/cartscope/releases/tag/v0.1.1) · [Source and instructions](https://github.com/qarteu/cartscope) · [Browser demo](https://qarteu.github.io/cartscope/)
 
-**Release notes and source:** https://github.com/qarteu/cartscope
+To install it in Chrome:
 
-**Browser demo:** https://qarteu.github.io/cartscope/
+1. Download **cartscope-alpha-0.1.1.zip** from the release page and unzip it into a folder you'll keep.
+2. Open `chrome://extensions`, enable **Developer mode**, and select **Load unpacked**.
+3. Choose the unzipped folder containing `manifest.json`. Pin CartScope in Chrome's Extensions menu.
+4. Open a product page, click CartScope's toolbar icon, and select **Capture this page**. Check the details before saving.
 
-**Install in Chrome:**
+Use Chrome 116 or newer. Your shopping records stay on your device. You can export or delete them in Settings, and remove the extension at `chrome://extensions`. Please leave personal order and payment information out of your test notes.
 
-1. On the release page, download **cartscope-alpha-0.1.0.zip** and unzip it to a folder you will keep.
-2. Open `chrome://extensions`, turn on **Developer mode**, and click **Load unpacked**.
-3. Choose the unzipped folder containing `manifest.json` directly. Pin CartScope from the Extensions menu.
-4. Open a retailer product page and click CartScope to open its side panel. Review captured details before saving.
+Please try these tasks:
 
-Use Chrome 116 or newer. You can remove the preview at any time from `chrome://extensions`. The extension stores shopping records locally on your device. Please avoid using sensitive information in order notes while testing.
+- Capture and save an item. Correct any details that came through incorrectly.
+- Save something from another store, change a quantity, and set a budget.
+- Add a checked offer for the same model and variant, then compare the total and delivery details.
+- Set a watch and capture or update the same offer again. If its price or stock changed, check the resulting alert. You can also try a price change in the labeled sample workspace.
+- Enter an order manually, update its status, and check its tracking link.
+- Try the payment calculator and export a backup.
 
-The browser demo uses labeled samples and browser-local storage; active-tab capture requires the installed extension. No AWS setup is needed. If you only test the browser demo, mark installation and active-tab capture tasks as not attempted and identify browser-demo mode in your feedback.
+The [full task sheet](https://github.com/qarteu/cartscope/blob/main/docs/FEEDBACK_PLAN.md) explains what to record. The browser demo works without installation, but it cannot capture your shopping tab or deliver Chrome notifications. If you use it, select browser-demo mode and mark installation/capture as not attempted.
 
-**Please try these tasks:**
+This version compares information you capture or enter. It does not automatically search retailers, check prices while you're away, update shipments, or complete checkout. Sample prices and alerts are examples. Confirm actual stock and final charges with the retailer.
 
-- Capture and save a product, correcting any inaccurate details.
-- Save a second product from another store, change a quantity, and set a budget.
-- Add another offer for the same model and variant, then compare costs and delivery information.
-- Turn on a watch and capture the same product again. If its actual price or availability has changed, check the resulting observation and notification. You can use the labeled demo data to explore a changed-price example.
-- Add a sample order manually, update its status, and inspect its tracking information.
-- Try the installment calculator and export a data backup.
+Please send feedback through the [Alpha feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml), or reply to this email if you prefer a private response or don't have a GitHub account. Include:
 
-The alpha does not automatically search every retailer, poll stores for changes, track shipments live, or complete checkout. Comparisons and order records use information you enter or capture. Sample products and alerts are demonstrations, and actual retailer checkout remains the source of final costs.
+- Your reference ID and whether you tested the extension or browser demo.
+- Which tasks you completed, failed, or skipped, and how long each took.
+- Ratings from 1 to 5 for ease, clarity, usefulness, and confidence in the information, using the task sheet's scales.
+- What confused you, what was missing, and the one change you'd want us to make next.
 
-**Send quantitative and written feedback here:**
+If something breaks, include your Chrome version, operating system, and the step where it happened. Please keep names, addresses, payment details, and personal order numbers out of public GitHub issues. An unsuccessful task is useful feedback too.
 
-https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml
-
-The form asks for your reference ID; completion, time taken, and problems for each task; and 1–5 ratings for ease of use, clarity, usefulness, and confidence in the displayed information. It also asks what confused you, which information was missing, and the most valuable improvement for the next sprint. A blocked or unsuccessful task is useful feedback, too.
-
-If you prefer a private response or do not have a GitHub account, reply to this email with the same answers. Please do not put your name, address, payment information, personal order numbers, or other sensitive data into a public GitHub issue. The full task instructions and rating definitions are at:
-
-https://github.com/qarteu/cartscope/blob/main/docs/FEEDBACK_PLAN.md
-
-Please send your feedback by **October 18, 2026 at 5:00 PM Pacific** (suggested Alpha feedback deadline; adjust before sending if needed). Let us know your Chrome version and operating system if something fails. If installation fails, a description of the step and the visible error is enough; include a screenshot only if it contains no sensitive information.
+Please reply by **[date and time, Pacific]**.
 
 Thanks,
 
-Kartik Malunjkar on behalf of the CartScope team  
-Kartik, Jake Clevenger, and Eashan
+Kartik Malunjkar<br>
+CartScope team — Kartik, Jake Clevenger, and Eashan
 
 ---
 
-## Sender checklist
+## Before sending
 
-- Verify the repository and release links resolve and the ZIP installs before sending.
-- Assign one unique reference ID and record a consenting participant's contact in a private team roster. The committed CSV uses IDs only.
-- Replace the name, reference ID, deadline, and sender fields; send to each agreed participant individually.
-- Record `invited_at`, then `response_received_at` when feedback arrives. Keep delivery evidence private.
-- Move the participant/release tasks in the issue tracker only after the corresponding actions happen.
+- Confirm participation and assign the recipient's unique R01–R10 ID.
+- Verify the release links and ZIP installation instructions.
+- Replace the recipient, ID, and deadline. Send individually through the team's authorized email account.
+- Record `invited_at` and later `response_received_at` in `REFERENCE_USERS.csv`; retain private delivery evidence.
+- Update recruitment, sending, and feedback tasks only after each action happens.

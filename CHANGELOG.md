@@ -1,5 +1,35 @@
 # Release notes
 
+## 0.1.1 · Alpha design refinement
+
+CartScope now uses an original shopping-desk layout: warm paper, forest-green controls, a custom focus-and-cart mark, and compact product records. This patch keeps the working local Alpha flows while replacing generic headings and introducing a more useful demo workspace.
+
+### Changes
+
+- Redesigned the side panel and responsive browser demo with clearer navigation, readable cost breakdowns, and a visible item budget.
+- Updated empty states, labels, and instructions to describe what each action does.
+- Kept capture-and-review, a persistent universal cart, strict product matching, true-cost ranking, pickup/delivery/returns preferences, observation-based alerts, manual orders, financing schedules, and JSON backups.
+- Added version-derived packaging and release commands. Existing release tags and ZIP assets cannot be overwritten by the publisher.
+- Added a Canvas submission summary and a report that connects features to automated checks and genuine Chrome screenshots.
+
+### Install and use
+
+1. Download `cartscope-alpha-0.1.1.zip` from this release and extract it.
+2. Open `chrome://extensions` in Chrome 116 or newer, enable **Developer mode**, select **Load unpacked**, and choose the extracted folder containing `manifest.json`.
+3. Pin CartScope. Open a retailer product page and click its toolbar icon to grant temporary access to that page. In the side panel, choose **Capture this page**, review the product and variant, and save it. You can also add an item manually.
+4. Open **Compare**, capture another store’s matching product or add a checked offer, then review shipping, tax, discounts, membership costs, cashback, and the payable-now total. Choose lowest cost, delivery, pickup, or returns as your priority.
+5. Use **Explore sample workspace** for a repeatable demonstration. Its prices, stock, and orders are illustrative and are separate from your real workspace. Use **Settings** to export a backup or reset sample data.
+
+For a quick look without installing, open the [browser demo](https://qarteu.github.io/cartscope/). The demo uses local browser storage; capturing a product page requires the installed extension. See the [README](https://github.com/qarteu/cartscope/blob/v0.1.1/README.md) for the complete walkthrough and [test methods](https://github.com/qarteu/cartscope/blob/v0.1.1/docs/VERIFICATION.md) for verification details.
+
+### Alpha limits
+
+Offers are captured from supported product-page markup or entered by the shopper. There is no live retailer catalog, automatic background polling, carrier feed, provider financing account, cloud synchronization, or automatic checkout. Tax is an estimate; unknown shipping and membership costs leave a total incomplete. Watches evaluate on a new capture or offer update. Order status is entered manually. Sample data is always labeled.
+
+### Feedback
+
+Follow the [reference-user task protocol](https://github.com/qarteu/cartscope/blob/v0.1.1/docs/FEEDBACK_PLAN.md), recording task completion, time, and 1–5 ratings, then add written observations to the [Alpha feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml). Use a reference ID and avoid posting private order or payment details. The invitation is prepared as an [email template](https://github.com/qarteu/cartscope/blob/v0.1.1/docs/ALPHA_EMAIL.md); the ten-user send is pending contact details. Progress and next-sprint stories are on the [sprint board](https://github.com/qarteu/cartscope/blob/main/docs/SPRINT_BOARD.md).
+
 ## 0.1.0 · Preview alpha
 
 This locally installed Chrome extension implements CartScope's first shopping workflow. It follows the review-item, cart, comparison, notifications, and orders screens in the UniCart prototype, with explicit labels for observations and sample data.

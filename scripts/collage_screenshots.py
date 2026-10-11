@@ -16,6 +16,7 @@ import shutil
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
+RELEASE_VERSION = json.loads((ROOT / "package.json").read_text())["version"]
 VIEWS = ["cart", "review", "compare", "notifications", "orders", "finance", "settings"]
 EXTRA_VIEWS = ["landing-desktop", "landing-mobile"]
 MAIN_VIEWS = ["review", "cart", "compare", "notifications", "orders"]
@@ -53,21 +54,21 @@ def create_collage(views: Path, output: Path, *, panel_width: int | None = None,
     maximum = max(image.height for image in images)
     width = padding * 2 + len(MAIN_VIEWS) * card_width + (len(MAIN_VIEWS) - 1) * gap
     height = 205 + maximum + 95
-    canvas = Image.new("RGB", (width, height), "#0f1b31")
+    canvas = Image.new("RGB", (width, height), "#f5f1e8")
     draw = ImageDraw.Draw(canvas)
-    draw.text((padding, 34), "CartScope", font=font(45, True), fill="#ffffff")
-    draw.rounded_rectangle((padding + 245, 42, padding + 368, 74), radius=8, fill="#263f68")
-    draw.text((padding + 259, 49), "ALPHA 0.1.0", font=font(17, True), fill="#b9cfff")
-    draw.text((padding, 96), "Your shopping, in perspective.", font=font(22), fill="#b7c6df")
-    draw.text((padding, 130), caption, font=font(16), fill="#8195b6")
+    draw.text((padding, 34), "CartScope", font=font(45, True), fill="#202b25")
+    draw.rounded_rectangle((padding + 245, 42, padding + 368, 74), radius=8, fill="#2b5745")
+    draw.text((padding + 259, 49), f"ALPHA {RELEASE_VERSION}", font=font(17, True), fill="#f5f1e8")
+    draw.text((padding, 96), "A shopping desk, from product page to checkout.", font=font(22), fill="#465d4a")
+    draw.text((padding, 130), caption, font=font(16), fill="#758077")
     for index, (name, image) in enumerate(zip(MAIN_VIEWS, images)):
         x, y = padding + index * (card_width + gap), 205
-        draw.text((x, 171), LABELS[name], font=font(18, True), fill="#d4e3fa")
+        draw.text((x, 171), LABELS[name], font=font(18, True), fill="#2b5745")
         canvas.paste(image, (x, y))
         # Frame is outside the screenshot's pixel rectangle.
-        draw.rectangle((x-1, y-1, x+card_width, y+image.height), outline="#344a6a", width=1)
-    draw.text((padding, height - 58), "Local-first Chrome extension + static browser demo · No AWS setup required", font=font(18), fill="#c1d1e9")
-    draw.text((padding, height - 30), footnote, font=font(14), fill="#8195b6")
+        draw.rectangle((x-1, y-1, x+card_width, y+image.height), outline="#d9ded3", width=1)
+    draw.text((padding, height - 58), "Local-first Chrome extension + static browser demo · No AWS setup required", font=font(18), fill="#465d4a")
+    draw.text((padding, height - 30), footnote, font=font(14), fill="#758077")
     canvas.save(output)
 
 
