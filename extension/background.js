@@ -1,9 +1,14 @@
 import {normalizeProduct, safeUrl, deriveAlert} from './lib/core.js';
 import {emptyState, sampleState, defaults} from './lib/samples.js';
 
-chrome.sidePanel.setPanelBehavior({openPanelOnActionClick:true}).catch(console.error);
+// Native panel toggling skips Chrome's activeTab grant. Handle the toolbar
+// action normally, then open the panel while the click gesture is active.
+chrome.sidePanel.setPanelBehavior({openPanelOnActionClick:false}).catch(console.error);
+chrome.action.onClicked.addListener(tab=>{
+  if(Number.isInteger(tab.windowId))chrome.sidePanel.open({windowId:tab.windowId}).catch(console.error);
+});
 chrome.runtime.onInstalled.addListener(async()=>{
-  await chrome.sidePanel.setPanelBehavior({openPanelOnActionClick:true});
+  await chrome.sidePanel.setPanelBehavior({openPanelOnActionClick:false});
   await chrome.storage.local.setAccessLevel({accessLevel:'TRUSTED_CONTEXTS'});
 });
 let queue=Promise.resolve();

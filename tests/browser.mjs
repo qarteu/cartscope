@@ -22,6 +22,7 @@ let extension;
 const artifactDir = resolve(root, 'artifacts');
 const screenshots = resolve(artifactDir, 'screenshots');
 const fixtureDir = resolve(root, 'tests/fixtures');
+const publicDemoUrl = process.env.PUBLIC_DEMO_URL?.trim() || '';
 await mkdir(screenshots, { recursive: true });
 const report = {
   generatedAt: new Date().toISOString(), status: 'running', browser: null,
@@ -47,7 +48,7 @@ const server = createServer(async (request, response) => {
     response.end(content);
   } catch { response.writeHead(404); response.end('Not found'); }
 });
-let context, previewContext, page, productPage;
+let context, previewContext, page, productPage, failurePage;
 const profiles = [];
 const pageErrors = [];
 const check = async (name, action) => {
@@ -301,7 +302,13 @@ try {
     await productPage.bringToFront();
     const ungranted = await message({ type: 'capture' });
     assert.equal(ungranted.ok, false, 'Capture must fail before the toolbar grants activeTab');
+    report.captureDiagnostics = { beforeToolbar: ungranted };
     await triggerToolbar(productPage, extensionId);
+    report.captureDiagnostics.activeTabs = await page.evaluate(async () =>
+      (await chrome.tabs.query({ active: true, currentWindow: true })).map(tab => ({ id: tab.id, url: tab.url, windowId: tab.windowId })));
+    const granted = await message({ type: 'capture' });
+    report.captureDiagnostics.afterToolbar = granted;
+    assert.equal(granted.ok, true, `Capture after the real toolbar action failed: ${granted.error}`);
     await page.evaluate(() => document.querySelector('[data-action="capture"]').click());
     await heading('Review item');
     assert.equal(await page.locator('#product-form [name="name"]').inputValue(), 'Fixture Headphones');
@@ -357,12 +364,59 @@ try {
     await previewContext.close(); previewContext = null;
   });
 
+  if (publicDemoUrl) await check('Published landing page serves an interactive sample preview with persistent local edits', async () => {
+    const url = new URL(publicDemoUrl);
+    assert.equal(url.protocol, 'https:', 'The public demo must use HTTPS');
+    const profile = await mkdtemp(resolve(tmpdir(), 'cartscope-public-demo-browser-')); profiles.push(profile);
+    previewContext = await playwright.chromium.launchPersistentContext(profile, {
+      channel: 'chromium', headless: true, viewport: { width: 1440, height: 1080 }
+    });
+    const landing = await previewContext.newPage();
+    failurePage = landing;
+    landing.on('pageerror', error => pageErrors.push(error.message));
+    const response = await landing.goto(url.href);
+    assert.equal(response.status(), 200);
+    report.publicDemo = { url: url.href, status: response.status() };
+    const frame = landing.frameLocator('#demo-frame');
+    await frame.locator('#app h1').filter({ hasText: 'Your cart' }).waitFor();
+    assert.equal(await frame.locator('.product-card').count(), 4);
+    assert.match(await frame.locator('#demo-bar').innerText(), /sample/i);
+    assert.equal(await landing.locator('a[href="https://github.com/qarteu/cartscope"]').count(), 1);
+    await frame.locator('#toast').waitFor({ state: 'hidden', timeout: 7000 });
+    await landing.screenshot({ path: resolve(screenshots, 'landing-desktop.png'), fullPage: true, animations: 'disabled' });
+    report.screenshots.push('artifacts/screenshots/landing-desktop.png');
+
+    await frame.locator('[data-quantity="sample-jbl"]').fill('2');
+    await frame.locator('[data-quantity="sample-jbl"]').dispatchEvent('change');
+    await landing.waitForFunction(() => JSON.parse(document.querySelector('#demo-frame').contentWindow.localStorage
+      .getItem('cartscope:sampleWorkspace'))?.products.find(product => product.id === 'sample-jbl')?.quantity === 2);
+    await landing.reload();
+    await frame.locator('#app h1').filter({ hasText: 'Your cart' }).waitFor();
+    assert.equal(await frame.locator('[data-quantity="sample-jbl"]').inputValue(), '2');
+    for (const [view, title] of [['compare', 'Compare prices'], ['alerts', 'Notifications'], ['orders', 'Your orders'], ['cart', 'Your cart']]) {
+      await landing.locator(`[data-demo-view="${view}"]`).click();
+      await frame.locator('#app h1').filter({ hasText: title }).waitFor();
+      assert.equal(await landing.locator(`[data-demo-view="${view}"]`).getAttribute('aria-pressed'), 'true');
+    }
+    await landing.setViewportSize({ width: 390, height: 844 });
+    const layout = await landing.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, width: innerWidth }));
+    report.publicDemo.mobileLayout = layout;
+    await frame.locator('#toast').waitFor({ state: 'hidden', timeout: 7000 });
+    await landing.screenshot({ path: resolve(screenshots, 'landing-mobile.png'), fullPage: true, animations: 'disabled' });
+    report.screenshots.push('artifacts/screenshots/landing-mobile.png');
+    assert.ok(layout.scrollWidth <= layout.width + 1, `Published mobile landing page overflows: ${JSON.stringify(layout)}`);
+    await previewContext.close(); previewContext = null;
+    failurePage = null;
+  });
+  else report.limitations.push('The published landing page was not tested because PUBLIC_DEMO_URL was not set.');
+
   await check('No uncaught JavaScript errors occurred', async () => assert.deepEqual(pageErrors, []));
   report.status = 'passed';
 } catch (error) {
   if (report.status !== 'blocked') report.status = 'failed';
   if (!report.errors.length) report.errors.push({ stage: 'integration', message: error.message, stack: error.stack });
-  if (page && !page.isClosed()) await page.screenshot({ path: resolve(screenshots, 'failure.png'), fullPage: true }).catch(() => {});
+  const evidence = failurePage || page;
+  if (evidence && !evidence.isClosed()) await evidence.screenshot({ path: resolve(screenshots, 'failure.png'), fullPage: true }).catch(() => {});
   console.error(`${report.status.toUpperCase()}: ${error.message}`);
   process.exitCode = 1;
 } finally {

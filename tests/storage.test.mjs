@@ -6,14 +6,22 @@ import { sampleState } from '../extension/lib/samples.js';
 // Use the production message consumer and isolate Chrome storage semantics:
 // reads and writes return copies, so a rejected operation cannot mutate storage.
 let messageListener;
+let actionListener;
+let installedListener;
+const panelBehaviorCalls = [];
+const openedPanels = [];
 let persisted = {};
 globalThis.chrome = {
   runtime: {
     id: 'cartscope-storage-test',
-    onInstalled: { addListener() {} },
+    onInstalled: { addListener(listener) { installedListener = listener; } },
     onMessage: { addListener(listener) { messageListener = listener; } }
   },
-  sidePanel: { setPanelBehavior: async () => {} },
+  action: { onClicked: { addListener(listener) { actionListener = listener; } } },
+  sidePanel: {
+    setPanelBehavior: async options => { panelBehaviorCalls.push(structuredClone(options)); },
+    open: async options => { openedPanels.push(structuredClone(options)); }
+  },
   storage: {
     local: {
       get: async key => structuredClone({ [key]: persisted[key] }),
@@ -60,7 +68,21 @@ async function expectRejected(message) {
   return response;
 }
 
-beforeEach(() => { persisted = {}; });
+beforeEach(() => { persisted = {}; openedPanels.length = 0; });
+
+test('toolbar click opens the clicked window panel synchronously after native action behavior is disabled', async () => {
+  assert.equal(typeof actionListener, 'function', 'The extension must own the toolbar click handler.');
+  assert.ok(panelBehaviorCalls.length > 0);
+  assert.ok(panelBehaviorCalls.every(options => options.openPanelOnActionClick === false),
+    'Native panel opening bypasses the action event needed for the activeTab grant.');
+  actionListener({ id: 42, windowId: 7, url: 'https://shop.example.com/products/headphones' });
+  assert.deepEqual(openedPanels, [{ windowId: 7 }],
+    'Opening must happen within the click callback before an awaited operation can lose the user gesture.');
+  assert.equal(typeof installedListener, 'function');
+  await installedListener();
+  assert.equal(panelBehaviorCalls.at(-1).openPanelOnActionClick, false,
+    'Installing or updating the extension must retain the explicit toolbar action.');
+});
 
 test('quantity changes reject fractions and preserve the existing cart', async () => {
   await save();

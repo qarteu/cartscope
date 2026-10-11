@@ -29,6 +29,8 @@ jobs:
       - name: Install Chrome for Testing and system dependencies
         run: npx playwright install --with-deps chromium
       - name: Test the installed extension in Chrome
+        env:
+          PUBLIC_DEMO_URL: https://qarteu.github.io/cartscope/
         run: npm run test:browser
       - name: Upload verification evidence and release artifacts
         if: always()

@@ -14,7 +14,7 @@ We're inviting you to preview CartScope, a Chrome extension that keeps saved pro
 
 **Release notes and source:** https://github.com/qarteu/cartscope
 
-**Browser demo:** https://qarteu.github.io/cartscope/ (for a quick preview after the site has been published)
+**Browser demo:** https://qarteu.github.io/cartscope/
 
 **Install in Chrome:**
 

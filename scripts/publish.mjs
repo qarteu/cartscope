@@ -49,8 +49,8 @@ const pagesGit=args=>run('git',['-C',pagesDir,...args]);
 pagesGit(['init','-b','gh-pages']);pagesGit(['config','user.name','Kartik Malunjkar']);pagesGit(['config','user.email','qarteu@users.noreply.github.com']);pagesGit(['add','.']);pagesGit(['commit','-m','Deploy CartScope Alpha browser demo']);pagesGit(['remote','add','origin',`https://github.com/${repo}.git`]);
 run('git',['-C',pagesDir,'-c','credential.helper=','-c','credential.helper=!gh auth git-credential','push','--force','origin','gh-pages']);
 const pages=spawnSync('gh',['api',`repos/${repo}/pages`],{encoding:'utf8',env:authEnv});
-if(pages.status!==0)run('gh',['api',`repos/${repo}/pages`,'--method','POST','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
-else run('gh',['api',`repos/${repo}/pages`,'--method','PUT','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
+if(pages.status!==0)run('gh',['api',`repos/${repo}/pages`,'--silent','--method','POST','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
+else if(JSON.parse(pages.stdout).source?.branch!=='gh-pages'||JSON.parse(pages.stdout).source?.path!=='/')run('gh',['api',`repos/${repo}/pages`,'--silent','--method','PUT','-f','build_type=legacy','-f','source[branch]=gh-pages','-f','source[path]=/']);
 if(!prepareOnly){
   if(spawnSync('git',['rev-parse','v0.1.0'],{encoding:'utf8'}).status!==0)run('git',['tag','-a','v0.1.0','-m','CartScope Alpha 0.1.0']);
   git(['push','origin','v0.1.0']);
