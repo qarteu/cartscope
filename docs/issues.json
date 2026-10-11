@@ -3,7 +3,7 @@
     "title": "[CS-01] Capture and review the viewed product",
     "label": "alpha",
     "status": "done",
-    "body": "As a shopper, I want to review a product captured from the active page so I save the intended item.\n\nImplemented: user-initiated extraction; editable name, price, retailer, identifiers, variant and condition; captured image or placeholder; manual fallback; scoped activeTab access. Fixture and DOM tests are recorded in docs/VERIFICATION.md. Real Chrome installation and current retailer markup remain REL-01 / CS-11 gates; closing this implementation story does not claim those checks passed."
+    "body": "As a shopper, I want to review a product captured from the active page so I save the intended item.\n\nImplemented: user-initiated extraction; editable name, price, retailer, identifiers, variant and condition; captured image or placeholder; manual fallback; scoped activeTab access. Fixture and DOM tests are recorded in docs/VERIFICATION.md. The actual Alpha ZIP, toolbar activeTab grant and fixture capture passed in real Chrome under REL-01. Current live retailer markup remains the CS-11 field gate."
   },
   {
     "title": "[CS-02] Universal saved cart and budget",
@@ -27,7 +27,7 @@
     "title": "[CS-05] Watched price-drop and restock alerts",
     "label": "alpha",
     "status": "done",
-    "body": "As a shopper, I want watched changes surfaced when I capture an item again so I can act on new information.\n\nImplemented: opted-in price targets and restock watches; transition detection on new captures or offer edits; in-app notifications; optional Chrome desktop notification permission. Core, storage and DOM tests cover observed transitions. OS notification delivery remains REL-01; unattended polling remains CS-14."
+    "body": "As a shopper, I want watched changes surfaced when I capture an item again so I can act on new information.\n\nImplemented: opted-in price targets and restock watches; transition detection on new captures or offer edits; in-app notifications; optional Chrome desktop notification permission. Core, storage and DOM tests cover observed transitions. Native OS notification delivery remains platform field scope under CS-19; unattended polling remains CS-14."
   },
   {
     "title": "[CS-06] Manual order records and tracking links",
@@ -45,7 +45,7 @@
     "title": "[CS-08] Local data controls",
     "label": "alpha",
     "status": "done",
-    "body": "As a shopper, I want control of my data so I can back it up or remove it.\n\nImplemented: JSON export/import, schema and ID validation, atomic rejection of malformed imports, preserved links/observations, historical alert messages not replayed, notifications disabled after import, and confirmed deletion. Sample backups cannot enter the real workspace. Storage and DOM checks are recorded in docs/VERIFICATION.md; actual browser downloads remain REL-01."
+    "body": "As a shopper, I want control of my data so I can back it up or remove it.\n\nImplemented: JSON export/import, schema and ID validation, atomic rejection of malformed imports, preserved links/observations, historical alert messages not replayed, notifications disabled after import, and confirmed deletion. Sample backups cannot enter the real workspace. Storage and DOM checks are recorded in docs/VERIFICATION.md; actual Chrome backup export/import and browser downloads passed under REL-01."
   },
   {
     "title": "[CS-09] Isolated illustrative sample workspace",
@@ -63,7 +63,7 @@
     "title": "[CS-21] Static browser demo",
     "label": "alpha",
     "status": "done",
-    "body": "As a reviewer, I want a browser demo so I can explore CartScope without installing it.\n\nImplemented: the same static interface and production state consumer using browser localStorage; labeled sample mode and manual entry; extension-only capture/desktop notifications clearly explained; no AWS setup. Local demo build and DOM flows are recorded in docs/VERIFICATION.md. Public hosting and browser smoke testing remain REL-08."
+    "body": "As a reviewer, I want a browser demo so I can explore CartScope without installing it.\n\nImplemented: the same static interface and production state consumer using browser localStorage; labeled sample mode and manual entry; extension-only capture/desktop notifications clearly explained; no AWS setup. Local demo build and DOM flows are recorded in docs/VERIFICATION.md. Public GitHub Pages hosting and real Chrome navigation/persistence checks passed under REL-08."
   },
   {
     "title": "[CS-11] Validate capture on reference users’ stores",
@@ -140,8 +140,8 @@
   {
     "title": "[REL-03] Publish Alpha v0.1.0 ZIP and release notes",
     "label": "release",
-    "status": "planned",
-    "body": "Create v0.1.0 at the verified source commit; publish release notes with installation/use instructions and known limits; attach cartscope-alpha-0.1.0.zip and SHA-256 checksum. Verify release/tag references, downloaded asset contents/checksum and installation evidence from REL-01. Proposed owner: Kartik. Close only after publication and the specified evidence are recorded."
+    "status": "done",
+    "body": "Published Alpha prerelease v0.1.0 on October 11, 2026: https://github.com/qarteu/cartscope/releases/tag/v0.1.0. Tag source d015b67 contains the tested runtime, instructions, release notes, visuals, and verification records. Downloaded both release assets using gh release download; ZIP checksum matches c8918352c29aadd755dad718e4ec23f237451bcb90514a7e25b1cf53066f7283 and the hosted-tested ZIP byte-for-byte. Independently verified root manifest, version 0.1.0, 17 runtime-only files, valid CRCs, and tag README availability. Browser installation and 16 passed checks are recorded in docs/VERIFICATION.md and https://github.com/qarteu/cartscope/actions/runs/38174277130."
   },
   {
     "title": "[REL-08] Publish and smoke-test the GitHub Pages demo",

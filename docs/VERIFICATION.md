@@ -1,6 +1,6 @@
 # Alpha verification record
 
-Verified October 11, 2026. [GitHub Actions run 38174277130](https://github.com/qarteu/cartscope/actions/runs/38174277130) passed on Ubuntu with **Chrome for Testing 151.0.7922.34**. The tested runtime was commit `cdbe4690ca0fa33ee993eab07556c7d39e8fe308`.
+Verified October 11, 2026. [GitHub Actions run 38174277130](https://github.com/qarteu/cartscope/actions/runs/38174277130) passed on Ubuntu with **Chrome for Testing 151.0.7922.34**. The screenshot run tested runtime commit `cdbe4690ca0fa33ee993eab07556c7d39e8fe308`. The released tag points to `d015b676859685344a0ae00435ff98ce1b192efe`, which contains the same runtime and also passed [release-commit verification](https://github.com/qarteu/cartscope/actions/runs/38174633562).
 
 The actual Alpha ZIP was unpacked into a clean directory and loaded by Chrome in a disposable profile. Its SHA-256 is `c8918352c29aadd755dad718e4ec23f237451bcb90514a7e25b1cf53066f7283`; the local release package matches that tested ZIP byte-for-byte. The browser test uses Chrome's real extension service worker, storage, scripting, toolbar action, and downloads.
 
@@ -16,7 +16,7 @@ The actual Alpha ZIP was unpacked into a clean directory and loaded by Chrome in
 | Static preview persistence and sample isolation | Passed | Fresh browser profile; edits survive reload and remain separate from extension data |
 | Published GitHub Pages demo | Passed | [Live demo](https://qarteu.github.io/cartscope/), HTTPS 200, four iframe navigation views, persisted quantity edits, and 390-pixel mobile layout |
 | Public personal repository | Passed | [qarteu/cartscope](https://github.com/qarteu/cartscope), public source and license |
-| GitHub release and downloaded asset | Publication pending | Complete after publishing the tag/assets and verifying their downloaded bytes |
+| GitHub release and downloaded asset | Passed | [Alpha v0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0); downloaded ZIP/checksum match the tested package; 17 runtime files, root manifest and CRCs verified |
 | Live retailer field validation and ten reference users | Pending | [Feedback plan](FEEDBACK_PLAN.md); automated fixtures are not reference-user results |
 
 The [Chrome report](CHROME_TEST_RESULTS.json) records all 16 checks, browser version, ZIP checksum, pre/post-toolbar capture responses, public demo response, and screenshot paths. The [DOM report](UI_TEST_RESULTS.json) separately records 12 application-flow checks using the actual UI, preview adapter, and background service. These are different test methods, not additional usability participants.

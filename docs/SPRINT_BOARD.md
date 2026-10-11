@@ -1,6 +1,6 @@
 # CartScope sprint board
 
-This repository board is an issue-tracker equivalent for the alpha submission. It records implemented scope, release gates, and the next sprint's user stories. [Issue records](issues.json) seed the matching GitHub issues at publication. Linked issues provide the discussion and feedback history once published. No existing external Trello URL was verified in the inspected CartScope files/chats; reconcile an existing board if the team supplies it.
+This repository board is an issue-tracker equivalent for the alpha submission. It records implemented scope, release gates, and the next sprint's user stories. [Issue records](issues.json) seed the matching GitHub issues at publication. Linked GitHub issues provide the discussion and feedback history. No existing external Trello URL was verified in the inspected CartScope files/chats; reconcile an existing board if the team supplies it.
 
 **Release:** Alpha 0.1.0  
 **Team:** Kartik Malunjkar, Jake Clevenger, Eashan  
@@ -22,7 +22,7 @@ This repository board is an issue-tracker equivalent for the alpha submission. I
 | CS-07 | Built | As a shopper, I want to estimate installment costs so I understand entered financing terms. | Amount, payment count, fees, interest amount, first date, and interval; payment schedule and total; late fee separate; no invented APR or provider offer. |
 | CS-08 | Built | As a shopper, I want control of my data so I can back it up or remove it. | JSON export/import; schema and ID validation; atomic rejection of malformed imports; links/history preserved; historical alerts not replayed and desktop notifications disabled after import; delete confirmation; local storage only. |
 | CS-09 | Built | As a first-time tester, I want optional sample data so I can try the flows safely. | Empty real first run; isolated labeled sample products, offers, history, alerts and orders; reset/exit controls; sample backup provenance retained and blocked from real-workspace import. |
-| CS-10 | Built | As a reference user, I want install instructions and a feedback route so I can test the alpha. | README, release notes, runtime ZIP/checksum, issue forms, quantitative/qualitative protocol, draft invitation, unassigned roster; external publication and actual participation remain pending below. |
+| CS-10 | Built | As a reference user, I want install instructions and a feedback route so I can test the alpha. | README, release notes, runtime ZIP/checksum, issue forms, quantitative/qualitative protocol, draft invitation, unassigned roster; publication is recorded below; actual participation remains pending. |
 | CS-21 | Built | As a reviewer, I want a browser demo so I can explore CartScope without installing it. | Same static interface; browser localStorage; labeled sample mode; manual entry; extension-only capture clearly explained; no AWS setup. |
 
 ## Release and submission gates
@@ -31,7 +31,7 @@ This repository board is an issue-tracker equivalent for the alpha submission. I
 | --- | --- | --- | --- |
 | REL-01 | Done · automated Chrome | Smoke-test the release ZIP in real Chrome | 16 passing Chrome checks from the actual unpacked ZIP: toolbar access, fixture capture, main flows, downloads, responsive layouts, and demo. [Verification](VERIFICATION.md) records browser/version and remaining manual platform/native notification field scope. |
 | REL-02 | Done | Publish source to the personal GitHub account `qarteu` | Repository resolves at `https://github.com/qarteu/cartscope`; version-controlled source and license visible. |
-| REL-03 | Pending publication and installation verification | Publish GitHub release `v0.1.0`, ZIP, checksum and release notes | Verified release commit/tag; release page resolves; asset downloads and checksum matches; unpacked installation evidenced by REL-01. |
+| REL-03 | Done | Publish GitHub release `v0.1.0`, ZIP, checksum and release notes | Verified release commit/tag; release page resolves; asset downloads and checksum matches; unpacked installation evidenced by REL-01. |
 | REL-08 | Done | Publish the static preview on GitHub Pages | Public demo URL resolves and main preview flows pass a smoke test. |
 | REL-04 | Pending participants | Recruit and assign ten consenting reference users | Private contact roster plus R01–R10 status entries; no fabricated identities. |
 | REL-05 | Pending participants | Send the personalized preview announcement | Actual send dates and private delivery evidence; [draft email](ALPHA_EMAIL.md) alone does not close this task. |
