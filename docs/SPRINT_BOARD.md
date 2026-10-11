@@ -2,9 +2,9 @@
 
 This repository board is an issue-tracker equivalent for the alpha submission. It records implemented scope, release gates, and the next sprint's user stories. [Issue records](issues.json) seed the matching GitHub issues at publication. Linked GitHub issues provide the discussion and feedback history. No existing external Trello URL was verified in the inspected CartScope files/chats; reconcile an existing board if the team supplies it.
 
-**Release:** Alpha 0.1.1 (design patch; original 0.1.0 retained)  
-**Team:** Kartik Malunjkar, Jake Clevenger, Eashan  
-**Responsibilities:** Kartik owns architecture/releases, Jake owns product/backlog, and Eashan owns business/research and Scrum. Per-story owners in issue records are proposed for confirmation at sprint planning.  
+**Release:** Alpha 0.1.1 (design patch; original 0.1.0 retained)
+**Team:** Kartik Malunjkar, Jake Clevenger, Eashan
+**Responsibilities:** Kartik owns architecture/releases, Jake owns product/backlog, and Eashan owns business/research and Scrum. Per-story owners in issue records are proposed for confirmation at sprint planning.
 **Sprint dates:** To be scheduled by the team
 
 ## Current sprint · local alpha implementation

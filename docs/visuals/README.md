@@ -1,6 +1,6 @@
 # Actual Chrome screenshots
 
-These images were captured by Playwright in Chrome for Testing **151.0.7922.34** from [verification run 38178003168](https://github.com/qarteu/cartscope/actions/runs/38178003168), which completed successfully for commit `609ec4d0a751f3ed8a9dc9dc9a24e6d984f5b5f1` on October 11, 2026.
+These images were captured by Playwright in Chrome for Testing **151.0.7922.34** from [verification run 38178299418](https://github.com/qarteu/cartscope/actions/runs/38178299418), which completed successfully for commit `a85b9d7244a7e9f4ccd8ebea89983d63193bdc28` on October 11, 2026.
 
 The seven extension views come from the actual Alpha 0.1.1 release ZIP unpacked and loaded into a disposable Chrome profile. They show the paper, ink, and forest shopping desk design with the shared CartScope logo. The desktop and mobile landing-page images come from the [published browser demo](https://qarteu.github.io/cartscope/), whose landing, embedded application, and About badges were verified as version 0.1.1. They show labeled sample data; the mobile landing view includes a quantity edit used to check persistence and the resulting budget change.
 

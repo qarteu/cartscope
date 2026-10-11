@@ -1,7 +1,7 @@
 {
   "source_kind": "Chrome screenshots of installed Manifest V3 extension and hosted browser demo",
-  "ci_run": "https://github.com/qarteu/cartscope/actions/runs/38178003168",
-  "commit": "609ec4d0a751f3ed8a9dc9dc9a24e6d984f5b5f1",
+  "ci_run": "https://github.com/qarteu/cartscope/actions/runs/38178299418",
+  "commit": "a85b9d7244a7e9f4ccd8ebea89983d63193bdc28",
   "browser_version": "151.0.7922.34",
   "verification_status": "passed",
   "browser_checks": {
@@ -41,7 +41,7 @@
     {
       "view": "compare",
       "file": "compare.png",
-      "sha256": "925931f5ccb3295814b1acacddc7b8591b539cb242035b6439b1372d9847f163",
+      "sha256": "2a63e74d317224612913a3f9e0c46563e4e245cbd04a9f8ffb9605c396e6e322",
       "dimensions": [
         380,
         2462
@@ -53,7 +53,7 @@
     {
       "view": "notifications",
       "file": "notifications.png",
-      "sha256": "803fe387590001ea005252fa18576c219530c40a85909713aa1a75d4a497be13",
+      "sha256": "4324265bdec3f2d843f1eccca30a7ade99dce3eed069d71ebf1f764603cec1be",
       "dimensions": [
         380,
         997
@@ -113,7 +113,7 @@
     {
       "view": "landing-mobile",
       "file": "landing-mobile.png",
-      "sha256": "b69f5ebf7a1f71076770bbecf00c965fdcf1bf8de29c07109a5cef89424f41d4",
+      "sha256": "d95a947653d896079416a627d3b133057f778e18e82318e4b160f1575b56fe5a",
       "dimensions": [
         390,
         1981

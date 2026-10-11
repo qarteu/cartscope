@@ -1,6 +1,6 @@
 # Alpha verification record
 
-Verified October 11, 2026. [GitHub Actions run 38178003168](https://github.com/qarteu/cartscope/actions/runs/38178003168) passed on Ubuntu with **Chrome for Testing 151.0.7922.34**. It tested runtime commit `609ec4d0a751f3ed8a9dc9dc9a24e6d984f5b5f1`, including the redesigned Alpha **0.1.1** side panel and the newly deployed public demo. The browser explicitly checked the version on the installed extension, landing page, iframe, release-note link, and About screen to reject stale demo content.
+Verified October 11, 2026. [GitHub Actions run 38178299418](https://github.com/qarteu/cartscope/actions/runs/38178299418) passed on Ubuntu with **Chrome for Testing 151.0.7922.34**. It tested source commit `a85b9d7244a7e9f4ccd8ebea89983d63193bdc28`, with the same runtime bytes as design commit `609ec4d0a751f3ed8a9dc9dc9a24e6d984f5b5f1`, including the redesigned Alpha **0.1.1** side panel and the newly deployed public demo. The browser explicitly checked the version on the installed extension, landing page, iframe, release-note link, and About screen to reject stale demo content.
 
 The actual Alpha ZIP was unpacked into a clean directory and loaded in a disposable Chrome profile. Its SHA-256 is `081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0`. The local package matches that hosted-tested archive byte-for-byte. The test uses the real extension service worker, local storage, scripting, toolbar action, and downloads.
 
