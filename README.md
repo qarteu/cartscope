@@ -1,4 +1,6 @@
-# CartScope · Alpha 0.1.1
+# CartScope — Shopping desk
+
+**Current launch work:** [0.1.2 launch candidate packet](docs/launch/README.md), [executed test cases/results](docs/launch/TEST_RESULTS.md), and [Sprint 2.E Fielding & Support](docs/SPRINT_BOARD.md). Store publication and current Chrome/field verification remain open; the published Alpha history below is retained.
 
 We built CartScope for the moment when a shopping trip turns into a dozen open tabs. It keeps products from different stores in one Chrome side panel, lets you compare the costs of offers you've checked, and keeps your budget and order notes beside them.
 
@@ -7,7 +9,7 @@ The Alpha is published on Kartik's personal GitHub account. It works with produc
 - [Source — qarteu/cartscope](https://github.com/qarteu/cartscope)
 - [Download Alpha 0.1.1 and read the release notes](https://github.com/qarteu/cartscope/releases/tag/v0.1.1)
 - [Open the browser demo](https://qarteu.github.io/cartscope/)
-- [Canvas write-up](docs/CANVAS_SUBMISSION.md) · [Submission PDF](docs/FINAL_SUBMISSION.pdf) · [Attachments](docs/SUBMISSION.md)
+- [One-page Canvas submission](docs/CANVAS_SUBMISSION.md) · [Submission PDF](docs/FINAL_SUBMISSION.pdf) · [Attachments](docs/SUBMISSION.md)
 - [Sprint board](docs/SPRINT_BOARD.md) · [GitHub issues](https://github.com/qarteu/cartscope/issues)
 - [Give feedback](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml)
 

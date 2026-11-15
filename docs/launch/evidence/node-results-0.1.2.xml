@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="safeUrl preserves ordinary HTTP URLs and rejects active or credentialed URLs" time="0.001650" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="product images allow HTTPS and only bundled product illustrations while shopping links retain HTTP" time="0.000513" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="money formats finite non-negative amounts without unsafe or invalid strings" time="0.025852" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="normalizeProduct returns a stable validated data record without arbitrary fields" time="0.000757" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="normalizeProduct rejects absent, malformed, negative, infinite, and invalid quantity data" time="0.000176" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="brand and model match tolerates punctuation but refuses any known variant conflict" time="0.000282" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="barcode identity validates check digits and does not override conflicting or missing variants" time="0.000089" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="condition is never guessed and new or used inventory cannot be promoted as the same offer" time="0.000093" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="cost separates checkout obligation from cashback using an independent cents calculation" time="0.000202" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="unknown shipping prevents a ranked total instead of becoming free shipping" time="0.000169" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="malformed cost values and mixed currencies cannot produce a valid total" time="0.000149" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="ranking excludes cheap mismatches from best position and preserves deterministic ties" time="0.000691" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="each priority actually changes eligible ordering, with pickup alias supported" time="0.000643" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="payment schedule totals full obligation and allocates rounding cents exactly" time="0.000973" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="payment schedule handles zero amount and UTC leap days" time="0.000123" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="payment schedule rejects misleading or malformed financing terms" time="0.000270" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="price alerts require an opted-in watch" time="0.000117" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="alert transitions do not fire for initial, unchanged, mismatched, disabled, or invalid observations" time="0.000177" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="restock alert requires known out-of-stock transition, and sample events are explicitly labelled" time="0.000068" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="price history only claims a recorded range, ignores invalid points, and keeps currencies separate" time="0.000116" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/core.test.mjs"/>
+	<testcase name="classic injected script captures a graph Product with usable complete identity" time="0.004438" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="a category page cannot silently save its first recommended product" time="0.001065" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="multiple products require a single current-page or mainEntity match" time="0.001527" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="Amazon product page selector fallback captures the displayed amount without page writes" time="0.001933" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="OpenGraph supports generic product pages and does not treat a website title as a product" time="0.000760" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="retailer product fallback and displayed prices work for the supported selector adapters" time="0.001519" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="invalid metadata falls back only when a genuine product page and price are available" time="0.000656" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="ambiguous offer prices, aggregates, and hostile price strings are rejected" time="0.004003" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="multiple offer prices can be resolved only by the currently displayed price or exact offer URL" time="0.000789" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="graph Offer references are resolved from the same page metadata" time="0.000434" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="published new, used, and refurbished conditions are captured without an invented default" time="0.002367" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="active image and canonical URL payloads cannot escape as executable extension links" time="0.000417" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="empty, absent, and repeated scripts produce deterministic results without invented product data" time="0.003459" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/extract.test.mjs"/>
+	<testcase name="publisher command contract derives the patch tag, asset paths, and isolated notes (mock CLIs)" time="2.163279" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/publish.test.mjs"/>
+	<testcase name="repeated publication verifies identical assets without tagging or uploading (mock CLIs)" time="1.925230" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/publish.test.mjs"/>
+	<testcase name="different assets at an existing version stop publication without replacement (mock CLIs)" time="1.941790" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/publish.test.mjs"/>
+	<testcase name="tracker synchronization preserves issue IDs and unrelated labels when sprint scope changes" time="2.601081" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/publish.test.mjs"/>
+	<testcase name="configured package, npm lock, and installed manifest use the same release version" time="0.001226" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="launch channel creates the actual launch ZIP with the same installable root" time="0.090715" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="release ZIP is consumed by unzip, contains runtime root only, and is deterministic" time="0.183111" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="validator rejects version drift and excessive permissions" time="0.188593" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="packaging a version patch preserves the previous release archive and checksum" time="0.167179" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="release notes select only the exact current version and reject missing, duplicate, or empty sections" time="0.000673" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="validator rejects missing paths, inline scripts, remote stylesheets, and empty manifests" time="0.375203" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="ordinary import action strings are accepted while remote static and dynamic imports fail" time="0.202344" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/release.test.mjs"/>
+	<testcase name="toolbar click opens the clicked window panel synchronously after native action behavior is disabled" time="0.002125" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="quantity changes reject fractions and preserve the existing cart" time="0.002880" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="orders reject fractional quantities and impossible calendar dates" time="0.004348" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="imports reject numeric or mismatched ID types instead of creating invisible offers" time="0.000664" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="imports reject IDs that would collide after truncation" time="0.000422" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="sample backups cannot enter the real workspace" time="0.000773" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="sample defaults mark the workspace and products as illustrative data" time="0.000541" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="real backup roundtrip preserves links, observations and watches while clearing alerts" time="0.008692" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="a malformed later record aborts an import without partially replacing existing data" time="0.000571" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="unknown required membership cost stays unknown rather than becoming free" time="0.000431" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testcase name="saved and imported product images reject HTTP while preserving deliberate HTTP shopping links" time="0.000640" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/storage.test.mjs"/>
+	<testsuite name="Actual application flows in DOM simulation (real Chrome coverage remains separate)" time="0.140603" disabled="0" errors="0" tests="13" failures="0" skipped="0" hostname="Mac.lan">
+		<testcase name="Sample cart and every principal view render through actual app event handlers" time="0.042819" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Sample mutations persist locally and do not leak into the empty workspace" time="0.007507" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Manual add, item quantity, editing, and saved-for-later use the same background service" time="0.008546" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Fractional quantities are rejected and rendered values recover after the failed change" time="0.000902" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Checked offers rank exact variants while missing costs and conflicts remain visible" time="0.019229" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Watch settings produce price-drop and restock transitions and avoid duplicate alerts" time="0.012711" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Manual order creation and delivery status edits persist safe tracking details" time="0.003577" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Payment planner renders full obligation, calendar dates, and exact remainder cents" time="0.003950" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Preferences save and backup export serializes the real workspace" time="0.004060" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Imported and legacy HTTP images use the bundled fallback without changing HTTP shopping links" time="0.005354" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Hostile user text and active URLs cannot become injected product UI" time="0.003221" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Malformed imports leave current data intact and sample backups remain isolated" time="0.000426" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+		<testcase name="Removing a product deletes its related offers, history, alerts, and orders" time="0.001570" classname="test" file="/Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/tests/ui.test.mjs"/>
+	</testsuite>
+	<!-- tests 70 -->
+	<!-- suites 0 -->
+	<!-- pass 70 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 8732.825333 -->
+</testsuites>

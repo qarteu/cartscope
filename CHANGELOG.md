@@ -1,5 +1,33 @@
 # Release notes
 
+## 0.1.2 · Launch candidate
+
+Prepared for the launch assignment on November 14, 2026. This is a locally installable, tested launch candidate. Chrome Web Store publication and approval are not yet verified; GitHub publication is a separate distribution channel.
+
+### Changes
+
+- Updated the extension identity to CartScope — Shopping desk, with visible preview/version labels.
+- Require HTTPS for automatic remote product images, including saved and imported records; deliberately opened retailer links remain user-controlled.
+- Prepared Chrome Web Store listing copy, permission explanations, privacy policy, reviewer instructions and promotional assets.
+- Added current test-case/results evidence, launch announcement drafts with quantitative and qualitative feedback routes, and the Sprint 2.E Fielding & Support board.
+- Retained the Alpha releases and their assets unchanged. Screenshot recognition, price guidance, occasion folders, unattended checks and live integrations remain planned rather than advertised as released.
+
+### Install and use
+
+Download `cartscope-launch-0.1.2.zip` and extract it. In Chrome 116 or newer, open `chrome://extensions`, enable **Developer mode**, select **Load unpacked**, and choose the folder containing `manifest.json`. Pin CartScope. Open an individual retailer product page and click its toolbar icon, then **Capture this page**. Check the product, variant, currency, condition and price before saving. Use **Add manually** when a page does not provide supported metadata.
+
+Save products from several stores, change quantities and an item budget, then open **Compare**. Add a checked offer for the same item and variant. Review item price, shipping, estimated tax, discounts, membership and cashback; unknown costs remain incomplete. Pick total cost, delivery, pickup or returns as the ranking priority. Checkout takes place on the retailer's website.
+
+Use the sample workspace to explore comparison, observed watches, manual orders, the payment planner and backups. Sample data is labeled and separate from the real workspace. The [browser demo](https://qarteu.github.io/cartscope/) cannot capture another shopping tab; that requires the installed extension.
+
+### Verification and limitations
+
+The [launch test cases and results](https://github.com/qarteu/cartscope/blob/main/docs/launch/TEST_RESULTS.md) describe exactly what was exercised. Live retailer markup, operating-system installation, native notification delivery and real reference-user feedback require field validation. Automatic cross-store discovery, background polling, carrier updates, account synchronization and provider-backed financing are not part of this release. Financing uses user-entered interest and fees, not an offered loan or invented APR.
+
+### Feedback and support
+
+Use the [feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml) to record task results/time, numeric ratings, confusing steps and requested improvements. Report defects through [GitHub Issues](https://github.com/qarteu/cartscope/issues). [Privacy](https://qarteu.github.io/cartscope/privacy.html) and [support](https://qarteu.github.io/cartscope/support.html) pages explain data handling and help routes. Marketing materials are drafts until sent or published; no ten-user delivery, feedback results, Store ratings or Store approval is claimed.
+
 ## 0.1.1 · Alpha design refinement
 
 CartScope now uses an original shopping-desk layout: warm paper, forest-green controls, a custom focus-and-cart mark, and compact product records. This patch keeps the working local Alpha flows while replacing generic headings and introducing a more useful demo workspace.

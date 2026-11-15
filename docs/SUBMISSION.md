@@ -1,10 +1,16 @@
+# Current launch submission
+
+Use [the six-item Canvas submission](launch/CANVAS_SUBMISSION.md), [launch requirements and status](launch/REQUIREMENTS.md), and [launch packet index](launch/README.md). Chrome Web Store publication and current Chrome/field verification remain open. The earlier Alpha submission is retained below as history.
+
+---
+
 # CartScope Alpha submission
 
-Use [Canvas submission copy](https://github.com/qarteu/cartscope/blob/main/docs/CANVAS_SUBMISSION.md) for the text to paste into Canvas. [The illustrated report](https://github.com/qarteu/cartscope/blob/main/docs/FINAL_SUBMISSION.pdf) includes screenshots, the feature-to-test matrix, and all named Chrome checks.
+Use the one-page [Canvas submission copy](https://github.com/qarteu/cartscope/blob/main/docs/CANVAS_SUBMISSION.md) for the text to paste into Canvas. [The illustrated report](https://github.com/qarteu/cartscope/blob/main/docs/FINAL_SUBMISSION.pdf) includes screenshots, the feature-to-test matrix, and all named Chrome checks.
 
 1. **Personal repository:** [qarteu/cartscope](https://github.com/qarteu/cartscope), with [release notes](../CHANGELOG.md) and [installation/use instructions](../README.md).
 2. **Working Alpha 0.1.1 ZIP:** [Release page](https://github.com/qarteu/cartscope/releases/tag/v0.1.1) and [direct runtime download](https://github.com/qarteu/cartscope/releases/download/v0.1.1/cartscope-alpha-0.1.1.zip). Extract this ZIP and use Chrome’s Load unpacked on its root manifest folder. The original 0.1.0 release remains available.
-3. **Announcement and feedback:** [Email template](ALPHA_EMAIL.md), [ratings and written-feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml), [task protocol](FEEDBACK_PLAN.md), and [reference roster](REFERENCE_USERS.csv). The invitation is prepared but not sent; real recipients and responses remain pending.
+3. **Announcement and feedback:** [Email template](ALPHA_EMAIL.md), [ratings and written-feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml), [task protocol](FEEDBACK_PLAN.md), and [reference roster](REFERENCE_USERS.csv). The invitation is supplied as a draft, as requested. No send to ten users or actual feedback is claimed.
 4. **Agile tracker:** [GitHub Issues](https://github.com/qarteu/cartscope/issues), [progress, next sprint and backlog](SPRINT_BOARD.md), and [published story links](PUBLISHED_ISSUES.md). GitHub Issues supplies the assignment’s similar-tracker option.
 
 **Open the working demo:** [CartScope on GitHub Pages](https://qarteu.github.io/cartscope/). It requires no AWS setup.

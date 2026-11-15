@@ -10,14 +10,14 @@ const project = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 // Execute the production publisher against disposable command doubles. These
 // tests verify CLI decisions only; they make no GitHub requests or Git changes.
-function publishFixture(t, existing = false, conflict = false) {
+function publishFixture(t, existing = false, conflict = false, issueFixture = false) {
   const root = mkdtempSync(resolve(tmpdir(), 'cartscope-publisher-contract-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   cpSync(resolve(project, 'scripts'), resolve(root, 'scripts'), { recursive: true });
   for (const path of ['bin', 'docs', 'site', 'artifacts']) mkdirSync(resolve(root, path));
   writeFileSync(resolve(root, 'package.json'), JSON.stringify({ type: 'module', version: '0.1.1' }));
   writeFileSync(resolve(root, 'CHANGELOG.md'), '## 0.1.1 · Patch\nInstall the patch ZIP.\n\n## 0.1.0 · Initial\nHistorical instructions.\n');
-  writeFileSync(resolve(root, 'docs/issues.json'), '[]');
+  writeFileSync(resolve(root, 'docs/issues.json'), JSON.stringify(issueFixture ? [{ title: '[CS-20] Store launch support', body: 'Updated planned store story', label: 'next-sprint', status: 'planned' }] : []));
   writeFileSync(resolve(root, 'site/index.html'), 'Fixture deployment');
   writeFileSync(resolve(root, 'artifacts/cartscope-alpha-0.1.1.zip'), 'Fixture current archive');
   writeFileSync(resolve(root, 'artifacts/cartscope-alpha-0.1.1.zip.sha256'), 'Fixture current checksum');
@@ -30,7 +30,7 @@ if(command==='gh'&&args[0]==='release'&&args[1]==='create')entry.notes=fs.readFi
 fs.appendFileSync(process.env.CARTSCOPE_COMMAND_TRACE,JSON.stringify(entry)+'\\n');
 if(command==='gh'){
  if(args[0]==='api'&&args[1]==='user')console.log('qarteu');
- else if(args[0]==='issue'&&args[1]==='list')console.log('[]');
+ else if(args[0]==='issue'&&args[1]==='list')console.log(JSON.stringify(process.env.CARTSCOPE_ISSUE_FIXTURE==='true'?[{number:21,title:'[CS-20] Chrome Web Store beta distribution',body:'Old story',state:'OPEN',url:'https://github.com/qarteu/cartscope/issues/21',labels:[{name:'backlog'},{name:'customer-tag'}]}]:[]));
  else if(args[0]==='api'&&args[1].endsWith('/pages'))console.log(JSON.stringify({source:{branch:'gh-pages',path:'/'}}));
  else if(args[0]==='release'&&args[1]==='view')process.exit(process.env.CARTSCOPE_EXISTING_RELEASE==='true'?0:1);
  else if(args[0]==='release'&&args[1]==='download'){
@@ -46,7 +46,7 @@ if(command==='gh'){
   for (const command of ['gh', 'git', 'npm']) writeFileSync(resolve(root, 'bin', command), commandDouble, { mode: 0o755 });
   const result = spawnSync(process.execPath, [resolve(root, 'scripts/publish.mjs')], { cwd: root, encoding: 'utf8',
     env: { ...process.env, PATH: `${resolve(root, 'bin')}:${process.env.PATH}`, CARTSCOPE_COMMAND_TRACE: trace,
-      CARTSCOPE_EXISTING_RELEASE: String(existing), CARTSCOPE_CONFLICT: String(conflict) } });
+      CARTSCOPE_EXISTING_RELEASE: String(existing), CARTSCOPE_CONFLICT: String(conflict), CARTSCOPE_ISSUE_FIXTURE: String(issueFixture) } });
   assert(existsSync(trace), `The isolated command doubles did not start: ${result.stderr}`);
   const calls = readFileSync(trace, 'utf8').trim().split('\n').map(line => JSON.parse(line));
   const temporaryDirectory = calls.find(call => call.args.includes('--notes-file'))?.args.at(-3)
@@ -83,4 +83,16 @@ test('different assets at an existing version stop publication without replaceme
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /Existing releases are immutable; use a new release version/);
   assert(!calls.some(call => call.args[0] === 'release' && ['create', 'upload', 'edit', 'delete'].includes(call.args[1])));
+});
+
+test('tracker synchronization preserves issue IDs and unrelated labels when sprint scope changes', t => {
+  const { result, calls } = publishFixture(t, false, false, true);
+  assert.equal(result.status, 0, result.stderr);
+  const edits = calls.filter(call => call.command === 'gh' && call.args[0] === 'issue' && call.args[1] === 'edit');
+  assert(edits.some(call => call.args[2] === '21' && call.args.includes('[CS-20] Store launch support')));
+  const labels = edits.find(call => call.args.includes('--add-label'));
+  assert(labels?.args.includes('next-sprint'));
+  assert(labels?.args.includes('--remove-label') && labels.args.includes('backlog'));
+  assert(!labels.args.includes('customer-tag'));
+  assert(!calls.some(call => call.command === 'gh' && call.args[0] === 'issue' && ['create', 'close'].includes(call.args[1])));
 });

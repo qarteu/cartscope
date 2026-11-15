@@ -1,0 +1,44 @@
+{
+  "version": "0.1.2",
+  "channel": "launch",
+  "command": "npm run check",
+  "exitCode": 0,
+  "tests": 69,
+  "passed": 69,
+  "failed": 0,
+  "skipped": 0,
+  "runtimeFiles": 18,
+  "archive": "artifacts/cartscope-launch-0.1.2.zip",
+  "sha256": "494d7dd32347a1e1c3aaee7c8888e02230177bee20939daa4f25d4f9e71e91e0",
+  "mutations": [
+    {
+      "name": "remove HTTPS requirement from safeImageUrl",
+      "result": "regression failed as expected"
+    },
+    {
+      "name": "render legacy HTTP images with safeUrl",
+      "result": "regression failed as expected"
+    }
+  ],
+  "browser": {
+    "command": "npm run test:browser",
+    "attempts": 1,
+    "status": "blocked",
+    "passed": 1,
+    "failed": 0,
+    "completedChecks": [
+      {
+        "name": "The configured release ZIP unpacks into the Chrome installation root",
+        "status": "passed",
+        "durationMs": 15
+      }
+    ],
+    "reason": "Chrome for Testing exited during launch (SIGABRT); Playwright cleanup logged kill EPERM. No extension runtime or layout checks executed.",
+    "screenshotsProduced": []
+  },
+  "limitations": [
+    "DOM simulation is not real Chrome validation.",
+    "No live retailer markup, human reference-user validation, Chrome Web Store submission, approval, or publication was verified.",
+    "Existing historical Chrome and UI reports were not changed."
+  ]
+}

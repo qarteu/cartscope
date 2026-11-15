@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  money, safeUrl, normalizeProduct, matchProducts, calculateCost, rankOffers,
+  money, safeUrl, safeImageUrl, normalizeProduct, matchProducts, calculateCost, rankOffers,
   buildPaymentSchedule, deriveAlert, priceInsight
 } from '../extension/lib/core.js';
 
@@ -12,6 +12,18 @@ test('safeUrl preserves ordinary HTTP URLs and rejects active or credentialed UR
   assert.equal(safeUrl('https://example.com/p?q=x'), 'https://example.com/p?q=x');
   assert.equal(safeUrl('http://example.com'), 'http://example.com/');
   for (const unsafe of ['javascript:alert(1)', 'data:text/html,x', 'file:///tmp/a', 'https://user:password@example.com', '//example.com', null, 42, {}, 'https://']) assert.equal(safeUrl(unsafe), '');
+});
+
+test('product images allow HTTPS and only bundled product illustrations while shopping links retain HTTP', () => {
+  for (const value of ['https://images.example.com/product.png?q=1', 'assets/headphones.svg', 'assets/shoe.svg', 'assets/backpack.svg', 'assets/product.svg']) {
+    assert.equal(safeImageUrl(value), value);
+    assert.equal(normalizeProduct({ ...product, image: value }).image, value);
+  }
+  for (const value of ['http://images.example.com/product.png', '//images.example.com/product.png', 'https://user:password@images.example.com/a.png', 'data:image/png,x', 'javascript:alert(1)', 'file:///tmp/a.png', 'assets/mark.svg', 'assets/unknown.svg', '../assets/product.svg', 'assets/product.svg?x=1', null, {}, 42]) {
+    assert.equal(safeImageUrl(value), '', String(value));
+    assert.equal(normalizeProduct({ ...product, image: value }).image, '', String(value));
+  }
+  assert.equal(normalizeProduct({ ...product, url: 'http://shop.example.com/item', image: 'http://shop.example.com/image.png' }).url, 'http://shop.example.com/item');
 });
 
 test('money formats finite non-negative amounts without unsafe or invalid strings', () => {

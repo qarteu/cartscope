@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-11-15T03:11:31.941Z",
+  "status": "blocked",
+  "browser": null,
+  "method": "Playwright; configured release ZIP unpacked and loaded in disposable Chrome for Testing profile; retailer captures use localhost fixtures; optional published demo check uses HTTPS",
+  "planned": [
+    "extension service worker and local storage",
+    "sample/real workspace isolation",
+    "cart add/edit/quantity/save-for-later",
+    "exact/possible/mismatch/unknown-cost comparison",
+    "price-drop/restock observations",
+    "orders and tracking",
+    "financing total and rounding",
+    "preferences and backup round trip",
+    "HTTPS-only product images",
+    "hostile input escaping",
+    "actual activeTab toolbar grant and scripting capture",
+    "category capture rejection",
+    "320/380/480-pixel layouts",
+    "1280x800 installed extension screenshots",
+    "preview state persistence"
+  ],
+  "checks": [
+    {
+      "name": "The configured release ZIP unpacks into the Chrome installation root",
+      "status": "passed",
+      "durationMs": 15
+    }
+  ],
+  "limitations": [
+    "Deterministic retailer-shaped fixtures do not verify changing live retailer markup or live offer feeds.",
+    "Store-size screenshots show the installed extension in a disposable QA tab with labeled sample data; they do not establish Chrome Web Store publication or approval."
+  ],
+  "screenshots": [],
+  "storeScreenshots": [],
+  "errors": [
+    {
+      "stage": "browser_launch",
+      "message": "browserType.launchPersistentContext: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /Users/kartik.malunjkar/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-extensions-except=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-release-under-test-I8AwnX --load-extension=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-release-under-test-I8AwnX --enable-unsafe-extension-debugging --user-data-dir=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-browser-E1arYg --remote-debugging-pipe about:blank\n<launched> pid=46596\nCall log:\n\u001b[2m  - <launching> /Users/kartik.malunjkar/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-extensions-except=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-release-under-test-I8AwnX --load-extension=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-release-under-test-I8AwnX --enable-unsafe-extension-debugging --user-data-dir=/var/folders/yf/5vxb3_bd1js2r_wmhbvmybpm0000gn/T/cartscope-browser-E1arYg --remote-debugging-pipe about:blank\u001b[22m\n\u001b[2m  - <launched> pid=46596\u001b[22m\n\u001b[2m  - [pid=46596] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=46596] <kill>\u001b[22m\n\u001b[2m  - [pid=46596] <will force kill>\u001b[22m\n\u001b[2m  - [pid=46596] exception while trying to kill process: Error: kill EPERM\u001b[22m\n\u001b[2m  - [pid=46596] <process did exit: exitCode=null, signal=SIGABRT>\u001b[22m\n\u001b[2m  - [pid=46596] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46596] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46596] <gracefully close end>\u001b[22m\n"
+    }
+  ],
+  "release": {
+    "path": "artifacts/cartscope-launch-0.1.2.zip",
+    "version": "0.1.2",
+    "sha256": "494d7dd32347a1e1c3aaee7c8888e02230177bee20939daa4f25d4f9e71e91e0"
+  },
+  "finishedAt": "2026-11-15T03:11:33.508Z",
+  "passed": 1,
+  "failed": 0
+}

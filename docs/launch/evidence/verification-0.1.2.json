@@ -1,0 +1,19 @@
+{
+  "version": "0.1.2",
+  "channel": "launch",
+  "startedAt": "2026-11-15T03:18:06.428Z",
+  "finishedAt": "2026-11-15T03:18:16.273Z",
+  "dateZone": "America/Los_Angeles",
+  "node": "v26.3.0",
+  "command": "npm run check",
+  "exitCode": 0,
+  "tests": 70,
+  "passed": 70,
+  "failed": 0,
+  "skipped": 0,
+  "archive": "artifacts/cartscope-launch-0.1.2.zip",
+  "sha256": "a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0",
+  "runtimeFiles": 18,
+  "manifestVersion": "0.1.2",
+  "zipCrcs": "passed"
+}

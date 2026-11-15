@@ -220,6 +220,33 @@ test('Actual application flows in DOM simulation (real Chrome coverage remains s
       assert.equal((await state()).alerts.length, 0); assert.equal((await state()).settings.notificationsEnabled, false);
     });
 
+    await run('Imported and legacy HTTP images use the bundled fallback without changing HTTP shopping links', async () => {
+      const backup = structuredClone(await state());
+      const image = 'http://images.example.com/insecure-import.png';
+      const url = 'http://shop.example.com/item';
+      backup.products[0].image = image; backup.products[0].url = url;
+      backup.offers[0].image = image; backup.offers[0].url = url;
+      const input = $('#import-file');
+      Object.defineProperty(input, 'files', { configurable: true, value: [new window.File([JSON.stringify(backup)], 'images.json', { type: 'application/json' })] });
+      input.dispatchEvent(new window.Event('change', { bubbles: true }));
+      await until(async () => { const current = await state(); return current.products[0].url === url && current.products[0].image === ''; });
+      assert.equal((await state()).offers[0].image, '');
+      await nav('cart');
+      assert.equal($('.product-card .product-image').getAttribute('src'), 'assets/product.svg');
+      assert.equal($('.product-card a.badge').getAttribute('href'), url);
+      // Simulate a backup saved by an earlier installed version. Rendering must
+      // protect existing local records even before the shopper next edits them.
+      const legacy = structuredClone(await state()); legacy.products[0].image = image;
+      localStorage.setItem('cartscope:workspace', JSON.stringify(legacy));
+      await click('#settings-shortcut'); await action('demo'); await click('#exit-demo'); await heading('Your cart');
+      assert.equal(all('#app img[src^="http:"]').length, 0);
+      assert.equal($('.product-card .product-image').getAttribute('src'), 'assets/product.svg');
+      await action('edit-product', manualId); await heading('Edit item');
+      assert.equal($('#product-form [name="image"]').value, '');
+      assert.equal($('.hero-image img').getAttribute('src'), 'assets/product.svg');
+      await action('cancel'); await heading('Your cart');
+    });
+
     await run('Hostile user text and active URLs cannot become injected product UI', async () => {
       await nav('cart'); await action('add-product'); await heading('Review item');
       form('product-form', { name: '<img src=x onerror="globalThis.cartscopeInjected=true">', price: '1', retailer: '<script>alert(1)</script>', url: 'javascript:alert(1)', quantity: '1', notes: '<svg onload=alert(1)>' });

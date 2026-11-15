@@ -1,0 +1,109 @@
+
+> cartscope@0.1.2 check
+> npm test && npm run validate && npm run package
+
+
+> cartscope@0.1.2 test
+> node --test --test-reporter=spec --test-reporter=junit --test-reporter-destination=stdout --test-reporter-destination=artifacts/node-results.xml tests/*.test.mjs
+
+✔ safeUrl preserves ordinary HTTP URLs and rejects active or credentialed URLs (1.650125ms)
+✔ product images allow HTTPS and only bundled product illustrations while shopping links retain HTTP (0.512833ms)
+✔ money formats finite non-negative amounts without unsafe or invalid strings (25.852292ms)
+✔ normalizeProduct returns a stable validated data record without arbitrary fields (0.757334ms)
+✔ normalizeProduct rejects absent, malformed, negative, infinite, and invalid quantity data (0.17575ms)
+✔ brand and model match tolerates punctuation but refuses any known variant conflict (0.281958ms)
+✔ barcode identity validates check digits and does not override conflicting or missing variants (0.089125ms)
+✔ condition is never guessed and new or used inventory cannot be promoted as the same offer (0.092916ms)
+✔ cost separates checkout obligation from cashback using an independent cents calculation (0.202458ms)
+✔ unknown shipping prevents a ranked total instead of becoming free shipping (0.1685ms)
+✔ malformed cost values and mixed currencies cannot produce a valid total (0.148917ms)
+✔ ranking excludes cheap mismatches from best position and preserves deterministic ties (0.690542ms)
+✔ each priority actually changes eligible ordering, with pickup alias supported (0.643041ms)
+✔ payment schedule totals full obligation and allocates rounding cents exactly (0.972834ms)
+✔ payment schedule handles zero amount and UTC leap days (0.123083ms)
+✔ payment schedule rejects misleading or malformed financing terms (0.269791ms)
+✔ price alerts require an opted-in watch (0.116583ms)
+✔ alert transitions do not fire for initial, unchanged, mismatched, disabled, or invalid observations (0.177458ms)
+✔ restock alert requires known out-of-stock transition, and sample events are explicitly labelled (0.068375ms)
+✔ price history only claims a recorded range, ignores invalid points, and keeps currencies separate (0.115625ms)
+✔ classic injected script captures a graph Product with usable complete identity (4.437667ms)
+✔ a category page cannot silently save its first recommended product (1.064625ms)
+✔ multiple products require a single current-page or mainEntity match (1.527333ms)
+✔ Amazon product page selector fallback captures the displayed amount without page writes (1.9335ms)
+✔ OpenGraph supports generic product pages and does not treat a website title as a product (0.760417ms)
+✔ retailer product fallback and displayed prices work for the supported selector adapters (1.519125ms)
+✔ invalid metadata falls back only when a genuine product page and price are available (0.656417ms)
+✔ ambiguous offer prices, aggregates, and hostile price strings are rejected (4.00325ms)
+✔ multiple offer prices can be resolved only by the currently displayed price or exact offer URL (0.788834ms)
+✔ graph Offer references are resolved from the same page metadata (0.434334ms)
+✔ published new, used, and refurbished conditions are captured without an invented default (2.366875ms)
+✔ active image and canonical URL payloads cannot escape as executable extension links (0.416583ms)
+✔ empty, absent, and repeated scripts produce deterministic results without invented product data (3.458625ms)
+✔ publisher command contract derives the patch tag, asset paths, and isolated notes (mock CLIs) (2163.279291ms)
+✔ repeated publication verifies identical assets without tagging or uploading (mock CLIs) (1925.230125ms)
+✔ different assets at an existing version stop publication without replacement (mock CLIs) (1941.789625ms)
+✔ tracker synchronization preserves issue IDs and unrelated labels when sprint scope changes (2601.080958ms)
+✔ configured package, npm lock, and installed manifest use the same release version (1.226208ms)
+✔ launch channel creates the actual launch ZIP with the same installable root (90.714916ms)
+✔ release ZIP is consumed by unzip, contains runtime root only, and is deterministic (183.110708ms)
+✔ validator rejects version drift and excessive permissions (188.59325ms)
+✔ packaging a version patch preserves the previous release archive and checksum (167.178791ms)
+✔ release notes select only the exact current version and reject missing, duplicate, or empty sections (0.673333ms)
+✔ validator rejects missing paths, inline scripts, remote stylesheets, and empty manifests (375.202542ms)
+✔ ordinary import action strings are accepted while remote static and dynamic imports fail (202.343834ms)
+✔ toolbar click opens the clicked window panel synchronously after native action behavior is disabled (2.125083ms)
+✔ quantity changes reject fractions and preserve the existing cart (2.87975ms)
+✔ orders reject fractional quantities and impossible calendar dates (4.347542ms)
+✔ imports reject numeric or mismatched ID types instead of creating invisible offers (0.663708ms)
+✔ imports reject IDs that would collide after truncation (0.42175ms)
+✔ sample backups cannot enter the real workspace (0.772833ms)
+✔ sample defaults mark the workspace and products as illustrative data (0.540959ms)
+✔ real backup roundtrip preserves links, observations and watches while clearing alerts (8.692167ms)
+✔ a malformed later record aborts an import without partially replacing existing data (0.571458ms)
+✔ unknown required membership cost stays unknown rather than becoming free (0.431166ms)
+✔ saved and imported product images reject HTTP while preserving deliberate HTTP shopping links (0.639916ms)
+▶ Actual application flows in DOM simulation (real Chrome coverage remains separate)
+  ✔ Sample cart and every principal view render through actual app event handlers (42.818709ms)
+  ✔ Sample mutations persist locally and do not leak into the empty workspace (7.507417ms)
+  ✔ Manual add, item quantity, editing, and saved-for-later use the same background service (8.545875ms)
+  ✔ Fractional quantities are rejected and rendered values recover after the failed change (0.901709ms)
+  ✔ Checked offers rank exact variants while missing costs and conflicts remain visible (19.22925ms)
+  ✔ Watch settings produce price-drop and restock transitions and avoid duplicate alerts (12.711083ms)
+  ✔ Manual order creation and delivery status edits persist safe tracking details (3.576708ms)
+  ✔ Payment planner renders full obligation, calendar dates, and exact remainder cents (3.949709ms)
+  ✔ Preferences save and backup export serializes the real workspace (4.060042ms)
+  ✔ Imported and legacy HTTP images use the bundled fallback without changing HTTP shopping links (5.354417ms)
+  ✔ Hostile user text and active URLs cannot become injected product UI (3.2215ms)
+  ✔ Malformed imports leave current data intact and sample backups remain isolated (0.425708ms)
+  ✔ Removing a product deletes its related offers, history, alerts, and orders (1.570417ms)
+✔ Actual application flows in DOM simulation (real Chrome coverage remains separate) (140.603125ms)
+ℹ tests 70
+ℹ suites 0
+ℹ pass 70
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8732.825333
+
+> cartscope@0.1.2 validate
+> node scripts/validate.mjs
+
+Validated CartScope 0.1.2: Manifest V3, local references/scripts, scoped permissions, release version.
+
+> cartscope@0.1.2 package
+> node scripts/package.mjs
+
+Validated CartScope 0.1.2: Manifest V3, local references/scripts, scoped permissions, release version.
+Packaged 18 runtime files: /Users/kartik.malunjkar/Documents/ChatGPT/IME 4403/cartscope/artifacts/cartscope-launch-0.1.2.zip
+SHA-256: a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

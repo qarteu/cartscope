@@ -20,6 +20,21 @@ test('configured package, npm lock, and installed manifest use the same release 
   assert.equal(currentRelease.tag, `v${manifest.version}`);
 });
 
+test('launch channel creates the actual launch ZIP with the same installable root', t => {
+  const { root } = fixture(t, '0.1.2');
+  writeFileSync(resolve(root, 'package.json'), JSON.stringify({ type: 'module', version: '0.1.2', cartscope: { channel: 'launch' } }));
+  const launch = releaseInfo(root);
+  assert.equal(launch.archiveName, 'cartscope-launch-0.1.2.zip');
+  assert.equal(launch.badge, 'PREVIEW 0.1.2');
+  const result = run(root, 'package');
+  assert.equal(result.status, 0, result.stderr);
+  const archive = resolve(root, launch.archivePath);
+  execFileSync('unzip', ['-t', archive]);
+  assert.equal(JSON.parse(execFileSync('unzip', ['-p', archive, 'manifest.json'], { encoding: 'utf8' })).version, '0.1.2');
+  writeFileSync(resolve(root, 'package.json'), JSON.stringify({ type: 'module', version: '0.1.2', cartscope: { channel: 'unknown' } }));
+  assert.throws(() => releaseInfo(root), /Unknown release channel/);
+});
+
 function fixture(t, version = currentRelease.version) {
   const root = mkdtempSync(resolve(tmpdir(), 'cartscope-release-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));

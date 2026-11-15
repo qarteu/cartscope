@@ -1,68 +1,102 @@
 # CartScope sprint board
 
-This repository board is an issue-tracker equivalent for the alpha submission. It records implemented scope, release gates, and the next sprint's user stories. [Issue records](issues.json) seed the matching GitHub issues at publication. Linked GitHub issues provide the discussion and feedback history. No existing external Trello URL was verified in the inspected CartScope files/chats; reconcile an existing board if the team supplies it.
+**Planning snapshot:** November 14, 2026<br>
+**Next sprint:** **Sprint 2.E Fielding & Support**<br>
+**Candidate:** 0.1.2, shown as PREVIEW 0.1.2; intended runtime ZIP `cartscope-launch-0.1.2.zip`<br>
+**Published history:** GitHub Alpha [0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0) and [0.1.1](https://github.com/qarteu/cartscope/releases/tag/v0.1.1)<br>
+**Chrome Web Store:** no verified public listing URL, submitted-review record, or approval is recorded.
 
-**Release:** Alpha 0.1.1 (design patch; original 0.1.0 retained)
-**Team:** Kartik Malunjkar, Jake Clevenger, Eashan
-**Responsibilities:** Kartik owns architecture/releases, Jake owns product/backlog, and Eashan owns business/research and Scrum. Per-story owners in issue records are proposed for confirmation at sprint planning.
-**Sprint dates:** To be scheduled by the team
+The [GitHub issue tracker](https://github.com/qarteu/cartscope/issues) is our Trello-equivalent tracker. This Sprint 2.E revision is prepared locally; publishing and reconciling its new records is pending under REL-15. [Issue records](issues.json) contain the full stories and acceptance criteria; [published issue links](PUBLISHED_ISSUES.md) identify externally created records. No existing Trello URL has been verified.
 
-## Current sprint · local alpha implementation
+Kartik Malunjkar owns architecture/releases, Jake Clevenger owns product/backlog, and Eashan owns business/research and Scrum. Story owners below are proposed. The team must confirm dates, capacity and assignments at planning; external Store review is not a promised sprint completion date.
 
-`Built` means the source is present and covered by the automated checks described in [verification](VERIFICATION.md). The corresponding implementation issue uses `done` and can close on that evidence. Real Chrome checks, publication, product-owner acceptance with reference users, and tester validation remain separate gates below; these rows do not claim production integrations.
+[Six-item launch requirements and artifact locations](launch/REQUIREMENTS.md) · [Launch materials](launch/README.md) · [Verification record](VERIFICATION.md)
 
-| ID | Status | User story | Acceptance criteria |
+## Shipped GitHub Alpha history
+
+`Done` here records the delivered 0.1.0/0.1.1 scope, not Chrome Web Store publication or completion of the 0.1.2 candidate. The recorded 0.1.1 baseline has **65 passing Node tests, including 12 DOM flows, plus 16 Chrome checks**, and an **18-file runtime ZIP**. [Historical verification](https://github.com/qarteu/cartscope/blob/v0.1.1/docs/VERIFICATION.md) and [Chrome evidence](CHROME_TEST_RESULTS.json) explain the fixture and platform limits. New candidate results must be recorded under REL-10.
+
+| ID | Status | Delivered behavior | Evidence / boundary |
 | --- | --- | --- | --- |
-| CS-01 | Built | As a shopper, I want to review a product captured from the active page so I save the intended item. | User initiates capture; editable name, price, retailer, model, variant and condition; captured image or placeholder; manual fallback; no blanket host permission. |
-| CS-02 | Built | As a shopper, I want saved products from different stores in one cart so I can plan a purchase. | Local persistence; quantity and notes editing; removal; save-for-later; budget and item subtotal; consistent retailer links. |
-| CS-03 | Built | As a shopper, I want to compare offers for the same model and variant so I can choose deliberately. | Manual/observed offers; identity, variant and condition checks; item, shipping, tax, membership, discounts and cashback shown; unknown required costs explicit; quantity-aware totals; rank by total/delivery/returns/pickup with preference eligibility. |
-| CS-04 | Built | As a shopper, I want a record of observed prices so I can see changes over time. | New captures and offer edits store timestamped price observations with their source; latest availability remains on each offer. |
-| CS-05 | Built | As a shopper, I want watched changes surfaced when I capture an item again so I can act on new information. | Price-drop/restock detection from changed observations; notification list; optional Chrome notification permission; no background polling claim. |
-| CS-06 | Built | As a shopper, I want to record orders so I can keep delivery notes together. | Manual create/edit/delete; product, retailer, quantity, status, order/expected dates, notes, tracking number/link; valid quantities and calendar dates; tracking links open safely. |
-| CS-07 | Built | As a shopper, I want to estimate installment costs so I understand entered financing terms. | Amount, payment count, fees, interest amount, first date, and interval; payment schedule and total; late fee separate; no invented APR or provider offer. |
-| CS-08 | Built | As a shopper, I want control of my data so I can back it up or remove it. | JSON export/import; schema and ID validation; atomic rejection of malformed imports; links/history preserved; historical alerts not replayed and desktop notifications disabled after import; delete confirmation; local storage only. |
-| CS-09 | Built | As a first-time tester, I want optional sample data so I can try the flows safely. | Empty real first run; isolated labeled sample products, offers, history, alerts and orders; reset/exit controls; sample backup provenance retained and blocked from real-workspace import. |
-| CS-10 | Built | As a reference user, I want install instructions and a feedback route so I can test the alpha. | README, release notes, runtime ZIP/checksum, issue forms, quantitative/qualitative protocol, draft invitation, unassigned roster; publication is recorded below; actual participation remains pending. |
-| CS-21 | Built | As a reviewer, I want a browser demo so I can explore CartScope without installing it. | Same static interface; browser localStorage; labeled sample mode; manual entry; extension-only capture clearly explained; no AWS setup. |
+| CS-01 | Done | Capture the active product page and review editable details. | User-initiated toolbar access, fixture capture, manual fallback; current stores still need field validation. |
+| CS-02 | Done | Persist products from several stores, quantities, notes, save-for-later and an item budget. | Local cart and quantity checks; shopping links return to retailer checkout. |
+| CS-03 | Done | Compare checked offers with identity/variant/condition checks and transparent costs. | Total, delivery, pickup and returns ranking; missing required costs stay unknown. |
+| CS-04 | Done | Record timestamped observed prices. | Capture/edit observations; not a complete market history or price forecast. |
+| CS-05 | Done | Show watched price-drop/restock changes after a new observation. | In-app alerts and optional Chrome notification permission; no unattended polling. |
+| CS-06 | Done | Keep manual order records, dates, status, notes and safe tracking links. | Manual updates; no live carrier feed or dedicated carrier-name field. |
+| CS-07 | Done | Calculate the full obligation and an exact-cent payment schedule. | User-entered interest/fees and dates; no provider quote, APR or credit decision. |
+| CS-08 | Done | Export/import/delete local records with atomic validation. | Links/history preserved, old alerts not replayed, sample imports isolated. |
+| CS-09 | Done | Explore a separate labeled sample workspace. | Real first run starts empty; sample provenance retained through backups. |
+| CS-10 | Done | Provide Alpha installation instructions and feedback mechanisms. | Documents/forms prepared; recruitment, sending and actual responses remain separate gates. |
+| CS-21 | Done | Explore the same interface in a static browser demo. | Separate browser local storage; capture requires the extension; no AWS setup. |
+| CS-22 | Done | Deliver the paper/forest shopping desk, custom mark and Alpha report. | Genuine 0.1.1 Chrome screenshots and feature/test evidence; not a 0.1.2 verification claim. |
 
-| CS-22 | Built | As a reviewer, I want an original shopping desk and clear evidence so I can demonstrate the Alpha. | Custom CartScope mark, paper/forest styling, practical copy, responsive landing; current-version Chrome checks and unmodified screenshots; Canvas write-up and illustrated test matrix. |
+| ID | Status | Historical release action | Evidence |
+| --- | --- | --- | --- |
+| REL-01 | Done | Smoke-test the Alpha ZIP in real Chrome. | [October 11 run](https://github.com/qarteu/cartscope/actions/runs/38178299418): actual unpacked 0.1.1 ZIP, toolbar grant, fixture capture, main flows, downloads and layouts. |
+| REL-02 | Done | Publish source to the personal qarteu GitHub account. | [Repository](https://github.com/qarteu/cartscope); this historical publication does not prove current write authorization. |
+| REL-03 | Done | Publish Alpha 0.1.0 and its runtime ZIP/checksum. | [Original release](https://github.com/qarteu/cartscope/releases/tag/v0.1.0); original tag/assets retained. |
+| REL-08 | Done | Publish and smoke-test the 0.1.1 GitHub Pages demo. | [Demo](https://qarteu.github.io/cartscope/) and historical Chrome evidence; not a Store listing. |
+| REL-09 | Done | Publish the separate 0.1.1 patch and Alpha submission packet. | [Release and attachments](https://github.com/qarteu/cartscope/releases/tag/v0.1.1); downloaded runtime matched tested bytes. |
 
-## Release and submission gates
+## Sprint 2.E Fielding & Support
+
+**Goal:** field a verified candidate, prepare and pursue authorized Store distribution, and support real installation/use. Keep the existing local/manual Alpha boundaries clear. Prioritize launch blockers and actual user problems before optional feature expansion.
+
+All rows below are **planned**. Documents, estimates and proposed owners are preparation, not user acceptance or measured support results.
+
+| ID | Status | Priority / proposed owner | User story and acceptance |
+| --- | --- | --- | --- |
+| CS-11 | Planned | P1 · Kartik / Jake | As a shopper, I want reliable capture on my stores. Select current stores with consenting testers; record attempted captures, corrected fields, failures, environment and denominators; retain permitted examples and reproduce defects. |
+| CS-13 | Planned | P1 · Jake / Kartik | As a tester, I want reported blockers resolved. Reproduce actual reports, assign severity/owner, add useful regression checks, record fixed version and verify the task with affected testers where possible. |
+| CS-19 | Planned | P1 · Kartik / testers | As a shopper, I want installation and core tasks checked on documented platforms. Test install/update/uninstall, keyboard focus and opted-in native notifications; record environments, outcomes and remaining accessibility limits. |
+| CS-20 | Planned | P1 · Kartik | As a shopper, I want Store installation and updates. Prepare the listing/reviewer kit; submit through an authorized publisher under REL-12; close only after a verified approved public listing under REL-13. |
+| CS-23 | Planned | P1 · Jake / Eashan / Kartik | As a user, I want a usable support route. Publish support/known-issues guidance; collect version/environment and task evidence; record actual acknowledgement/reproduction/resolution dates; route defects to CS-13. |
+| CS-27 | Planned | P2 · Jake / Eashan / Kartik | As the team, we want agreed acceptance for requested features. Review the October 22 requests, clarify tasks/constraints, and scope EP-01/02/03. This is discovery; it does not deliver their features. |
+
+## Launch, fielding and support gates
+
+A prepared listing kit is not a submitted review, a submitted review is not approval, and a local file is not a published release. Leave each gate open until its evidence exists.
 
 | ID | Status | Action | Evidence required to close |
 | --- | --- | --- | --- |
-| REL-01 | Done · automated Chrome | Smoke-test the release ZIP in real Chrome | 16 passing Chrome checks from the actual unpacked ZIP: toolbar access, fixture capture, main flows, downloads, responsive layouts, and demo. [Verification](VERIFICATION.md) records browser/version and remaining manual platform/native notification field scope. |
-| REL-02 | Done | Publish source to the personal GitHub account `qarteu` | Repository resolves at `https://github.com/qarteu/cartscope`; version-controlled source and license visible. |
-| REL-03 | Done | Publish GitHub release `v0.1.0`, ZIP, checksum and release notes | Verified release commit/tag; release page resolves; asset downloads and checksum matches; unpacked installation evidenced by REL-01. |
-| REL-08 | Done | Publish the static preview on GitHub Pages | Public demo URL resolves and main preview flows pass a smoke test. |
-| REL-09 | Done | Publish the separate 0.1.1 design patch and final submission packet | Downloaded runtime bytes match the current Chrome-tested ZIP; PDF and Canvas write-up use current evidence; original 0.1.0 tag/assets preserved. |
-| REL-04 | Pending participants | Recruit and assign ten consenting reference users | Private contact roster plus R01–R10 status entries; no fabricated identities. |
-| REL-05 | Pending participants | Send the personalized preview announcement | Actual send dates and private delivery evidence; [draft email](ALPHA_EMAIL.md) alone does not close this task. |
-| REL-06 | Pending feedback | Collect and triage quantitative and qualitative feedback | Actual issue/reply records and a readout with denominators and source labels. |
-| REL-07 | Pending source access, conditional | Reconcile an existing Trello board if supplied | Actual board URL/access verified and stories/statuses reconciled; GitHub Issues remains the current similar issue tracker. |
+| REL-04 | Planned | Confirm ten consenting reference users. | Real private commitments, assigned R01-R10 IDs and roster status; empty slots do not count. |
+| REL-05 | Planned | Send the original personalized Alpha preview invitations. | Actual send dates and private delivery evidence; the existing draft is not a sent announcement. Coordinate with the launch message to avoid duplicate invitations. |
+| REL-06 | Planned | Collect and triage quantitative and qualitative feedback. | Actual task results/times, 1-5 ratings, written reports and a readout with denominators; extension/demo modes separated. |
+| REL-07 | Planned | Reconcile an existing Trello board if supplied. | Verified URL/access and reconciled records. Conditional; GitHub Issues remains the current equivalent tracker. |
+| REL-10 | Planned · local checks passed; Chrome/field checks pending | Verify the actual Launch Candidate 0.1.2 ZIP. | Current validation and behavioral checks; clean Chrome installation of `cartscope-launch-0.1.2.zip`; named results, browser/version, commit, inventory, hash and genuine screenshots. Historical Alpha evidence is insufficient. |
+| REL-11 | Planned | Publish the verified 0.1.2 source and GitHub release. | Authorized write access; separate immutable release, runtime ZIP/checksum and instructions; hosted downloads match tested bytes; older releases preserved. |
+| REL-12 | Planned | Submit the candidate for Chrome Web Store review. | Authorized publisher session, correct item identity/version, completed kit, actual upload/submission confirmation, time and review status. |
+| REL-13 | Planned | Verify the approved public Chrome Web Store listing. | Actual public URL/item ID, expected publisher/version, approval/publication status and Store installation/update check. Keep the Store URL null until verified. |
+| REL-14 | Planned | Announce launch to ten reference users and other potential customers. | Consenting recipients, personalized authorized delivery/publication, real dates/channel evidence, feedback routes and voluntary honest Store-review request. Public Store wording depends on REL-13. |
+| REL-15 | Planned | Publish the launch submission and synchronize tracker records. | Published six-item index and current artifacts; board, JSON and real GitHub issues/labels agree; new external issue URLs recorded only after creation. |
 
-## Next sprint · planned stories
+## Requested feature epics and implementation backlog
 
-The team should confirm these priorities, dates and owners using actual alpha feedback before starting the sprint. All five stories are `planned` with the `next-sprint` label in [issue records](issues.json); P2 integration stories are conditional on permitted source access.
+**Source:** the owner's October 22 chat feedback requested screenshot capture, price guidance and occasion folders. These requests are planning input, not invented interviews or proof of ten-user validation. **None of these three features is implemented.** CS-27 scopes them during Sprint 2.E; implementation remains in the backlog.
 
-| ID | Priority | User story | Acceptance criteria |
+| ID | Status | Kind / parent | Planned feature or user story |
 | --- | --- | --- | --- |
-| CS-11 | P1 | As a shopper, I want capture to be reliable on the stores I use so I make fewer manual corrections. | Choose supported stores from tester evidence; fixtures for current permitted page examples; correction rate with actual denominators; show source and confidence; preserve manual review. |
-| CS-12 | P1 | As a shopper, I want comparisons to find authorized retailer offers automatically so I need less manual entry. | Select an authorized data source; document access and refresh limits; canonical model/variant/condition mapping; reject mismatches; distinguish live vs stale data; shipping/tax uncertainty visible; no AWS prerequisite. |
-| CS-13 | P1 | As a reference tester, I want my reported blockers fixed so the core save-and-compare flow is usable. | Collect completion/time, 1–5 ratings and written feedback; reproduce selected blockers; owner and meaningful regression check assigned; verify resolved task with affected tester where possible; distinguish extension/demo results. |
-| CS-14 | P2 | As a shopper, I want watched prices checked while I am away so I can hear about meaningful changes. | Conditional on an authorized source from CS-12; explicit opt-in; polling policy; notification frequency controls and deduplication; timestamps and availability evidence; permission/privacy review. |
-| CS-15 | P2 | As a shopper, I want order updates imported from a supported source so I can stop editing statuses manually. | Choose a carrier/retailer integration with permission; normalized status mapping; clear last-sync time; fallback/manual correction; no exposure of order secrets. |
+| EP-01 | Backlog | Epic | Screenshot capture and review: add screenshot-assisted entry alongside current page capture/manual entry. |
+| CS-24 | Backlog | Story · EP-01 | As a shopper, I want to save from a user-supplied screenshot. Agree on capture/import and processing/retention choices; present uncertain fields for editable review; preserve provenance and manual fallback; verify unsupported/ambiguous cases. |
+| EP-02 | Backlog | Epic | Evidence-based price guidance: explain a recommendation using adequate, current and comparable observations. |
+| CS-25 | Backlog | Story · EP-02 | As a shopper, I want guidance with its evidence. Define rules/minimum coverage; show source, timestamps and sample size; distinguish complete cost; handle sparse/stale/mismatched evidence explicitly. No market-wide feed or future-price certainty is implied. |
+| EP-03 | Backlog | Epic | Occasion folders: organize related saved products without losing the existing cart. |
+| CS-26 | Backlog | Story · EP-03 | As a shopper, I want occasion folders. Define membership/budgets and deletion behavior; create/rename/delete folders; preserve items, migrations, backup relationships and sample isolation; verify persistence. |
 
-## Backlog · later scope
+## Later integrations and expansion
 
-| ID | Story | Entry criteria |
+| ID | Status | Deferred story / condition |
 | --- | --- | --- |
-| CS-16 | Optional account and cross-device cart synchronization | Demand shown by feedback; identity/storage design and deletion policy; explicit opt-in. |
-| CS-17 | Optional hosted price/availability refresh service | Actual need confirmed after alpha; authorized source selected; cost, freshness, monitoring, and security requirements agreed; no secrets in extension. No cloud service is required for the current demo. |
-| CS-18 | Provider-backed BNPL comparison | Current provider terms/permissions obtained; jurisdiction and disclosure requirements reviewed; no estimated APR represented as an offer. |
-| CS-19 | Accessibility and browser support expansion | Keyboard/screen-reader usability findings; defined target browser versions; acceptance testing on those targets. |
-| CS-20 | Chrome Web Store beta distribution | Alpha blockers addressed; privacy policy and listing assets; permission justification; store review requirements satisfied. |
+| CS-12 | Backlog | Authorized automatic cross-store discovery; requires a selected permitted source, identity mapping, freshness and uncertainty handling. |
+| CS-14 | Backlog | Opt-in unattended price checks; depends on CS-12 source access, refresh policy and notification controls. |
+| CS-15 | Backlog | Authorized order updates; requires permitted carrier/retailer access, timestamps and manual fallback. |
+| CS-16 | Backlog | Optional account/cross-device synchronization; demand, identity/storage/deletion design and explicit opt-in first. |
+| CS-17 | Backlog | Optional hosted refresh service; demonstrated need, authorized source and operating/retention model first. No AWS prerequisite. |
+| CS-18 | Backlog | Provider-backed BNPL comparison; actual source/terms/permissions required. Current calculator accepts user-entered terms only. |
 
 ## Board conventions
 
-Move a story through **Backlog → Planned → In progress → In review → Done**. Implementation issues close on the documented automated evidence defined above; real-browser and reference-user acceptance stays visible in its release gates. A release, recruitment, sending or feedback task closes only after its stated external action and evidence exist. Keep published issue links in `PUBLISHED_ISSUES.md`. IDs, scope and status must agree between this board, `issues.json` and GitHub issues; update all three when status changes.
+`backlog` means not selected for this sprint; `planned` means selected preparation or an open evidence gate; `done` requires the stated delivered result. No new launch/Store/field-support item is marked done in this revision. Keep the exact sprint name **Sprint 2.E Fielding & Support** in issue bodies and sprint metadata.
+
+`docs/issues.json` is the detailed local issue source. Each table row here maps to one unique record. Publishing must reconcile titles, labels, status and discussion links with actual GitHub issues; a local JSON edit does not update the online tracker. In particular, a later sync must move the changed existing labels as well as creating new records. Do not close a Store, send, feedback or field-validation gate from a prepared document alone. Keep contacts and delivery evidence private.

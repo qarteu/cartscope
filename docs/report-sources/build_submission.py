@@ -27,6 +27,8 @@ def read_json(path):
 
 def context(draft):
     manifest = read_json('extension/manifest.json')
+    if read_json('package.json').get('cartscope', {}).get('channel') == 'launch':
+        raise ValueError('This is the historical Alpha report builder. Use scripts/launch-evidence.py and docs/launch/CANVAS_SUBMISSION.md for the launch candidate.')
     chrome = read_json('docs/CHROME_TEST_RESULTS.json')
     ui = read_json('docs/UI_TEST_RESULTS.json')
     visuals = read_json('docs/visuals/render-manifest.json')
@@ -99,7 +101,7 @@ FEATURES = [
 ]
 
 
-def canvas_text(c):
+def detailed_submission_text(c):
     version = c['version']
     note = '**Draft - do not submit:** Final publication and evidence refresh are pending.\n\n' if c['draft'] else ''
     rows = '\n'.join(f'| {feature} | {behavior} | {evidence} |' for feature, behavior, evidence in FEATURES)
@@ -154,10 +156,56 @@ The [reference roster]({REPO}/blob/main/docs/REFERENCE_USERS.csv) still has ten 
 '''
 
 
+def canvas_text(c):
+    version = c['version']
+    note = '**Draft evidence:** publication and verification must pass before submission.\n\n' if c['draft'] else ''
+    return f"""# CartScope - Alpha release submission
+
+{note}**Team:** Kartik Malunjkar, Jake Clevenger, and Eashan. **Current release:** Alpha {version}.
+
+CartScope is a Chrome extension for saving products from different stores, comparing checked offers and estimated total costs, keeping an item budget, recording price changes and orders, and calculating payment schedules. The working Alpha uses local storage and requires no AWS setup.
+
+1. **GitHub repository and release notes**
+
+   [Version-controlled repository - qarteu/cartscope]({REPO})<br>
+   [Release notes and usage instructions]({c['release_url']}) · [Installation walkthrough]({REPO}/blob/main/README.md)
+
+   The public repository belongs to qarteu and includes the extension source, documentation, visuals, tests, and release history.
+
+2. **Downloaded working Alpha ZIP**
+
+   [Download cartscope-alpha-{version}.zip]({c['download_url']})
+
+   **Attach this ZIP to Canvas.** It is the installable extension package. The original [Alpha 0.1.0 release]({REPO}/releases/tag/v0.1.0) is also retained; {version} is the current design patch.
+
+   To install: unzip the file, open `chrome://extensions`, enable **Developer mode**, select **Load unpacked**, and choose the folder containing `manifest.json`. Pin CartScope, open a product page, click its toolbar icon, and choose **Capture this page**. Review the details before saving.
+
+3. **Draft reference-user announcement and feedback**
+
+   [Read the email template]({REPO}/blob/main/docs/ALPHA_EMAIL.md) · [Downloadable email text]({REPO}/releases/download/v{version}/ALPHA_EMAIL_TEMPLATE.txt)
+
+   The draft invites the ten reference-user slots R01-R10 to try the Alpha. It includes installation steps, release-note links, and testing tasks.
+
+   **Quantitative feedback:** task completion/failure, time taken, and 1-5 ratings for ease, clarity, usefulness, and confidence. **Qualitative feedback:** confusing steps, missing information, and the next improvement. Users can submit the [feedback form]({FEEDBACK}) or reply privately to the email. The [task protocol]({REPO}/blob/main/docs/FEEDBACK_PLAN.md) defines the rating scales.
+
+   **Delivery status:** prepared as a draft; no announcement sent to ten users is claimed.
+
+4. **Updated Agile tracker, backlog, and next sprint**
+
+   [Sprint board]({REPO}/blob/main/docs/SPRINT_BOARD.md) · [GitHub Issues]({REPO}/issues)
+
+   GitHub Issues is our similar issue tracker. The board shows completed work, release progress, the updated backlog, and {c['labels']['next-sprint']} planned next-sprint stories: current-store capture validation, authorized offer discovery, usability fixes from feedback, opt-in unattended price checks, and authorized order updates. Source-dependent integrations remain planned.
+
+**Working demonstration:** [Open CartScope]({DEMO}). **Visuals:** [Actual Chrome screenshots]({REPO}/blob/main/docs/visuals/README.md).
+
+**Verification:** [Test evidence]({REPO}/blob/main/docs/VERIFICATION.md) records {c['node_passed']} passing Node tests, including {c['ui_passed']} DOM flow checks, plus {c['chrome_passed']} passing real Chrome checks. The released ZIP was loaded in a clean Chrome profile and the downloaded GitHub package matched the tested bytes. Checks cover capture fixtures, cart, comparison, watches, orders, financing, backups, layouts, and the public demo. Sample data is labeled; live retailer feeds and background polling remain future work.
+"""
+
+
 def report_text(c):
     check_rows = '\n'.join(f'| {index + 1} | {check["name"]} | {check["status"]} |' for index, check in enumerate(c['chrome']['checks']))
     snapshot = 'Draft for the current visual update; final browser evidence must match before export.' if c['draft'] else 'Final report generated from the recorded release evidence.'
-    return canvas_text(c) + f'''
+    return detailed_submission_text(c) + f'''
 ## Detailed release evidence
 
 {snapshot}

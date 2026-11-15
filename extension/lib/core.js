@@ -22,6 +22,12 @@ export function safeUrl(value) {
   } catch { return ''; }
 }
 
+export function safeImageUrl(value) {
+  if (['assets/headphones.svg', 'assets/shoe.svg', 'assets/backpack.svg', 'assets/product.svg'].includes(value)) return value;
+  const url = safeUrl(value);
+  return url.startsWith('https:') ? url : '';
+}
+
 export function normalizeProduct(input) {
   const item = record(input);
   if (!text(item.name)) throw new Error('A product name is required.');
@@ -40,7 +46,7 @@ export function normalizeProduct(input) {
     name: text(item.name), brand: text(item.brand, 100), model: text(item.model, 100),
     gtin: text(item.gtin, 30), variant: text(item.variant, 200), color: text(item.color, 100),
     size: text(item.size, 100), condition: ['new', 'used', 'refurbished'].includes(item.condition) ? item.condition : '', currency, quantity: count, notes: text(item.notes, 2000),
-    url, image: safeUrl(item.image), retailer: text(item.retailer, 100), price: round(item.price),
+    url, image: safeImageUrl(item.image), retailer: text(item.retailer, 100), price: round(item.price),
     availability: AVAILABILITY.has(item.availability) ? item.availability : 'unknown'
   };
 }

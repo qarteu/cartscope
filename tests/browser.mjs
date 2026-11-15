@@ -28,13 +28,13 @@ const publicDemoUrl = process.env.PUBLIC_DEMO_URL?.trim() || '';
 await mkdir(screenshots, { recursive: true });
 const report = {
   generatedAt: new Date().toISOString(), status: 'running', browser: null,
-  method: 'Playwright; configured Alpha release ZIP unpacked and loaded in disposable Chrome for Testing profile; retailer captures use localhost fixtures; optional published demo check uses HTTPS',
+  method: 'Playwright; configured release ZIP unpacked and loaded in disposable Chrome for Testing profile; retailer captures use localhost fixtures; optional published demo check uses HTTPS',
   planned: ['extension service worker and local storage', 'sample/real workspace isolation', 'cart add/edit/quantity/save-for-later',
     'exact/possible/mismatch/unknown-cost comparison', 'price-drop/restock observations', 'orders and tracking',
-    'financing total and rounding', 'preferences and backup round trip', 'hostile input escaping',
+    'financing total and rounding', 'preferences and backup round trip', 'HTTPS-only product images', 'hostile input escaping',
     'actual activeTab toolbar grant and scripting capture', 'category capture rejection',
-    '320/380/480-pixel layouts', 'preview state persistence'],
-  checks: [], limitations: ['Deterministic retailer-shaped fixtures do not verify changing live retailer markup or live offer feeds.'], screenshots: [], errors: []
+    '320/380/480-pixel layouts', '1280x800 installed extension screenshots', 'preview state persistence'],
+  checks: [], limitations: ['Deterministic retailer-shaped fixtures do not verify changing live retailer markup or live offer feeds.', 'Store-size screenshots show the installed extension in a disposable QA tab with labeled sample data; they do not establish Chrome Web Store publication or approval.'], screenshots: [], storeScreenshots: [], errors: []
 };
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png' };
 const server = createServer(async (request, response) => {
@@ -127,7 +127,7 @@ const triggerToolbar = async (targetPage, extensionId) => {
 };
 
 try {
-  await check('The actual Alpha release ZIP unpacks into the Chrome installation root', async () => {
+  await check('The configured release ZIP unpacks into the Chrome installation root', async () => {
     const releaseZip = resolve(root, release.archivePath);
     extension = await mkdtemp(resolve(tmpdir(), 'cartscope-release-under-test-'));
     profiles.push(extension);
@@ -155,7 +155,7 @@ try {
 
   await check('Real extension service worker opens an empty local workspace', async () => {
     assert.equal(await page.evaluate(() => chrome.runtime.id), extensionId);
-    assert.equal((await page.locator('.alpha').innerText()).trim(), `ALPHA ${release.version}`);
+    assert.equal((await page.locator('.alpha').innerText()).trim(), release.badge);
     assert.equal(await page.locator('.app-footer a').getAttribute('href'), `https://github.com/qarteu/cartscope/releases/tag/${release.tag}`);
     assert.equal((await state()).products.length, 0);
     assert.equal(await page.locator('#demo-bar').isVisible(), false);
@@ -177,6 +177,38 @@ try {
     await page.locator('#settings-shortcut').click(); await heading('Settings'); await screenshot('settings');
     await action('exit-demo'); await heading('Your cart');
     assert.equal((await state()).products.length, 0);
+  });
+
+  await check('Installed extension produces unmodified 1280x800 Store-size screenshots in a fresh QA tab', async () => {
+    const storePage = await context.newPage();
+    failurePage = storePage;
+    storePage.on('pageerror', error => pageErrors.push(error.message));
+    await storePage.setViewportSize({ width: 1280, height: 800 });
+    await storePage.goto(`chrome-extension://${extensionId}/sidepanel.html`);
+    await storePage.locator('#app h1').filter({ hasText: 'Your cart' }).waitFor();
+    await storePage.locator('[data-action="demo"]').click();
+    await storePage.locator('#demo-bar').waitFor();
+    assert.equal(await storePage.locator('.product-card').count(), 4);
+    const screens = [['cart', 'Your cart'], ['compare', 'Compare prices'], ['alerts', 'Notifications'], ['orders', 'Your orders'], ['settings', 'Settings']];
+    for (const [view, title] of screens) {
+      if (view === 'settings') await storePage.locator('#settings-shortcut').click();
+      else await storePage.locator(`[data-view="${view}"]`).click();
+      if (view === 'compare') await storePage.locator('[name="selectedProduct"]').selectOption('sample-sony');
+      await storePage.locator('#app h1').filter({ hasText: title }).waitFor();
+      await storePage.locator('#toast').waitFor({ state: 'hidden', timeout: 7000 });
+      await storePage.evaluate(() => document.fonts.ready);
+      await storePage.evaluate(() => scrollTo(0, 0));
+      const path = `artifacts/screenshots/store-${view}-1280x800.png`;
+      await storePage.screenshot({ path: resolve(root, path), fullPage: false, animations: 'disabled' });
+      const png = await readFile(resolve(root, path));
+      assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+      const width = png.readUInt32BE(16), height = png.readUInt32BE(20);
+      assert.deepEqual({ width, height }, { width: 1280, height: 800 });
+      report.screenshots.push(path);
+      report.storeScreenshots.push({ path, width, height, view, source: 'installed-extension-page', workspace: 'labeled sample data' });
+    }
+    await storePage.close();
+    failurePage = null;
   });
 
   await check('Cart add, edit, quantity, and save-for-later persist through Chrome storage', async () => {
@@ -287,6 +319,36 @@ try {
     await rm(backup, { force: true });
   });
 
+  await check('HTTP product images are stripped on import and never requested from legacy records', async () => {
+    const image = `${base}/insecure-image-audit.png`;
+    const requested = [];
+    const listener = request => { if (request.url() === image) requested.push(request.url()); };
+    page.on('request', listener);
+    try {
+      const backup = await state();
+      assert.match(backup.products[0].url, /^http:/, 'The fixture must exercise an intentional HTTP shopping link');
+      backup.products[0].image = image; backup.offers[0].image = image;
+      const imported = await message({ type: 'import', state: backup });
+      assert.equal(imported.ok, true, imported.error);
+      assert.equal(imported.state.products[0].image, '');
+      assert.equal(imported.state.offers[0].image, '');
+      assert.equal(imported.state.products[0].url, backup.products[0].url, 'Deliberate HTTP shopping links must remain usable');
+      await page.reload(); await heading('Your cart');
+      assert.equal(await page.locator('.product-card .product-image').first().getAttribute('src'), 'assets/product.svg');
+      const legacy = structuredClone(imported.state); legacy.products[0].image = image;
+      await page.evaluate(async workspace => chrome.storage.local.set({ workspace }), legacy);
+      await page.reload(); await heading('Your cart');
+      assert.equal(await page.locator('#app img[src^="http:"]').count(), 0);
+      await action('edit-product', legacy.products[0].id); await heading('Edit item');
+      assert.equal(await page.locator('#product-form [name="image"]').inputValue(), '');
+      assert.equal(await page.locator('.hero-image img').getAttribute('src'), 'assets/product.svg');
+      await page.waitForLoadState('networkidle');
+      assert.deepEqual(requested, [], 'An insecure image host must receive no request');
+      await message({ type: 'import', state: imported.state });
+      await page.reload(); await heading('Your cart');
+    } finally { page.off('request', listener); }
+  });
+
   await check('Hostile text remains text and scripting URL payloads are discarded', async () => {
     const before = (await state()).products.length;
     const response = await message({ type: 'saveProduct', product: { name: '<img src=x onerror="globalThis.cartscopeInjected=true">', price: 1, currency: 'USD', retailer: '<script>bad()</script>', url: 'javascript:alert(1)', image: 'data:image/svg+xml,x', quantity: 1, notes: '<svg onload="alert(1)">' } });
@@ -387,15 +449,17 @@ try {
     const iframeBadge = await frame.locator('.alpha').innerText();
     report.publicDemo.landingBadge = landingBadge;
     report.publicDemo.iframeBadge = iframeBadge;
-    report.publicDemo.landingVersion = landingBadge.match(/ALPHA\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
-    report.publicDemo.iframeVersion = iframeBadge.match(/ALPHA\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
+    report.publicDemo.landingVersion = landingBadge.match(/(?:ALPHA|PREVIEW)\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
+    report.publicDemo.iframeVersion = iframeBadge.match(/(?:ALPHA|PREVIEW)\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
+    assert.ok(landingBadge.includes(release.badge), `The public landing badge must identify ${release.badge}`);
+    assert.equal(iframeBadge.trim(), release.badge);
     assert.equal(report.publicDemo.landingVersion, release.version, `The published landing page is not the configured ${release.version} release`);
     assert.equal(report.publicDemo.iframeVersion, release.version, `The published iframe is not the configured ${release.version} release`);
     assert.equal(await frame.locator('.app-footer a').getAttribute('href'), `https://github.com/qarteu/cartscope/releases/tag/${release.tag}`);
     await frame.locator('#settings-shortcut').click();
     await frame.locator('#app h1').filter({ hasText: 'Settings' }).waitFor();
     const about = await frame.locator('.card').filter({ hasText: 'About CartScope' }).innerText();
-    report.publicDemo.aboutVersion = about.match(/Alpha\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
+    report.publicDemo.aboutVersion = about.match(/(?:Alpha|Launch candidate)\s+(\d+\.\d+\.\d+)(?![\d.])/i)?.[1] || null;
     assert.equal(report.publicDemo.aboutVersion, release.version, 'The published About section has an outdated release version');
     await frame.locator('[data-view="cart"]').click();
     await frame.locator('#app h1').filter({ hasText: 'Your cart' }).waitFor();

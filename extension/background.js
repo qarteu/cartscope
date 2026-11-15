@@ -1,4 +1,4 @@
-import {normalizeProduct, safeUrl, deriveAlert} from './lib/core.js';
+import {normalizeProduct, safeUrl, safeImageUrl, deriveAlert} from './lib/core.js';
 import {emptyState, sampleState, defaults} from './lib/samples.js';
 
 // Native panel toggling skips Chrome's activeTab grant. Handle the toolbar
@@ -21,10 +21,9 @@ const numeric=(v,min=0,max=1000000,nullable=false)=>{
 };
 const whole=(v,min=1,max=999)=>{const n=numeric(v,min,max);if(!Number.isInteger(n))throw new Error('Enter a whole number between '+min+' and '+max+'.');return n;};
 const validId=v=>typeof v==='string'&&/^[A-Za-z0-9._-]{1,100}$/.test(v);
-const imageUrl=v=>safeUrl(v)||(['assets/headphones.svg','assets/shoe.svg','assets/backpack.svg','assets/product.svg'].includes(v)?v:'');
 function cleanOffer(raw,productId){
   const product=normalizeProduct(raw);
-  return {...product,id:text(raw.id||id(),100),productId,retailer:text(raw.retailer,100)||'Other retailer',url:safeUrl(raw.url),image:imageUrl(raw.image),
+  return {...product,id:text(raw.id||id(),100),productId,retailer:text(raw.retailer,100)||'Other retailer',url:safeUrl(raw.url),image:safeImageUrl(raw.image),
     price:numeric(raw.price), shipping:numeric(raw.shipping,0,1000000,true),tax:numeric(raw.tax,0,1000000,true),membership:raw.membership===undefined?0:numeric(raw.membership,0,1000000,true),discount:numeric(raw.discount??0),cashback:numeric(raw.cashback??0),
     deliveryDays:numeric(raw.deliveryDays,0,365,true),returnDays:numeric(raw.returnDays,0,3650,true),pickup:raw.pickup===true,location:text(raw.location,200),
     availability:['in_stock','out_of_stock','unknown'].includes(raw.availability)?raw.availability:'unknown',checkedAt:now(),source:raw.source==='captured'?'captured':raw.source==='sample'?'sample':'manual'};
@@ -76,7 +75,7 @@ async function handle(message){
       const productId=message.attachTo||raw.id||id();
       const existing=state.products.find(p=>p.id===productId);
       if(message.attachTo&&!existing)throw new Error('The selected saved item no longer exists.');
-      const p={...normalized,id:productId,image:imageUrl(raw.image),url:safeUrl(raw.url),notes:text(raw.notes),quantity:whole(raw.quantity??1),watch:cleanWatch(raw.watch||existing?.watch),savedOnly:raw.savedOnly===true,source:demo?'sample':message.source==='captured'?'captured':'manual'};
+      const p={...normalized,id:productId,image:safeImageUrl(raw.image),url:safeUrl(raw.url),notes:text(raw.notes),quantity:whole(raw.quantity??1),watch:cleanWatch(raw.watch||existing?.watch),savedOnly:raw.savedOnly===true,source:demo?'sample':message.source==='captured'?'captured':'manual'};
       const index=state.products.findIndex(x=>x.id===productId);
       // Keep the saved item's identity when attaching a second retailer's observation.
       if(message.attachTo){existing.notes=p.notes||existing.notes;}
@@ -114,7 +113,7 @@ async function handle(message){
       if(!demo&&(input.sample===true||input.products.some(p=>p?.source==='sample')||input.offers.some(o=>o?.source==='sample')||(Array.isArray(input.history)&&input.history.some(h=>h?.source==='sample'))))throw new Error('Import sample backups in the sample workspace so illustrative prices stay labeled.');
       state=emptyState();if(demo)state.sample=true;state.settings=cleanSettings({...input.settings,notificationsEnabled:false});
       const ids=new Set();
-      state.products=input.products.map(p=>{const normalized=normalizeProduct(p);if(!validId(p.id)||ids.has(p.id))throw new Error('Backup contains duplicate or invalid product IDs.');ids.add(p.id);return {...normalized,id:p.id,image:imageUrl(p.image),notes:text(p.notes),url:safeUrl(p.url),watch:cleanWatch(p.watch),savedOnly:p.savedOnly===true,source:demo?'sample':p.source==='captured'?'captured':'manual'};});
+      state.products=input.products.map(p=>{const normalized=normalizeProduct(p);if(!validId(p.id)||ids.has(p.id))throw new Error('Backup contains duplicate or invalid product IDs.');ids.add(p.id);return {...normalized,id:p.id,image:safeImageUrl(p.image),notes:text(p.notes),url:safeUrl(p.url),watch:cleanWatch(p.watch),savedOnly:p.savedOnly===true,source:demo?'sample':p.source==='captured'?'captured':'manual'};});
       const offerIds=new Set();
       state.offers=input.offers.map(o=>{if(!ids.has(o.productId))throw new Error('Backup contains an offer without a saved product.');if(!validId(o.id))throw new Error('Backup contains invalid offer IDs.');const offer=cleanOffer(o,o.productId);if(offerIds.has(offer.id))throw new Error('Backup contains duplicate offer IDs.');offerIds.add(offer.id);offer.checkedAt=Number.isFinite(Date.parse(o.checkedAt))?o.checkedAt:now();return offer;});
       state.history=(Array.isArray(input.history)?input.history:[]).slice(-5000).filter(h=>ids.has(h.productId)&&Number.isFinite(Date.parse(h.checkedAt))).map(h=>({productId:h.productId,offerId:text(h.offerId,100),retailer:text(h.retailer,100),price:numeric(h.price),currency:text(h.currency,3),checkedAt:h.checkedAt,source:demo?'sample':h.source==='captured'?'captured':'manual'}));

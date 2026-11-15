@@ -7,9 +7,12 @@ export function releaseInfo(root = resolve(dirname(fileURLToPath(import.meta.url
   const pkg = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
   assert(/^\d+\.\d+\.\d+$/.test(pkg.version), 'Release version must have three numeric components');
   const version = pkg.version;
-  const archiveName = `cartscope-alpha-${version}.zip`;
-  return { version, tag: `v${version}`, archiveName, archivePath: `artifacts/${archiveName}`,
-    checksumPath: `artifacts/${archiveName}.sha256`, title: `CartScope Alpha ${version}` };
+  const channel = pkg.cartscope?.channel ?? 'alpha';
+  assert(['alpha', 'launch'].includes(channel), 'Unknown release channel');
+  const archiveName = `cartscope-${channel}-${version}.zip`;
+  const badge = `${channel === 'launch' ? 'PREVIEW' : 'ALPHA'} ${version}`;
+  return { version, channel, badge, tag: `v${version}`, archiveName, archivePath: `artifacts/${archiveName}`,
+    checksumPath: `artifacts/${archiveName}.sha256`, title: `CartScope ${channel === 'launch' ? 'Launch Candidate' : 'Alpha'} ${version}` };
 }
 
 export function releaseNotes(changelog, version) {

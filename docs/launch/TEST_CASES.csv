@@ -1,0 +1,70 @@
+case_id,test_file,executed_scenario_and_assertions,actual_result,seconds
+AUTO-001,core.test.mjs,safeUrl preserves ordinary HTTP URLs and rejects active or credentialed URLs,passed,0.001650
+AUTO-002,core.test.mjs,product images allow HTTPS and only bundled product illustrations while shopping links retain HTTP,passed,0.000513
+AUTO-003,core.test.mjs,money formats finite non-negative amounts without unsafe or invalid strings,passed,0.025852
+AUTO-004,core.test.mjs,normalizeProduct returns a stable validated data record without arbitrary fields,passed,0.000757
+AUTO-005,core.test.mjs,"normalizeProduct rejects absent, malformed, negative, infinite, and invalid quantity data",passed,0.000176
+AUTO-006,core.test.mjs,brand and model match tolerates punctuation but refuses any known variant conflict,passed,0.000282
+AUTO-007,core.test.mjs,barcode identity validates check digits and does not override conflicting or missing variants,passed,0.000089
+AUTO-008,core.test.mjs,condition is never guessed and new or used inventory cannot be promoted as the same offer,passed,0.000093
+AUTO-009,core.test.mjs,cost separates checkout obligation from cashback using an independent cents calculation,passed,0.000202
+AUTO-010,core.test.mjs,unknown shipping prevents a ranked total instead of becoming free shipping,passed,0.000169
+AUTO-011,core.test.mjs,malformed cost values and mixed currencies cannot produce a valid total,passed,0.000149
+AUTO-012,core.test.mjs,ranking excludes cheap mismatches from best position and preserves deterministic ties,passed,0.000691
+AUTO-013,core.test.mjs,"each priority actually changes eligible ordering, with pickup alias supported",passed,0.000643
+AUTO-014,core.test.mjs,payment schedule totals full obligation and allocates rounding cents exactly,passed,0.000973
+AUTO-015,core.test.mjs,payment schedule handles zero amount and UTC leap days,passed,0.000123
+AUTO-016,core.test.mjs,payment schedule rejects misleading or malformed financing terms,passed,0.000270
+AUTO-017,core.test.mjs,price alerts require an opted-in watch,passed,0.000117
+AUTO-018,core.test.mjs,"alert transitions do not fire for initial, unchanged, mismatched, disabled, or invalid observations",passed,0.000177
+AUTO-019,core.test.mjs,"restock alert requires known out-of-stock transition, and sample events are explicitly labelled",passed,0.000068
+AUTO-020,core.test.mjs,"price history only claims a recorded range, ignores invalid points, and keeps currencies separate",passed,0.000116
+AUTO-021,extract.test.mjs,classic injected script captures a graph Product with usable complete identity,passed,0.004438
+AUTO-022,extract.test.mjs,a category page cannot silently save its first recommended product,passed,0.001065
+AUTO-023,extract.test.mjs,multiple products require a single current-page or mainEntity match,passed,0.001527
+AUTO-024,extract.test.mjs,Amazon product page selector fallback captures the displayed amount without page writes,passed,0.001933
+AUTO-025,extract.test.mjs,OpenGraph supports generic product pages and does not treat a website title as a product,passed,0.000760
+AUTO-026,extract.test.mjs,retailer product fallback and displayed prices work for the supported selector adapters,passed,0.001519
+AUTO-027,extract.test.mjs,invalid metadata falls back only when a genuine product page and price are available,passed,0.000656
+AUTO-028,extract.test.mjs,"ambiguous offer prices, aggregates, and hostile price strings are rejected",passed,0.004003
+AUTO-029,extract.test.mjs,multiple offer prices can be resolved only by the currently displayed price or exact offer URL,passed,0.000789
+AUTO-030,extract.test.mjs,graph Offer references are resolved from the same page metadata,passed,0.000434
+AUTO-031,extract.test.mjs,"published new, used, and refurbished conditions are captured without an invented default",passed,0.002367
+AUTO-032,extract.test.mjs,active image and canonical URL payloads cannot escape as executable extension links,passed,0.000417
+AUTO-033,extract.test.mjs,"empty, absent, and repeated scripts produce deterministic results without invented product data",passed,0.003459
+AUTO-034,publish.test.mjs,"publisher command contract derives the patch tag, asset paths, and isolated notes (mock CLIs)",passed,2.163279
+AUTO-035,publish.test.mjs,repeated publication verifies identical assets without tagging or uploading (mock CLIs),passed,1.925230
+AUTO-036,publish.test.mjs,different assets at an existing version stop publication without replacement (mock CLIs),passed,1.941790
+AUTO-037,publish.test.mjs,tracker synchronization preserves issue IDs and unrelated labels when sprint scope changes,passed,2.601081
+AUTO-038,release.test.mjs,"configured package, npm lock, and installed manifest use the same release version",passed,0.001226
+AUTO-039,release.test.mjs,launch channel creates the actual launch ZIP with the same installable root,passed,0.090715
+AUTO-040,release.test.mjs,"release ZIP is consumed by unzip, contains runtime root only, and is deterministic",passed,0.183111
+AUTO-041,release.test.mjs,validator rejects version drift and excessive permissions,passed,0.188593
+AUTO-042,release.test.mjs,packaging a version patch preserves the previous release archive and checksum,passed,0.167179
+AUTO-043,release.test.mjs,"release notes select only the exact current version and reject missing, duplicate, or empty sections",passed,0.000673
+AUTO-044,release.test.mjs,"validator rejects missing paths, inline scripts, remote stylesheets, and empty manifests",passed,0.375203
+AUTO-045,release.test.mjs,ordinary import action strings are accepted while remote static and dynamic imports fail,passed,0.202344
+AUTO-046,storage.test.mjs,toolbar click opens the clicked window panel synchronously after native action behavior is disabled,passed,0.002125
+AUTO-047,storage.test.mjs,quantity changes reject fractions and preserve the existing cart,passed,0.002880
+AUTO-048,storage.test.mjs,orders reject fractional quantities and impossible calendar dates,passed,0.004348
+AUTO-049,storage.test.mjs,imports reject numeric or mismatched ID types instead of creating invisible offers,passed,0.000664
+AUTO-050,storage.test.mjs,imports reject IDs that would collide after truncation,passed,0.000422
+AUTO-051,storage.test.mjs,sample backups cannot enter the real workspace,passed,0.000773
+AUTO-052,storage.test.mjs,sample defaults mark the workspace and products as illustrative data,passed,0.000541
+AUTO-053,storage.test.mjs,"real backup roundtrip preserves links, observations and watches while clearing alerts",passed,0.008692
+AUTO-054,storage.test.mjs,a malformed later record aborts an import without partially replacing existing data,passed,0.000571
+AUTO-055,storage.test.mjs,unknown required membership cost stays unknown rather than becoming free,passed,0.000431
+AUTO-056,storage.test.mjs,saved and imported product images reject HTTP while preserving deliberate HTTP shopping links,passed,0.000640
+AUTO-057,ui.test.mjs,Sample cart and every principal view render through actual app event handlers,passed,0.042819
+AUTO-058,ui.test.mjs,Sample mutations persist locally and do not leak into the empty workspace,passed,0.007507
+AUTO-059,ui.test.mjs,"Manual add, item quantity, editing, and saved-for-later use the same background service",passed,0.008546
+AUTO-060,ui.test.mjs,Fractional quantities are rejected and rendered values recover after the failed change,passed,0.000902
+AUTO-061,ui.test.mjs,Checked offers rank exact variants while missing costs and conflicts remain visible,passed,0.019229
+AUTO-062,ui.test.mjs,Watch settings produce price-drop and restock transitions and avoid duplicate alerts,passed,0.012711
+AUTO-063,ui.test.mjs,Manual order creation and delivery status edits persist safe tracking details,passed,0.003577
+AUTO-064,ui.test.mjs,"Payment planner renders full obligation, calendar dates, and exact remainder cents",passed,0.003950
+AUTO-065,ui.test.mjs,Preferences save and backup export serializes the real workspace,passed,0.004060
+AUTO-066,ui.test.mjs,Imported and legacy HTTP images use the bundled fallback without changing HTTP shopping links,passed,0.005354
+AUTO-067,ui.test.mjs,Hostile user text and active URLs cannot become injected product UI,passed,0.003221
+AUTO-068,ui.test.mjs,Malformed imports leave current data intact and sample backups remain isolated,passed,0.000426
+AUTO-069,ui.test.mjs,"Removing a product deletes its related offers, history, alerts, and orders",passed,0.001570

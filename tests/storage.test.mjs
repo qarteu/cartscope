@@ -214,3 +214,33 @@ test('unknown required membership cost stays unknown rather than becoming free',
   assert.equal(roundtrip.ok, true, roundtrip.error);
   assert.equal(roundtrip.state.offers.find(item => item.id === 'membership-offer').membership, null);
 });
+
+test('saved and imported product images reject HTTP while preserving deliberate HTTP shopping links', async () => {
+  const url = 'http://shop.example.com/products/headphones';
+  for (const [image, expected] of [
+    ['http://images.example.com/item.png', ''],
+    ['https://images.example.com/item.png', 'https://images.example.com/item.png'],
+    ['assets/product.svg', 'assets/product.svg'],
+    ['assets/unlisted.svg', '']
+  ]) {
+    const saved = await save({ url, image }, 'captured');
+    assert.equal(saved.products[0].image, expected);
+    assert.equal(saved.offers[0].image, expected);
+    assert.equal(saved.products[0].url, url);
+    assert.equal(saved.offers[0].url, url);
+  }
+  const imported = backup({
+    products: [product({ url, image: 'http://images.example.com/imported.png' })],
+    offers: [{ ...backup().offers[0], url, image: 'http://images.example.com/offer.png' }],
+    orders: [{ id: 'imported-order', productId: 'item-one', status: 'preparing', quantity: 1,
+      image: 'http://images.example.com/order.png', trackingUrl: 'http://carrier.example.com/track' }]
+  });
+  const response = await send({ type: 'import', state: imported });
+  assert.equal(response.ok, true, response.error);
+  assert.equal(response.state.products[0].image, '');
+  assert.equal(response.state.offers[0].image, '');
+  assert.equal(response.state.orders[0].image, '');
+  assert.equal(response.state.products[0].url, url);
+  assert.equal(response.state.offers[0].url, url);
+  assert.equal(response.state.orders[0].trackingUrl, 'http://carrier.example.com/track');
+});

@@ -1,0 +1,26 @@
+{
+  "kind": "Original code-native promotional artwork; not screenshots",
+  "original_mark": "extension/assets/mark.svg",
+  "mark_sha256": "e0265b7f052cd08de2418aa1914638d45b60872f3cc5fd796bcde43d0a341d6e",
+  "renderer": "sharp SVG rasterization",
+  "screenshot_content": false,
+  "store_approval_claim": false,
+  "assets": [
+    {
+      "name": "store-small-tile",
+      "width": 440,
+      "height": 280,
+      "svg": "store-small-tile.svg",
+      "png": "store-small-tile.png",
+      "sha256": "245716de3f31f9289c7304a9719948a1e5c57136eef2c16923335364980fb7b8"
+    },
+    {
+      "name": "store-marquee",
+      "width": 1400,
+      "height": 560,
+      "svg": "store-marquee.svg",
+      "png": "store-marquee.png",
+      "sha256": "be5aac669326e86071780e9781f7fa97c4472edd69444cf394054ed549cb459d"
+    }
+  ]
+}

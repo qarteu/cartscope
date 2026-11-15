@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560"><rect width="1400" height="560" fill="#2b5745"/>
+    <path d="M935 0H1400V560H1055" fill="#315d4b"/>
+    <g transform="translate(60 50) scale(0.59375)"><g>
+  <rect width="128" height="128" rx="24" fill="#2b5745"/>
+  <g fill="none" stroke="#f5f1e8" stroke-width="5" stroke-linecap="square" stroke-linejoin="round">
+    <path d="M23 42V23h19M86 23h19v19M105 86v19H86M42 105H23V86"/>
+    <path d="M39 51h54l-6 25H49l-9-36H30M53 87h1M82 87h1"/>
+  </g>
+  <path d="M58 44v-7a10 10 0 0 1 20 0v7" fill="none" stroke="#d6e2c5" stroke-width="4"/>
+</g>
+</g>
+    <text x="157" y="104" fill="#f5f1e8" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" letter-spacing="-2">CartScope</text>
+    <rect x="67" y="186" width="10" height="10" fill="#dc9566"/>
+    <text x="65" y="272" fill="#f5f1e8" font-family="Georgia,serif" font-size="66" letter-spacing="-1.5">Keep the list.</text>
+    <text x="65" y="351" fill="#f5f1e8" font-family="Georgia,serif" font-size="66" letter-spacing="-1.5">Check the costs.</text>
+    <text x="68" y="445" fill="#d6e2c5" font-family="Arial, Helvetica, sans-serif" font-size="22">Save items · Compare checked offers · Keep useful notes</text>
+    <path d="M67 493H810" stroke="#6e8a73" stroke-width="1"/>
+    <g transform="translate(986 135) scale(2.2265625)"><g>
+  <rect width="128" height="128" rx="24" fill="#2b5745"/>
+  <g fill="none" stroke="#f5f1e8" stroke-width="5" stroke-linecap="square" stroke-linejoin="round">
+    <path d="M23 42V23h19M86 23h19v19M105 86v19H86M42 105H23V86"/>
+    <path d="M39 51h54l-6 25H49l-9-36H30M53 87h1M82 87h1"/>
+  </g>
+  <path d="M58 44v-7a10 10 0 0 1 20 0v7" fill="none" stroke="#d6e2c5" stroke-width="4"/>
+</g>
+</g>
+  </svg>

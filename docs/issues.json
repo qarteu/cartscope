@@ -69,31 +69,33 @@
     "title": "[CS-11] Validate capture on reference users’ stores",
     "label": "next-sprint",
     "status": "planned",
-    "body": "As a shopper, I want reliable capture on the stores I use so I make fewer manual corrections.\n\nPriority: P1. Proposed owners: Kartik (engineering), Jake (acceptance). Acceptance: collect permitted real page examples; select supported stores from tester evidence; add fixtures for current markup; record manual-correction rates and actual denominators; preserve source/confidence, editable review and unknown-state behavior. Confirm sprint dates and owners at planning."
+    "body": "As a shopper, I want reliable capture on the stores I use so I make fewer manual corrections.\n\nSprint: Sprint 2.E Fielding & Support. Priority: P1. Proposed owners: Kartik (engineering), Jake (acceptance). Acceptance: select current stores from consenting testers; retain permitted page examples and add fixtures where needed; exercise user-initiated toolbar capture and editable review; record attempted captures, corrected fields, failures and actual denominators with browser/OS/version; reproduce and link defects. Deterministic historical fixtures do not close live-store field validation. Dates and owners are confirmed at planning.",
+    "sprint": "Sprint 2.E Fielding & Support"
   },
   {
     "title": "[CS-12] Authorized automatic cross-store offer discovery",
-    "label": "next-sprint",
-    "status": "planned",
-    "body": "As a shopper, I want matched retailer offers found automatically so I need less manual entry.\n\nPriority: P1. Proposed owners: Kartik (integration), Jake (scope). Acceptance: select an authorized feed/source; document access and refresh limits; normalize canonical identifiers, model, variant and condition; reject mismatches; distinguish live/stale observations and missing shipping/tax. Use the simplest permitted integration; AWS is not a prerequisite. Confirm sprint dates and owners at planning."
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want matched retailer offers found automatically so I need less manual entry.\n\nPriority: P1. Proposed owners: Kartik (integration), Jake (scope). Acceptance: select an authorized feed/source; document access and refresh limits; normalize canonical identifiers, model, variant and condition; reject mismatches; distinguish live/stale observations and missing shipping/tax. Use the simplest permitted integration; AWS is not a prerequisite. Confirm sprint dates and owners at planning.\n\nNovember 14 planning update: deferred behind Sprint 2.E Fielding & Support. This source-dependent integration is not implemented or committed to the fielding sprint."
   },
   {
     "title": "[CS-13] Resolve observed Alpha usability blockers",
     "label": "next-sprint",
     "status": "planned",
-    "body": "As a reference tester, I want my reported blockers fixed so the core save-and-compare flow is usable.\n\nPriority: P1. Proposed owners: Jake (feedback), Kartik (fixes). Acceptance: collect completion/time and 1-5 ratings plus written feedback; reproduce each selected blocker; assign an owner and meaningful regression check; verify the changed task with affected testers where possible. Keep installed-extension and browser-demo evidence separate. Depends on actual feedback under REL-06."
+    "body": "As a reference tester, I want reported blockers fixed so the save-and-compare flow is usable.\n\nSprint: Sprint 2.E Fielding & Support. Priority: P1. Proposed owners: Jake (triage), Kartik (fixes). Acceptance: use real support/feedback reports; reproduce selected blockers; assign severity and owner; add a meaningful regression check; record version and resolution; verify the changed task with affected testers where possible. Keep installed-extension and browser-demo results separate. No reproduced incident, response time or user acceptance is claimed yet. Depends on actual reports under REL-06 and CS-23.",
+    "sprint": "Sprint 2.E Fielding & Support"
   },
   {
     "title": "[CS-14] Opt-in unattended price checks",
-    "label": "next-sprint",
-    "status": "planned",
-    "body": "As a shopper, I want watched prices checked while I am away so I can hear about meaningful changes.\n\nPriority: P2; conditional on an authorized source from CS-12. Acceptance: explicit opt-in, supported refresh policy, notification frequency controls and deduplication, source timestamps and availability evidence, and justified permissions/privacy handling. Current Alpha evaluates only user-triggered observations. Confirm feasibility before committing the sprint."
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want watched prices checked while I am away so I can hear about meaningful changes.\n\nPriority: P2; conditional on an authorized source from CS-12. Acceptance: explicit opt-in, supported refresh policy, notification frequency controls and deduplication, source timestamps and availability evidence, and justified permissions/privacy handling. Current Alpha evaluates only user-triggered observations. Confirm feasibility before committing the sprint.\n\nNovember 14 planning update: deferred behind Sprint 2.E Fielding & Support. This source-dependent integration is not implemented or committed to the fielding sprint."
   },
   {
     "title": "[CS-15] Authorized order updates",
-    "label": "next-sprint",
-    "status": "planned",
-    "body": "As a shopper, I want order updates imported from a supported source so I can stop editing statuses manually.\n\nPriority: P2; conditional on permitted carrier/retailer source access. Acceptance: choose an authorized integration; protect order credentials; normalize status mapping; show last-sync time; preserve manual correction and fallback. Current Alpha has manually entered order records. Confirm feasibility before committing the sprint."
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want order updates imported from a supported source so I can stop editing statuses manually.\n\nPriority: P2; conditional on permitted carrier/retailer source access. Acceptance: choose an authorized integration; protect order credentials; normalize status mapping; show last-sync time; preserve manual correction and fallback. Current Alpha has manually entered order records. Confirm feasibility before committing the sprint.\n\nNovember 14 planning update: deferred behind Sprint 2.E Fielding & Support. This source-dependent integration is not implemented or committed to the fielding sprint."
   },
   {
     "title": "[CS-16] Optional account and cross-device cart synchronization",
@@ -115,15 +117,17 @@
   },
   {
     "title": "[CS-19] Accessibility and browser support expansion",
-    "label": "backlog",
-    "status": "backlog",
-    "body": "As a shopper, I want verified keyboard, screen-reader and browser support for the shopping flows.\n\nEntry criteria: actual accessibility findings, defined target browser versions, and acceptance testing on those targets. Automated DOM checks do not prove screen-reader behavior or Chrome side-panel compatibility."
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a shopper, I want the documented Chrome installation and core flows checked on the platforms our testers use.\n\nSprint: Sprint 2.E Fielding & Support. Priority: P1. Proposed owner: Kartik, with consenting reference testers. Acceptance: define supported Chrome/OS combinations; manually test installation/update/uninstall, keyboard focus and principal tasks; test opted-in native notifications on an actual OS; record environment, attempted checks, results and limitations; triage accessibility/support defects. Historical DOM checks and automated Ubuntu Chrome checks do not establish screen-reader behavior, every OS, or current live-store compatibility. Broader browser coverage remains future scope.",
+    "sprint": "Sprint 2.E Fielding & Support"
   },
   {
     "title": "[CS-20] Chrome Web Store beta distribution",
-    "label": "backlog",
-    "status": "backlog",
-    "body": "As a shopper, I want a Chrome Web Store beta so installation and updates are easier.\n\nEntry criteria: Alpha blockers addressed, privacy policy and listing assets ready, permissions justified, and current store review requirements satisfied. The current Alpha is a ZIP installed locally through Load unpacked."
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a shopper, I want a Chrome Web Store listing so installation and updates are easier.\n\nSprint: Sprint 2.E Fielding & Support. Priority: P1. Planned distribution work, not published: no verified Store URL, publisher access or approval is recorded. Acceptance: current listing/privacy/permission/reviewer materials and assets ready; verified launch candidate ZIP and test evidence; authorized publisher uploads the candidate and records the submission confirmation under REL-12; close only when a public approved listing resolves with the expected identity/version under REL-13. GitHub Alpha publication and a prepared listing kit do not close this story.",
+    "sprint": "Sprint 2.E Fielding & Support"
   },
   {
     "title": "[REL-01] Smoke-test the release ZIP in real Chrome",
@@ -153,19 +157,22 @@
     "title": "[REL-04] Recruit ten consenting reference testers",
     "label": "release",
     "status": "planned",
-    "body": "Proposed owners: Eashan (recruiting), Jake (test protocol), Kartik (release support). Confirm ten real consenting participants privately and assign R01-R10. Record participant status without public contact information. Close only after actual commitments are recorded; unassigned roster slots and recruiting profiles are not evidence of participation."
+    "body": "Proposed owners: Eashan (recruiting), Jake (test protocol), Kartik (release support). Confirm ten real consenting participants privately and assign R01-R10. Record participant status without public contact information. Close only after actual commitments are recorded; unassigned roster slots and recruiting profiles are not evidence of participation.",
+    "sprint": "Sprint 2.E Fielding & Support"
   },
   {
     "title": "[REL-05] Send personalized Alpha preview invitations",
     "label": "release",
     "status": "planned",
-    "body": "After REL-02/03 and installation readiness, personalize docs/ALPHA_EMAIL.md and send individually to the consenting participants under REL-04 using the team's authorized email account. Record actual invited_at dates and retain delivery evidence privately. The current email is a draft and no sent announcement is claimed. Proposed owners: Eashan and Jake, with Kartik supplying release links."
+    "body": "After REL-02/03 and installation readiness, personalize docs/ALPHA_EMAIL.md and send individually to the consenting participants under REL-04 using the team's authorized email account. Record actual invited_at dates and retain delivery evidence privately. The current email is a draft and no sent announcement is claimed. Proposed owners: Eashan and Jake, with Kartik supplying release links.",
+    "sprint": "Sprint 2.E Fielding & Support"
   },
   {
     "title": "[REL-06] Collect and triage quantitative and qualitative feedback",
     "label": "release",
     "status": "planned",
-    "body": "Use the Alpha feedback issue form or private email replies. Collect task completion/time and ease, clarity, usefulness and confidence ratings plus confusing/missing information and requested improvements. Distinguish installed-extension and browser-demo results; report actual denominators. Feed reproduced blockers into CS-13. Close only after real responses and a readout exist; targets are not results."
+    "body": "Use the Alpha feedback issue form or private email replies. Collect task completion/time and ease, clarity, usefulness and confidence ratings plus confusing/missing information and requested improvements. Distinguish installed-extension and browser-demo results; report actual denominators. Feed reproduced blockers into CS-13. Close only after real responses and a readout exist; targets are not results.",
+    "sprint": "Sprint 2.E Fielding & Support"
   },
   {
     "title": "[REL-07] Reconcile an existing Trello board if supplied",
@@ -177,12 +184,124 @@
     "title": "[CS-22] Refine the shopping desk design and final submission",
     "label": "alpha",
     "status": "done",
-    "body": "As a reviewer, I want an original, readable shopping desk and clear evidence so I can understand and demonstrate the Alpha. Implemented: warm paper/forest styling, custom focus-and-cart mark, serif desk headings, compact item records, practical copy and a responsive demo. All 65 Node tests and 16 actual Chrome checks passed for runtime 609ec4d on https://github.com/qarteu/cartscope/actions/runs/38178299418. Real screenshots, a feature/test matrix and a Canvas write-up are prepared from this evidence; release publication and downloadable final packet remain a separate REL-09 gate."
+    "body": "As a reviewer, I want an original, readable shopping desk and clear evidence so I can understand and demonstrate the Alpha. Implemented: warm paper/forest styling, custom focus-and-cart mark, serif desk headings, compact item records, practical copy and a responsive demo. All 65 Node tests and 16 actual Chrome checks passed for runtime 609ec4d on https://github.com/qarteu/cartscope/actions/runs/38178299418. Real screenshots, a feature/test matrix and a Canvas write-up are prepared from this evidence; the separate release and downloadable final packet were published under REL-09. This is historical 0.1.1 evidence, not verification of the 0.1.2 launch candidate."
   },
   {
     "title": "[REL-09] Publish Alpha 0.1.1 and the final submission packet",
     "label": "release",
     "status": "done",
-    "body": "Published separate Alpha v0.1.1: https://github.com/qarteu/cartscope/releases/tag/v0.1.1. The downloaded 18-file runtime ZIP matches the Chrome-tested archive byte-for-byte (SHA-256 081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0); root manifest0.1.1 and all CRCs verified. Runtime, screenshot and public-demo evidence: https://github.com/qarteu/cartscope/actions/runs/38178299418; released source825e04f also passed https://github.com/qarteu/cartscope/actions/runs/38178505272. Final Canvas write-up, six-page illustrated report, email draft, tracker and genuine screenshots are in the repository and the downloadable cartscope-submission-0.1.1.zip packet; packet manifest records file hashes. The original v0.1.0 tag and release-asset digests remain unchanged. Recruitment, invitation delivery and actual feedback remain pending separately under REL-04/05/06."
+    "body": "Published separate Alpha v0.1.1: https://github.com/qarteu/cartscope/releases/tag/v0.1.1. The downloaded 18-file runtime ZIP matches the Chrome-tested archive byte-for-byte (SHA-256 081cb251510193a73e1d51c0caf004ee310ae6ef77d927e26e93ca92432a60d0); root manifest 0.1.1 and all CRCs verified. Runtime, screenshot and public-demo evidence: https://github.com/qarteu/cartscope/actions/runs/38178299418; released source 825e04f also passed https://github.com/qarteu/cartscope/actions/runs/38178505272. Final Canvas write-up, six-page illustrated report, email draft, tracker and genuine screenshots are in the repository and the downloadable cartscope-submission-0.1.1.zip packet; packet manifest records file hashes. The original v0.1.0 tag and release-asset digests remain unchanged. Recruitment, invitation delivery and actual feedback remain pending separately under REL-04/05/06."
+  },
+  {
+    "title": "[EP-01] Screenshot capture and review",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "Planned epic. Feature: screenshot-assisted product entry. Child implementation story: CS-24. Planning source: the owner's October 22 chat feedback requested screenshot capture, price guidance and occasion folders. This is feature input, not evidence of completed implementation, interviews or a ten-user study.\n\nThe shipped Alpha reads product-page markup or accepts manual entry; it does not extract product details from screenshots. Epic completion requires an implemented capture/import path, explicit review, privacy/permission decisions and verified user-task results.",
+    "kind": "epic"
+  },
+  {
+    "title": "[CS-24] Save a product from a user-supplied screenshot",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want to capture product details from a screenshot so I can save an item when page extraction is unavailable.\n\nParent: EP-01. Feature: screenshot-assisted capture. Not implemented. Acceptance: agree on a user-selected image or explicit visible-tab capture path; document processing location and any added permissions; propose detected product fields with uncertainty; require editable review before saving; preserve screenshot/source provenance without treating image content as instructions; provide manual fallback; test unsupported, ambiguous and sensitive-content cases. No OCR provider or screenshot retention policy has been selected. Scope decisions are CS-27; implementation follows approved acceptance.",
+    "kind": "story",
+    "parent": "EP-01",
+    "feature": "Screenshot-assisted capture"
+  },
+  {
+    "title": "[EP-02] Evidence-based price guidance",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "Planned epic. Feature: price guidance from observed evidence. Child implementation story: CS-25. Planning source: the owner's October 22 chat feedback requested screenshot capture, price guidance and occasion folders. This is feature input, not evidence of completed implementation, interviews or a ten-user study.\n\nThe shipped Alpha shows recorded observations and compares entered offers; it does not provide buy/wait recommendations, a fair-market valuation or price forecasts. Epic completion requires defined guidance rules, source coverage and freshness, uncertainty states and behavioral validation.",
+    "kind": "epic"
+  },
+  {
+    "title": "[CS-25] Explain price guidance using recorded observations",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want price guidance with its evidence so I can decide whether an observed offer suits my purchase.\n\nParent: EP-02. Feature: price guidance. Not implemented. Acceptance: define the guidance rule and minimum observation coverage; show source, timestamps, comparable model/variant/condition and sample size; distinguish item price from complete cost; show insufficient-data or stale-data states; explain recommendations in plain language; keep labeled samples separate; test sparse, stale, mismatched and conflicting observations. Do not invent a market-wide feed or present a future price as known. Scope decisions are CS-27.",
+    "kind": "story",
+    "parent": "EP-02",
+    "feature": "Price guidance"
+  },
+  {
+    "title": "[EP-03] Organize shopping by occasion",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "Planned epic. Feature: occasion folders. Child implementation story: CS-26. Planning source: the owner's October 22 chat feedback requested screenshot capture, price guidance and occasion folders. This is feature input, not evidence of completed implementation, interviews or a ten-user study.\n\nThe shipped Alpha has one cart and save-for-later; it has no occasion folders. Epic completion requires a defined collection model, usable folder actions and verified persistence/backup behavior.",
+    "kind": "epic"
+  },
+  {
+    "title": "[CS-26] Group saved products into occasion folders",
+    "label": "backlog",
+    "status": "backlog",
+    "body": "As a shopper, I want folders for an occasion so I can organize related purchases without losing saved items.\n\nParent: EP-03. Feature: occasion folders. Not implemented. Acceptance: create, rename and delete a folder; add/remove saved products; define whether an item can belong to several folders and how folder budgets work; keep products when a folder is deleted unless the user separately removes them; persist membership; migrate existing carts; preserve relationships through validated export/import and sample isolation; test empty, renamed and deleted folders. Scope decisions are CS-27.",
+    "kind": "story",
+    "parent": "EP-03",
+    "feature": "Occasion folders"
+  },
+  {
+    "title": "[CS-23] Run field validation and support intake",
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As a reference user, I want a clear support route so installation and shopping problems can be investigated.\n\nSprint: Sprint 2.E Fielding & Support. Priority: P1. Proposed owners: Jake (triage), Eashan (reference-user coordination), Kartik (technical support). Acceptance: publish a working support/bug route and known-issues guidance; identify the exact candidate or Store version; collect consenting testers' environments, task outcomes, timing and written reports; record actual acknowledgement, reproduction and resolution dates; link defects to CS-13; provide install/update/uninstall and backup recovery guidance. Define response targets at team planning; targets are not measured service results. Recruitment and sending remain REL-04/05/14.",
+    "kind": "story",
+    "sprint": "Sprint 2.E Fielding & Support"
+  },
+  {
+    "title": "[CS-27] Define acceptance for requested screenshot, guidance and folder features",
+    "label": "next-sprint",
+    "status": "planned",
+    "body": "As the product team, we want agreed acceptance for the requested features so later implementation addresses the owner's actual workflows.\n\nSprint: Sprint 2.E Fielding & Support. Priority: P2 after launch/field blockers. Proposed owners: Jake (scope), Eashan (workflow review), Kartik (feasibility). Acceptance: review the October 22 chat requests; clarify one concrete task per feature; define screenshot processing/retention and permission choices, price-guidance evidence and unknown states, and folder membership/budget/deletion rules; estimate and prioritize EP-01/02/03 with CS-24/25/26; record agreed acceptance and unresolved questions. This is planning/discovery only; it cannot mark those features implemented.",
+    "kind": "story",
+    "sprint": "Sprint 2.E Fielding & Support"
+  },
+  {
+    "title": "[REL-10] Verify Launch Candidate 0.1.2 from its actual ZIP",
+    "label": "release",
+    "status": "planned",
+    "body": "Sprint: Sprint 2.E Fielding & Support. Candidate: 0.1.2, visible PREVIEW 0.1.2. Planned verification. Acceptance: run current validation/behavioral checks; package cartscope-launch-0.1.2.zip; unpack that exact ZIP into a clean Chrome profile; execute candidate browser tests; record named cases, counts, failures, browser/version, source commit, runtime file inventory, SHA-256 and genuine screenshots. Historical 0.1.1 results (65 Node tests including 12 DOM flows, 16 Chrome checks and 18 runtime files) are baseline evidence only; they do not verify the new candidate. Record current results before closing.\n\nLocal candidate evidence on November 14, 2026: 70 passing Node tests (13 DOM flows included; 69 named leaf cases), no failures/skips, 18 runtime files, root manifest0.1.2, CRC checks passed. Current ZIP SHA-256 a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0. See docs/launch/TEST_RESULTS.md and raw evidence. Fresh real Chrome is blocked during local browser startup; current-archive hosted Chrome and field validation remain pending. This gate is not closed.",
+    "kind": "gate",
+    "sprint": "Sprint 2.E Fielding & Support"
+  },
+  {
+    "title": "[REL-11] Publish the verified 0.1.2 GitHub launch-candidate release",
+    "label": "release",
+    "status": "planned",
+    "body": "Sprint: Sprint 2.E Fielding & Support. Depends on REL-10 and authenticated write access to qarteu/cartscope. Acceptance: publish version-controlled candidate source and instructions, separate immutable v0.1.2 release, cartscope-launch-0.1.2.zip and checksum; download the hosted files and compare them with the Chrome-tested bytes; verify release/README links; preserve original 0.1.0 and 0.1.1 tags/assets. A local ZIP, local commit or authenticated account without push permission is not publication. GitHub publication does not establish Chrome Web Store approval.",
+    "kind": "gate",
+    "sprint": "Sprint 2.E Fielding & Support"
+  },
+  {
+    "title": "[REL-12] Submit the candidate for Chrome Web Store review",
+    "label": "release",
+    "status": "planned",
+    "body": "Sprint: Sprint 2.E Fielding & Support. Depends on verified candidate evidence and an authorized Store publisher session. Acceptance: confirm product identity CartScope — Shopping desk and candidate version 0.1.2; complete listing, privacy, permissions, assets and reviewer instructions; upload the verified runtime ZIP; submit through the authorized publisher dashboard; record actual item ID, submitted version, submission time and review status. A prepared kit or uploaded draft is not a submitted or approved extension. No Store submission evidence is currently recorded.",
+    "kind": "gate",
+    "sprint": "Sprint 2.E Fielding & Support"
+  },
+  {
+    "title": "[REL-13] Verify the approved public Chrome Web Store listing",
+    "label": "release",
+    "status": "planned",
+    "body": "Sprint: Sprint 2.E Fielding & Support. Depends on REL-12 and external Store review. Acceptance: open the actual public listing and verify title, item ID, publisher, available version and install route; record its real URL, approval/publication status and check time; verify installation/update from the Store on a supported environment; replace pending Store references only after verification. Store URL remains null until an actual verified listing exists; do not construct a placeholder listing or infer approval from GitHub release availability.",
+    "kind": "gate",
+    "sprint": "Sprint 2.E Fielding & Support"
+  },
+  {
+    "title": "[REL-14] Announce launch to reference users and other potential customers",
+    "label": "release",
+    "status": "planned",
+    "body": "Sprint: Sprint 2.E Fielding & Support. Prepared marketing materials are drafts, not delivery evidence. Acceptance: confirm ten consenting reference recipients under REL-04; personalize/send the reference-user announcement through an authorized account; publish approved public copy to selected authorized channels; include the verified install/release links, support route, quantitative task outcomes/times/ratings, qualitative comments route and an invitation to leave a voluntary honest Chrome Web Store review after use. Public launch/Store-review wording depends on REL-13; use accurate candidate language before then. Record actual send/publication dates and channel evidence privately where it contains personal information. Do not claim messages, reviews or user outcomes that have not occurred.",
+    "kind": "gate",
+    "sprint": "Sprint 2.E Fielding & Support"
+  },
+  {
+    "title": "[REL-15] Publish the launch submission and synchronize Sprint 2.E tracker records",
+    "label": "release",
+    "status": "planned",
+    "body": "Sprint: Sprint 2.E Fielding & Support. Depends on authenticated repository write access and verified current artifacts. Acceptance: publish the six-item launch index with exact locations and honest statuses; include current test cases/results, candidate or approved release ZIP, listing/marketing materials and support links; reconcile docs/SPRINT_BOARD.md, docs/issues.json and actual GitHub issues; record real external issue URLs in docs/PUBLISHED_ISSUES.md after synchronization. Keep Store review, email delivery, field outcomes and unbuilt feature epics open until their own evidence exists. Local preparation does not update the public board.",
+    "kind": "gate",
+    "sprint": "Sprint 2.E Fielding & Support"
   }
 ]
