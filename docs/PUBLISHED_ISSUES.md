@@ -12,15 +12,15 @@
 - [[CS-10] Alpha installation documentation and feedback routes](https://github.com/qarteu/cartscope/issues/10) — done
 - [[CS-21] Static browser demo](https://github.com/qarteu/cartscope/issues/11) — done
 - [[CS-11] Validate capture on reference users’ stores](https://github.com/qarteu/cartscope/issues/12) — planned
-- [[CS-12] Authorized automatic cross-store offer discovery](https://github.com/qarteu/cartscope/issues/13) — planned
+- [[CS-12] Authorized automatic cross-store offer discovery](https://github.com/qarteu/cartscope/issues/13) — backlog
 - [[CS-13] Resolve observed Alpha usability blockers](https://github.com/qarteu/cartscope/issues/14) — planned
-- [[CS-14] Opt-in unattended price checks](https://github.com/qarteu/cartscope/issues/15) — planned
-- [[CS-15] Authorized order updates](https://github.com/qarteu/cartscope/issues/16) — planned
+- [[CS-14] Opt-in unattended price checks](https://github.com/qarteu/cartscope/issues/15) — backlog
+- [[CS-15] Authorized order updates](https://github.com/qarteu/cartscope/issues/16) — backlog
 - [[CS-16] Optional account and cross-device cart synchronization](https://github.com/qarteu/cartscope/issues/17) — backlog
 - [[CS-17] Optional hosted price and availability refresh service](https://github.com/qarteu/cartscope/issues/18) — backlog
 - [[CS-18] Provider-backed BNPL comparison](https://github.com/qarteu/cartscope/issues/19) — backlog
-- [[CS-19] Accessibility and browser support expansion](https://github.com/qarteu/cartscope/issues/20) — backlog
-- [[CS-20] Chrome Web Store beta distribution](https://github.com/qarteu/cartscope/issues/21) — backlog
+- [[CS-19] Accessibility and browser support expansion](https://github.com/qarteu/cartscope/issues/20) — planned
+- [[CS-20] Chrome Web Store beta distribution](https://github.com/qarteu/cartscope/issues/21) — planned
 - [[REL-01] Smoke-test the release ZIP in real Chrome](https://github.com/qarteu/cartscope/issues/22) — done
 - [[REL-02] Publish source to the personal qarteu GitHub account](https://github.com/qarteu/cartscope/issues/23) — done
 - [[REL-03] Publish Alpha v0.1.0 ZIP and release notes](https://github.com/qarteu/cartscope/issues/24) — done
@@ -31,3 +31,17 @@
 - [[REL-07] Reconcile an existing Trello board if supplied](https://github.com/qarteu/cartscope/issues/29) — planned
 - [[CS-22] Refine the shopping desk design and final submission](https://github.com/qarteu/cartscope/issues/30) — done
 - [[REL-09] Publish Alpha 0.1.1 and the final submission packet](https://github.com/qarteu/cartscope/issues/31) — done
+- [[EP-01] Screenshot capture and review](https://github.com/qarteu/cartscope/issues/32) — backlog
+- [[CS-24] Save a product from a user-supplied screenshot](https://github.com/qarteu/cartscope/issues/33) — backlog
+- [[EP-02] Evidence-based price guidance](https://github.com/qarteu/cartscope/issues/34) — backlog
+- [[CS-25] Explain price guidance using recorded observations](https://github.com/qarteu/cartscope/issues/35) — backlog
+- [[EP-03] Organize shopping by occasion](https://github.com/qarteu/cartscope/issues/36) — backlog
+- [[CS-26] Group saved products into occasion folders](https://github.com/qarteu/cartscope/issues/37) — backlog
+- [[CS-23] Run field validation and support intake](https://github.com/qarteu/cartscope/issues/38) — planned
+- [[CS-27] Define acceptance for requested screenshot, guidance and folder features](https://github.com/qarteu/cartscope/issues/39) — planned
+- [[REL-10] Verify Launch Candidate 0.1.2 from its actual ZIP](https://github.com/qarteu/cartscope/issues/40) — planned
+- [[REL-11] Publish the verified 0.1.2 GitHub launch-candidate release](https://github.com/qarteu/cartscope/issues/41) — planned
+- [[REL-12] Submit the candidate for Chrome Web Store review](https://github.com/qarteu/cartscope/issues/42) — planned
+- [[REL-13] Verify the approved public Chrome Web Store listing](https://github.com/qarteu/cartscope/issues/43) — planned
+- [[REL-14] Announce launch to reference users and other potential customers](https://github.com/qarteu/cartscope/issues/44) — planned
+- [[REL-15] Publish the launch submission and synchronize Sprint 2.E tracker records](https://github.com/qarteu/cartscope/issues/45) — planned
