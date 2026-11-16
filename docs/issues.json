@@ -267,8 +267,8 @@
   {
     "title": "[REL-11] Publish the verified 0.1.2 GitHub launch-candidate release",
     "label": "release",
-    "status": "planned",
-    "body": "Sprint: Sprint 2.E Fielding & Support. Depends on REL-10 and authenticated write access to qarteu/cartscope. Acceptance: publish version-controlled candidate source and instructions, separate immutable v0.1.2 release, cartscope-launch-0.1.2.zip and checksum; download the hosted files and compare them with the Chrome-tested bytes; verify release/README links; preserve original 0.1.0 and 0.1.1 tags/assets. A local ZIP, local commit or authenticated account without push permission is not publication. GitHub publication does not establish Chrome Web Store approval.",
+    "status": "done",
+    "body": "Sprint: Sprint 2.E Fielding & Support. Published CartScope Launch Candidate 0.1.2 as a separate GitHub prerelease on November 16, 2026 UTC (November 15 Pacific): https://github.com/qarteu/cartscope/releases/tag/v0.1.2. Tag v0.1.2 resolves to source commit 78d2602b654628c2269ba57ce064c06c07b5174c. Downloaded hosted cartscope-launch-0.1.2.zip and its checksum; SHA-256 a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0 matches the exact Chrome-tested archive. Verified 18 runtime files, manifest.json at archive root with version 0.1.2, and valid CRCs. Current Chrome evidence: https://github.com/qarteu/cartscope/actions/runs/43778186951 (18 checks passed, zero failed). Source and instructions are version controlled on qarteu/cartscope; original Alpha releases remain historical. The existing tag/runtime are immutable: documentation updates may be pushed, but runtime changes require a new version. This gate does not establish Chrome Web Store submission/approval, outreach delivery, field acceptance, or final submission-packet publication under REL-15.",
     "kind": "gate",
     "sprint": "Sprint 2.E Fielding & Support"
   },

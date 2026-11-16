@@ -1,31 +1,33 @@
 # CartScope — Shopping desk
 
-**Current launch work:** [0.1.2 launch candidate packet](docs/launch/README.md), [executed test cases/results](docs/launch/TEST_RESULTS.md), and [Sprint 2.E Fielding & Support](docs/SPRINT_BOARD.md). Store publication and field validation remain open; the published Alpha history below is retained.
+**Current GitHub prerelease:** [CartScope Launch Candidate 0.1.2](https://github.com/qarteu/cartscope/releases/tag/v0.1.2), displaying **PREVIEW 0.1.2**. The hosted runtime ZIP and checksum were downloaded and verified against the exact archive that passed all 18 current Chrome checks.
 
 We built CartScope for the moment when a shopping trip turns into a dozen open tabs. It keeps products from different stores in one Chrome side panel, lets you compare the costs of offers you've checked, and keeps your budget and order notes beside them.
 
-The Alpha is published on Kartik's personal GitHub account. It works with product details you capture or enter yourself. Automatic retailer search, continuous price checks, and live shipment updates are still planned. We also still need ten consenting reference users and their feedback; the invitation below is a draft.
+The release is published on Kartik's personal GitHub account, **qarteu**. It works with product details you capture or enter yourself. Automatic retailer search, continuous price checks, and live shipment updates are still planned. Chrome Web Store submission and publication are pending; no Store URL is verified. Ten consenting reference users, invitation delivery, and their feedback are also pending; outreach materials are drafts.
 
 - [Source — qarteu/cartscope](https://github.com/qarteu/cartscope)
-- [Download Alpha 0.1.1 and read the release notes](https://github.com/qarteu/cartscope/releases/tag/v0.1.1)
+- [Download Preview 0.1.2 ZIP](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-launch-0.1.2.zip) · [SHA-256](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-launch-0.1.2.zip.sha256) · [Release notes](https://github.com/qarteu/cartscope/releases/tag/v0.1.2)
 - [Open the browser demo](https://qarteu.github.io/cartscope/)
-- [One-page Canvas submission](docs/CANVAS_SUBMISSION.md) · [Submission PDF](docs/FINAL_SUBMISSION.pdf) · [Attachments](docs/SUBMISSION.md)
+- [Current six-item Canvas submission](docs/launch/CANVAS_SUBMISSION.md) · [Launch packet](docs/launch/README.md) · [Executed tests/results](docs/launch/TEST_RESULTS.md)
+- [Store upload kit](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-webstore-kit-0.1.2.zip) · [Store setup guide](docs/launch/WEBSTORE_SETUP.md) · [Current Chrome screenshots](docs/launch/assets/screenshots/README.md)
 - [Sprint board](docs/SPRINT_BOARD.md) · [GitHub issues](https://github.com/qarteu/cartscope/issues)
+- [Privacy policy](https://qarteu.github.io/cartscope/privacy.html) · [Support](https://qarteu.github.io/cartscope/support.html)
 - [Give feedback](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml)
 
-![CartScope Chrome interface overview](docs/visuals/cartscope-overview.png)
-
-*Actual Chrome screenshots using labeled sample data. [Screenshot sources and test details](docs/visuals/README.md).*
+All 45 tracker records are published online. Final launch-packet publication and final tracker reconciliation remain under REL-15; Store approval and reference-user outcomes have their own open gates.
 
 ## Install in Chrome
 
-1. Download **cartscope-alpha-0.1.1.zip** from the [release page](https://github.com/qarteu/cartscope/releases/tag/v0.1.1). Choose the release asset rather than GitHub's source-code ZIP.
+1. Download **cartscope-launch-0.1.2.zip** from the [0.1.2 release page](https://github.com/qarteu/cartscope/releases/tag/v0.1.2). Choose the runtime release asset rather than GitHub's source-code ZIP or the documentation/Store kit.
 2. Unzip it into a folder you'll keep. The folder must contain `manifest.json` directly.
 3. Open `chrome://extensions`, enable **Developer mode**, and select **Load unpacked**.
 4. Choose that unzipped folder. Pin CartScope from Chrome's Extensions menu.
-5. Open a retailer product page and click the CartScope toolbar icon. In the side panel, choose **Capture this page** and review the result before saving.
+5. Confirm **PREVIEW 0.1.2**. Open a retailer product page and click the CartScope toolbar icon. In the side panel, choose **Capture this page** and review the result before saving.
 
 Use Chrome 116 or newer. Keep the unzipped folder in place while the extension is installed. To remove it, select **Remove** on its card at `chrome://extensions`.
+
+Developer mode at `chrome://extensions` lets you load this ZIP locally. A Chrome Web Store publisher account is a separate registration step; [the Store setup guide](docs/launch/WEBSTORE_SETUP.md) explains what is still required.
 
 For development, load the repository's `extension/` folder. After changing code, select **Reload** on the extension card and reopen the panel. The extension does not need a build step or an AWS account.
 
@@ -61,9 +63,9 @@ Open the URL printed by the server. [Demo setup](docs/DEMO.md) covers static hos
 
 ## What still needs work
 
-The [verification record](docs/VERIFICATION.md) documents automated checks of the packaged extension and browser demo in Chrome. Those checks use product-page fixtures. Current retailer markup, manual installation on testers' operating systems, and native desktop notification delivery still need field testing.
+The [current verification record](docs/launch/TEST_RESULTS.md) documents checks of the exact 0.1.2 ZIP and browser demo: 70 passing Node reporter tests, including 13 DOM flows, and 18 passing Chrome checks. Those checks use product-page fixtures. Current retailer markup, manual installation on testers' operating systems, and native desktop notification delivery still need field testing.
 
-Automatic cross-store discovery, unattended price checks, carrier updates, provider-backed financing, and account synchronization are on the [sprint board](docs/SPRINT_BOARD.md). They are not included as live integrations in this Alpha.
+Automatic cross-store discovery, unattended price checks, carrier updates, provider-backed financing, and account synchronization are on the [sprint board](docs/SPRINT_BOARD.md). They are not included as live integrations in this preview.
 
 Recruiting ten reference users, sending their invitations, and collecting their responses are also pending. We will update the tracker when those actions happen.
 
@@ -84,7 +86,7 @@ Use the [Alpha feedback form](https://github.com/qarteu/cartscope/issues/new?tem
 
 The [test protocol](docs/FEEDBACK_PLAN.md) defines the tasks and rating scales. Reference users use an assigned ID from R01 through R10. Keep names, addresses, payment details, and personal order numbers out of public issues. Testers without GitHub accounts can reply privately to the team using the same questions.
 
-[The invitation template](docs/ALPHA_EMAIL.md) is ready to personalize. [The roster](docs/REFERENCE_USERS.csv) contains unassigned slots, not completed invitations or test results.
+[The current invitation template](docs/launch/REFERENCE_USER_EMAIL.md) is ready to personalize after confirming recipients and delivery. [The roster](docs/REFERENCE_USERS.csv) contains unassigned slots, not completed invitations or test results.
 
 ## Develop and package
 
@@ -104,9 +106,17 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-Validation checks the manifest, referenced files, permissions, and version consistency. Packaging creates `artifacts/cartscope-alpha-0.1.1.zip` and its SHA-256 file, with `manifest.json` at the archive root. File order and ZIP timestamps are fixed so unchanged runtime files produce the same archive. [Verification](docs/VERIFICATION.md) records the actual test coverage.
+Validation checks the manifest, referenced files, permissions, and version consistency. Packaging currently creates `artifacts/cartscope-launch-0.1.2.zip` and its SHA-256 file, with `manifest.json` at the archive root. File order and ZIP timestamps are fixed so unchanged runtime files produce the same archive. [Current verification](docs/launch/TEST_RESULTS.md) records the actual test coverage and hosted-download hash.
 
-For release, commit the source, run the checks, create tag `v0.1.1`, and publish the runtime ZIP, checksum, and [release notes](CHANGELOG.md). Follow the [release checklist](docs/RELEASE_CHECKLIST.md) and update the tracker with the resulting evidence.
+The existing `v0.1.2` tag and runtime assets are immutable. Documentation-only changes can be committed and pushed without moving that tag. Runtime changes require a new version, updated release metadata, the relevant checks and Chrome verification, and a separate tag/release. Verify the existing 0.1.2 download when preparing its Store submission; do not retag it or replace its runtime ZIP.
+
+## Historical Alpha material
+
+The [0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0) and [0.1.1](https://github.com/qarteu/cartscope/releases/tag/v0.1.1) releases remain available. The [original Canvas write-up](https://github.com/qarteu/cartscope/blob/v0.1.1/docs/CANVAS_SUBMISSION.md), [illustrated PDF](docs/FINAL_SUBMISSION.pdf), [attachment index](docs/SUBMISSION.md), and [verification record](docs/VERIFICATION.md) document the earlier Alpha; they are not the current 0.1.2 launch submission.
+
+![Historical CartScope 0.1.1 Chrome interface overview](docs/visuals/cartscope-overview.png)
+
+*Historical 0.1.1 Chrome screenshots using labeled sample data. [Sources](docs/visuals/README.md). For current 0.1.2 images, use the [verified Store screenshot set](docs/launch/assets/screenshots/README.md).*
 
 ## Team
 

@@ -1,12 +1,12 @@
 # CartScope sprint board
 
-**Planning snapshot:** November 14, 2026<br>
+**Planning snapshot:** November 15, 2026 (Pacific)<br>
 **Next sprint:** **Sprint 2.E Fielding & Support**<br>
-**Candidate:** 0.1.2, shown as PREVIEW 0.1.2; intended runtime ZIP `cartscope-launch-0.1.2.zip`<br>
+**Published GitHub prerelease:** [Launch Candidate 0.1.2](https://github.com/qarteu/cartscope/releases/tag/v0.1.2), shown as PREVIEW 0.1.2; verified runtime ZIP `cartscope-launch-0.1.2.zip`<br>
 **Published history:** GitHub Alpha [0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0) and [0.1.1](https://github.com/qarteu/cartscope/releases/tag/v0.1.1)<br>
 **Chrome Web Store:** no verified public listing URL, submitted-review record, or approval is recorded.
 
-The [GitHub issue tracker](https://github.com/qarteu/cartscope/issues) is our Trello-equivalent tracker. This Sprint 2.E revision is prepared locally; publishing and reconciling its new records is pending under REL-15. [Issue records](issues.json) contain the full stories and acceptance criteria; [published issue links](PUBLISHED_ISSUES.md) identify externally created records. No existing Trello URL has been verified.
+The [GitHub issue tracker](https://github.com/qarteu/cartscope/issues) is our Trello-equivalent tracker, with all 45 records published online. Final submission-packet publication and final status reconciliation remain under REL-15. [Issue records](issues.json) contain the full stories and acceptance criteria; [published issue links](PUBLISHED_ISSUES.md) identify the actual external records. No existing Trello URL has been verified.
 
 Kartik Malunjkar owns architecture/releases, Jake Clevenger owns product/backlog, and Eashan owns business/research and Scrum. Story owners below are proposed. The team must confirm dates, capacity and assignments at planning; external Store review is not a promised sprint completion date.
 
@@ -65,7 +65,7 @@ A prepared listing kit is not a submitted review, a submitted review is not appr
 | REL-06 | Planned | Collect and triage quantitative and qualitative feedback. | Actual task results/times, 1-5 ratings, written reports and a readout with denominators; extension/demo modes separated. |
 | REL-07 | Planned | Reconcile an existing Trello board if supplied. | Verified URL/access and reconciled records. Conditional; GitHub Issues remains the current equivalent tracker. |
 | REL-10 | Done · automated ZIP/Chrome verification | Verify the actual Launch Candidate 0.1.2 ZIP. | Current validation and behavioral checks; clean Chrome installation of `cartscope-launch-0.1.2.zip`; named results, browser/version, commit, inventory, hash and genuine screenshots. Historical Alpha evidence is insufficient. |
-| REL-11 | Planned | Publish the verified 0.1.2 source and GitHub release. | Authorized write access; separate immutable release, runtime ZIP/checksum and instructions; hosted downloads match tested bytes; older releases preserved. |
+| REL-11 | Done | Publish the verified 0.1.2 source and GitHub release. | [Published prerelease](https://github.com/qarteu/cartscope/releases/tag/v0.1.2), tag source `78d2602b654628c2269ba57ce064c06c07b5174c`; downloaded runtime/checksum match the Chrome-tested SHA-256 `a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0`; 18 runtime files, root manifest 0.1.2 and CRCs verified. Store publication remains separate. |
 | REL-12 | Planned | Submit the candidate for Chrome Web Store review. | Authorized publisher session, correct item identity/version, completed kit, actual upload/submission confirmation, time and review status. |
 | REL-13 | Planned | Verify the approved public Chrome Web Store listing. | Actual public URL/item ID, expected publisher/version, approval/publication status and Store installation/update check. Keep the Store URL null until verified. |
 | REL-14 | Planned | Announce launch to ten reference users and other potential customers. | Consenting recipients, personalized authorized delivery/publication, real dates/channel evidence, feedback routes and voluntary honest Store-review request. Public Store wording depends on REL-13. |
