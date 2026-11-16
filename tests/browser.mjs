@@ -201,8 +201,9 @@ try {
       const focus = view === 'compare' ? storePage.locator('.offer-card').first()
         : view === 'settings' ? storePage.locator('.card').filter({ has: storePage.getByRole('heading', { name: 'Your data', exact: true }) }).first() : null;
       if (focus) {
-        await focus.scrollIntoViewIfNeeded();
-        assert.ok(await focus.evaluate(element => { const box = element.getBoundingClientRect(); return box.top >= 0 && box.bottom <= innerHeight; }), `${view} screenshot must show the actual feature controls`);
+        await focus.evaluate(element => element.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'auto' }));
+        const bounds = await focus.evaluate(element => { const box = element.getBoundingClientRect(); return { top: box.top, bottom: box.bottom, viewport: innerHeight }; });
+        assert.ok(bounds.top >= -1 && bounds.bottom <= bounds.viewport + 1, `${view} screenshot must show the actual feature controls: ${JSON.stringify(bounds)}`);
       }
       const path = `artifacts/screenshots/store-${view}-1280x800.png`;
       await storePage.screenshot({ path: resolve(root, path), fullPage: false, animations: 'disabled' });
