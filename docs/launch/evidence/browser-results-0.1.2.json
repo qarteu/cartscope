@@ -1,0 +1,571 @@
+{
+  "generatedAt": "2026-11-16T00:04:46.283Z",
+  "status": "passed",
+  "browser": "151.0.7922.34",
+  "method": "Playwright; configured release ZIP unpacked and loaded in disposable Chrome for Testing profile; retailer captures use localhost fixtures; optional published demo check uses HTTPS",
+  "planned": [
+    "extension service worker and local storage",
+    "sample/real workspace isolation",
+    "cart add/edit/quantity/save-for-later",
+    "exact/possible/mismatch/unknown-cost comparison",
+    "price-drop/restock observations",
+    "orders and tracking",
+    "financing total and rounding",
+    "preferences and backup round trip",
+    "HTTPS-only product images",
+    "hostile input escaping",
+    "actual activeTab toolbar grant and scripting capture",
+    "category capture rejection",
+    "320/380/480-pixel layouts",
+    "1280x800 installed extension screenshots",
+    "preview state persistence"
+  ],
+  "checks": [
+    {
+      "name": "The configured release ZIP unpacks into the Chrome installation root",
+      "status": "passed",
+      "durationMs": 11
+    },
+    {
+      "name": "Real extension service worker opens an empty local workspace",
+      "status": "passed",
+      "durationMs": 18
+    },
+    {
+      "name": "Sample workspace renders every principal screen and remains separate",
+      "status": "passed",
+      "durationMs": 6332
+    },
+    {
+      "name": "Installed extension produces unmodified 1280x800 Store-size screenshots in a fresh QA tab",
+      "status": "passed",
+      "durationMs": 5912
+    },
+    {
+      "name": "Cart add, edit, quantity, and save-for-later persist through Chrome storage",
+      "status": "passed",
+      "durationMs": 638
+    },
+    {
+      "name": "Comparison never promotes an unknown shipping amount or conflicting variant",
+      "status": "passed",
+      "durationMs": 791
+    },
+    {
+      "name": "Opt-in watches create price-drop and restock alerts from updated observations",
+      "status": "passed",
+      "durationMs": 704
+    },
+    {
+      "name": "Orders save and update manual status and safe carrier tracking",
+      "status": "passed",
+      "durationMs": 508
+    },
+    {
+      "name": "Financing shows the full obligation and distributes remainder cents exactly",
+      "status": "passed",
+      "durationMs": 217
+    },
+    {
+      "name": "Preferences, export, delete, and validated import complete a backup round trip",
+      "status": "passed",
+      "durationMs": 315
+    },
+    {
+      "name": "HTTP product images are stripped on import and never requested from legacy records",
+      "status": "passed",
+      "durationMs": 731
+    },
+    {
+      "name": "Hostile text remains text and scripting URL payloads are discarded",
+      "status": "passed",
+      "durationMs": 75
+    },
+    {
+      "name": "Toolbar action grants activeTab and background scripting captures a real HTTP product page",
+      "status": "passed",
+      "durationMs": 1292
+    },
+    {
+      "name": "A category page is rejected through the real scripting consumer",
+      "status": "passed",
+      "durationMs": 26
+    },
+    {
+      "name": "Cart, comparison, notifications, orders, finance, and preferences fit 320/380/480 px",
+      "status": "passed",
+      "durationMs": 42811
+    },
+    {
+      "name": "Separate browser preview persists local data and keeps sample changes isolated",
+      "status": "passed",
+      "durationMs": 693
+    },
+    {
+      "name": "Published landing page serves an interactive sample preview with persistent local edits",
+      "status": "passed",
+      "durationMs": 1422
+    },
+    {
+      "name": "No uncaught JavaScript errors occurred",
+      "status": "passed",
+      "durationMs": 0
+    }
+  ],
+  "limitations": [
+    "Deterministic retailer-shaped fixtures do not verify changing live retailer markup or live offer feeds.",
+    "Store-size screenshots show the installed extension in a disposable QA tab with labeled sample data; they do not establish Chrome Web Store publication or approval."
+  ],
+  "screenshots": [
+    "artifacts/screenshots/cart.png",
+    "artifacts/screenshots/review.png",
+    "artifacts/screenshots/compare.png",
+    "artifacts/screenshots/notifications.png",
+    "artifacts/screenshots/orders.png",
+    "artifacts/screenshots/finance.png",
+    "artifacts/screenshots/settings.png",
+    "artifacts/screenshots/store-cart-1280x800.png",
+    "artifacts/screenshots/store-compare-1280x800.png",
+    "artifacts/screenshots/store-alerts-1280x800.png",
+    "artifacts/screenshots/store-orders-1280x800.png",
+    "artifacts/screenshots/store-settings-1280x800.png",
+    "artifacts/screenshots/landing-desktop.png",
+    "artifacts/screenshots/landing-mobile.png"
+  ],
+  "storeScreenshots": [
+    {
+      "path": "artifacts/screenshots/store-cart-1280x800.png",
+      "width": 1280,
+      "height": 800,
+      "view": "cart",
+      "source": "installed-extension-page",
+      "workspace": "labeled sample data",
+      "capture": "top of view"
+    },
+    {
+      "path": "artifacts/screenshots/store-compare-1280x800.png",
+      "width": 1280,
+      "height": 800,
+      "view": "compare",
+      "source": "installed-extension-page",
+      "workspace": "labeled sample data",
+      "capture": "scrolled to checked offer costs"
+    },
+    {
+      "path": "artifacts/screenshots/store-alerts-1280x800.png",
+      "width": 1280,
+      "height": 800,
+      "view": "alerts",
+      "source": "installed-extension-page",
+      "workspace": "labeled sample data",
+      "capture": "top of view"
+    },
+    {
+      "path": "artifacts/screenshots/store-orders-1280x800.png",
+      "width": 1280,
+      "height": 800,
+      "view": "orders",
+      "source": "installed-extension-page",
+      "workspace": "labeled sample data",
+      "capture": "top of view"
+    },
+    {
+      "path": "artifacts/screenshots/store-settings-1280x800.png",
+      "width": 1280,
+      "height": 800,
+      "view": "settings",
+      "source": "installed-extension-page",
+      "workspace": "labeled sample data",
+      "capture": "scrolled to privacy and data controls"
+    }
+  ],
+  "errors": [],
+  "release": {
+    "path": "artifacts/cartscope-launch-0.1.2.zip",
+    "version": "0.1.2",
+    "sha256": "a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0"
+  },
+  "captureDiagnostics": {
+    "beforeToolbar": {
+      "ok": false,
+      "error": "Click the CartScope toolbar icon on this product page to allow access, then try Capture again."
+    },
+    "activeTabs": [
+      {
+        "id": 833303046,
+        "url": "http://127.0.0.1:37621/fixtures/product.html",
+        "windowId": 833303041
+      }
+    ],
+    "afterToolbar": {
+      "ok": true,
+      "state": {
+        "alerts": [],
+        "history": [
+          {
+            "checkedAt": "2026-11-16T00:04:59.478Z",
+            "currency": "USD",
+            "offerId": "d1e3f4f4-fa4e-4d79-bf98-2fb15d59c423",
+            "price": 100.01,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "QA Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:04:59.643Z",
+            "currency": "USD",
+            "offerId": "d1e3f4f4-fa4e-4d79-bf98-2fb15d59c423",
+            "price": 100.01,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "QA Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:04:59.843Z",
+            "currency": "USD",
+            "offerId": "d1e3f4f4-fa4e-4d79-bf98-2fb15d59c423",
+            "price": 100.01,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "QA Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:05:00.092Z",
+            "currency": "USD",
+            "offerId": "955701eb-3a14-4090-bfb0-009304f13613",
+            "price": 20,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "Unknown Shipping Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:05:00.375Z",
+            "currency": "USD",
+            "offerId": "68db6016-0d05-4040-b0d8-ad8b4038ed41",
+            "price": 40,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "Cheapest Exact Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:05:00.626Z",
+            "currency": "USD",
+            "offerId": "0c0e2f98-8aa4-4714-bc29-e04892e622e4",
+            "price": 1,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "Wrong Variant Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:05:00.960Z",
+            "currency": "USD",
+            "offerId": "68db6016-0d05-4040-b0d8-ad8b4038ed41",
+            "price": 30,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "Cheapest Exact Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:05:01.092Z",
+            "currency": "USD",
+            "offerId": "68db6016-0d05-4040-b0d8-ad8b4038ed41",
+            "price": 30,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "Cheapest Exact Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:05:01.242Z",
+            "currency": "USD",
+            "offerId": "68db6016-0d05-4040-b0d8-ad8b4038ed41",
+            "price": 30,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "retailer": "Cheapest Exact Store",
+            "source": "manual"
+          },
+          {
+            "checkedAt": "2026-11-16T00:05:03.126Z",
+            "currency": "USD",
+            "offerId": "f82e4de7-b8ad-4626-94dd-d4297f7a710a",
+            "price": 1,
+            "productId": "d82a2283-c94d-44b1-80b2-78bea2e84f3d",
+            "retailer": "<script>bad()</script>",
+            "source": "manual"
+          }
+        ],
+        "offers": [
+          {
+            "availability": "in_stock",
+            "brand": "Fixture",
+            "cashback": 0,
+            "checkedAt": "2026-11-16T00:04:59.843Z",
+            "color": "Black",
+            "condition": "new",
+            "currency": "USD",
+            "deliveryDays": null,
+            "discount": 0,
+            "gtin": "",
+            "id": "d1e3f4f4-fa4e-4d79-bf98-2fb15d59c423",
+            "image": "",
+            "location": "",
+            "membership": 0,
+            "model": "QA-100",
+            "name": "Manual QA Headphones",
+            "notes": "Changed during the browser test",
+            "pickup": false,
+            "price": 100.01,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "quantity": 2,
+            "retailer": "QA Store",
+            "returnDays": null,
+            "shipping": 0,
+            "size": "",
+            "source": "manual",
+            "tax": null,
+            "url": "http://127.0.0.1:37621/fixtures/product.html",
+            "variant": "Black"
+          },
+          {
+            "availability": "in_stock",
+            "brand": "Fixture",
+            "cashback": 0,
+            "checkedAt": "2026-11-16T00:05:00.092Z",
+            "color": "Black",
+            "condition": "new",
+            "currency": "USD",
+            "deliveryDays": null,
+            "discount": 0,
+            "gtin": "",
+            "id": "955701eb-3a14-4090-bfb0-009304f13613",
+            "image": "",
+            "location": "",
+            "membership": 0,
+            "model": "QA-100",
+            "name": "Manual QA Headphones",
+            "notes": "Changed during the browser test",
+            "pickup": false,
+            "price": 20,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "quantity": 2,
+            "retailer": "Unknown Shipping Store",
+            "returnDays": null,
+            "shipping": null,
+            "size": "",
+            "source": "manual",
+            "tax": null,
+            "url": "http://127.0.0.1:37621/fixtures/product.html?store=unknown",
+            "variant": "Black"
+          },
+          {
+            "availability": "in_stock",
+            "brand": "Fixture",
+            "cashback": 0,
+            "checkedAt": "2026-11-16T00:05:00.626Z",
+            "color": "White",
+            "condition": "new",
+            "currency": "USD",
+            "deliveryDays": null,
+            "discount": 0,
+            "gtin": "",
+            "id": "0c0e2f98-8aa4-4714-bc29-e04892e622e4",
+            "image": "",
+            "location": "",
+            "membership": 0,
+            "model": "QA-100",
+            "name": "Manual QA Headphones",
+            "notes": "Changed during the browser test",
+            "pickup": false,
+            "price": 1,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "quantity": 2,
+            "retailer": "Wrong Variant Store",
+            "returnDays": null,
+            "shipping": 0,
+            "size": "",
+            "source": "manual",
+            "tax": 0,
+            "url": "http://127.0.0.1:37621/fixtures/product.html?store=wrong",
+            "variant": "Black"
+          },
+          {
+            "availability": "in_stock",
+            "brand": "Fixture",
+            "cashback": 0,
+            "checkedAt": "2026-11-16T00:05:01.242Z",
+            "color": "Black",
+            "condition": "new",
+            "currency": "USD",
+            "deliveryDays": 1,
+            "discount": 0,
+            "gtin": "",
+            "id": "68db6016-0d05-4040-b0d8-ad8b4038ed41",
+            "image": "",
+            "location": "QA local store",
+            "membership": 0,
+            "model": "QA-100",
+            "name": "Manual QA Headphones",
+            "notes": "Changed during the browser test",
+            "pickup": true,
+            "price": 30,
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "quantity": 2,
+            "retailer": "Cheapest Exact Store",
+            "returnDays": 30,
+            "shipping": 0,
+            "size": "",
+            "source": "manual",
+            "tax": 0,
+            "url": "http://127.0.0.1:37621/fixtures/product.html?store=exact",
+            "variant": "Black"
+          },
+          {
+            "availability": "unknown",
+            "brand": "",
+            "cashback": 0,
+            "checkedAt": "2026-11-16T00:05:03.126Z",
+            "color": "",
+            "condition": "",
+            "currency": "USD",
+            "deliveryDays": null,
+            "discount": 0,
+            "gtin": "",
+            "id": "f82e4de7-b8ad-4626-94dd-d4297f7a710a",
+            "image": "",
+            "location": "",
+            "membership": 0,
+            "model": "",
+            "name": "<img src=x onerror=\"globalThis.cartscopeInjected=true\">",
+            "notes": "<svg onload=\"alert(1)\">",
+            "pickup": false,
+            "price": 1,
+            "productId": "d82a2283-c94d-44b1-80b2-78bea2e84f3d",
+            "quantity": 1,
+            "retailer": "<script>bad()</script>",
+            "returnDays": null,
+            "shipping": null,
+            "size": "",
+            "source": "manual",
+            "tax": null,
+            "url": "",
+            "variant": ""
+          }
+        ],
+        "orders": [
+          {
+            "expectedAt": "2026-10-15",
+            "id": "cc244da8-d3e0-4a23-baa8-883cfa3a666c",
+            "image": "",
+            "name": "Manual QA Headphones",
+            "notes": "Manual QA order",
+            "orderedAt": "2026-10-11",
+            "productId": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "quantity": 2,
+            "retailer": "QA Store",
+            "status": "delivered",
+            "trackingNumber": "QA-123456",
+            "trackingUrl": "http://127.0.0.1:37621/tracking"
+          }
+        ],
+        "products": [
+          {
+            "availability": "in_stock",
+            "brand": "Fixture",
+            "color": "Black",
+            "condition": "new",
+            "currency": "USD",
+            "gtin": "",
+            "id": "8e7b2bc0-0059-43de-bfe4-7a17f97fbd62",
+            "image": "",
+            "model": "QA-100",
+            "name": "Manual QA Headphones",
+            "notes": "Changed during the browser test",
+            "price": 100.01,
+            "quantity": 2,
+            "retailer": "QA Store",
+            "savedOnly": false,
+            "size": "",
+            "source": "manual",
+            "url": "http://127.0.0.1:37621/fixtures/product.html",
+            "variant": "Black",
+            "watch": {
+              "priceDrop": true,
+              "restock": true,
+              "targetPrice": 35
+            }
+          },
+          {
+            "availability": "unknown",
+            "brand": "",
+            "color": "",
+            "condition": "",
+            "currency": "USD",
+            "gtin": "",
+            "id": "d82a2283-c94d-44b1-80b2-78bea2e84f3d",
+            "image": "",
+            "model": "",
+            "name": "<img src=x onerror=\"globalThis.cartscopeInjected=true\">",
+            "notes": "<svg onload=\"alert(1)\">",
+            "price": 1,
+            "quantity": 1,
+            "retailer": "<script>bad()</script>",
+            "savedOnly": false,
+            "size": "",
+            "source": "manual",
+            "url": "",
+            "variant": "",
+            "watch": {
+              "priceDrop": false,
+              "restock": false,
+              "targetPrice": null
+            }
+          }
+        ],
+        "schema": 1,
+        "settings": {
+          "budget": 500,
+          "currency": "USD",
+          "notificationsEnabled": false,
+          "priority": "pickup",
+          "taxRate": 7.5
+        }
+      },
+      "result": {
+        "product": {
+          "availability": "in_stock",
+          "brand": "Fixture",
+          "color": "Black",
+          "condition": "new",
+          "currency": "USD",
+          "gtin": "",
+          "image": "http://127.0.0.1:37621/assets/headphones.svg",
+          "model": "QA-100",
+          "name": "Fixture Headphones",
+          "notes": "",
+          "price": 99.99,
+          "quantity": 1,
+          "retailer": "CartScope QA Store",
+          "size": "",
+          "url": "http://127.0.0.1:37621/fixtures/product.html",
+          "variant": ""
+        },
+        "warning": "Review the detected product and variant before saving. Shipping, tax, and retailer terms must be confirmed separately."
+      }
+    }
+  },
+  "publicDemo": {
+    "url": "https://qarteu.github.io/cartscope/",
+    "status": 200,
+    "landingBadge": "CartScope\nPREVIEW 0.1.2",
+    "iframeBadge": "PREVIEW 0.1.2",
+    "landingVersion": "0.1.2",
+    "iframeVersion": "0.1.2",
+    "aboutVersion": "0.1.2",
+    "mobileLayout": {
+      "scrollWidth": 390,
+      "width": 390
+    }
+  },
+  "finishedAt": "2026-11-16T00:05:49.530Z",
+  "passed": 18,
+  "failed": 0
+}

@@ -1,6 +1,6 @@
 # CartScope 0.1.2: executed test cases and results
 
-Prepared November 14, 2026 (America/Los_Angeles). This report distinguishes current candidate checks from historical Alpha Chrome evidence and pending customer validation.
+Generated from retained executed evidence. Current candidate checks, historical Alpha checks, distribution status, and customer validation remain separate.
 
 ## Current candidate evidence
 
@@ -10,7 +10,7 @@ Prepared November 14, 2026 (America/Los_Angeles). This report distinguishes curr
 - JUnit contains 69 named leaf cases; the Node total also counts the DOM suite container. These are two representations of the same run, not additional tests.
 - The 13 Happy DOM application flows are included in the Node total. They are simulated DOM checks, not Chrome or user-study participants.
 - ZIP: `cartscope-launch-0.1.2.zip`; 18 runtime files; root Manifest V3 version `0.1.2`; every CRC passed.
-- SHA-256: `a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0`. The ZIP is locally prepared; no hosted 0.1.2 download or Store installation is claimed.
+- SHA-256: `a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0`. These archive checks establish package integrity; GitHub download verification and Store installation are separate distribution facts.
 
 Raw evidence: [Node log](evidence/node-check-0.1.2.txt), [JUnit cases/results](evidence/node-results-0.1.2.xml), [DOM flow results](evidence/dom-results-0.1.2.json), [run metadata](evidence/verification-0.1.2.json). Download [all named cases as CSV](TEST_CASES.csv).
 
@@ -24,13 +24,13 @@ Raw evidence: [Node log](evidence/node-check-0.1.2.txt), [JUnit cases/results](e
 | Application flows | Actual UI event handlers and preview/background adapter in Happy DOM; saving/editing, comparisons, alerts, orders, planner, backups and hostile inputs | Passed in DOM simulation |
 | Packaging/validation | Actual ZIP consumer and manifest validation; deterministic archives, launch channel, local references, limited permissions, previous archive preservation | Passed |
 | Publisher/tracker contracts | Actual publisher with isolated mock gh/git/npm; tag/asset/note selection, non-overwrite behavior, stable issue IDs and label reconciliation | Passed; does not perform actual publication |
-| Current candidate in real Chrome | Local Chrome process aborted during startup (SIGABRT); no UI checks or new screenshots were produced | Blocked; hosted run still needed |
-| Current GitHub download and Store installation | Requires actual candidate publication, downloaded-byte verification and Store approval/installation | Pending |
+| Current candidate in Chrome for Testing | Configured ZIP unpacked into a disposable Chrome profile; actual API/UI, fixture capture, layouts and preview checks | Passed; 18 passed, 0 failed |
+| GitHub download and Store installation | Distribution facts are recorded separately in [launch metadata](launch-metadata.json); Chrome automation does not establish Store approval/installation | Separate evidence required |
 | Customer validation | Ten-user task completion/time, 1–5 ratings and written feedback; real store/platform/native notification checks | Pending real participants |
 
 ## Browser scope
 
-The retained [local browser attempt](evidence/local-browser-results-0.1.2.json) stopped at browser startup. It records a prior same-version candidate ZIP hash and the startup error; it does not validate this final candidate archive. The current browser harness is ready to unpack the configured ZIP, exercise its service worker/toolbar/storage and all principal UI flows, check HTTP-image rejection, test narrow layouts, and capture five unmodified 1280×800 Store screenshots. Run it on a supported host before closing REL-10.
+The retained [local browser attempt](evidence/local-browser-results-0.1.2.json) stopped at browser startup. It records a prior same-version candidate ZIP hash and the startup error; it does not validate this final candidate archive and remains unchanged as history.
 
 Historical Alpha 0.1.1 [Chrome results](../CHROME_TEST_RESULTS.json) and [screenshots](../visuals/README.md) remain available with their own version/hash/run. They are not relabeled as 0.1.2 results.
 
@@ -38,7 +38,7 @@ Historical Alpha 0.1.1 [Chrome results](../CHROME_TEST_RESULTS.json) and [screen
 
 Use Node 22 or newer, run `npm ci`, then `node scripts/verify-launch.mjs`. For real Chrome, run `npx playwright install --with-deps chromium` and `PUBLIC_DEMO_URL=https://qarteu.github.io/cartscope/ npm run test:browser` on a host that can launch Chrome. The hosted-demo assertion requires that the same candidate version has actually been deployed first. Omit PUBLIC_DEMO_URL only for an explicitly local run; the report then states that public-demo coverage was skipped.
 
-## Named executed cases
+## Named executed Node cases
 
 Each row below corresponds to an actual JUnit case. The test definition is the assertion source; expected behavior is described by the executed scenario name.
 
@@ -113,6 +113,50 @@ Each row below corresponds to an actual JUnit case. The test definition is the a
 | AUTO-067 | [ui.test.mjs](../../tests/ui.test.mjs) | Hostile user text and active URLs cannot become injected product UI | passed |
 | AUTO-068 | [ui.test.mjs](../../tests/ui.test.mjs) | Malformed imports leave current data intact and sample backups remain isolated | passed |
 | AUTO-069 | [ui.test.mjs](../../tests/ui.test.mjs) | Removing a product deletes its related offers, history, alerts, and orders | passed |
+
+## Executed Chrome for Testing checks
+
+- Browser: Chrome for Testing `151.0.7922.34`; report status **passed**; **18 passed, 0 failed**.
+- Run finished `2026-11-16T00:05:49.530Z` (UTC); ZIP SHA-256 `a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0`.
+- Raw [browser checks/results](evidence/browser-results-0.1.2.json) retain the actual method, durations, screenshots, capture diagnostics, and limitations.
+- Hosted [run 43778186951](https://github.com/qarteu/cartscope/actions/runs/43778186951); source `ff47f447ca4c6740db3090db51761570e2f986e9`; workflow status `completed` / `success`. [Retained run provenance](evidence/hosted-run.json).
+- Hosted [Node JUnit](evidence/hosted-node-results-0.1.2.xml) contains 69 named leaf cases without failures. This re-executes the Node cases above and is not added to the distinct-case count.
+- Public demo: `https://qarteu.github.io/cartscope/` returned HTTP `200`; landing / iframe / About versions: `0.1.2` / `0.1.2` / `0.1.2`. This is a browser preview, not a Store listing.
+
+The extension was loaded from the unpacked release ZIP. Retailer capture checks use localhost product/category fixtures; changing live retailer markup, native OS notification delivery, human task performance, and Store installation were not verified by these checks.
+
+| Case | Test definition | Executed scenario / expected behavior | Actual result |
+| --- | --- | --- | --- |
+| BROWSER-001 | [browser.mjs](../../tests/browser.mjs) | The configured release ZIP unpacks into the Chrome installation root | passed |
+| BROWSER-002 | [browser.mjs](../../tests/browser.mjs) | Real extension service worker opens an empty local workspace | passed |
+| BROWSER-003 | [browser.mjs](../../tests/browser.mjs) | Sample workspace renders every principal screen and remains separate | passed |
+| BROWSER-004 | [browser.mjs](../../tests/browser.mjs) | Installed extension produces unmodified 1280x800 Store-size screenshots in a fresh QA tab | passed |
+| BROWSER-005 | [browser.mjs](../../tests/browser.mjs) | Cart add, edit, quantity, and save-for-later persist through Chrome storage | passed |
+| BROWSER-006 | [browser.mjs](../../tests/browser.mjs) | Comparison never promotes an unknown shipping amount or conflicting variant | passed |
+| BROWSER-007 | [browser.mjs](../../tests/browser.mjs) | Opt-in watches create price-drop and restock alerts from updated observations | passed |
+| BROWSER-008 | [browser.mjs](../../tests/browser.mjs) | Orders save and update manual status and safe carrier tracking | passed |
+| BROWSER-009 | [browser.mjs](../../tests/browser.mjs) | Financing shows the full obligation and distributes remainder cents exactly | passed |
+| BROWSER-010 | [browser.mjs](../../tests/browser.mjs) | Preferences, export, delete, and validated import complete a backup round trip | passed |
+| BROWSER-011 | [browser.mjs](../../tests/browser.mjs) | HTTP product images are stripped on import and never requested from legacy records | passed |
+| BROWSER-012 | [browser.mjs](../../tests/browser.mjs) | Hostile text remains text and scripting URL payloads are discarded | passed |
+| BROWSER-013 | [browser.mjs](../../tests/browser.mjs) | Toolbar action grants activeTab and background scripting captures a real HTTP product page | passed |
+| BROWSER-014 | [browser.mjs](../../tests/browser.mjs) | A category page is rejected through the real scripting consumer | passed |
+| BROWSER-015 | [browser.mjs](../../tests/browser.mjs) | Cart, comparison, notifications, orders, finance, and preferences fit 320/380/480 px | passed |
+| BROWSER-016 | [browser.mjs](../../tests/browser.mjs) | Separate browser preview persists local data and keeps sample changes isolated | passed |
+| BROWSER-017 | [browser.mjs](../../tests/browser.mjs) | Published landing page serves an interactive sample preview with persistent local edits | passed |
+| BROWSER-018 | [browser.mjs](../../tests/browser.mjs) | No uncaught JavaScript errors occurred | passed |
+
+## Store-size screenshot evidence
+
+Unmodified installed-extension pages in a fresh QA tab, using visibly labeled illustrative sample data. Copied PNG dimensions were checked again while building this report. These assets do not establish Store submission or approval.
+
+| View | PNG evidence | Actual dimensions |
+| --- | --- | --- |
+| cart | [store-cart-1280x800.png](assets/screenshots/store-cart-1280x800.png) | 1280×800 |
+| compare | [store-compare-1280x800.png](assets/screenshots/store-compare-1280x800.png) | 1280×800 |
+| alerts | [store-alerts-1280x800.png](assets/screenshots/store-alerts-1280x800.png) | 1280×800 |
+| orders | [store-orders-1280x800.png](assets/screenshots/store-orders-1280x800.png) | 1280×800 |
+| settings | [store-settings-1280x800.png](assets/screenshots/store-settings-1280x800.png) | 1280×800 |
 
 ## Pending field-acceptance cases
 

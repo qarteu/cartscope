@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="safeUrl preserves ordinary HTTP URLs and rejects active or credentialed URLs" time="0.002096" classname="test"/>
+	<testcase name="product images allow HTTPS and only bundled product illustrations while shopping links retain HTTP" time="0.001704" classname="test"/>
+	<testcase name="money formats finite non-negative amounts without unsafe or invalid strings" time="0.043674" classname="test"/>
+	<testcase name="normalizeProduct returns a stable validated data record without arbitrary fields" time="0.001432" classname="test"/>
+	<testcase name="normalizeProduct rejects absent, malformed, negative, infinite, and invalid quantity data" time="0.000679" classname="test"/>
+	<testcase name="brand and model match tolerates punctuation but refuses any known variant conflict" time="0.000976" classname="test"/>
+	<testcase name="barcode identity validates check digits and does not override conflicting or missing variants" time="0.000447" classname="test"/>
+	<testcase name="condition is never guessed and new or used inventory cannot be promoted as the same offer" time="0.000517" classname="test"/>
+	<testcase name="cost separates checkout obligation from cashback using an independent cents calculation" time="0.002362" classname="test"/>
+	<testcase name="unknown shipping prevents a ranked total instead of becoming free shipping" time="0.000731" classname="test"/>
+	<testcase name="malformed cost values and mixed currencies cannot produce a valid total" time="0.000595" classname="test"/>
+	<testcase name="ranking excludes cheap mismatches from best position and preserves deterministic ties" time="0.002905" classname="test"/>
+	<testcase name="each priority actually changes eligible ordering, with pickup alias supported" time="0.002083" classname="test"/>
+	<testcase name="payment schedule totals full obligation and allocates rounding cents exactly" time="0.000999" classname="test"/>
+	<testcase name="payment schedule handles zero amount and UTC leap days" time="0.000187" classname="test"/>
+	<testcase name="payment schedule rejects misleading or malformed financing terms" time="0.000404" classname="test"/>
+	<testcase name="price alerts require an opted-in watch" time="0.000196" classname="test"/>
+	<testcase name="alert transitions do not fire for initial, unchanged, mismatched, disabled, or invalid observations" time="0.000370" classname="test"/>
+	<testcase name="restock alert requires known out-of-stock transition, and sample events are explicitly labelled" time="0.000165" classname="test"/>
+	<testcase name="price history only claims a recorded range, ignores invalid points, and keeps currencies separate" time="0.000391" classname="test"/>
+	<testcase name="classic injected script captures a graph Product with usable complete identity" time="0.014227" classname="test"/>
+	<testcase name="a category page cannot silently save its first recommended product" time="0.002580" classname="test"/>
+	<testcase name="multiple products require a single current-page or mainEntity match" time="0.003109" classname="test"/>
+	<testcase name="Amazon product page selector fallback captures the displayed amount without page writes" time="0.003677" classname="test"/>
+	<testcase name="OpenGraph supports generic product pages and does not treat a website title as a product" time="0.001903" classname="test"/>
+	<testcase name="retailer product fallback and displayed prices work for the supported selector adapters" time="0.004130" classname="test"/>
+	<testcase name="invalid metadata falls back only when a genuine product page and price are available" time="0.001761" classname="test"/>
+	<testcase name="ambiguous offer prices, aggregates, and hostile price strings are rejected" time="0.011087" classname="test"/>
+	<testcase name="multiple offer prices can be resolved only by the currently displayed price or exact offer URL" time="0.002228" classname="test"/>
+	<testcase name="graph Offer references are resolved from the same page metadata" time="0.002698" classname="test"/>
+	<testcase name="published new, used, and refurbished conditions are captured without an invented default" time="0.006048" classname="test"/>
+	<testcase name="active image and canonical URL payloads cannot escape as executable extension links" time="0.001396" classname="test"/>
+	<testcase name="empty, absent, and repeated scripts produce deterministic results without invented product data" time="0.015025" classname="test"/>
+	<testcase name="publisher command contract derives the patch tag, asset paths, and isolated notes (mock CLIs)" time="1.317163" classname="test"/>
+	<testcase name="repeated publication verifies identical assets without tagging or uploading (mock CLIs)" time="0.824876" classname="test"/>
+	<testcase name="different assets at an existing version stop publication without replacement (mock CLIs)" time="0.817894" classname="test"/>
+	<testcase name="tracker synchronization preserves issue IDs and unrelated labels when sprint scope changes" time="0.948042" classname="test"/>
+	<testcase name="configured package, npm lock, and installed manifest use the same release version" time="0.001706" classname="test"/>
+	<testcase name="launch channel creates the actual launch ZIP with the same installable root" time="0.081997" classname="test"/>
+	<testcase name="release ZIP is consumed by unzip, contains runtime root only, and is deterministic" time="0.125918" classname="test"/>
+	<testcase name="validator rejects version drift and excessive permissions" time="0.132251" classname="test"/>
+	<testcase name="packaging a version patch preserves the previous release archive and checksum" time="0.142938" classname="test"/>
+	<testcase name="release notes select only the exact current version and reject missing, duplicate, or empty sections" time="0.001304" classname="test"/>
+	<testcase name="validator rejects missing paths, inline scripts, remote stylesheets, and empty manifests" time="0.371189" classname="test"/>
+	<testcase name="ordinary import action strings are accepted while remote static and dynamic imports fail" time="0.159229" classname="test"/>
+	<testcase name="toolbar click opens the clicked window panel synchronously after native action behavior is disabled" time="0.002206" classname="test"/>
+	<testcase name="quantity changes reject fractions and preserve the existing cart" time="0.003426" classname="test"/>
+	<testcase name="orders reject fractional quantities and impossible calendar dates" time="0.004621" classname="test"/>
+	<testcase name="imports reject numeric or mismatched ID types instead of creating invisible offers" time="0.001263" classname="test"/>
+	<testcase name="imports reject IDs that would collide after truncation" time="0.001470" classname="test"/>
+	<testcase name="sample backups cannot enter the real workspace" time="0.002359" classname="test"/>
+	<testcase name="sample defaults mark the workspace and products as illustrative data" time="0.000448" classname="test"/>
+	<testcase name="real backup roundtrip preserves links, observations and watches while clearing alerts" time="0.026247" classname="test"/>
+	<testcase name="a malformed later record aborts an import without partially replacing existing data" time="0.001881" classname="test"/>
+	<testcase name="unknown required membership cost stays unknown rather than becoming free" time="0.001686" classname="test"/>
+	<testcase name="saved and imported product images reject HTTP while preserving deliberate HTTP shopping links" time="0.001749" classname="test"/>
+	<testsuite name="Actual application flows in DOM simulation (real Chrome coverage remains separate)" time="0.653145" disabled="0" errors="0" tests="13" failures="0" skipped="0" hostname="runnervmccnms">
+		<testcase name="Sample cart and every principal view render through actual app event handlers" time="0.186851" classname="test"/>
+		<testcase name="Sample mutations persist locally and do not leak into the empty workspace" time="0.042909" classname="test"/>
+		<testcase name="Manual add, item quantity, editing, and saved-for-later use the same background service" time="0.045233" classname="test"/>
+		<testcase name="Fractional quantities are rejected and rendered values recover after the failed change" time="0.003254" classname="test"/>
+		<testcase name="Checked offers rank exact variants while missing costs and conflicts remain visible" time="0.081647" classname="test"/>
+		<testcase name="Watch settings produce price-drop and restock transitions and avoid duplicate alerts" time="0.092148" classname="test"/>
+		<testcase name="Manual order creation and delivery status edits persist safe tracking details" time="0.011317" classname="test"/>
+		<testcase name="Payment planner renders full obligation, calendar dates, and exact remainder cents" time="0.020211" classname="test"/>
+		<testcase name="Preferences save and backup export serializes the real workspace" time="0.015744" classname="test"/>
+		<testcase name="Imported and legacy HTTP images use the bundled fallback without changing HTTP shopping links" time="0.030484" classname="test"/>
+		<testcase name="Hostile user text and active URLs cannot become injected product UI" time="0.012990" classname="test"/>
+		<testcase name="Malformed imports leave current data intact and sample backups remain isolated" time="0.001694" classname="test"/>
+		<testcase name="Removing a product deletes its related offers, history, alerts, and orders" time="0.007133" classname="test"/>
+	</testsuite>
+	<!-- tests 70 -->
+	<!-- suites 0 -->
+	<!-- pass 70 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 3998.739586 -->
+</testsuites>

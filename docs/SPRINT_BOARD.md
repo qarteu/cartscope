@@ -14,7 +14,7 @@ Kartik Malunjkar owns architecture/releases, Jake Clevenger owns product/backlog
 
 ## Shipped GitHub Alpha history
 
-`Done` here records the delivered 0.1.0/0.1.1 scope, not Chrome Web Store publication or completion of the 0.1.2 candidate. The recorded 0.1.1 baseline has **65 passing Node tests, including 12 DOM flows, plus 16 Chrome checks**, and an **18-file runtime ZIP**. [Historical verification](https://github.com/qarteu/cartscope/blob/v0.1.1/docs/VERIFICATION.md) and [Chrome evidence](CHROME_TEST_RESULTS.json) explain the fixture and platform limits. New candidate results must be recorded under REL-10.
+`Done` here records the delivered 0.1.0/0.1.1 scope, not Chrome Web Store publication or completion of the 0.1.2 candidate. The recorded 0.1.1 baseline has **65 passing Node tests, including 12 DOM flows, plus 16 Chrome checks**, and an **18-file runtime ZIP**. [Historical verification](https://github.com/qarteu/cartscope/blob/v0.1.1/docs/VERIFICATION.md) and [Chrome evidence](CHROME_TEST_RESULTS.json) explain the fixture and platform limits. Current 0.1.2 has 70 passing Node reporter tests (13 DOM flows included) and 18 passing Chrome checks in [launch evidence](launch/TEST_RESULTS.md); Store installation and real-customer validation remain separate gates.
 
 | ID | Status | Delivered behavior | Evidence / boundary |
 | --- | --- | --- | --- |
@@ -64,7 +64,7 @@ A prepared listing kit is not a submitted review, a submitted review is not appr
 | REL-05 | Planned | Send the original personalized Alpha preview invitations. | Actual send dates and private delivery evidence; the existing draft is not a sent announcement. Coordinate with the launch message to avoid duplicate invitations. |
 | REL-06 | Planned | Collect and triage quantitative and qualitative feedback. | Actual task results/times, 1-5 ratings, written reports and a readout with denominators; extension/demo modes separated. |
 | REL-07 | Planned | Reconcile an existing Trello board if supplied. | Verified URL/access and reconciled records. Conditional; GitHub Issues remains the current equivalent tracker. |
-| REL-10 | Planned · local checks passed; Chrome/field checks pending | Verify the actual Launch Candidate 0.1.2 ZIP. | Current validation and behavioral checks; clean Chrome installation of `cartscope-launch-0.1.2.zip`; named results, browser/version, commit, inventory, hash and genuine screenshots. Historical Alpha evidence is insufficient. |
+| REL-10 | Done · automated ZIP/Chrome verification | Verify the actual Launch Candidate 0.1.2 ZIP. | Current validation and behavioral checks; clean Chrome installation of `cartscope-launch-0.1.2.zip`; named results, browser/version, commit, inventory, hash and genuine screenshots. Historical Alpha evidence is insufficient. |
 | REL-11 | Planned | Publish the verified 0.1.2 source and GitHub release. | Authorized write access; separate immutable release, runtime ZIP/checksum and instructions; hosted downloads match tested bytes; older releases preserved. |
 | REL-12 | Planned | Submit the candidate for Chrome Web Store review. | Authorized publisher session, correct item identity/version, completed kit, actual upload/submission confirmation, time and review status. |
 | REL-13 | Planned | Verify the approved public Chrome Web Store listing. | Actual public URL/item ID, expected publisher/version, approval/publication status and Store installation/update check. Keep the Store URL null until verified. |

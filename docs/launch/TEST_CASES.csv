@@ -68,3 +68,21 @@ AUTO-066,ui.test.mjs,Imported and legacy HTTP images use the bundled fallback wi
 AUTO-067,ui.test.mjs,Hostile user text and active URLs cannot become injected product UI,passed,0.003221
 AUTO-068,ui.test.mjs,Malformed imports leave current data intact and sample backups remain isolated,passed,0.000426
 AUTO-069,ui.test.mjs,"Removing a product deletes its related offers, history, alerts, and orders",passed,0.001570
+BROWSER-001,browser.mjs,The configured release ZIP unpacks into the Chrome installation root,passed,0.011
+BROWSER-002,browser.mjs,Real extension service worker opens an empty local workspace,passed,0.018
+BROWSER-003,browser.mjs,Sample workspace renders every principal screen and remains separate,passed,6.332
+BROWSER-004,browser.mjs,Installed extension produces unmodified 1280x800 Store-size screenshots in a fresh QA tab,passed,5.912
+BROWSER-005,browser.mjs,"Cart add, edit, quantity, and save-for-later persist through Chrome storage",passed,0.638
+BROWSER-006,browser.mjs,Comparison never promotes an unknown shipping amount or conflicting variant,passed,0.791
+BROWSER-007,browser.mjs,Opt-in watches create price-drop and restock alerts from updated observations,passed,0.704
+BROWSER-008,browser.mjs,Orders save and update manual status and safe carrier tracking,passed,0.508
+BROWSER-009,browser.mjs,Financing shows the full obligation and distributes remainder cents exactly,passed,0.217
+BROWSER-010,browser.mjs,"Preferences, export, delete, and validated import complete a backup round trip",passed,0.315
+BROWSER-011,browser.mjs,HTTP product images are stripped on import and never requested from legacy records,passed,0.731
+BROWSER-012,browser.mjs,Hostile text remains text and scripting URL payloads are discarded,passed,0.075
+BROWSER-013,browser.mjs,Toolbar action grants activeTab and background scripting captures a real HTTP product page,passed,1.292
+BROWSER-014,browser.mjs,A category page is rejected through the real scripting consumer,passed,0.026
+BROWSER-015,browser.mjs,"Cart, comparison, notifications, orders, finance, and preferences fit 320/380/480 px",passed,42.811
+BROWSER-016,browser.mjs,Separate browser preview persists local data and keeps sample changes isolated,passed,0.693
+BROWSER-017,browser.mjs,Published landing page serves an interactive sample preview with persistent local edits,passed,1.422
+BROWSER-018,browser.mjs,No uncaught JavaScript errors occurred,passed,0.000

@@ -1,39 +1,41 @@
 # CartScope — Launch Release Submission
 
-**Team:** Kartik Malunjkar, Jake Clevenger, and Eashan. **Prepared:** November 14, 2026. **Build:** Launch Candidate 0.1.2 (`PREVIEW 0.1.2`).
+**Team:** Kartik Malunjkar, Jake Clevenger and Eashan. **Updated:** November 15, 2026. **Build:** Launch Candidate 0.1.2 (`PREVIEW 0.1.2`).
 
-1. **Chrome Web Store listing**
+CartScope saves checked products across stores, compares known costs, and keeps a local cart, budget, manual order records and payment schedule.
 
-   **Pending publication and Google review.** No public Store URL has been verified. The attached launch packet includes the listing description, permission explanations, privacy policy, reviewer instructions and original promotional graphics. A prepared upload kit or GitHub release is not a published Store listing.
+1. **Chrome Web Store listing — pending**
 
-2. **GitHub repository and release notes**
+   No public Store listing or Google approval has been verified. The [Store submission kit](https://github.com/qarteu/cartscope/blob/main/docs/launch/README.md) includes listing copy, privacy/permission disclosures, reviewer instructions and promotional graphics. A GitHub release does not satisfy Store publication.
 
-   [qarteu/cartscope](https://github.com/qarteu/cartscope) · [Published releases](https://github.com/qarteu/cartscope/releases)
+2. **GitHub repository, release notes and instructions**
 
-   The repository contains the published Alpha history. The current 0.1.2 source, release notes and launch materials are prepared locally; publishing this revision requires renewed qarteu write authentication. No hosted 0.1.2 release is claimed yet.
+   [Personal repository: qarteu/cartscope](https://github.com/qarteu/cartscope) · [Release notes](https://github.com/qarteu/cartscope/blob/main/CHANGELOG.md) · [Usage instructions](https://github.com/qarteu/cartscope#install-in-chrome)
 
-3. **Locally installable ZIP**
+   The current source and launch materials are version controlled. Original Alpha releases 0.1.0 and 0.1.1 remain available. Hosted 0.1.2 release publication is pending.
 
-   **Attachment:** `cartscope-launch-0.1.2.zip`. Unzip it, open `chrome://extensions`, enable Developer mode, choose Load unpacked, and select the folder containing `manifest.json`. Pin CartScope, open an individual product page, click its icon, choose Capture this page, review the details, and save.
+3. **Downloaded and verified locally installable ZIP**
 
-   The package has 18 runtime files and passes local manifest, integrity and automated behavior checks. Fresh Chrome execution and downloaded hosted-asset verification remain pending, so this is a launch candidate rather than a fully validated Store launch.
+   **Local attachment:** `cartscope-launch-0.1.2.zip`. **Hosted download verification is pending publication.**
+
+   The actual candidate archive passed the Chrome run; its root manifest is version 0.1.2, with 18 runtime files and valid CRCs. Unzip it, open `chrome://extensions`, enable Developer mode, choose Load unpacked, and select the folder containing `manifest.json`. Pin CartScope; on a product page, click its icon, capture, review and save.
 
 4. **Executed test cases and results**
 
-   **Attachments in the launch packet:** `TEST_RESULTS.md`, `TEST_CASES.csv`, JUnit XML, DOM-flow JSON and the raw test log. The Node reporter records **70 passed, 0 failed, 0 skipped**, including **13 DOM flow checks**. The CSV lists 69 named leaf cases; the reporter total also counts their DOM suite container.
+   [Test report](https://github.com/qarteu/cartscope/blob/main/docs/launch/TEST_RESULTS.md) · [Case CSV](https://github.com/qarteu/cartscope/blob/main/docs/launch/TEST_CASES.csv) · [Raw evidence](https://github.com/qarteu/cartscope/tree/main/docs/launch/evidence) · [Chrome run](https://github.com/qarteu/cartscope/actions/runs/43777464733)
 
-   Coverage includes arithmetic, matching, extraction fixtures, storage/imports, UI flows, HTTPS image protection, packaging and mocked publisher/tracker commands. Local Chrome startup is blocked; historical 0.1.1 Chrome results are separately labeled and are not claimed for 0.1.2. Live-retailer, native-notification and real-customer validation remain open.
+   Results: **70 Node passes** (69 named cases; 13 DOM flows included), plus **18 real Chrome checks**, with no failures. Chrome loaded the actual ZIP and exercised capture, storage and the shopping flows. Fixtures do not establish every live retailer, operating system, native notification or customer outcome.
 
 5. **Launch marketing and feedback**
 
-   **Included:** a ten-reference-user email draft, public announcement/social copy, reviewer instructions and two original promotional graphics. The drafts request task completion/time and 1–5 ratings, plus confusing steps, missing information and desired improvements, through the [feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml) or private email replies.
+   [Ten-reference-user email](https://github.com/qarteu/cartscope/blob/main/docs/launch/REFERENCE_USER_EMAIL.md) · [Public/social announcement copy](https://github.com/qarteu/cartscope/blob/main/docs/launch/PUBLIC_ANNOUNCEMENTS.md) · [Feedback form](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml)
 
-   Post-publication copy encourages independent customers to leave honest Chrome Web Store reviews. No invitations, public posts, reviews or user-study results are claimed as completed.
+   Materials collect task completion/time, 1–5 ratings, confusing steps and requested improvements through the form or private replies. Post-publication copy invites voluntary honest Store reviews. **Recruitment, sending, public posting and collected feedback remain pending**; no reviews or user-study results are claimed.
 
 6. **Sprint 2.E Fielding & Support**
 
-   [Existing GitHub issue tracker](https://github.com/qarteu/cartscope/issues) · [Board location](https://github.com/qarteu/cartscope/blob/main/docs/SPRINT_BOARD.md)
+   [Updated sprint board](https://github.com/qarteu/cartscope/blob/main/docs/SPRINT_BOARD.md) · [Live GitHub issue tracker](https://github.com/qarteu/cartscope/issues)
 
-   The updated board and issue records are included in the packet, with preserved Alpha progress, six planned fielding/support stories, launch/Store gates, and explicit backlog epics for screenshot capture, price guidance and occasion folders. Online synchronization is pending authenticated publication.
+   The online tracker shows delivered work, open launch/Store gates, six planned fielding/support stories and the updated backlog. Screenshot capture, price guidance and occasion folders remain explicitly unbuilt backlog features.
 
-**Working published Alpha demonstration:** [CartScope demo](https://qarteu.github.io/cartscope/). It uses labeled sample data and cannot capture a separate shopping tab. The prepared current candidate also includes local demo, privacy and support pages; deployment remains a separate gate.
+**Public pages:** [Demo](https://qarteu.github.io/cartscope/) · [Privacy](https://qarteu.github.io/cartscope/privacy.html) · [Support](https://qarteu.github.io/cartscope/support.html). The demo uses labeled sample data; capture requires the installed extension.

@@ -1,6 +1,6 @@
 # CartScope — Shopping desk
 
-**Current launch work:** [0.1.2 launch candidate packet](docs/launch/README.md), [executed test cases/results](docs/launch/TEST_RESULTS.md), and [Sprint 2.E Fielding & Support](docs/SPRINT_BOARD.md). Store publication and current Chrome/field verification remain open; the published Alpha history below is retained.
+**Current launch work:** [0.1.2 launch candidate packet](docs/launch/README.md), [executed test cases/results](docs/launch/TEST_RESULTS.md), and [Sprint 2.E Fielding & Support](docs/SPRINT_BOARD.md). Store publication and field validation remain open; the published Alpha history below is retained.
 
 We built CartScope for the moment when a shopping trip turns into a dozen open tabs. It keeps products from different stores in one Chrome side panel, lets you compare the costs of offers you've checked, and keeps your budget and order notes beside them.
 

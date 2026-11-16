@@ -1,0 +1,116 @@
+{
+  "format_version": 1,
+  "source_kind": "Actual installed Chrome extension screenshots; not illustrations or browser-demo mockups",
+  "release": {
+    "path": "artifacts/cartscope-launch-0.1.2.zip",
+    "version": "0.1.2",
+    "sha256": "a36de3df01656c062e5000b7bd2fb0a7b46d11d61d11bcb9be5393f7a18d24d0"
+  },
+  "release_badge_text": "PREVIEW 0.1.2",
+  "badge_visible_in_every_capture": false,
+  "ci_run": {
+    "id": 43778186951,
+    "url": "https://github.com/qarteu/cartscope/actions/runs/43778186951",
+    "commit": "ff47f447ca4c6740db3090db51761570e2f986e9",
+    "conclusion": "success"
+  },
+  "browser": {
+    "product": "Chrome for Testing",
+    "version": "151.0.7922.34",
+    "automation": "Playwright"
+  },
+  "verification": {
+    "status": "passed",
+    "finished_at_utc": "2026-11-16T00:05:49.530Z",
+    "passed": 18,
+    "failed": 0,
+    "uncaught_errors": 0,
+    "report": "../../evidence/browser-results-0.1.2.json",
+    "report_sha256": "246061199c463283a59b2146e314edc662fe6ef496b46bbef932c4d33141bcef",
+    "hosted_run": "../../evidence/hosted-run.json",
+    "hosted_run_sha256": "ce7689c7366a00ecc2b87d6ee626215adcdcefe9b56c372a47fa14a5db0b0e38"
+  },
+  "capture": {
+    "surface": "Installed extension sidepanel.html opened in a disposable Chrome QA tab",
+    "viewport_css_pixels": {
+      "width": 1280,
+      "height": 800
+    },
+    "full_page": false,
+    "positions": "Cart, alerts, and orders at top; comparison and Settings scrolled in Chrome to show actual feature controls, as recorded per screenshot.",
+    "runtime_css_modified_for_capture": false,
+    "resized": false,
+    "post_capture_cropping": false,
+    "composited": false,
+    "retouched": false,
+    "sample_labels_retained": true,
+    "scope": "Browser viewport captures of scrolling views; not complete full-page captures or proof of the native side-panel lifecycle."
+  },
+  "store_publication_established": false,
+  "limitations": [
+    "Deterministic retailer-shaped fixtures do not verify changing live retailer markup or live offer feeds.",
+    "Store-size screenshots show the installed extension in a disposable QA tab with labeled sample data; they do not establish Chrome Web Store publication or approval."
+  ],
+  "screenshots": [
+    {
+      "file": "store-cart-1280x800.png",
+      "view": "cart",
+      "width": 1280,
+      "height": 800,
+      "sha256": "5feb388b52c44bb6e92c4c8b637d65fec1f98a169724e41a8a7c9685dc9a0c3f",
+      "source_artifact_member": "artifacts/screenshots/store-cart-1280x800.png",
+      "copied_byte_for_byte": true,
+      "workspace": "labeled sample data",
+      "capture_position": "top of view",
+      "pixel_modifications": false
+    },
+    {
+      "file": "store-compare-1280x800.png",
+      "view": "compare",
+      "width": 1280,
+      "height": 800,
+      "sha256": "f91481867b9f79fba9ecae71eaff63dbb7abeb1b99d7185928bf2b5301414a16",
+      "source_artifact_member": "artifacts/screenshots/store-compare-1280x800.png",
+      "copied_byte_for_byte": true,
+      "workspace": "labeled sample data",
+      "capture_position": "scrolled to checked offer costs",
+      "pixel_modifications": false
+    },
+    {
+      "file": "store-alerts-1280x800.png",
+      "view": "alerts",
+      "width": 1280,
+      "height": 800,
+      "sha256": "4c0a8b1f5f01e9d433e6150175cfa5d5d2320a860e28df6d104a3f2c3e3ff564",
+      "source_artifact_member": "artifacts/screenshots/store-alerts-1280x800.png",
+      "copied_byte_for_byte": true,
+      "workspace": "labeled sample data",
+      "capture_position": "top of view",
+      "pixel_modifications": false
+    },
+    {
+      "file": "store-orders-1280x800.png",
+      "view": "orders",
+      "width": 1280,
+      "height": 800,
+      "sha256": "77f6c546ecb2c31a42f51bc17ef9f027a0833311c5ec1f40626589d61690a1cd",
+      "source_artifact_member": "artifacts/screenshots/store-orders-1280x800.png",
+      "copied_byte_for_byte": true,
+      "workspace": "labeled sample data",
+      "capture_position": "top of view",
+      "pixel_modifications": false
+    },
+    {
+      "file": "store-settings-1280x800.png",
+      "view": "settings",
+      "width": 1280,
+      "height": 800,
+      "sha256": "2d70173ded4865489ff933fc13576175f85180bf2e469d179f92151817678689",
+      "source_artifact_member": "artifacts/screenshots/store-settings-1280x800.png",
+      "copied_byte_for_byte": true,
+      "workspace": "labeled sample data",
+      "capture_position": "scrolled to privacy and data controls",
+      "pixel_modifications": false
+    }
+  ]
+}

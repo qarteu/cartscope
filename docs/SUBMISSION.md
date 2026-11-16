@@ -1,6 +1,6 @@
 # Current launch submission
 
-Use [the six-item Canvas submission](launch/CANVAS_SUBMISSION.md), [launch requirements and status](launch/REQUIREMENTS.md), and [launch packet index](launch/README.md). Chrome Web Store publication and current Chrome/field verification remain open. The earlier Alpha submission is retained below as history.
+Use [the six-item Canvas submission](launch/CANVAS_SUBMISSION.md), [launch requirements and status](launch/REQUIREMENTS.md), and [launch packet index](launch/README.md). Chrome Web Store publication and field validation remain open. The earlier Alpha submission is retained below as history.
 
 ---
 
