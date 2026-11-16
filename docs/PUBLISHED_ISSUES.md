@@ -40,7 +40,7 @@
 - [[CS-23] Run field validation and support intake](https://github.com/qarteu/cartscope/issues/38) — planned
 - [[CS-27] Define acceptance for requested screenshot, guidance and folder features](https://github.com/qarteu/cartscope/issues/39) — planned
 - [[REL-10] Verify Launch Candidate 0.1.2 from its actual ZIP](https://github.com/qarteu/cartscope/issues/40) — done
-- [[REL-11] Publish the verified 0.1.2 GitHub launch-candidate release](https://github.com/qarteu/cartscope/issues/41) — planned
+- [[REL-11] Publish the verified 0.1.2 GitHub launch-candidate release](https://github.com/qarteu/cartscope/issues/41) — done
 - [[REL-12] Submit the candidate for Chrome Web Store review](https://github.com/qarteu/cartscope/issues/42) — planned
 - [[REL-13] Verify the approved public Chrome Web Store listing](https://github.com/qarteu/cartscope/issues/43) — planned
 - [[REL-14] Announce launch to reference users and other potential customers](https://github.com/qarteu/cartscope/issues/44) — planned
