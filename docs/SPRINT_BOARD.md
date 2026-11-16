@@ -6,7 +6,7 @@
 **Published history:** GitHub Alpha [0.1.0](https://github.com/qarteu/cartscope/releases/tag/v0.1.0) and [0.1.1](https://github.com/qarteu/cartscope/releases/tag/v0.1.1)<br>
 **Chrome Web Store:** no verified public listing URL, submitted-review record, or approval is recorded.
 
-The [GitHub issue tracker](https://github.com/qarteu/cartscope/issues) is our Trello-equivalent tracker, with all 45 records published online. Final submission-packet publication and final status reconciliation remain under REL-15. [Issue records](issues.json) contain the full stories and acceptance criteria; [published issue links](PUBLISHED_ISSUES.md) identify the actual external records. No existing Trello URL has been verified.
+The [GitHub issue tracker](https://github.com/qarteu/cartscope/issues) is our Trello-equivalent tracker, with all 45 records published online. The submission packet is published and download-verified under REL-15; board, JSON and online statuses are reconciled. [Issue records](issues.json) contain the full stories and acceptance criteria; [published issue links](PUBLISHED_ISSUES.md) identify the actual external records. No existing Trello URL has been verified.
 
 Kartik Malunjkar owns architecture/releases, Jake Clevenger owns product/backlog, and Eashan owns business/research and Scrum. Story owners below are proposed. The team must confirm dates, capacity and assignments at planning; external Store review is not a promised sprint completion date.
 
@@ -69,7 +69,7 @@ A prepared listing kit is not a submitted review, a submitted review is not appr
 | REL-12 | Planned | Submit the candidate for Chrome Web Store review. | Authorized publisher session, correct item identity/version, completed kit, actual upload/submission confirmation, time and review status. |
 | REL-13 | Planned | Verify the approved public Chrome Web Store listing. | Actual public URL/item ID, expected publisher/version, approval/publication status and Store installation/update check. Keep the Store URL null until verified. |
 | REL-14 | Planned | Announce launch to ten reference users and other potential customers. | Consenting recipients, personalized authorized delivery/publication, real dates/channel evidence, feedback routes and voluntary honest Store-review request. Public Store wording depends on REL-13. |
-| REL-15 | Planned | Publish the launch submission and synchronize tracker records. | Published six-item index and current artifacts; board, JSON and real GitHub issues/labels agree; new external issue URLs recorded only after creation. |
+| REL-15 | Done | Publish the launch submission and synchronize tracker records. | Published six-item index, tested runtime, Store kit and full submission ZIP; downloaded packet has 127 entries, clean CRCs and 126 matching file hashes. Board, JSON and 45 real issues/labels agree, with six next-sprint stories. Store/outreach gates remain open. |
 
 ## Requested feature epics and implementation backlog
 

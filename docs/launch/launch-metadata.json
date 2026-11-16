@@ -36,7 +36,7 @@
   "dom_flow_checks_included": 13,
   "current_browser_verification": "passed",
   "github_candidate_publication": "Source, release, verified runtime download, public policy/support pages and issue records published under qarteu/cartscope",
-  "tracker_online_sync": "45 issue records published; six Sprint 2.E stories labeled next-sprint; final release gates updated from their own proof",
+  "tracker_online_sync": "45 published issue records reconciled with board and JSON; six Sprint 2.E stories labeled next-sprint; Store, outreach and customer-validation gates remain open",
   "current_browser_report": "docs/launch/evidence/browser-results-0.1.2.json",
   "current_browser_checks_passed": 18,
   "current_browser_checks_failed": 0,
@@ -55,5 +55,8 @@
   "github_download_verification_local_date": "2026-11-15",
   "webstore_kit_url": "https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-webstore-kit-0.1.2.zip",
   "webstore_kit_sha256": "bb34d4d56cdeee4e85984e254759b92fd2ced138c382a4a9b6a10f1c728fc6db",
-  "webstore_kit_status": "Published and downloaded; exact bytes, CRCs and nested tested runtime verified"
+  "webstore_kit_status": "Published and downloaded; exact bytes, CRCs and nested tested runtime verified",
+  "submission_bundle_url": "https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-launch-submission-0.1.2.zip",
+  "submission_bundle_sha256": "0b55f277ba99fb7f813274d751566fbb2449c489503c7ad7f0dc2894d569736e",
+  "submission_bundle_status": "Published and downloaded; exact bytes, 127 entries, CRCs, 126 manifest hashes and nested tested runtime verified"
 }

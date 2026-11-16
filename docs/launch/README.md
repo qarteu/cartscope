@@ -4,7 +4,7 @@ Prepared November 14, 2026; current Chrome verification and public pages verifie
 
 **Published GitHub prerelease:** [CartScope Launch Candidate 0.1.2](https://github.com/qarteu/cartscope/releases/tag/v0.1.2). [Download the runtime ZIP](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-launch-0.1.2.zip) · [Checksum](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-launch-0.1.2.zip.sha256) · [Download the Store upload kit](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-webstore-kit-0.1.2.zip).
 
-**Final submission attachment:** [cartscope-launch-submission-0.1.2.zip](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-launch-submission-0.1.2.zip). Its final upload/download verification remains open under REL-15 until publication is recorded.
+**Final submission attachment:** [cartscope-launch-submission-0.1.2.zip](https://github.com/qarteu/cartscope/releases/download/v0.1.2/cartscope-launch-submission-0.1.2.zip). The hosted attachment was downloaded and verified: 127 entries, clean CRCs, 126 matching file hashes, and the exact tested runtime ZIP. It includes a source-snapshot board; later status updates are in the live tracker.
 
 | Material | Use |
 | --- | --- |
@@ -26,12 +26,12 @@ Prepared November 14, 2026; current Chrome verification and public pages verifie
 
 - **Chrome Web Store URL:** pending. There is no Store URL to put in an announcement yet.
 - **Store item ID and publication status:** pending verification in the publisher dashboard.
-- **Runtime ZIP:** published and downloaded successfully; its hash and archive checks match the tested package. See [test results](TEST_RESULTS.md). The final documentation packet remains under REL-15.
+- **Runtime ZIP:** published and downloaded successfully; its hash and archive checks match the tested package. See [test results](TEST_RESULTS.md). The final documentation packet is also published and download-verified under REL-15.
 - **Public policy:** https://qarteu.github.io/cartscope/privacy.html; **support:** https://qarteu.github.io/cartscope/support.html. Both pages are deployed and returned HTTPS 200 with the current version.
 - **Publisher name and contact:** use the actual publisher account; no invented organization or email address.
 - **Ten reference-user identities, invitation dates, and responses:** pending actual recruitment and delivery records. Keep personal contact details private.
 
-All 45 issue records are already published in the [GitHub tracker](https://github.com/qarteu/cartscope/issues), with links in [the issue map](../PUBLISHED_ISSUES.md). REL-10 and REL-11 are complete. REL-15 remains planned until the final submission attachment and final tracker reconciliation are published. Chrome Developer mode is confirmed for local installation; Chrome Web Store publisher registration and submission are still required.
+All 45 issue records are already published in the [GitHub tracker](https://github.com/qarteu/cartscope/issues), with links in [the issue map](../PUBLISHED_ISSUES.md). REL-10 and REL-11 are complete. REL-15 is complete: the final attachment is published and download-verified, and current issue statuses/labels are reconciled. Chrome Developer mode is confirmed for local installation; Chrome Web Store publisher registration and submission are still required.
 
 Before Store submission, compare the final manifest, runtime, policy, and dashboard disclosures. The Store title should match the manifest name. Use the existing verified 0.1.2 runtime ZIP and [current Chrome screenshots](assets/screenshots/README.md), check the live policy/support links, and follow the [publisher setup guide](WEBSTORE_SETUP.md). Do not move the existing release tag or replace its runtime; runtime changes require a new version. These documents make no claim of Google approval.
 

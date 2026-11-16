@@ -15,7 +15,7 @@ The release is published on Kartik's personal GitHub account, **qarteu**. It wor
 - [Privacy policy](https://qarteu.github.io/cartscope/privacy.html) · [Support](https://qarteu.github.io/cartscope/support.html)
 - [Give feedback](https://github.com/qarteu/cartscope/issues/new?template=alpha-feedback.yml)
 
-All 45 tracker records are published online. Final launch-packet publication and final tracker reconciliation remain under REL-15; Store approval and reference-user outcomes have their own open gates.
+All 45 tracker records are published online. The final launch packet is published and download-verified under REL-15; Store approval and reference-user outcomes have their own open gates.
 
 ## Install in Chrome
 
