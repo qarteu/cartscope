@@ -44,4 +44,4 @@
 - [[REL-12] Submit the candidate for Chrome Web Store review](https://github.com/qarteu/cartscope/issues/42) — planned
 - [[REL-13] Verify the approved public Chrome Web Store listing](https://github.com/qarteu/cartscope/issues/43) — planned
 - [[REL-14] Announce launch to reference users and other potential customers](https://github.com/qarteu/cartscope/issues/44) — planned
-- [[REL-15] Publish the launch submission and synchronize Sprint 2.E tracker records](https://github.com/qarteu/cartscope/issues/45) — planned
+- [[REL-15] Publish the launch submission and synchronize Sprint 2.E tracker records](https://github.com/qarteu/cartscope/issues/45) — done
