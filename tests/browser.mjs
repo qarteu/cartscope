@@ -198,6 +198,12 @@ try {
       await storePage.locator('#toast').waitFor({ state: 'hidden', timeout: 7000 });
       await storePage.evaluate(() => document.fonts.ready);
       await storePage.evaluate(() => scrollTo(0, 0));
+      const focus = view === 'compare' ? storePage.locator('.offer-card').first()
+        : view === 'settings' ? storePage.locator('.card').filter({ has: storePage.getByRole('heading', { name: 'Your data', exact: true }) }).first() : null;
+      if (focus) {
+        await focus.scrollIntoViewIfNeeded();
+        assert.ok(await focus.evaluate(element => { const box = element.getBoundingClientRect(); return box.top >= 0 && box.bottom <= innerHeight; }), `${view} screenshot must show the actual feature controls`);
+      }
       const path = `artifacts/screenshots/store-${view}-1280x800.png`;
       await storePage.screenshot({ path: resolve(root, path), fullPage: false, animations: 'disabled' });
       const png = await readFile(resolve(root, path));
@@ -205,7 +211,7 @@ try {
       const width = png.readUInt32BE(16), height = png.readUInt32BE(20);
       assert.deepEqual({ width, height }, { width: 1280, height: 800 });
       report.screenshots.push(path);
-      report.storeScreenshots.push({ path, width, height, view, source: 'installed-extension-page', workspace: 'labeled sample data' });
+      report.storeScreenshots.push({ path, width, height, view, source: 'installed-extension-page', workspace: 'labeled sample data', capture: view === 'compare' ? 'scrolled to checked offer costs' : view === 'settings' ? 'scrolled to privacy and data controls' : 'top of view' });
     }
     await storePage.close();
     failurePage = null;
